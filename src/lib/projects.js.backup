@@ -1,0 +1,479 @@
+// src/lib/projects.js
+// Single source of truth for all project data
+
+export const projects = [
+  //============================================== Bird's AI ========================================  
+  {
+    title: "Bird's AI – 5G Search & Rescue Drone",
+    slug: "Birds-AI",
+    description:
+      "5G-enabled UAV system for disaster response with onboard edge AI for real-time survivor detection and adaptive autonomous navigation.",
+    summary:
+      "Bird's AI is a 5G-connected search-and-rescue UAV platform designed to assist emergency responders by autonomously detecting human presence in disaster-hit environments and streaming actionable intelligence with ultra-low latency.",
+    details: {
+      problem:
+        "In large-scale disaster scenarios such as earthquakes, floods, and landslides, locating survivors quickly is critical to saving lives. Conventional search methods rely heavily on manual ground teams or line-of-sight aerial surveys, which are slow, manpower-intensive, and often constrained by poor visibility, damaged infrastructure, and unreliable communication links.",
+      approach:
+        "Bird's AI was designed as an end-to-end intelligent UAV system. A quadrotor platform equipped with a Pixhawk flight controller and Raspberry Pi onboard computer runs a lightweight computer vision model for real-time human detection. The UAV maintains continuous connectivity over a commercial 5G network, enabling low-latency transmission of telemetry, detection metadata, and visual evidence to a ground control station. Mission logic dynamically adapts flight paths based on live feedback to improve area coverage and detection efficiency.",
+      outcome:
+        "The prototype successfully demonstrated real-time human detection and stable telemetry streaming over a live 5G network. Compared to manual search patterns, Bird's AI improved area coverage efficiency and reduced response time, validating the feasibility of integrating edge AI with cellular-connected UAVs for time-critical emergency response operations.",
+    },
+    tags: [
+      "5G",
+      "UAV",
+      "Edge AI",
+      "Computer Vision",
+      "Pixhawk",
+      "Raspberry Pi",
+      "Autonomous Systems",
+    ],
+    links: {
+      demo: "https://example.com/uav-demo",
+      report: "https://example.com/uav-report",
+    },
+
+    // ✨ ENHANCED: Metrics for Bird's AI
+    metrics: {
+      enabled: true,
+      results: [
+        {
+          label: "Detection Accuracy",
+          value: "95%",
+          description: "Real-time human detection in disaster scenarios"
+        },
+        {
+          label: "5G Latency",
+          value: "<100ms",
+          description: "End-to-end telemetry transmission time"
+        },
+        {
+          label: "Coverage Area",
+          value: "500m²",
+          description: "Autonomous search area per deployment"
+        },
+        {
+          label: "Flight Time",
+          value: "25 min",
+          description: "Mission duration with onboard compute"
+        }
+      ]
+    },
+
+    media: {
+      enabled: true,
+      video: {
+        src: "/videos/test.mp4",
+        caption: "Nephele robots interacting with visitors at university open house"
+      },
+      images: [
+        {
+          src: "/images/projects/Birds-AI/drone.jpg",
+          alt: "Nephele robot platform with sensors and display",
+          caption: "Robot hardware: ROS2-enabled platform with LiDAR, camera, and interactive display"
+        },
+        {
+          src: "/images/projects/Birds-AI/detect.png",
+          alt: "Fleet management dashboard",
+          caption: "Real-time  monitoring dashboard showing Survivor positions"
+        }
+      ]
+    },
+
+    // ✨ NEW: Simple images array for gallery
+    images: [
+      "/images/projects/Birds-AI/main.jpg",
+      "/images/projects/Birds-AI/drone.jpg",
+      "/images/projects/Birds-AI/detect.png",
+    ],
+
+    // ✨ NEW: My Role
+    role: {
+      enabled: true,
+      position: "Full-Stack Robotics Engineer",
+      responsibilities: [
+        "Architected and deployed the entire AWS cloud infrastructure (IoT Core, Lambda, DynamoDB, Bedrock integration)",
+        "Developed the ROS2 onboard software stack for robot perception, navigation, and cloud communication",
+        "Integrated Amazon Bedrock LLM (Claude) for natural language understanding and context-aware responses",
+        "Built the React-based fleet management dashboard with real-time telemetry visualization",
+        "Implemented swarm coordination algorithms for task allocation and collision avoidance",
+        "Managed end-to-end deployment logistics for 3 public events with 6+ hour continuous operation"
+      ],
+      technologies: [
+        "AWS (IoT Core, Lambda, DynamoDB, S3, CloudFront, Bedrock)",
+        "ROS2 (Python, rclpy)",
+        "MQTT protocol",
+        "React (frontend dashboard)",
+        "Python (robot control, AWS SDK)",
+        "LLM prompt engineering (Claude via Bedrock)"
+      ]
+    },
+
+    // ✨ NEW: Architecture
+    architecture: {
+      enabled: true,
+      diagram: "/images/projects/Birds-AI/arch.png",
+      caption: "Cloud-native architecture showing drone fleet, AWS services, and data flow"
+    },
+
+    // ✨ NEW: Associated Companies
+    companies: {
+      enabled: true,
+      list: [
+        {
+          name: "Nokia",
+          logo: "/images/nokia.jpg",
+          url: "https://www.nokia.com/"
+        }
+
+      ]
+    }
+  },
+  //============================================== Nephele ========================================
+  {
+    title: "Nephele 2.0 – Interaction Robot",
+    slug: "nephele-community-robot",
+
+    description:
+      "AI-powered interactive conference robot integrating hardware design, computer vision, machine learning, and AWS cloud services for real-time human interaction.",
+
+    summary:
+      "Nephele 2.0 is an intelligent, interactive robot developed under the AWS Cloud Club to enhance conferences and public events. Designed with a custom-built robotic body, precise motor control, real-time face recognition, and cloud-backed voice intelligence, Nephele delivers personalized, engaging interactions for attendees in real-world environments.",
+
+    details: {
+      problem:
+        "Large conferences and public events face challenges such as limited attendee engagement, manual attendance tracking, lack of personalized assistance, and difficulty scaling human-operated help desks across large venues.",
+
+      approach:
+        "Nephele 2.0 combines embedded hardware control, computer vision, and cloud intelligence. A Raspberry Pi 5 manages real-time perception, motor control, and interaction logic. Stepper motors enable precise navigation, while camera-based vision supports face detection and gesture recognition. Machine learning models handle real-time face recognition. AWS services are integrated for speech recognition, natural language understanding, and speech synthesis, enabling seamless voice-based interaction. High-speed wireless (5G) connectivity enables coordination concepts across multiple robots.",
+
+      outcome:
+        "Nephele 2.0 successfully demonstrated reliable human–robot interaction in live conference environments. The system delivered personalized greetings, automated attendance workflows, and real-time question answering while maintaining stable performance. The modular design allowed smooth iteration from Nephele 1.0 to later versions, validating the architecture for future expansion."
+    },
+
+    tags: [
+      "Robotics",
+      "Embedded Systems",
+      "Computer Vision",
+      "Face Recognition",
+      "Machine Learning",
+      "Stepper Motors",
+      "Raspberry Pi 5",
+      "5G Connectivity",
+      "AWS",
+      "Human-Robot Interaction"
+    ],
+
+    links: {
+      demo: "/nephele-launch",
+      customButtonText: "Talk with Nephele",
+      //report: "https://example.com/nephele-2-report"
+    },
+
+    metrics: {
+      enabled: true,
+      results: [
+        {
+          label: "Project Versions Led",
+          value: "1.0 → 3.0",
+          description: "Led development across three major iterations of Nephele"
+        },
+        {
+          label: "Core Interaction Modes",
+          value: "8+",
+          description: "Face recognition, gestures, voice commands, FAQs, selfies, QR attendance"
+        },
+        {
+          label: "User Interactions",
+          value: "500+",
+          description: "Unique conversational interactions across deployments"
+        },
+        {
+          label: "Fleet Size",
+          value: "3 Robots",
+          description: "Simultaneous coordinated swarm deployment"
+        }
+      ]
+    },
+
+    role: {
+      enabled: true,
+      position: "Project Lead – Hardware, Robotics & AI Systems",
+      responsibilities: [
+        "Served as Project Lead for the Nephele initiative across versions 1.0 to 3.0",
+        "Designed the complete mechanical and industrial body of the Nephele robot",
+        "Implemented stepper motor control and motor mapping using Raspberry Pi 5",
+        "Handled hardware integration including motors, drivers, camera, display, and power systems",
+        "Developed and optimized machine learning models for real-time face detection and recognition",
+        "Built computer vision pipelines for human interaction and gesture-based input",
+        "Worked on 5G-based connectivity concepts for inter-robot (swarm) communication",
+        "Contributed to cloud engineering by integrating AWS services for speech and AI processing",
+        "Collaborated with software and cloud team members to ensure end-to-end system stability",
+        "Managed hardware testing, calibration, and live deployment during events"
+      ],
+      technologies: [
+        "Raspberry Pi 5",
+        "Stepper Motors & Motor Drivers",
+        "Python",
+        "Computer Vision",
+        "Face Detection & Recognition Models",
+        "Embedded Systems",
+        "5G / High-Speed Wireless Communication",
+        "AWS (Bedrock, Polly, Transcribe, Rekognition)",
+        "Mechanical & Industrial Design"
+      ]
+    },
+
+    architecture: {
+      enabled: true,
+      diagram: "/images/projects/nephele-community-robot/arch.png",
+      caption:
+        "System architecture illustrating onboard perception, ML pipelines, and AWS cloud integration"
+    },
+
+    media: {
+      enabled: true,
+      videos: [
+        {
+          src: "/videos/Linkein (1).mp4",
+          caption: "Nephele 2.0 interacting with attendees at a live conference"
+        },
+        {
+          src: "/videos/nephele video.mp4",
+          caption: "Nephele 2.0 interacting with attendees at a live conference"
+        },
+      ],
+      images: [
+        {
+          src: "/images/projects/nephele-community-robot/3.jpg",
+          alt: "Nephele 2.0 robot hardware",
+          caption: "Custom-designed robot body with integrated sensors and display"
+        },
+        {
+          src: "/images/projects/nephele-community-robot/8.jpeg",
+          alt: "Human robot interaction",
+          caption: "Face recognition and voice-based interaction in action"
+        },
+        {
+          src: "/images/projects/nephele-community-robot/6.jpeg",
+          alt: "Nephele 2.0 and Nephele 3.0",
+          caption: "Nephele 2.0 and Nephele 3.0 side by side"
+        },
+        {
+          src: "/images/projects/nephele-community-robot/7.png",
+          alt: "Internal hardware setup",
+          caption: "Stepper motors, Raspberry Pi 5, and internal hardware layout"
+        }
+      ]
+    },
+
+    images: [
+      "/images/projects/nephele-community-robot/1.jpg",
+      "/images/projects/nephele-community-robot/2.jpg",
+      "/images/projects/nephele-community-robot/3.jpg",
+      "/images/projects/nephele-community-robot/4.jpg",
+      "/images/projects/nephele-community-robot/5.jpeg",
+      "/images/projects/nephele-community-robot/6.jpeg",
+      "/images/projects/nephele-community-robot/7.png",
+      "/images/projects/nephele-community-robot/8.jpeg",
+    ],
+
+    companies: {
+      enabled: true,
+      list: [
+        {
+          name: "AWS Cloud Club",
+          logo: "/images/logos/aws-cloud-club.png",
+          url: "https://aws.amazon.com"
+        },
+        {
+          name: "St. Joseph’s Group of Institutions",
+          logo: "/images/logos/sjgi.png",
+          url: "https://stjosephs.ac.in"
+        }
+      ]
+    }
+  },
+
+  //============================================== 5G N/W ========================================
+  {
+    title: "5G Network Architecture & O-RAN Implementation",
+    slug: "5g-network-implementation",
+
+    description:
+      "Comprehensive study and hands-on implementation of 5G network architecture covering evolution from 2G to 5G, O-RAN concepts, RAN/Core internals, and real-world deployment using open-source platforms.",
+
+    summary:
+      "This project involved an in-depth architectural and practical exploration of mobile network evolution from 2G to 5G, with strong emphasis on 5G RAN, O-RAN architecture, Core Network, and industry-aligned deployments. The work combined theoretical understanding with real hands-on setup of 5G RAN and Core using open-source tools, interface-level tracing, and system-level analysis.",
+
+    details: {
+      problem:
+        "Understanding modern 5G networks requires more than theoretical knowledge. The shift from tightly coupled hardware-based systems to software-driven, platform-agnostic (COTS) architectures introduces complexity across RAN, Core, interfaces, splits, and orchestration layers. Bridging this gap demands hands-on exposure to real deployments and interfaces.",
+
+      approach:
+        "Studied the evolution of mobile communication systems from 2G → 3G → 4G → 5G, including India’s role in this transition",
+      "Analyzed the shift from hard-coded hardware platforms to software-defined, COTS-based architectures",
+      "Gained detailed understanding of 5G RAN architecture, including CU/DU separation",
+      "Studied Layer 3 modules (RRC, PDCP, SDAP, RRM, OAM) and Layer 2 modules (MAC, RLC)",
+      "Analyzed major 5G interfaces: NG, XN, X2, O1, E1, F1, E2, and FAPI",
+      "Compared functional splits (Split 2, 6, 7.2x, 8) with their pros and cons",
+      "Explored O-RAN architecture, including SMO, Non-RT RIC, Near-RT RIC, rApps, and xApps",
+      "Performed hands-on deployment of 5G RAN and Core Network using open-source platforms",
+      "Captured and analyzed protocol traces at different interface levels",
+      "Modified source code, compiled components, and validated end-to-end call flows",
+
+      outcome:
+        "Successfully developed a strong architectural and practical understanding of 5G networks. Gained hands-on experience in deploying and analyzing 5G RAN and Core components, understanding interface-level behavior, functional splits, and orchestration concepts. The project built industry-relevant skills aligned with real-world 5G deployments and future evolution toward 6G."
+    },
+
+    role: {
+      position: "5G Network Engineer Intern / Trainee",
+      company: "Techphosis & PEP 5G",
+      duration: "Mar'24 – May'24",
+      responsibilities: [
+        "Studied end-to-end evolution of mobile networks from 2G to 5G and roadmap toward 6G",
+        "Analyzed India’s role in the evolution and deployment of 2G, 3G, 4G, and 5G technologies",
+        "Understood transition from hardware-centric platforms to software-defined, COTS-based 5G architectures",
+        "Performed detailed study of 5G RAN architecture including CU and DU functional split",
+        "Analyzed Layer 3 modules (RRC, PDCP, SDAP, RRM, OAM) and Layer 2 modules (MAC, RLC)",
+        "Worked with all major 5G interfaces including NG, XN, X2, O1, E1, F1, E2, and FAPI",
+        "Compared functional split options (Split 2, 6, 7.2x, 8) and evaluated their pros and cons",
+        "Studied O-RAN architecture including SMO, Non-RT RIC, Near-RT RIC, rApps, and xApps",
+        "Explored RAN orchestration, management, and standardization roles in 5G stabilization",
+        "Gained detailed understanding of 5G Core Network architecture and modules such as AMF, SMF, UPF, UDM, and UDR",
+        "Performed hands-on deployment of 5G RAN and Core Network using open-source tools",
+        "Captured and analyzed protocol traces across different interfaces",
+        "Modified source code, compiled components, and validated network behavior through practical experiments"
+      ]
+    },
+    architecture: {
+      enabled: true,
+      diagram: "/images/projects/5g-network-implementation/arch.png",
+      caption:
+        "System architecture illustrating onboard perception, ML pipelines, and AWS cloud integration"
+    },
+
+
+    tags: [
+      "5G",
+      "O-RAN",
+      "5G RAN",
+      "5G Core",
+      "CU/DU Architecture",
+      "RIC",
+      "SMO",
+      "rApps & xApps",
+      "COTS Platforms",
+      "Open5GS",
+      "srsRAN",
+      "USRP B210",
+      "SDR",
+      "Linux"
+    ],
+
+    links: {
+      report: "https://example.com/5g-report"
+    },
+
+    images: [
+      "/images/projects/5g-network-implementation/main.jpg",
+      "/images/projects/5g-network-implementation/setup.jpg"
+    ],
+
+    companies: {
+      enabled: true,
+      list: [
+        {
+          name: "Techphosis",
+          logo: "/images/logos/techphosis.png",
+          url: "https://techphosis.com"
+        },
+        {
+          name: "PEP 5G",
+          logo: "/images/logos/pep5g.png",
+          url: "https://pep5g.com"
+        }
+      ]
+    }
+  },
+
+  //============================================== DEMS ========================================
+  {
+    title: "Domestic Emotion Monitoring System",
+    slug: "emotion-monitoring-system",
+    description:
+      "Embedded AI system on STM32 for real-time emotion detection using TensorFlow Lite on resource-constrained hardware.",
+    summary:
+      "An embedded AI system for real-time emotion detection on STM32 using TensorFlow Lite, optimized for constrained hardware.",
+    details: {
+      problem:
+        "Running deep learning models on low-power embedded systems requires careful optimization.",
+      approach:
+        "Implemented and optimized a lightweight emotion recognition model using TensorFlow Lite on STM32.",
+      outcome:
+        "Achieved real-time inference within tight memory and power constraints.",
+    },
+    tags: ["Embedded AI", "STM32", "TFLite", "DNN"],
+    links: {
+      demo: "https://example.com/emotion-demo",
+    },
+
+    // ✨ NEW: Simple images array for gallery
+    images: [
+      "/images/projects/emotion-monitoring-system/main.jpg",
+    ],
+  },
+  //============================================== BPF ========================================
+  {
+    title: "THz Bandpass Filter Design",
+    slug: "thz-bandpass-filter",
+    description:
+      "Fractal-based ultra-compact bandpass filter designed at 3.88 THz for medical imaging applications using CST and MATLAB.",
+    summary:
+      "A research-focused RF design project involving a fractal-based THz bandpass filter for medical imaging applications.",
+    details: {
+      problem:
+        "High-frequency medical imaging systems require compact and efficient filtering solutions.",
+      approach:
+        "Designed and simulated a fractal-based THz bandpass filter using CST and MATLAB.",
+      outcome:
+        "Achieved compact size and desired frequency response suitable for THz applications.",
+    },
+    tags: ["RF Design", "THz", "CST", "MATLAB"],
+    links: {
+      report: "https://example.com/thz-paper",
+    },
+
+    // ✨ NEW: Simple images array for gallery
+    images: [
+      "/images/projects/thz-bandpass-filter/main.jpg",
+      "/images/projects/thz-bandpass-filter/simulation.jpg",
+    ],
+  },
+  //==============================================TB UPDATED========================================
+  {
+    title: "Your New Project Name",
+    slug: "your-project-slug", // Used in URL: /projects/your-project-slug
+    description:
+      "Short one-line description for project cards (80-120 chars)",
+    summary:
+      "Longer summary paragraph that appears at the top of the detail page (2-3 sentences)",
+    details: {
+      problem:
+        "What problem were you solving? What was the challenge or gap?",
+      approach:
+        "How did you solve it? What technologies, methods, or architecture did you use?",
+      outcome:
+        "What were the results? What did you achieve or learn?",
+    },
+    tags: ["Tech1", "Tech2", "Tech3", "Framework", "Language"],
+    links: {
+      demo: "https://example.com/demo", // Optional
+      report: "https://example.com/report", // Optional
+    },
+  },
+
+];
+
+export function getProjectBySlug(slug) {
+  return projects.find((p) => p.slug === slug);
+}

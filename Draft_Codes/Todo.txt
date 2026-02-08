@@ -1,0 +1,37 @@
+update the src/app/projects/page.jsx with better designs. 
+
+Find out where to host
+
+Finish website by 30th January 2026
+
+Complete the contents in the projects page 
+Add new porjects 
+
+format the front page----
+
+incrase font size in the nav bar
+
+increase the tiles sizes and resize them too -----
+
+add the flow bar of companies in the front page like a flow running styple-----
+
+
+in the projects page add the list of the companies assciated with "Just the logos"----
+
+try to add backgrond images in the porjects like a gradient. 
+
+Add buttons to view the projects in realtime. 
+
+add a skills certifications colums 
+
+Add zoho corp certificate/ Photos 
+
+
+Add publiocations 
+
+In the main page add a button to seee the entire projects ---
+
+Edit the resume page like make them more transparent no going inside ----
+
+
+

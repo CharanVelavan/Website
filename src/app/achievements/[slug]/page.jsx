@@ -1,0 +1,282 @@
+// src/app/achievements/[slug]/page.jsx
+"use client";
+
+import { useParams } from "next/navigation";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { getAchievementBySlug } from "@/lib/achievements";
+import { Award, Trophy, Lightbulb, ArrowLeft, ExternalLink } from "lucide-react";
+import ImageGallery from "@/components/ImageGallery";
+import AchievementsTimeline from "@/components/AchievementsTimeline";
+
+const iconMap = {
+    Innovation: Lightbulb,
+    Hackathon: Trophy,
+    Competition: Award,
+    default: Award,
+};
+
+export default function AchievementDetailPage() {
+    const params = useParams();
+    const achievement = getAchievementBySlug(params.slug);
+
+    if (!achievement) {
+        return (
+            <div className="min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-4xl font-bold text-white mb-4">Achievement Not Found</h1>
+                    <Link href="/achievements" className="text-blue-400 hover:text-blue-300">
+                        ← Back to Achievements
+                    </Link>
+                </div>
+            </div>
+        );
+    }
+
+    const IconComponent = iconMap[achievement.category] || iconMap.default;
+
+    return (
+        <div className="mx-auto max-w-7xl px-6 py-24">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] xl:gap-12">
+                {/* ================= LEFT SIDEBAR (Achievements Timeline) ================= */}
+                <AchievementsTimeline />
+
+                {/* ================= MAIN CONTENT ================= */}
+                <main className="w-full min-w-0">
+                    {/* BACK BUTTON */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="mb-8"
+                    >
+                        <Link
+                            href="/achievements"
+                            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                        >
+                            <ArrowLeft size={20} />
+                            <span>Back to Achievements</span>
+                        </Link>
+                    </motion.div>
+
+                    {/* HEADER */}
+                    <motion.header
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-12"
+                    >
+                        {/* Category & Year */}
+                        <div className="flex items-center gap-3 mb-6">
+                            <span className="px-4 py-2 text-sm font-medium rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300">
+                                {achievement.category}
+                            </span>
+                            <span className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 border border-white/20 text-gray-300">
+                                {achievement.year}
+                            </span>
+                        </div>
+
+                        {/* Title */}
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                            {achievement.title}
+                        </h1>
+
+                        {/* Summary */}
+                        <p className="text-xl text-gray-300 leading-relaxed max-w-3xl">
+                            {achievement.summary}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mt-8">
+                            {achievement.tags.map((tag) => (
+                                <span
+                                    key={tag}
+                                    className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-400"
+                                >
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </motion.header>
+
+                    {/* IMAGE GALLERY */}
+                    {achievement.images && achievement.images.length > 0 && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="mb-16"
+                        >
+                            <ImageGallery images={achievement.images} title={achievement.title} />
+                        </motion.div>
+                    )}
+
+                    {/* DETAILS SECTIONS */}
+                    <div className="space-y-12">
+                        {/* Context */}
+                        {achievement.details.context && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Context
+                                </h2>
+                                <p className="text-gray-400 leading-relaxed text-lg">
+                                    {achievement.details.context}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* Challenge */}
+                        {achievement.details.challenge && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    The Challenge
+                                </h2>
+                                <p className="text-gray-400 leading-relaxed text-lg">
+                                    {achievement.details.challenge}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* Solution */}
+                        {achievement.details.solution && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.5 }}
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Our Solution
+                                </h2>
+                                <p className="text-gray-400 leading-relaxed text-lg">
+                                    {achievement.details.solution}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* My Role */}
+                        {achievement.details.myRole && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.6 }}
+                                className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8"
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    My Role
+                                </h2>
+                                <p className="text-gray-300 leading-relaxed text-lg">
+                                    {achievement.details.myRole}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* Impact */}
+                        {achievement.details.impact && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.7 }}
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Impact & Results
+                                </h2>
+                                <p className="text-gray-400 leading-relaxed text-lg">
+                                    {achievement.details.impact}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* Recognition */}
+                        {achievement.details.recognition && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                            >
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Recognition
+                                </h2>
+                                <p className="text-gray-400 leading-relaxed text-lg">
+                                    {achievement.details.recognition}
+                                </p>
+                            </motion.section>
+                        )}
+
+                        {/* Links */}
+                        {(achievement.links.certificate || achievement.links.news || achievement.links.website) && (
+                            <motion.section
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.9 }}
+                                className="pt-8 border-t border-white/10"
+                            >
+                                <h2 className="text-xl font-bold text-white mb-4">
+                                    Related Links
+                                </h2>
+                                <div className="flex flex-wrap gap-4">
+                                    {achievement.links.certificate && (
+                                        <a
+                                            href={achievement.links.certificate}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-300 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all"
+                                        >
+                                            <span>View Certificate</span>
+                                            <ExternalLink size={16} />
+                                        </a>
+                                    )}
+                                    {achievement.links.news && (
+                                        <a
+                                            href={achievement.links.news}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 border border-white/20 text-gray-300 hover:bg-white/10 hover:border-white/30 transition-all"
+                                        >
+                                            <span>News Article</span>
+                                            <ExternalLink size={16} />
+                                        </a>
+                                    )}
+                                    {achievement.links.website && (
+                                        <a
+                                            href={achievement.links.website}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 border border-white/20 text-gray-300 hover:bg-white/10 hover:border-white/30 transition-all"
+                                        >
+                                            <span>Official Website</span>
+                                            <ExternalLink size={16} />
+                                        </a>
+                                    )}
+                                </div>
+                            </motion.section>
+                        )}
+                    </div>
+
+                    {/* BACK TO TOP */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.6, delay: 1 }}
+                        className="mt-16 pt-8 border-t border-white/10 text-center"
+                    >
+                        <Link
+                            href="/achievements"
+                            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
+                        >
+                            <ArrowLeft size={20} />
+                            <span>Back to All Achievements</span>
+                        </Link>
+                    </motion.div>
+                </main>
+            </div>
+        </div>
+    );
+}

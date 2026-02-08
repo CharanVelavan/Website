@@ -1,0 +1,213 @@
+// src/app/projects/page.jsx
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { projects } from "@/lib/projects";
+import { useEffect, useState } from "react";
+
+export default function ProjectsPage() {
+  // Collect all unique companies from all projects
+  const allCompanies = projects.reduce((acc, project) => {
+    if (project.companies?.enabled && project.companies?.list) {
+      project.companies.list.forEach((company) => {
+        if (!acc.find((c) => c.name === company.name)) {
+          acc.push(company);
+        }
+      });
+    }
+    return acc;
+  }, []);
+
+  // Duplicate companies for continuous effect
+  const leftSideLogos = [...allCompanies, ...allCompanies, ...allCompanies];
+  const rightSideLogos = [...allCompanies, ...allCompanies, ...allCompanies];
+
+  return (
+    <div className="relative">
+      {/* LEFT SIDEBAR - Waterfall logos */}
+      {allCompanies.length > 0 && (
+        <div className="hidden xl:block fixed left-8 top-32 bottom-8 w-20 overflow-hidden">
+          <motion.div
+            className="flex flex-col gap-6"
+            animate={{
+              y: [0, -2000],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {leftSideLogos.map((company, idx) => (
+              <motion.div
+                key={`left-${idx}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0.6, scale: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ opacity: 1, scale: 1.1 }}
+                className="h-16 w-16 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-3 flex-shrink-0"
+                title={company.name}
+              >
+                <img
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  className="h-full w-full object-contain"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      )}
+
+      {/* RIGHT SIDEBAR - Waterfall logos */}
+      {allCompanies.length > 0 && (
+        <div className="hidden xl:block fixed right-8 top-32 bottom-8 w-20 overflow-hidden">
+          <motion.div
+            className="flex flex-col gap-6"
+            animate={{
+              y: [-2000, 0],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {rightSideLogos.map((company, idx) => (
+              <motion.div
+                key={`right-${idx}`}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 0.6, scale: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                whileHover={{ opacity: 1, scale: 1.1 }}
+                className="h-16 w-16 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-3 flex-shrink-0"
+                title={company.name}
+              >
+                <img
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  className="h-full w-full object-contain"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      )}
+
+      {/* MAIN CONTENT */}
+      <main className="mx-auto max-w-7xl px-6 py-32">
+        {/* PAGE HEADER */}
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-24"
+        >
+          <div className="mb-4">
+            <span className="text-sm uppercase tracking-[0.2em] text-purple-400 font-medium">
+              Portfolio
+            </span>
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            Projects
+          </h1>
+          <p className="mt-6 max-w-3xl text-lg text-gray-400 leading-relaxed">
+            A complete catalogue of my work across AI-enabled systems, UAVs,
+            next-generation wireless networks, embedded platforms, and applied
+            research. Each project includes a detailed case study covering the
+            problem, system architecture, and technical outcomes.
+          </p>
+        </motion.header>
+
+        {/* PROJECT GRID */}
+        <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Link
+                href={`/projects/${project.slug}`}
+                className="group block h-full"
+              >
+                <div className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-sm transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
+                  {/* Title */}
+                  <h2 className="text-xl font-semibold text-white mb-4 line-clamp-2 group-hover:text-purple-300 transition-colors">
+                    {project.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  {/* Company Logos - NO TEXT */}
+                  {project.companies?.enabled && project.companies?.list?.length > 0 && (
+                    <div className="mb-6 pb-6 border-b border-white/10">
+                      <div className="flex items-center gap-3 flex-wrap">
+                        {project.companies.list.map((company) => (
+                          <div
+                            key={company.name}
+                            className="h-8 w-auto flex items-center justify-center rounded-lg bg-white/10 p-2 transition-all group-hover:bg-white/20"
+                            title={company.name}
+                          >
+                            <img
+                              src={company.logo}
+                              alt={`${company.name} logo`}
+                              className="h-full w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                    {project.tags.length > 3 && (
+                      <span className="text-xs px-3 py-1 text-gray-500">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Read More Link */}
+                  <div className="flex items-center gap-2 text-sm text-gray-400 group-hover:text-purple-300 transition-colors">
+                    <span>Read case study</span>
+                    <svg
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </div>
+
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/0 to-fuchsia-500/0 opacity-0 transition-opacity duration-300 group-hover:opacity-10 pointer-events-none" />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </section>
+      </main>
+    </div>
+  );
+}
