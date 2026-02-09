@@ -62,7 +62,7 @@ export const projects = [
     media: {
       enabled: true,
       video: {
-        src: "/videos/Birdai/test.mp4",
+        src: "/videos/Birdai/Birdsai.mp4",
         caption: "Nephele robots interacting with visitors at university open house"
       },
       images: [
