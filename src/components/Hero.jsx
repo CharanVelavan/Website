@@ -117,10 +117,10 @@ export default function Hero() {
               className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8"
             >
               {[
-                { value: 11, label: "Years Experience" },
-                { value: 27, label: "Projects Completed" },
-                { value: 8, label: "Technologies" },
-                { value: 475, label: "Code Commits" },
+                { value: 5, label: "Major Projects" },
+                { value: 4, label: "Achievements" },
+                { value: 15, label: "Technologies" },
+                { value: 1, label: "Publications" },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}

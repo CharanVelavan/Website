@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import Counter from "./Counter";
 
 const stats = [
-  { label: "Years of Experience", value: 11 },
-  { label: "Projects Completed", value: 27 },
-  { label: "Technologies Mastered", value: 8 },
-  { label: "Code Commits", value: 475 },
+  { label: "Major Projects", value: 5 },
+  { label: "Achievements Won", value: 4 },
+  { label: "Technologies Used", value: 15 },
+  { label: "Research Publications", value: 1 },
 ];
 
 export default function Stats() {
