@@ -50,7 +50,7 @@ export default function Hero() {
 
             <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9]">
               Hello I'm <br />
-              <span className="text-fuchsia-500">Charan</span>
+              <span className="text-fuchsia-500">Potato</span>
             </h1>
 
             <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-400 leading-relaxed">
