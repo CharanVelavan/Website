@@ -36,13 +36,13 @@ export default function Education() {
           transition={{ duration: 0.5 }}
           className="mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+          <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
             Academics
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
             Education
           </h2>
-          <p className="mt-4 max-w-2xl text-gray-400">
+          <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
             Academic background and formal training in communication systems and
             electronics engineering.
           </p>
@@ -58,16 +58,16 @@ export default function Education() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="group relative rounded-2xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/20"
+              className="group relative rounded-2xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-8 transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/20"
             >
               {/* Hover glow */}
               <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
 
-              <h3 className="text-xl font-semibold text-white mb-2 relative z-10 group-hover:text-purple-300 transition-colors">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 relative z-10 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
                 {item.degree}
               </h3>
 
-              <p className="text-sm text-gray-400 mb-1 relative z-10">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1 relative z-10">
                 {item.institute}
               </p>
 
@@ -75,7 +75,7 @@ export default function Education() {
                 {item.duration}
               </p>
 
-              <span className="inline-block text-sm px-4 py-2 rounded-full border border-white/20 text-gray-300 group-hover:border-purple-400/40 group-hover:bg-purple-500/5 transition-all relative z-10">
+              <span className="inline-block text-sm px-4 py-2 rounded-full border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300 group-hover:border-purple-400/40 group-hover:bg-purple-500/5 transition-all relative z-10">
                 {item.score}
               </span>
             </motion.div>

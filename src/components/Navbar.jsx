@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import scrollManager from "@/lib/scroll-utils";
+import { getSectionById } from "@/lib/nav-config";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Home", section: "hero" },
@@ -21,11 +23,8 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Subscribe to scroll manager
     const unsubscribe = scrollManager.subscribe((state) => {
       setIsScrolled(state.isScrolled);
-
-      // Track active section on homepage
       if (pathname === "/" && state.activeSection) {
         setActiveSection(state.activeSection);
       }
@@ -50,10 +49,11 @@ export default function Navbar() {
 
   return (
     <motion.header
-      style={{
-        backgroundColor: isScrolled ? "rgba(10, 10, 10, 0.9)" : "rgba(10, 10, 10, 0.4)",
-      }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/10 transition-all"
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-black/10 dark:border-white/10 transition-all ${
+        isScrolled
+          ? "bg-[#f8f7f4]/90 dark:bg-[#0a0a0a]/90"
+          : "bg-[#f8f7f4]/40 dark:bg-[#0a0a0a]/40"
+      }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo / Name */}
@@ -76,6 +76,25 @@ export default function Navbar() {
           </Link>
         </motion.h1>
 
+        {/* Mobile section badge — shows current section name on mobile when scrolled */}
+        {pathname === "/" && (
+          <AnimatePresence mode="wait">
+            {isScrolled && activeSection && activeSection !== "hero" && (
+              <motion.div
+                key={activeSection}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -8 }}
+                transition={{ duration: 0.2 }}
+                className="lg:hidden flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/30 text-purple-300 text-xs font-medium"
+              >
+                <span>{getSectionById(activeSection)?.emoji}</span>
+                <span>{getSectionById(activeSection)?.shortLabel}</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
+
         {/* Navigation Links - Hidden on mobile (we have MobileNav for that) */}
         <ul className="hidden lg:flex gap-1 text-sm">
           {navItems.map((item, index) => {
@@ -91,10 +110,10 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href, item.section)}
-                  className="relative px-4 py-2 rounded-lg text-gray-300 hover:text-white transition-colors group"
+                  className="relative px-4 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors group"
                 >
                   {/* Hover background */}
-                  <span className="absolute inset-0 rounded-lg bg-white/0 group-hover:bg-white/5 transition-colors" />
+                  <span className="absolute inset-0 rounded-lg bg-black/0 group-hover:bg-black/5 dark:group-hover:bg-white/5 transition-colors" />
 
                   {/* Active background */}
                   {active && (
@@ -122,6 +141,15 @@ export default function Navbar() {
             );
           })}
         </ul>
+
+        {/* Theme Toggle - Desktop */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="hidden lg:flex items-center gap-3"
+        >
+          <ThemeToggle />
+        </motion.div>
 
         {/* CTA Button - Desktop only */}
         <motion.div

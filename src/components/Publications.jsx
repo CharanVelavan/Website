@@ -31,7 +31,6 @@ const cardVariants = {
   rest: {
     y: 0,
     boxShadow: "0 0 0 rgba(0,0,0,0)",
-    borderColor: "rgba(255,255,255,0.1)",
   },
   hover: {
     y: -8,
@@ -48,13 +47,13 @@ export default function Publications() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* SECTION HEADER */}
         <div className="mb-12">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-400">
+          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
             Research
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
             Publications
           </h2>
-          <p className="mt-4 max-w-2xl text-gray-400">
+          <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
             Peer-reviewed research publications focused on AI-enabled disaster response systems,
             5G communications, edge computing, and terahertz RF circuit design.
           </p>
@@ -69,22 +68,22 @@ export default function Publications() {
               initial="rest"
               whileHover="hover"
               animate="rest"
-              className="cursor-pointer rounded-2xl border bg-[#0b0b0b] p-6 h-full flex flex-col"
+              className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-blue-500/60 transition-colors"
             >
               {/* Header with Icon and Status */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-3 bg-blue-500/10 rounded-xl">
-                    <FileText className="h-6 w-6 text-blue-400" />
+                    <FileText className="h-6 w-6 text-blue-500 dark:text-blue-400" />
                   </div>
                   {paper.status && (
-                    <span className="text-xs rounded-full border border-blue-400/40 bg-blue-500/10 px-3 py-1 text-blue-300 font-medium">
+                    <span className="text-xs rounded-full border border-blue-400/40 bg-blue-500/10 px-3 py-1 text-blue-600 dark:text-blue-300 font-medium">
                       {paper.status}
                     </span>
                   )}
                 </div>
                 {paper.date && (
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
                     <Calendar className="h-3.5 w-3.5" />
                     <span>{paper.date}</span>
                   </div>
@@ -94,21 +93,21 @@ export default function Publications() {
               {/* Content */}
               <div className="flex-1">
                 {/* Title */}
-                <h3 className="text-lg font-semibold text-white mb-3 leading-tight">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 leading-tight">
                   {paper.title || "Upcoming publication"}
                 </h3>
 
                 {/* Venue */}
                 {paper.venue && (
                   <div className="flex items-center gap-2 mb-4">
-                    <Award className="h-4 w-4 text-gray-400 flex-shrink-0" />
-                    <p className="text-sm text-gray-400">{paper.venue}</p>
+                    <Award className="h-4 w-4 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{paper.venue}</p>
                   </div>
                 )}
 
                 {/* Abstract */}
                 {paper.abstract && (
-                  <p className="text-sm text-gray-400 leading-relaxed mb-6 line-clamp-4">
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-6 line-clamp-4">
                     {paper.abstract}
                   </p>
                 )}
@@ -120,7 +119,7 @@ export default function Publications() {
                   href={paper.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-white/20 text-gray-300 hover:text-white hover:border-blue-400 hover:bg-blue-400/10 transition-all w-fit group"
+                  className="inline-flex items-center gap-2 text-sm px-4 py-2.5 rounded-lg border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-blue-400 hover:bg-blue-400/10 transition-all w-fit group"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <span>Read Paper</span>

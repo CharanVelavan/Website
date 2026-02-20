@@ -52,14 +52,20 @@ export default function OnboardingTour() {
     const [hasSeenTour, setHasSeenTour] = useState(true);
 
     useEffect(() => {
-        // Check if user has seen the tour
-        const tourCompleted = localStorage.getItem("portfolio-tour-completed");
-        if (!tourCompleted) {
-            // Delay tour start for better UX
-            setTimeout(() => {
-                setHasSeenTour(false);
-                setIsActive(true);
-            }, 1500);
+        // SSR-safe localStorage check
+        try {
+            const tourCompleted = typeof window !== "undefined"
+                ? localStorage.getItem("portfolio-tour-completed")
+                : null;
+            if (!tourCompleted) {
+                const t = setTimeout(() => {
+                    setHasSeenTour(false);
+                    setIsActive(true);
+                }, 1500);
+                return () => clearTimeout(t);
+            }
+        } catch {
+            // localStorage unavailable (e.g. private browsing) — skip tour
         }
     }, []);
 
@@ -85,7 +91,7 @@ export default function OnboardingTour() {
     };
 
     const completeTour = () => {
-        localStorage.setItem("portfolio-tour-completed", "true");
+        try { localStorage.setItem("portfolio-tour-completed", "true"); } catch { /* ignore */ }
         setIsActive(false);
         setHasSeenTour(true);
         // Scroll to top

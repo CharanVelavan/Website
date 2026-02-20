@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/lib/projects";
+import SkeletonCard from "@/components/SkeletonCard";
 
 function ProjectImageSlideshow({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -62,7 +63,7 @@ function ProjectImageSlideshow({ images, title }) {
           />
         </motion.div>
       </AnimatePresence>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
 
       {images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
@@ -86,6 +87,13 @@ function ProjectImageSlideshow({ images, title }) {
 }
 
 export default function ProjectsPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 380);
+    return () => clearTimeout(t);
+  }, []);
+
   // Collect all unique companies from all projects
   const allCompanies = projects.reduce((acc, project) => {
     if (project.companies?.enabled && project.companies?.list) {
@@ -125,7 +133,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 0.6, scale: 1 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ opacity: 1, scale: 1.1 }}
-                className="h-16 w-16 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-3 flex-shrink-0"
+                className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
                 title={company.name}
               >
                 <img
@@ -160,7 +168,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 0.6, scale: 1 }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ opacity: 1, scale: 1.1 }}
-                className="h-16 w-16 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 p-3 flex-shrink-0"
+                className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
                 title={company.name}
               >
                 <img
@@ -188,10 +196,10 @@ export default function ProjectsPage() {
               Portfolio
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-gray-900 dark:from-white to-gray-500 dark:to-gray-400 bg-clip-text text-transparent">
             Projects
           </h1>
-          <p className="mt-6 max-w-3xl text-lg text-gray-400 leading-relaxed">
+          <p className="mt-6 max-w-3xl text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
             A collection of technical projects spanning robotics, embedded systems,
             wireless networks, and AI. Each project demonstrates hands-on engineering
             experience and problem-solving across multiple domains.
@@ -200,7 +208,9 @@ export default function ProjectsPage() {
 
         {/* PROJECTS GRID */}
         <section className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
+          {isLoading
+            ? [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
+            : projects.map((project, index) => {
             const hasImage = project.images && project.images.length > 0 && project.images[0];
 
             return (
@@ -215,7 +225,7 @@ export default function ProjectsPage() {
                   href={`/projects/${project.slug}`}
                   className="group block h-full"
                 >
-                  <div className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
+                  <div className="relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
                     {/* Image Section */}
                     <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
                       <ProjectImageSlideshow images={project.images} title={project.title} />
@@ -227,7 +237,7 @@ export default function ProjectsPage() {
                             {project.companies.list.slice(0, 2).map((company) => (
                               <div
                                 key={company.name}
-                                className="h-12 w-12 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 p-2 flex items-center justify-center"
+                                className="h-12 w-12 rounded-lg bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 p-2 flex items-center justify-center"
                                 title={company.name}
                               >
                                 <img
@@ -253,12 +263,12 @@ export default function ProjectsPage() {
                     {/* Content Section */}
                     <div className={`p-6 md:p-8 ${project.slug === "nephele-community-robot" ? "pb-36" : ""}`}>
                       {/* Title */}
-                      <h2 className="text-xl md:text-2xl font-semibold text-white mb-4 group-hover:text-purple-300 transition-colors">
+                      <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
                         {project.title}
                       </h2>
 
                       {/* Description */}
-                      <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                         {project.description}
                       </p>
 
@@ -267,7 +277,7 @@ export default function ProjectsPage() {
                         {project.tags.slice(0, 3).map((tag) => (
                           <span
                             key={tag}
-                            className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all"
+                            className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all"
                           >
                             {tag}
                           </span>

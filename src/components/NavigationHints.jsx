@@ -137,9 +137,9 @@ export default function NavigationHints() {
                                 repeat: Infinity,
                                 ease: "easeInOut",
                             }}
-                            className="flex items-center gap-2 px-3 py-2 rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-400/30"
+                            className="flex items-center gap-2 px-3 py-2 rounded-full bg-purple-100 dark:bg-purple-500/20 backdrop-blur-sm border border-purple-300 dark:border-purple-400/30"
                         >
-                            <span className="text-xs text-purple-300">Swipe to explore</span>
+                            <span className="text-xs text-purple-600 dark:text-purple-300">Swipe to explore</span>
                             <ChevronDown className="h-4 w-4 text-purple-400 rotate-[-90deg]" />
                         </motion.div>
                     </motion.div>

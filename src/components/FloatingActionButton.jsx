@@ -24,9 +24,15 @@ export default function FloatingActionButton() {
             setIsVisible(state.scrollY > 400);
         });
 
-        // Check if tour is active (once on mount)
-        const tourCompleted = localStorage.getItem("portfolio-tour-completed");
-        setIsTourActive(!tourCompleted);
+        // Check if tour is active (once on mount) — SSR-safe
+        try {
+            const tourCompleted = typeof window !== "undefined"
+                ? localStorage.getItem("portfolio-tour-completed")
+                : null;
+            setIsTourActive(!tourCompleted);
+        } catch {
+            setIsTourActive(false);
+        }
 
         return unsubscribe;
     }, []);
@@ -68,10 +74,10 @@ export default function FloatingActionButton() {
                                             exit={{ opacity: 0, x: 20 }}
                                             transition={{ delay: index * 0.05 }}
                                             onClick={() => handleAction(action)}
-                                            className="group flex items-center gap-3 bg-gray-900/90 backdrop-blur-md border border-purple-500/30 rounded-full px-4 py-3 shadow-lg shadow-purple-500/20 hover:bg-gray-800 hover:border-purple-400 transition-all hover:scale-105"
+                                            className="group flex items-center gap-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-purple-500/30 rounded-full px-4 py-3 shadow-lg shadow-purple-500/20 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-purple-400 transition-all hover:scale-105"
                                             aria-label={action.label}
                                         >
-                                            <span className="text-sm font-medium text-gray-300 group-hover:text-white whitespace-nowrap">
+                                            <span className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white whitespace-nowrap">
                                                 {action.label}
                                             </span>
                                             <Icon className="h-4 w-4 text-purple-400" />
@@ -124,7 +130,7 @@ export default function FloatingActionButton() {
                             initial={{ opacity: 0, scale: 0 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.2 }}
-                            className="absolute -top-16 right-0 p-3 rounded-full bg-gray-900/90 backdrop-blur-md border border-purple-500/30 shadow-lg shadow-purple-500/20 hover:bg-gray-800 hover:border-purple-400 transition-all hover:scale-110 group"
+                            className="absolute -top-16 right-0 p-3 rounded-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border border-purple-500/30 shadow-lg shadow-purple-500/20 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-purple-400 transition-all hover:scale-110 group"
                             aria-label="Download Resume"
                         >
                             <Download className="h-5 w-5 text-purple-400 group-hover:text-purple-300" />

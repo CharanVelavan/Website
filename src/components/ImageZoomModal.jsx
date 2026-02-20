@@ -28,7 +28,7 @@ export default function ImageZoomModal({ src, alt, caption }) {
                 onClick={() => setIsOpen(true)}
                 className="group relative cursor-zoom-in rounded-xl overflow-hidden border border-white/10 bg-white/5 p-4 hover:border-purple-500/40 transition-all"
             >
-                <img src={src} alt={alt} className="w-full" />
+                <img src={src} alt={alt} className="w-full" loading="lazy" />
 
                 {/* Zoom hint overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

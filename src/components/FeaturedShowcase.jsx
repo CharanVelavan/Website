@@ -61,7 +61,7 @@ function ProjectImageSlideshow({ images, title }) {
                     transition={{ duration: 0.5 }}
                 />
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
 
             {images.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
@@ -103,13 +103,13 @@ export default function FeaturedShowcase() {
                         transition={{ duration: 0.5 }}
                         className="mb-16"
                     >
-                        <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                        <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
                             Selected Work
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
                             Projects & Systems
                         </h2>
-                        <p className="mt-4 max-w-2xl text-gray-400">
+                        <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
                             A curated selection of hands-on projects focused on AI-enabled
                             systems, next-generation wireless networks, and real-world
                             deployments.
@@ -129,7 +129,7 @@ export default function FeaturedShowcase() {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     whileHover={{ y: -8 }}
                                 >
-                                    <div className="group relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/20">
+                                    <div className="group relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 hover:shadow-2xl hover:shadow-purple-500/20">
                                         {/* Image Section with Slideshow */}
                                         <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-900/20 to-blue-900/20">
                                             <ProjectImageSlideshow images={project.images} title={project.title} />
@@ -139,7 +139,7 @@ export default function FeaturedShowcase() {
                                                     {project.companies.list.slice(0, 2).map((company) => (
                                                         <div
                                                             key={company.name}
-                                                            className="h-8 w-8 flex items-center justify-center rounded-lg bg-white/10 backdrop-blur-md border border-white/20 p-1.5"
+                                                            className="h-8 w-8 flex items-center justify-center rounded-lg bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 p-1.5"
                                                             title={company.name}
                                                         >
                                                             <img
@@ -155,11 +155,11 @@ export default function FeaturedShowcase() {
 
                                         <div className="p-6">
                                             <Link href={`/projects/${project.slug}`}>
-                                                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors line-clamp-2">
+                                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors line-clamp-2">
                                                     {project.title}
                                                 </h3>
 
-                                                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors line-clamp-3 mb-4">
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors line-clamp-3 mb-4">
                                                     {project.description}
                                                 </p>
                                             </Link>
@@ -214,7 +214,7 @@ export default function FeaturedShowcase() {
                             whileHover={{ y: -8 }}
                         >
                             <Link href="/projects">
-                                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-10 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 flex flex-col items-center justify-center min-h-[350px]">
+                                <div className="group relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-10 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 flex flex-col items-center justify-center min-h-[350px]">
                                     <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20" />
 
                                     <div className="relative z-10 mb-6 h-20 w-20 rounded-full bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-all">
@@ -233,11 +233,11 @@ export default function FeaturedShowcase() {
                                         </svg>
                                     </div>
 
-                                    <h3 className="relative z-10 text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                                    <h3 className="relative z-10 text-2xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
                                         View All Projects
                                     </h3>
 
-                                    <p className="relative z-10 text-gray-400 text-center group-hover:text-gray-300 transition-colors">
+                                    <p className="relative z-10 text-gray-600 dark:text-gray-400 text-center group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                                         Explore the complete portfolio with detailed case studies
                                     </p>
 
@@ -262,13 +262,13 @@ export default function FeaturedShowcase() {
                         transition={{ duration: 0.5 }}
                         className="mb-16"
                     >
-                        <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+                        <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
                             Recognition & Awards
                         </p>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
                             Achievements
                         </h2>
-                        <p className="mt-4 max-w-2xl text-gray-400">
+                        <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
                             Competitive achievements and awards recognizing innovation,
                             problem-solving excellence, and technical leadership.
                         </p>
@@ -290,7 +290,7 @@ export default function FeaturedShowcase() {
                                     whileHover={{ y: -8 }}
                                 >
                                     <Link href={`/achievements/${achievement.slug}`}>
-                                        <div className="group relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-white/30 hover:shadow-2xl hover:shadow-blue-500/20">
+                                        <div className="group relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-black/30 dark:hover:border-white/30 hover:shadow-2xl hover:shadow-blue-500/20">
                                             <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-900/20 to-cyan-900/20">
                                                 {achievement.images && achievement.images.length > 0 && achievement.images[0] ? (
                                                     <>
@@ -299,7 +299,7 @@ export default function FeaturedShowcase() {
                                                             alt={achievement.title}
                                                             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                                         />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
                                                     </>
                                                 ) : (
                                                     <>
@@ -311,7 +311,7 @@ export default function FeaturedShowcase() {
                                                 )}
 
                                                 <div className="absolute top-4 right-4 z-10">
-                                                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                                                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 text-gray-900 dark:text-white">
                                                         {achievement.category}
                                                     </span>
                                                 </div>
@@ -324,11 +324,11 @@ export default function FeaturedShowcase() {
                                             </div>
 
                                             <div className="p-6">
-                                                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors line-clamp-2">
+                                                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors line-clamp-2">
                                                     {achievement.title}
                                                 </h3>
 
-                                                <p className="text-sm text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors line-clamp-3">
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors line-clamp-3">
                                                     {achievement.shortDescription}
                                                 </p>
                                             </div>
@@ -349,18 +349,18 @@ export default function FeaturedShowcase() {
                             className="md:col-span-2 lg:col-span-1"
                         >
                             <Link href="/achievements">
-                                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-10 hover:border-blue-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col items-center justify-center min-h-[350px]">
+                                <div className="group relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-10 hover:border-blue-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/30 flex flex-col items-center justify-center min-h-[350px]">
                                     <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/20 to-cyan-500/20" />
 
                                     <div className="relative z-10 mb-6 h-20 w-20 rounded-full bg-blue-500/10 border-2 border-blue-500/30 flex items-center justify-center group-hover:bg-blue-500/20 group-hover:border-blue-500/50 transition-all">
                                         <Award className="h-10 w-10 text-blue-400 group-hover:text-blue-300 transition-colors" />
                                     </div>
 
-                                    <h3 className="relative z-10 text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">
+                                    <h3 className="relative z-10 text-2xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
                                         View All Achievements
                                     </h3>
 
-                                    <p className="relative z-10 text-gray-400 text-center group-hover:text-gray-300 transition-colors">
+                                    <p className="relative z-10 text-gray-600 dark:text-gray-400 text-center group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                                         Explore all competitive achievements and awards
                                     </p>
 

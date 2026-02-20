@@ -1,11 +1,13 @@
 // src/app/achievements/page.jsx
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { achievements } from "@/lib/achievements";
 import { Award, Trophy, Users, Lightbulb } from "lucide-react";
+import SkeletonCard from "@/components/SkeletonCard";
 
 const iconMap = {
     Innovation: Lightbulb,
@@ -15,6 +17,13 @@ const iconMap = {
 };
 
 export default function AchievementsPage() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const t = setTimeout(() => setIsLoading(false), 380);
+        return () => clearTimeout(t);
+    }, []);
+
     return (
         <div className="relative">
             {/* MAIN CONTENT */}
@@ -31,10 +40,10 @@ export default function AchievementsPage() {
                             Recognition
                         </span>
                     </div>
-                    <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+                    <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-gradient-to-r from-gray-900 dark:from-white to-gray-500 dark:to-gray-400 bg-clip-text text-transparent">
                         Achievements & Awards
                     </h1>
-                    <p className="mt-6 max-w-3xl text-lg text-gray-400 leading-relaxed">
+                    <p className="mt-6 max-w-3xl text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                         Recognition and awards received for innovation, technical excellence,
                         and competitive achievements in hackathons, innovation challenges, and
                         national competitions. Each achievement represents dedication to
@@ -44,7 +53,9 @@ export default function AchievementsPage() {
 
                 {/* ACHIEVEMENTS GRID */}
                 <section className="grid md:grid-cols-2 gap-8">
-                    {achievements.map((achievement, index) => {
+                    {isLoading
+                        ? [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
+                        : achievements.map((achievement, index) => {
                         const IconComponent = iconMap[achievement.category] || iconMap.default;
                         const hasImage = achievement.images && achievement.images.length > 0 && achievement.images[0];
 
@@ -59,7 +70,7 @@ export default function AchievementsPage() {
                                     href={`/achievements/${achievement.slug}`}
                                     className="group block h-full"
                                 >
-                                    <div className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1">
+                                    <div className="relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1">
                                         {/* Image Section */}
                                         <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-900/20 to-cyan-900/20">
                                             {hasImage ? (
@@ -72,7 +83,7 @@ export default function AchievementsPage() {
                                                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                                                     />
                                                     {/* Gradient Overlay for better text readability */}
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
                                                 </>
                                             ) : (
                                                 <>
@@ -87,7 +98,7 @@ export default function AchievementsPage() {
 
                                             {/* Category Badge */}
                                             <div className="absolute top-4 right-4 z-10">
-                                                <span className="px-3 py-1 text-xs font-medium rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white">
+                                                <span className="px-3 py-1 text-xs font-medium rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 text-gray-900 dark:text-white">
                                                     {achievement.category}
                                                 </span>
                                             </div>
@@ -103,12 +114,12 @@ export default function AchievementsPage() {
                                         {/* Content Section */}
                                         <div className="p-6 md:p-8">
                                             {/* Title */}
-                                            <h2 className="text-xl md:text-2xl font-semibold text-white mb-4 group-hover:text-blue-300 transition-colors">
+                                            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
                                                 {achievement.title}
                                             </h2>
 
                                             {/* Description */}
-                                            <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
+                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                                                 {achievement.shortDescription}
                                             </p>
 
@@ -117,7 +128,7 @@ export default function AchievementsPage() {
                                                 {achievement.tags.slice(0, 3).map((tag) => (
                                                     <span
                                                         key={tag}
-                                                        className="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 group-hover:bg-blue-500/20 group-hover:border-blue-500/30 transition-all"
+                                                        className="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-300 group-hover:bg-blue-500/20 group-hover:border-blue-500/30 transition-all"
                                                     >
                                                         {tag}
                                                     </span>
@@ -125,7 +136,7 @@ export default function AchievementsPage() {
                                             </div>
 
                                             {/* Read More Link */}
-                                            <div className="flex items-center gap-2 text-sm text-gray-400 group-hover:text-blue-300 transition-colors">
+                                            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
                                                 <span>Read full story</span>
                                                 <svg
                                                     className="h-4 w-4 transition-transform group-hover:translate-x-1"

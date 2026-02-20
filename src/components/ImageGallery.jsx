@@ -140,6 +140,7 @@ export default function ImageGallery({ images, title }) {
                                     alt={`${title} - Image ${(index % images.length) + 1}`}
                                     className="h-full w-auto object-contain"
                                     style={{ maxWidth: 'none' }}
+                                    loading="lazy"
                                 />
                                 {/* Hover Overlay */}
                                 <div className="absolute inset-0 bg-black/0 group-hover/item:bg-black/30 transition-colors duration-300 flex items-center justify-center">

@@ -4,9 +4,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getProjectBySlug } from "@/lib/projects";
+import { getProjectBySlug, projects } from "@/lib/projects";
 import { useParams } from "next/navigation";
-import ProjectsTimeline from "@/components/ProjectsTimeline";
+import Timeline from "@/components/Timeline";
 import CompaniesSection from "@/components/CompaniesSection";
 import ImageGallery from "@/components/ImageGallery";
 import ImageZoomModal from "@/components/ImageZoomModal";
@@ -24,7 +24,7 @@ export default function ProjectSlugPage() {
     <div className="mx-auto max-w-[1600px] px-6 py-24">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] xl:gap-6">
         {/* ================= LEFT SIDEBAR (Timeline) ================= */}
-        <ProjectsTimeline />
+        <Timeline items={projects} basePath="/projects" accent="purple" title="Projects" />
 
         {/* ================= MAIN CONTENT ================= */}
         <main className="w-full max-w-4xl min-w-0">

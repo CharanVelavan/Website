@@ -48,10 +48,10 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center"
         >
-          <p className="text-sm uppercase tracking-widest text-gray-400 mb-4">
+          <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
             About Me
           </p>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
             Building Intelligent Systems
           </h2>
         </motion.header>
@@ -64,17 +64,17 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-6 text-gray-400 leading-relaxed"
+            className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed"
           >
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-8 backdrop-blur-sm">
+            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] p-8 backdrop-blur-sm">
               <p className="text-lg leading-relaxed">
                 I am an{" "}
-                <span className="text-white font-semibold">
+                <span className="text-gray-900 dark:text-white font-semibold">
                   Electronics and Communication Engineering graduate
                 </span>{" "}
                 with a strong focus on building real-world systems at the
                 intersection of{" "}
-                <span className="text-purple-400">
+                <span className="text-purple-500 dark:text-purple-400">
                   5G networks, AI/ML, and embedded platforms
                 </span>
                 .
@@ -88,7 +88,7 @@ export default function About() {
 
               <p className="mt-4">
                 I have hands-on experience developing and deploying{" "}
-                <span className="text-purple-400">
+                <span className="text-purple-500 dark:text-purple-400">
                   AI-enabled UAV and robotic systems
                 </span>
                 , including a 5G-based search-and-rescue drone integrated with
@@ -99,7 +99,7 @@ export default function About() {
 
               <p className="mt-4">
                 I am particularly motivated by projects that involve{" "}
-                <span className="text-white font-semibold">
+                <span className="text-gray-900 dark:text-white font-semibold">
                   real hardware, real networks, and real constraints
                 </span>
                 , and I thrive in environments that value problem-solving,
@@ -115,7 +115,7 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
               Core Expertise
             </h3>
             <div className="grid grid-cols-2 gap-4">
@@ -127,10 +127,10 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   whileHover={{ y: -4 }}
-                  className="group rounded-xl border border-white/10 bg-white/[0.02] p-5 hover:border-purple-500/50 hover:bg-white/[0.05] transition-all duration-300"
+                  className="group rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-5 hover:border-purple-500/50 hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-all duration-300"
                 >
-                  <skill.icon className="h-8 w-8 text-purple-400 mb-3 group-hover:text-purple-300 transition-colors" />
-                  <h4 className="text-white font-semibold mb-1 text-sm">
+                  <skill.icon className="h-8 w-8 text-purple-500 dark:text-purple-400 mb-3 group-hover:text-purple-400 dark:group-hover:text-purple-300 transition-colors" />
+                  <h4 className="text-gray-900 dark:text-white font-semibold mb-1 text-sm">
                     {skill.title}
                   </h4>
                   <p className="text-gray-500 text-xs leading-relaxed">
@@ -149,12 +149,12 @@ export default function About() {
               className="mt-6 rounded-xl border border-purple-500/30 bg-purple-500/5 p-6"
             >
               <div className="flex items-start gap-3">
-                <Zap className="h-6 w-6 text-purple-400 flex-shrink-0 mt-1" />
+                <Zap className="h-6 w-6 text-purple-500 dark:text-purple-400 flex-shrink-0 mt-1" />
                 <div>
-                  <h4 className="text-white font-semibold mb-2">
+                  <h4 className="text-gray-900 dark:text-white font-semibold mb-2">
                     Currently Exploring
                   </h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                     Next-generation wireless communication (5G, O-RAN),
                     computer vision and deep learning, embedded AI, and
                     scalable cloud architectures.

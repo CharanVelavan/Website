@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -26,16 +27,18 @@ export default function RootLayout({ children }) {
           ${geistSans.variable}
           ${geistMono.variable}
           antialiased
-          bg-[#0a0a0a]
-          text-white
+          bg-[#f8f7f4] dark:bg-[#0a0a0a]
+          text-gray-900 dark:text-white
           tracking-tight
         `}
       >
-        {/* Smart auto-hiding navbar */}
-        <Navbar />
+        <ThemeProvider>
+          {/* Smart auto-hiding navbar */}
+          <Navbar />
 
-        {/* Page content */}
-        {children}
+          {/* Page content */}
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -782,16 +782,16 @@ export const projects = [
 
         {
           src: "/images/projects/thz-bandpass-filter/2.86 left Tz.png",
-          caption: "Surface Current at Resonatinf Frequency 2.86THz"
+          caption: "Surface Current at Resonating Frequency 2.86THz"
         },
         {
           src: "/images/projects/thz-bandpass-filter/3.88 CF.png",
-          caption: "Surface Current at TARGET Resonating Frequecy 3.88THz"
+          caption: "Surface Current at TARGET Resonating Frequency 3.88THz"
         },
 
         {
           src: "/images/projects/thz-bandpass-filter/5.1415 Right Tz.png",
-          caption: "Surface Current at Resonating Frequecy 5.1415THz"
+          caption: "Surface Current at Resonating Frequency 5.1415THz"
         },
         {
           src: "/images/projects/thz-bandpass-filter/S-parameters.png",

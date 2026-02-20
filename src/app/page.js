@@ -16,6 +16,7 @@ import MobileNav from "@/components/MobileNav";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import ScrollProgress from "@/components/ScrollProgress";
 import NavigationHints from "@/components/NavigationHints";
+import MobileTabBar from "@/components/MobileTabBar";
 import scrollManager, { DEFAULT_SECTIONS } from "@/lib/scroll-utils";
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="pb-16 lg:pb-0">
       {/* Navigation Enhancement Components */}
       <OnboardingTour />
       <ScrollProgress />
@@ -37,6 +38,7 @@ export default function Home() {
       <MobileNav />
       <FloatingActionButton />
       <NavigationHints />
+      <MobileTabBar />
 
       <Hero />
 

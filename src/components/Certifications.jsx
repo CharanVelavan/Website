@@ -32,7 +32,6 @@ const cardVariants = {
     rest: {
         y: 0,
         boxShadow: "0 0 0 rgba(0,0,0,0)",
-        borderColor: "rgba(255,255,255,0.1)",
     },
     hover: {
         y: -8,
@@ -54,13 +53,13 @@ export default function Certifications() {
                     transition={{ duration: 0.5 }}
                     className="mb-12"
                 >
-                    <p className="mb-3 text-sm uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Professional Development
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Certifications
                     </h2>
-                    <p className="mt-4 max-w-2xl text-gray-400">
+                    <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
                         Industry-recognized certifications in networking and emerging technologies.
                     </p>
                 </motion.header>
@@ -77,7 +76,7 @@ export default function Certifications() {
                             variants={cardVariants}
                             whileHover="hover"
                             animate="rest"
-                            className="cursor-pointer rounded-2xl border bg-[#0b0b0b] p-6 overflow-hidden"
+                            className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 overflow-hidden hover:border-purple-500/60 transition-colors"
                         >
                             {/* Logo and Badge */}
                             <div className="flex items-start justify-between mb-4">
@@ -96,12 +95,12 @@ export default function Certifications() {
                             </div>
 
                             {/* Title */}
-                            <h3 className="mb-2 text-xl font-semibold text-white">
+                            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                                 {cert.title}
                             </h3>
 
                             {/* Issuer */}
-                            <p className="mb-2 text-sm text-gray-400">{cert.issuer}</p>
+                            <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
 
                             {/* Issue Date */}
                             <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
@@ -114,7 +113,7 @@ export default function Certifications() {
                                     {cert.skills.map((skill) => (
                                         <span
                                             key={skill}
-                                            className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300"
+                                            className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300"
                                         >
                                             {skill}
                                         </span>
@@ -127,7 +126,7 @@ export default function Certifications() {
                                 href={cert.credentialUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                                className="inline-flex items-center gap-2 text-sm text-purple-500 dark:text-purple-400 hover:text-purple-400 dark:hover:text-purple-300 transition-colors"
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <span>Show credential</span>
@@ -147,7 +146,7 @@ export default function Certifications() {
                 >
                     <Link
                         href="/resume/certifications"
-                        className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                        className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                     >
                         <span>View all certifications</span>
                         <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

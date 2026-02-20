@@ -99,7 +99,6 @@ const cardVariants = {
     rest: {
         y: 0,
         boxShadow: "0 0 0 rgba(0,0,0,0)",
-        borderColor: "rgba(255,255,255,0.1)",
     },
     hover: {
         y: -8,
@@ -121,13 +120,13 @@ export default function Skills({ showViewAll = true }) {
                     transition={{ duration: 0.5 }}
                     className="mb-12"
                 >
-                    <p className="mb-3 text-sm uppercase tracking-widest text-gray-400">
+                    <p className="mb-3 text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Technical Expertise
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">
                         Technical Skills
                     </h2>
-                    <p className="mt-4 max-w-2xl text-gray-400">
+                    <p className="mt-4 max-w-2xl text-gray-600 dark:text-gray-400">
                         A comprehensive overview of my technical skills across programming,
                         frameworks, tools, and technologies.
                     </p>
@@ -145,10 +144,10 @@ export default function Skills({ showViewAll = true }) {
                             animate="rest"
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                            className="rounded-2xl border bg-[#0b0b0b] p-6 h-full flex flex-col"
+                            className="rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
                         >
                             {/* Category Title */}
-                            <h3 className="text-xl font-semibold text-white mb-4 pb-3 border-b border-white/10">
+                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 pb-3 border-b border-black/10 dark:border-white/10">
                                 {category.category}
                             </h3>
 
@@ -157,7 +156,7 @@ export default function Skills({ showViewAll = true }) {
                                 {category.skills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
+                                        className="px-3 py-1.5 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
                                     >
                                         {skill}
                                     </span>
@@ -178,7 +177,7 @@ export default function Skills({ showViewAll = true }) {
                     >
                         <Link
                             href="/resume/skills"
-                            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+                            className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                         >
                             <span>View all skills</span>
                             <svg

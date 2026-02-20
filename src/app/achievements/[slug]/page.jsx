@@ -2,12 +2,13 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { getAchievementBySlug } from "@/lib/achievements";
+import { getAchievementBySlug, achievements } from "@/lib/achievements";
 import { Award, Trophy, Lightbulb, ArrowLeft, ExternalLink } from "lucide-react";
 import ImageGallery from "@/components/ImageGallery";
-import AchievementsTimeline from "@/components/AchievementsTimeline";
+import Timeline from "@/components/Timeline";
 
 const iconMap = {
     Innovation: Lightbulb,
@@ -20,18 +21,7 @@ export default function AchievementDetailPage() {
     const params = useParams();
     const achievement = getAchievementBySlug(params.slug);
 
-    if (!achievement) {
-        return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-center">
-                    <h1 className="text-4xl font-bold text-white mb-4">Achievement Not Found</h1>
-                    <Link href="/achievements" className="text-blue-400 hover:text-blue-300">
-                        ← Back to Achievements
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+    if (!achievement) return notFound();
 
     const IconComponent = iconMap[achievement.category] || iconMap.default;
 
@@ -39,7 +29,7 @@ export default function AchievementDetailPage() {
         <div className="mx-auto max-w-7xl px-6 py-24">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] xl:gap-12">
                 {/* ================= LEFT SIDEBAR (Achievements Timeline) ================= */}
-                <AchievementsTimeline />
+                <Timeline items={achievements} basePath="/achievements" accent="blue" title="Achievements" />
 
                 {/* ================= MAIN CONTENT ================= */}
                 <main className="w-full min-w-0">

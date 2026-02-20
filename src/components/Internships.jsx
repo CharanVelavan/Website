@@ -9,7 +9,6 @@ const cardVariants = {
   rest: {
     y: 0,
     boxShadow: "0 0 0 rgba(0,0,0,0)",
-    borderColor: "rgba(255,255,255,0.1)",
   },
   hover: {
     y: -8,
@@ -38,10 +37,10 @@ export default function Internships() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* ================= HEADER ================= */}
         <div className="mb-12">
-          <p className="mb-3 text-sm uppercase tracking-widest text-gray-400">
+          <p className="mb-3 text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400">
             Experience
           </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Internships</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Internships</h2>
         </div>
 
         {/* ================= TILES ================= */}
@@ -53,10 +52,10 @@ export default function Internships() {
               initial="rest"
               whileHover="hover"
               animate="rest"
-              className="cursor-pointer rounded-2xl border bg-[#0b0b0b] p-6 h-full flex flex-col"
+              className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
             >
               {/* Logo Container */}
-              <div className="mb-6 flex items-center justify-center h-20 bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+              <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
                 <motion.div variants={logoVariants} className="relative w-full h-full">
                   <Image
                     src="/images/intern/zoho/zoho.svg"
@@ -69,16 +68,16 @@ export default function Internships() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="mb-1 text-xl font-semibold text-white">
+                <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">
                   ZOHO Corporation
                 </h3>
-                <p className="mb-2 text-sm text-gray-400">
+                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
                   Technical Support Intern
                 </p>
                 <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
                   Jan 2025 – Jun 2025
                 </p>
-                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-400">
+                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                   <li>ManageEngine Endpoint Central support</li>
                   <li>Enterprise software asset management</li>
                 </ul>
@@ -93,10 +92,10 @@ export default function Internships() {
               initial="rest"
               whileHover="hover"
               animate="rest"
-              className="cursor-pointer rounded-2xl border bg-[#0b0b0b] p-6 h-full flex flex-col"
+              className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
             >
               {/* Logo Container */}
-              <div className="mb-6 flex items-center justify-center h-20 bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+              <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
                 <motion.div variants={logoVariants} className="relative w-full h-full">
                   <Image
                     src="/images/intern/ssn/logo.png"
@@ -109,16 +108,16 @@ export default function Internships() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="mb-1 text-xl font-semibold text-white">
+                <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">
                   SSN College of Engineering
                 </h3>
-                <p className="mb-2 text-sm text-gray-400">
+                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
                   Research Intern (THz RF)
                 </p>
                 <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
                   May 2024 – Jul 2024
                 </p>
-                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-400">
+                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                   <li>Fractal-based THz bandpass filter design</li>
                   <li>CST & MATLAB simulations</li>
                 </ul>
@@ -133,10 +132,10 @@ export default function Internships() {
               initial="rest"
               whileHover="hover"
               animate="rest"
-              className="cursor-pointer rounded-2xl border bg-[#0b0b0b] p-6 h-full flex flex-col"
+              className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
             >
               {/* Logo Container */}
-              <div className="mb-6 flex items-center justify-center h-20 bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+              <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
                 <motion.div variants={logoVariants} className="relative w-full h-full">
                   <Image
                     src="/images/intern/techphosis/logo.png"
@@ -149,12 +148,12 @@ export default function Internships() {
 
               {/* Content */}
               <div className="flex-1">
-                <h3 className="mb-1 text-xl font-semibold text-white">Techphosis</h3>
-                <p className="mb-2 text-sm text-gray-400">5G / O-RAN Intern</p>
+                <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Techphosis</h3>
+                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">5G / O-RAN Intern</p>
                 <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
                   Mar 2024 – May 2024
                 </p>
-                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-400">
+                <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                   <li>5G O-RAN implementation with USRP B210</li>
                   <li>CU/DU integration and RAN analysis</li>
                 </ul>

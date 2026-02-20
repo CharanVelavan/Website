@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Charan Velavan — Portfolio
+
+Personal portfolio of **Charan Velavan**, an Embedded Developer working at the intersection of 5G networks, AI/ML, UAV systems, and RF engineering. Built with Next.js App Router and a dark glassmorphism aesthetic.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | Next.js 16 (App Router) |
+| UI | React 19 |
+| Styling | Tailwind CSS v4 |
+| Animation | Framer Motion 12, GSAP 3 |
+| Icons | Lucide React |
+| Fonts | Geist, Geist Mono (next/font) |
+
+---
+
+## Features
+
+**Pages & Sections**
+- Single-page layout: Hero → About → Featured Showcase → Internships → Skills → Certifications → Publications → Education → Contact
+- Dedicated routes: `/projects`, `/achievements`, `/resume` (with sub-routes: `/resume/internships`, `/resume/certifications`, `/resume/publications`, `/resume/educations`, `/resume/skills`)
+- Dynamic detail pages for projects and achievements via `[slug]` routes
+
+**Navigation**
+- Auto-hiding top navbar with active-section highlight
+- Desktop sidebar section navigator (appears after the hero)
+- Mobile hamburger menu
+- Floating action button — scroll-to-top, section shortcuts, resume download
+- Scroll progress bar and current-section indicator
+
+**UX**
+- Interactive onboarding tour for first-time visitors (spotlight effect, localStorage-persisted)
+- Project image slideshows with 3-second auto-rotation and manual controls
+- Animated counters, staggered entrance animations, parallax hero
+- Fully responsive — mobile-first with Tailwind breakpoints
+
+---
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # Production build
+npm run start    # Serve production build
+npm run lint     # ESLint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── layout.js           # Root layout (Navbar, fonts, metadata)
+│   ├── page.js             # Homepage — composes all sections
+│   ├── projects/[slug]/    # Dynamic project detail pages
+│   ├── achievements/[slug]/# Dynamic achievement detail pages
+│   └── resume/             # Resume section with nested routes
+├── components/             # ~30 reusable React components
+└── lib/
+    ├── projects.js         # All project data (single source of truth)
+    ├── achievements.js     # All achievement data
+    └── scroll-utils.js     # Scroll manager & active-section tracker
 
-## Learn More
+public/
+├── images/                 # Project, achievement, internship, certification images
+├── videos/                 # Video assets
+├── papers/                 # Research paper PDFs
+└── resume.pdf
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content Management
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All content is data-driven — no UI changes are needed to add entries.
 
-## Deploy on Vercel
+- **Add a project** — append an object with a unique `slug` to `src/lib/projects.js`. Place images in `public/images/projects/`.
+- **Add an achievement** — append to `src/lib/achievements.js`. Place images in `public/images/achievements/`.
+- **Resume assets** — update `public/resume.pdf` to refresh the downloadable resume.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Optimized for **Vercel** (zero-config Next.js deployment). Also works on any Node.js host:
+
+```bash
+npm run build && npm run start
+```
+
+---
+
+## Contact
+
+- **Email** — Charanvelavan12@gmail.com
+- **LinkedIn** — [linkedin.com/in/charan-velavan](https://www.linkedin.com/in/charan-velavan/)

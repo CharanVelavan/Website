@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="flex flex-col pt-4 md:pt-8"
           >
-            <p className="text-base md:text-lg uppercase tracking-widest text-gray-400 mb-6">
+            <p className="text-base md:text-lg uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6">
               Embedded Developer
             </p>
 
@@ -53,7 +53,7 @@ export default function Hero() {
               <span className="text-fuchsia-500">Charan</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-400 leading-relaxed">
+            <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
               I build modern web applications and work on AI-driven communication
               systems, UAV networks, and next-generation technologies.
             </p>
@@ -79,7 +79,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="px-6 py-3 text-base border border-white/20 rounded-lg hover:border-white/50 hover:bg-white/5 transition-all hover:scale-105"
+                className="px-6 py-3 text-base border border-black/20 dark:border-white/20 rounded-lg hover:border-black/50 dark:hover:border-white/50 hover:bg-black/5 dark:hover:bg-white/5 transition-all hover:scale-105"
               >
                 Contact Me
               </a>
@@ -88,10 +88,10 @@ export default function Hero() {
             {/* SOCIAL LINKS */}
             <div className="mt-8 flex gap-4">
               <a
-                href="https://github.com/your-username"
+                href="https://github.com/charanvelavan"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-white/20 hover:border-purple-400 hover:bg-purple-400/10 transition-all hover:scale-110"
+                className="p-3 rounded-full border border-black/20 dark:border-white/20 hover:border-purple-400 hover:bg-purple-400/10 transition-all hover:scale-110"
                 aria-label="GitHub"
               >
                 <Github size={22} />
@@ -101,7 +101,7 @@ export default function Hero() {
                 href="https://www.linkedin.com/in/charan-velavan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-full border border-white/20 hover:border-purple-400 hover:bg-purple-400/10 transition-all hover:scale-110"
+                className="p-3 rounded-full border border-black/20 dark:border-white/20 hover:border-purple-400 hover:bg-purple-400/10 transition-all hover:scale-110"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={22} />
@@ -133,7 +133,7 @@ export default function Hero() {
                   <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400">
                     <Counter value={item.value} />
                   </div>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mt-1 group-hover:text-gray-300 transition">
+                  <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mt-1 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition">
                     {item.label}
                   </p>
                 </motion.div>
@@ -204,15 +204,16 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 0.5 }}
         className="absolute bottom-20 left-1/2 -translate-x-1/2"
       >
-        <motion.div
+        <motion.button
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2 cursor-pointer"
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          aria-label="Scroll to next section"
         >
           <span className="text-xs uppercase tracking-widest text-gray-500">Scroll Down</span>
           <ChevronDown className="h-6 w-6 text-purple-400" />
-        </motion.div>
+        </motion.button>
       </motion.div>
     </section>
   );

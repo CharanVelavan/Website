@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function CompaniesSection({ companies }) {
   if (!companies?.enabled || !companies?.list?.length) return null;
@@ -12,11 +13,11 @@ export default function CompaniesSection({ companies }) {
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-xl shadow-2xl"
+        className="relative rounded-2xl border border-black/10 dark:border-white/10 bg-gray-50 dark:bg-gradient-to-br dark:from-white/5 dark:to-white/[0.02] p-6 backdrop-blur-xl shadow-2xl"
       >
         {/* Header */}
         <div className="mb-6">
-          <h3 className="text-sm font-semibold tracking-wide text-white/90">
+          <h3 className="text-sm font-semibold tracking-wide text-gray-900/90 dark:text-white/90">
             Associated With
           </h3>
           <div className="mt-1 h-[2px] w-12 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500" />
@@ -36,18 +37,19 @@ export default function CompaniesSection({ companies }) {
                   href={company.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block rounded-lg p-3 transition-all hover:bg-white/5"
+                  className="group block rounded-lg p-3 transition-all hover:bg-black/5 dark:hover:bg-white/5"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 flex-shrink-0 rounded-lg bg-white/10 p-2 transition-all group-hover:bg-white/20">
-                      <img
+                    <div className="relative h-12 w-12 flex-shrink-0 rounded-lg bg-black/10 dark:bg-white/10 p-2 transition-all group-hover:bg-black/20 dark:group-hover:bg-white/20 overflow-hidden">
+                      <Image
                         src={company.logo}
                         alt={`${company.name} logo`}
-                        className="h-full w-full object-contain"
+                        fill
+                        className="object-contain p-2"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-gray-300 transition-colors group-hover:text-white truncate">
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors group-hover:text-gray-900 dark:group-hover:text-white truncate">
                         {company.name}
                       </p>
                       <p className="text-xs text-gray-500 mt-0.5">Partner</p>
@@ -57,11 +59,12 @@ export default function CompaniesSection({ companies }) {
               ) : (
                 <div className="block rounded-lg p-3">
                   <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 flex-shrink-0 rounded-lg bg-white/10 p-2">
-                      <img
+                    <div className="relative h-12 w-12 flex-shrink-0 rounded-lg bg-black/10 dark:bg-white/10 overflow-hidden">
+                      <Image
                         src={company.logo}
                         alt={`${company.name} logo`}
-                        className="h-full w-full object-contain"
+                        fill
+                        className="object-contain p-2"
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -78,7 +81,7 @@ export default function CompaniesSection({ companies }) {
         </ul>
 
         {/* Footer decoration */}
-        <div className="mt-6 pt-4 border-t border-white/10">
+        <div className="mt-6 pt-4 border-t border-black/10 dark:border-white/10">
           <div className="flex items-center justify-center gap-1">
             <div className="h-1 w-1 rounded-full bg-purple-500/40" />
             <div className="h-1 w-1 rounded-full bg-purple-500/60" />

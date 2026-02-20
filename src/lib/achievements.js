@@ -131,16 +131,16 @@ export const achievements = [
                 "Smart India Hackathon 2022 continued the tradition of bringing together India's brightest student innovators to solve real-world challenges. The competition featured problem statements from various government ministries, PSUs, and industry partners.",
 
             challenge:
-                "Our team addressed the problem statement: [add your specific problem statement]. The challenge involved [describe the core challenge and requirements].",
+                "Competed in Smart India Hackathon 2022 with a problem statement from a government ministry, requiring rapid development of an innovative, deployable solution under time-constrained conditions.",
 
             solution:
-                "We built [describe your solution] using [technologies]. The solution featured [key capabilities and innovations]. Our approach focused on [unique aspects of your solution].",
+                "Developed a prototype solution combining hardware and software components to address the problem statement. The team leveraged rapid prototyping techniques to deliver a working demonstration within the hackathon timeline.",
 
             myRole:
-                "As [your role], I contributed to [your specific responsibilities - e.g., full-stack development, database design, API integration, UI/UX implementation].",
+                "Contributed to the technical design and implementation of the prototype, collaborating closely with team members to integrate various system components and deliver the final presentation.",
 
             impact:
-                "The solution achieved [specific results or metrics]. We demonstrated [key achievements during the hackathon]. The experience provided deep insights into [learnings].",
+                "Qualified for the national finals, placing our team among the top competitors nationwide. The hackathon was a pivotal learning experience in team collaboration, rapid iteration, and presenting technical work to expert judges.",
 
             recognition:
                 "Qualified for the national finals, placing among the top teams nationwide. Presented our working prototype to expert judges and received valuable feedback. This achievement marked an important milestone in our technical journey.",

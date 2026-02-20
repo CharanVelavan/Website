@@ -3,18 +3,10 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import scrollManager from "@/lib/scroll-utils";
+import { NAV_SECTIONS } from "@/lib/nav-config";
 
-const sections = [
-    { id: "about", label: "About" },
-    { id: "work", label: "Projects" },
-    { id: "achievements", label: "Achievements" },
-    { id: "internships", label: "Internships" },
-    { id: "skills", label: "Skills" },
-    { id: "certifications", label: "Certifications" },
-    { id: "publications", label: "Publications" },
-    { id: "education", label: "Education" },
-    { id: "contact", label: "Contact" },
-];
+// Sidebar only shows sections after hero
+const sections = NAV_SECTIONS.filter((s) => s.showInSidebar);
 
 export default function SectionNav() {
     const [activeSection, setActiveSection] = useState("about");
@@ -64,7 +56,7 @@ export default function SectionNav() {
                                         <div
                                             className={`h-2 w-2 rounded-full transition-all duration-300 ${isActive
                                                     ? "bg-purple-400 scale-125"
-                                                    : "bg-gray-600 group-hover:bg-gray-400"
+                                                    : "bg-gray-400 dark:bg-gray-600 group-hover:bg-gray-600 dark:group-hover:bg-gray-400"
                                                 }`}
                                         />
                                         {isActive && (
@@ -79,8 +71,8 @@ export default function SectionNav() {
                                     {/* Label - shows on hover */}
                                     <span
                                         className={`text-xs uppercase tracking-wider transition-all duration-300 ${isActive
-                                                ? "text-white opacity-100"
-                                                : "text-gray-500 opacity-0 group-hover:opacity-100"
+                                                ? "text-gray-900 dark:text-white opacity-100"
+                                                : "text-gray-500 dark:text-gray-500 opacity-0 group-hover:opacity-100"
                                             }`}
                                     >
                                         {section.label}
