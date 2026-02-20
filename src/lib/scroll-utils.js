@@ -1,6 +1,8 @@
+import { SECTION_IDS } from "@/lib/nav-config";
+
 /**
  * Centralized Scroll Management System
- * 
+ *
  * This utility provides a single, throttled scroll event listener
  * that manages scroll state and notifies subscribed components.
  * This eliminates the need for multiple scroll listeners and
@@ -17,6 +19,7 @@ class ScrollManager {
             isScrolled: false,
         };
         this.sections = [];
+        this.sectionIds = [];
         this.isInitialized = false;
         this.rafId = null;
         this.lastScrollTime = 0;
@@ -29,16 +32,12 @@ class ScrollManager {
     init(sectionIds = []) {
         if (this.isInitialized) return;
 
-        // Cache section references
-        this.sections = sectionIds
-            .map((id) => {
-                const element = document.getElementById(id);
-                return element ? { id, element } : null;
-            })
-            .filter(Boolean);
+        this.sectionIds = sectionIds;
+        this.refreshSections();
 
         // Add throttled scroll listener
         window.addEventListener("scroll", this.handleScroll, { passive: true });
+        window.addEventListener("resize", this.handleResize, { passive: true });
 
         // Initial calculation
         this.updateScrollState();
@@ -57,6 +56,20 @@ class ScrollManager {
             this.rafId = null;
         });
     };
+
+    handleResize = () => {
+        this.refreshSections();
+        this.updateScrollState();
+    };
+
+    refreshSections() {
+        this.sections = this.sectionIds
+            .map((id) => {
+                const element = document.getElementById(id);
+                return element ? { id, element } : null;
+            })
+            .filter(Boolean);
+    }
 
     /**
      * Update scroll state and notify subscribers
@@ -163,6 +176,7 @@ class ScrollManager {
      */
     destroy() {
         window.removeEventListener("scroll", this.handleScroll);
+        window.removeEventListener("resize", this.handleResize);
         if (this.rafId) {
             cancelAnimationFrame(this.rafId);
         }
@@ -175,17 +189,6 @@ class ScrollManager {
 const scrollManager = new ScrollManager();
 
 // Default section IDs for the portfolio
-export const DEFAULT_SECTIONS = [
-    "hero",
-    "about",
-    "work",
-    "achievements",
-    "internships",
-    "skills",
-    "certifications",
-    "publications",
-    "education",
-    "contact",
-];
+export const DEFAULT_SECTIONS = SECTION_IDS;
 
 export default scrollManager;

@@ -4,15 +4,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { projects } from "@/lib/projects";
 import SkeletonCard from "@/components/SkeletonCard";
 
 function ProjectImageSlideshow({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (!images || images.length <= 1) return;
+    if (shouldReduceMotion || !images || images.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -53,7 +54,7 @@ function ProjectImageSlideshow({ images, title }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
         >
           <Image
             src={images[currentIndex]}
@@ -88,6 +89,7 @@ function ProjectImageSlideshow({ images, title }) {
 
 export default function ProjectsPage() {
   const [isLoading, setIsLoading] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const t = setTimeout(() => setIsLoading(false), 380);
@@ -118,11 +120,11 @@ export default function ProjectsPage() {
           <motion.div
             className="flex flex-col gap-6"
             animate={{
-              y: [0, -2000],
+              y: shouldReduceMotion ? 0 : [0, -2000],
             }}
             transition={{
-              duration: 30,
-              repeat: Infinity,
+              duration: shouldReduceMotion ? 0 : 30,
+              repeat: shouldReduceMotion ? 0 : Infinity,
               ease: "linear",
             }}
           >
@@ -131,8 +133,8 @@ export default function ProjectsPage() {
                 key={`left - ${idx} `}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 0.6, scale: 1 }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ opacity: 1, scale: 1.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: idx * 0.1 }}
+                whileHover={shouldReduceMotion ? undefined : { opacity: 1, scale: 1.1 }}
                 className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
                 title={company.name}
               >
@@ -153,11 +155,11 @@ export default function ProjectsPage() {
           <motion.div
             className="flex flex-col gap-6"
             animate={{
-              y: [-2000, 0],
+              y: shouldReduceMotion ? 0 : [-2000, 0],
             }}
             transition={{
-              duration: 30,
-              repeat: Infinity,
+              duration: shouldReduceMotion ? 0 : 30,
+              repeat: shouldReduceMotion ? 0 : Infinity,
               ease: "linear",
             }}
           >
@@ -166,8 +168,8 @@ export default function ProjectsPage() {
                 key={`right - ${idx} `}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 0.6, scale: 1 }}
-                transition={{ delay: idx * 0.1 }}
-                whileHover={{ opacity: 1, scale: 1.1 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { delay: idx * 0.1 }}
+                whileHover={shouldReduceMotion ? undefined : { opacity: 1, scale: 1.1 }}
                 className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
                 title={company.name}
               >
@@ -188,7 +190,7 @@ export default function ProjectsPage() {
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
           className="mb-24"
         >
           <div className="mb-4">
@@ -218,7 +220,11 @@ export default function ProjectsPage() {
                 key={project.slug}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.5, delay: index * 0.1 }
+                }
                 className="relative"
               >
                 <Link

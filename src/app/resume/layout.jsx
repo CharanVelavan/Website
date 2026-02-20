@@ -3,10 +3,11 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function ResumeLayout({ children }) {
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   const sections = [
     {
@@ -67,8 +68,8 @@ export default function ResumeLayout({ children }) {
                     className="block"
                   >
                     <motion.div
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
+                      whileHover={shouldReduceMotion ? undefined : { x: 4 }}
+                      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                       className={`rounded-lg p-4 transition-all duration-300 ${isActive
                         ? "bg-purple-500/10 shadow-lg shadow-purple-500/20 border border-purple-500/30"
                         : "hover:bg-white/5 border border-transparent"
@@ -90,13 +91,14 @@ export default function ResumeLayout({ children }) {
                         <motion.div
                           initial={{ opacity: 0, y: -4 }}
                           animate={{ opacity: 1, y: 0 }}
+                          transition={shouldReduceMotion ? { duration: 0 } : undefined}
                           className="mt-2 flex items-center gap-1.5 text-[10px] font-medium text-purple-400"
                         >
                           <motion.span
-                            animate={{ opacity: [1, 0.4, 1] }}
+                            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: [1, 0.4, 1] }}
                             transition={{
-                              duration: 1.5,
-                              repeat: Infinity,
+                              duration: shouldReduceMotion ? 0 : 1.5,
+                              repeat: shouldReduceMotion ? 0 : Infinity,
                             }}
                           >
                             ●

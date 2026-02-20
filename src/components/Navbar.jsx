@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import scrollManager from "@/lib/scroll-utils";
@@ -21,6 +21,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const unsubscribe = scrollManager.subscribe((state) => {
@@ -57,7 +58,7 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo / Name */}
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="text-xl font-bold tracking-wide"
@@ -67,14 +68,22 @@ export default function Navbar() {
               Charan Velavan
             </span>
             <motion.span
-              animate={{ rotate: [0, 14, -8, 14, -4, 10, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3 }}
+              animate={
+                shouldReduceMotion
+                  ? { rotate: 0 }
+                  : { rotate: [0, 14, -8, 14, -4, 10, 0] }
+              }
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 2.5, repeat: Infinity, repeatDelay: 3 }
+              }
               className="text-gray-400 text-lg"
             >
               :)
             </motion.span>
           </Link>
-        </motion.h1>
+        </motion.div>
 
         {/* Mobile section badge — shows current section name on mobile when scrolled */}
         {pathname === "/" && (
@@ -182,4 +191,3 @@ export default function Navbar() {
     </motion.header>
   );
 }
-

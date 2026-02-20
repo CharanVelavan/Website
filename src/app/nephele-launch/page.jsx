@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function NepheleLaunchPage() {
     const [status, setStatus] = useState("Initializing backend...");
     const [progress, setProgress] = useState(0);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         const backendUrl = "https://nephele-backend.onrender.com/";
@@ -59,14 +60,18 @@ export default function NepheleLaunchPage() {
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
+                transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
                 className="max-w-md w-full"
             >
                 <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
                     {/* Logo/Icon */}
                     <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        animate={shouldReduceMotion ? { rotate: 0 } : { rotate: 360 }}
+                        transition={
+                            shouldReduceMotion
+                                ? { duration: 0 }
+                                : { duration: 2, repeat: Infinity, ease: "linear" }
+                        }
                         className="w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-fuchsia-500 flex items-center justify-center"
                     >
                         <span className="text-3xl">🤖</span>
@@ -87,7 +92,7 @@ export default function NepheleLaunchPage() {
                         <motion.div
                             initial={{ width: 0 }}
                             animate={{ width: `${progress}%` }}
-                            transition={{ duration: 0.5 }}
+                            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.5 }}
                             className="h-full bg-gradient-to-r from-purple-500 to-fuchsia-500"
                         />
                     </div>

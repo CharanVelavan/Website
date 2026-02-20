@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronUp, Home, Briefcase, Award, Mail, Download, Menu as MenuIcon } from "lucide-react";
 import scrollManager from "@/lib/scroll-utils";
 
@@ -17,8 +17,15 @@ export default function FloatingActionButton() {
     const [isExpanded, setIsExpanded] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const [isTourActive, setIsTourActive] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
+        const media = window.matchMedia("(min-width: 1024px)");
+        const handleMedia = () => setIsDesktop(media.matches);
+        handleMedia();
+        media.addEventListener("change", handleMedia);
+
         // Subscribe to scroll manager
         const unsubscribe = scrollManager.subscribe((state) => {
             setIsVisible(state.scrollY > 400);
@@ -34,7 +41,10 @@ export default function FloatingActionButton() {
             setIsTourActive(false);
         }
 
-        return unsubscribe;
+        return () => {
+            unsubscribe();
+            media.removeEventListener("change", handleMedia);
+        };
     }, []);
 
     const handleAction = (action) => {
@@ -49,7 +59,7 @@ export default function FloatingActionButton() {
     };
 
     // Hide FAB during tour
-    if (isTourActive) return null;
+    if (isTourActive || !isDesktop) return null;
 
     return (
         <AnimatePresence>
@@ -106,7 +116,7 @@ export default function FloatingActionButton() {
                         </motion.div>
 
                         {/* Pulse animation when not expanded */}
-                        {!isExpanded && (
+                        {!isExpanded && !shouldReduceMotion && (
                             <motion.div
                                 animate={{
                                     scale: [1, 1.2, 1],

@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import FeaturedShowcase from "@/components/FeaturedShowcase";
@@ -12,33 +9,19 @@ import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import SectionNav from "@/components/SectionNav";
 import OnboardingTour from "@/components/OnboardingTour";
-import MobileNav from "@/components/MobileNav";
 import FloatingActionButton from "@/components/FloatingActionButton";
 import ScrollProgress from "@/components/ScrollProgress";
-import NavigationHints from "@/components/NavigationHints";
-import MobileTabBar from "@/components/MobileTabBar";
-import scrollManager, { DEFAULT_SECTIONS } from "@/lib/scroll-utils";
+import ScrollInit from "@/components/ScrollInit";
 
 export default function Home() {
-  // Initialize scroll manager with section IDs
-  useEffect(() => {
-    scrollManager.init(DEFAULT_SECTIONS);
-
-    return () => {
-      scrollManager.destroy();
-    };
-  }, []);
-
   return (
     <main className="pb-16 lg:pb-0">
       {/* Navigation Enhancement Components */}
+      <ScrollInit />
       <OnboardingTour />
       <ScrollProgress />
       <SectionNav />
-      <MobileNav />
       <FloatingActionButton />
-      <NavigationHints />
-      <MobileTabBar />
 
       <Hero />
 

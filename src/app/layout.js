@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import MobileTabBar from "@/components/MobileTabBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 import { Geist, Geist_Mono } from "next/font/google";
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           {/* Smart auto-hiding navbar */}
           <Navbar />
+          <MobileTabBar />
 
           {/* Page content */}
           {children}

@@ -21,7 +21,21 @@ export default function ProjectSlugPage() {
   const externalLink = project.links?.demo || project.links?.report;
 
   return (
-    <div className="mx-auto max-w-[1600px] px-6 py-24">
+    <div className="mx-auto max-w-[1600px] px-6 pt-28 pb-24 lg:py-24">
+      {/* MOBILE STICKY BACK BAR — hidden on desktop (Timeline handles it there) */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-[70] bg-black/80 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-3">
+        <Link
+          href="/projects"
+          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
+        >
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span className="text-sm font-medium">Back to Projects</span>
+        </Link>
+        <span className="text-white/20 text-sm">|</span>
+        <span className="text-sm text-purple-400 font-medium truncate">{project.title}</span>
+      </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] xl:gap-6">
         {/* ================= LEFT SIDEBAR (Timeline) ================= */}
         <Timeline items={projects} basePath="/projects" accent="purple" title="Projects" />

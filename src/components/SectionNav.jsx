@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import scrollManager from "@/lib/scroll-utils";
 import { NAV_SECTIONS } from "@/lib/nav-config";
 
@@ -11,6 +11,7 @@ const sections = NAV_SECTIONS.filter((s) => s.showInSidebar);
 export default function SectionNav() {
     const [activeSection, setActiveSection] = useState("about");
     const [isVisible, setIsVisible] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         // Subscribe to scroll manager
@@ -35,6 +36,7 @@ export default function SectionNav() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : undefined}
                     className="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:block"
                     style={{ willChange: "transform, opacity" }}
                 >
@@ -48,7 +50,7 @@ export default function SectionNav() {
                                     className="group flex items-center gap-3"
                                     initial={{ opacity: 0, x: -10 }}
                                     animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: index * 0.05 }}
+                                    transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.05 }}
                                     aria-label={`Navigate to ${section.label}`}
                                 >
                                     {/* Dot indicator */}
@@ -63,7 +65,11 @@ export default function SectionNav() {
                                             <motion.div
                                                 layoutId="activeIndicator"
                                                 className="absolute inset-0 rounded-full bg-purple-400/30 scale-150"
-                                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                                transition={
+                                                    shouldReduceMotion
+                                                        ? { duration: 0 }
+                                                        : { type: "spring", stiffness: 300, damping: 30 }
+                                                }
                                             />
                                         )}
                                     </div>

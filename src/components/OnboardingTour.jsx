@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { X, ArrowRight, Sparkles, Rocket, Award, BookOpen, Mail } from "lucide-react";
 
 const tourSteps = [
@@ -50,6 +50,7 @@ export default function OnboardingTour() {
     const [isActive, setIsActive] = useState(false);
     const [currentStep, setCurrentStep] = useState(0);
     const [hasSeenTour, setHasSeenTour] = useState(true);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         // SSR-safe localStorage check
@@ -122,6 +123,7 @@ export default function OnboardingTour() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={shouldReduceMotion ? { duration: 0 } : undefined}
                             className="fixed inset-0 pointer-events-none z-[101]"
                         >
                             <div
@@ -143,6 +145,7 @@ export default function OnboardingTour() {
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        transition={shouldReduceMotion ? { duration: 0 } : undefined}
                         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[102] w-[90%] max-w-lg"
                     >
                         <div className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 rounded-2xl border border-purple-500/30 shadow-2xl overflow-hidden">
@@ -163,7 +166,11 @@ export default function OnboardingTour() {
                                 <motion.div
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
-                                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                                    transition={
+                                        shouldReduceMotion
+                                            ? { duration: 0 }
+                                            : { delay: 0.2, type: "spring", stiffness: 200 }
+                                    }
                                     className="mb-6 inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 border border-purple-400/30"
                                 >
                                     <Icon className="h-8 w-8 text-purple-400" />
@@ -173,7 +180,7 @@ export default function OnboardingTour() {
                                 <motion.h2
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.3 }}
+                                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.3 }}
                                     className="text-2xl md:text-3xl font-bold mb-4 text-white"
                                 >
                                     {step.title}
@@ -182,7 +189,7 @@ export default function OnboardingTour() {
                                 <motion.p
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
+                                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.4 }}
                                     className="text-gray-300 text-base md:text-lg leading-relaxed mb-8"
                                 >
                                     {step.description}

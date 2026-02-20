@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import scrollManager from "@/lib/scroll-utils";
 import { NAV_SECTIONS } from "@/lib/nav-config";
 
@@ -11,6 +11,7 @@ const sectionColors = Object.fromEntries(NAV_SECTIONS.map((s) => [s.id, s.color]
 export default function ScrollProgress() {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [currentSection, setCurrentSection] = useState("hero");
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
         // Subscribe to scroll manager
@@ -36,7 +37,7 @@ export default function ScrollProgress() {
                         width: `${scrollProgress}%`,
                         willChange: "width"
                     }}
-                    transition={{ duration: 0.1 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.1 }}
                 />
             </div>
 

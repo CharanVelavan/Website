@@ -6,11 +6,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --focus-ring: 168 85 247;
+  --focus-ring-offset: 248 247 244;
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --focus-ring-offset: 10 10 10;
 }
 
 @theme inline {
@@ -23,7 +26,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans);
+}
+
+:where(a, button, [role="button"], input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgb(var(--focus-ring) / 0.6),
+    0 0 0 4px rgb(var(--focus-ring-offset));
 }
 
 /* GPU acceleration for fixed elements */

@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const accentStyles = {
   purple: {
@@ -54,6 +54,7 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
   const currentSlug = pathname?.split("/").pop();
   const activeIndex = items.findIndex((item) => item.slug === currentSlug);
   const styles = accentStyles[accent] || accentStyles.purple;
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <aside className="hidden lg:block sticky top-24 h-fit max-h-[calc(100vh-7rem)] w-[280px] -ml-8 xl:-ml-16 2xl:-ml-20">
@@ -82,7 +83,7 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
                   ? `${(activeIndex / Math.max(items.length - 1, 1)) * 100}%`
                   : "0%",
             }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.4, ease: "easeOut" }}
           />
 
           <ul className="space-y-4">
@@ -95,7 +96,11 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
                   key={item.slug}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { delay: index * 0.05, duration: 0.3 }
+                  }
                   className="relative"
                 >
                   {/* Dot indicator */}
@@ -108,13 +113,21 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
                           ? styles.passedDot
                           : "border-white/20 bg-white/5"
                       }`}
-                      whileHover={{ scale: 1.2 }}
+                      whileHover={shouldReduceMotion ? undefined : { scale: 1.2 }}
                     >
                       {isActive && (
                         <motion.div
                           className="absolute inset-0 rounded-full bg-white/40"
-                          animate={{ scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                          animate={
+                            shouldReduceMotion
+                              ? { scale: 1, opacity: 0.6 }
+                              : { scale: [1, 1.4, 1], opacity: [0.6, 0, 0.6] }
+                          }
+                          transition={
+                            shouldReduceMotion
+                              ? { duration: 0 }
+                              : { duration: 2, repeat: Infinity, ease: "easeInOut" }
+                          }
                         />
                       )}
                     </motion.div>
@@ -123,8 +136,8 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
                   {/* Content */}
                   <Link href={`${basePath}/${item.slug}`} className="group block pl-10">
                     <motion.div
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
+                      whileHover={shouldReduceMotion ? undefined : { x: 4 }}
+                      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                       className={`rounded-lg p-2.5 transition-all duration-300 ${
                         isActive ? styles.activeCard : "hover:bg-white/5"
                       }`}
@@ -168,11 +181,16 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
                         <motion.div
                           initial={{ opacity: 0, y: -4 }}
                           animate={{ opacity: 1, y: 0 }}
+                          transition={shouldReduceMotion ? { duration: 0 } : undefined}
                           className={`mt-2 flex items-center gap-1.5 text-[10px] font-medium ${styles.activeIndicator}`}
                         >
                           <motion.span
-                            animate={{ opacity: [1, 0.4, 1] }}
-                            transition={{ duration: 1.5, repeat: Infinity }}
+                            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: [1, 0.4, 1] }}
+                            transition={
+                              shouldReduceMotion
+                                ? { duration: 0 }
+                                : { duration: 1.5, repeat: Infinity }
+                            }
                           >
                             ●
                           </motion.span>

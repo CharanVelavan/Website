@@ -1,15 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronDown, ArrowDown } from "lucide-react";
 import scrollManager from "@/lib/scroll-utils";
 
 export default function NavigationHints() {
     const [showScrollHint, setShowScrollHint] = useState(true);
     const [showSectionHints, setShowSectionHints] = useState(true);
+    const [isDesktop, setIsDesktop] = useState(false);
+    const shouldReduceMotion = useReducedMotion();
 
     useEffect(() => {
+        const media = window.matchMedia("(min-width: 1024px)");
+        const handleMedia = () => setIsDesktop(media.matches);
+        handleMedia();
+        media.addEventListener("change", handleMedia);
+
         // Subscribe to scroll manager for scroll hint
         const unsubscribe = scrollManager.subscribe((state) => {
             if (state.scrollY > 100) {
@@ -42,15 +49,11 @@ export default function NavigationHints() {
             unsubscribe();
             window.removeEventListener("click", handleInteraction);
             clearTimeout(timer);
+            media.removeEventListener("change", handleMedia);
         };
     }, []);
 
-    // Check for reduced motion preference
-    const prefersReducedMotion = typeof window !== "undefined"
-        ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
-        : false;
-
-    if (prefersReducedMotion) return null;
+    if (shouldReduceMotion || !isDesktop) return null;
 
     return (
         <>

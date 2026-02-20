@@ -1,11 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { Github, Linkedin, ArrowRight, Download, ChevronDown } from "lucide-react";
 import Counter from "@/components/Counter";
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
   const gradientOpacity = useTransform(scrollY, [0, 7500], [1, 0]);
 
@@ -17,19 +18,29 @@ export default function Hero() {
         className="fixed inset-0 -z-10 pointer-events-none"
       >
         <motion.div
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          animate={
+            shouldReduceMotion
+              ? { x: 0, y: 0 }
+              : { x: [0, 50, 0], y: [0, 30, 0] }
+          }
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 20, repeat: Infinity, ease: "easeInOut" }
+          }
           className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-purple-500/30 blur-3xl"
         />
         <motion.div
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          animate={
+            shouldReduceMotion
+              ? { x: 0, y: 0 }
+              : { x: [0, -50, 0], y: [0, -30, 0] }
+          }
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 25, repeat: Infinity, ease: "easeInOut" }
+          }
           className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-blue-500/30 blur-3xl"
         />
       </motion.div>
@@ -44,7 +55,7 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="flex flex-col pt-4 md:pt-8"
           >
-            <p className="text-base md:text-lg uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-6">
+            <p className="text-base md:text-lg uppercase tracking-widest text-gray-600 dark:text-gray-400 mb-6">
               Embedded Developer
             </p>
 
@@ -53,16 +64,16 @@ export default function Hero() {
               <span className="text-fuchsia-500">Charan</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            <p className="mt-8 max-w-xl text-xl md:text-2xl text-gray-700 dark:text-gray-400 leading-relaxed">
               I build modern web applications and work on AI-driven communication
               systems, UAV networks, and next-generation technologies.
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href="/projects"
-                className="group px-6 py-3 text-base bg-purple-500 text-black font-medium rounded-lg hover:bg-purple-400 transition-all hover:shadow-lg hover:shadow-purple-500/50 hover:scale-105 inline-flex items-center gap-2"
+                className="group px-6 py-3 text-base bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-400 hover:to-blue-400 transition-all hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 inline-flex items-center gap-2"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -71,7 +82,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="group px-6 py-3 text-base border border-purple-500/30 bg-purple-500/10 rounded-lg hover:border-purple-500/50 hover:bg-purple-500/20 transition-all hover:scale-105 inline-flex items-center gap-2"
+                className="group px-6 py-3 text-base border border-purple-500/40 text-purple-600 dark:text-purple-300 rounded-lg hover:border-purple-500/70 hover:bg-purple-500/10 transition-all hover:scale-105 inline-flex items-center gap-2"
               >
                 <Download className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
                 Resume
@@ -79,7 +90,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="px-6 py-3 text-base border border-black/20 dark:border-white/20 rounded-lg hover:border-black/50 dark:hover:border-white/50 hover:bg-black/5 dark:hover:bg-white/5 transition-all hover:scale-105"
+                className="px-2 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Contact Me
               </a>
@@ -152,18 +163,27 @@ export default function Hero() {
             <div className="relative aspect-square w-[260px] sm:w-[320px] md:w-[420px] lg:w-[480px]">
               {/* REVOLVING DASHED RING (CLOSER) */}
               <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                animate={shouldReduceMotion ? { rotate: 0 } : { rotate: 360 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 20, repeat: Infinity, ease: "linear" }
+                }
                 className="absolute inset-[3%] rounded-full border-2 border-dashed border-purple-400/70"
               />
 
               {/* PULSING RING */}
               <motion.div
-                animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0.5, 0.8, 0.5]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                animate={
+                  shouldReduceMotion
+                    ? { scale: 1, opacity: 0.6 }
+                    : { scale: [1, 1.05, 1], opacity: [0.5, 0.8, 0.5] }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 3, repeat: Infinity, ease: "easeInOut" }
+                }
                 className="absolute inset-0 rounded-full border border-purple-500/40"
               />
 
@@ -185,11 +205,16 @@ export default function Hero() {
 
               {/* ANIMATED GLOW */}
               <motion.div
-                animate={{
-                  scale: [1, 1.1, 1],
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                animate={
+                  shouldReduceMotion
+                    ? { scale: 1, opacity: 0.4 }
+                    : { scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }
+                }
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }
                 className="absolute -inset-20 bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-blue-500/20 blur-3xl -z-10"
               />
             </div>
@@ -205,8 +230,12 @@ export default function Hero() {
         className="absolute bottom-20 left-1/2 -translate-x-1/2"
       >
         <motion.button
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          animate={shouldReduceMotion ? { y: 0 } : { y: [0, 10, 0] }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 2, repeat: Infinity, ease: "easeInOut" }
+          }
           className="flex flex-col items-center gap-2 cursor-pointer"
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
           aria-label="Scroll to next section"

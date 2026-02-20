@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRouter, usePathname } from "next/navigation";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Menu, X, Github, Linkedin } from "lucide-react";
 import scrollManager from "@/lib/scroll-utils";
 import { NAV_SECTIONS } from "@/lib/nav-config";
@@ -10,21 +11,37 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function MobileNav() {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("hero");
+    const shouldReduceMotion = useReducedMotion();
+    const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
-        // Subscribe to scroll manager
         const unsubscribe = scrollManager.subscribe((state) => {
-            if (state.activeSection) {
+            if (pathname === "/" && state.activeSection) {
                 setActiveSection(state.activeSection);
             }
         });
 
         return unsubscribe;
-    }, []);
+    }, [pathname]);
 
-    const scrollToSection = (id) => {
-        scrollManager.scrollToSection(id);
+    // Items that link to a dedicated page instead of scrolling
+    const PAGE_LINKS = {
+        work: "/projects",
+        achievements: "/achievements",
+    };
+
+    const handleNavItem = (id) => {
         setIsOpen(false);
+        if (PAGE_LINKS[id]) {
+            router.push(PAGE_LINKS[id]);
+        } else {
+            if (pathname === "/") {
+                scrollManager.scrollToSection(id);
+            } else {
+                router.push(id === "hero" ? "/" : `/#${id}`);
+            }
+        }
     };
 
     return (
@@ -44,7 +61,7 @@ export default function MobileNav() {
                             initial={{ rotate: -90, opacity: 0 }}
                             animate={{ rotate: 0, opacity: 1 }}
                             exit={{ rotate: 90, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
+                            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                         >
                             <X className="h-6 w-6 text-purple-400" />
                         </motion.div>
@@ -54,7 +71,7 @@ export default function MobileNav() {
                             initial={{ rotate: 90, opacity: 0 }}
                             animate={{ rotate: 0, opacity: 1 }}
                             exit={{ rotate: -90, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
+                            transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                         >
                             <Menu className="h-6 w-6 text-purple-400" />
                         </motion.div>
@@ -71,6 +88,7 @@ export default function MobileNav() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
+                            transition={shouldReduceMotion ? { duration: 0 } : undefined}
                             onClick={() => setIsOpen(false)}
                             className="fixed inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm z-[80] lg:hidden"
                         />
@@ -80,7 +98,11 @@ export default function MobileNav() {
                             initial={{ x: "100%" }}
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
-                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            transition={
+                                shouldReduceMotion
+                                    ? { duration: 0 }
+                                    : { type: "spring", damping: 25, stiffness: 200 }
+                            }
                             className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-br from-white via-gray-50 to-white dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-l border-purple-500/30 shadow-2xl z-[85] lg:hidden overflow-y-auto"
                         >
                             <div className="p-6">
@@ -90,7 +112,7 @@ export default function MobileNav() {
                                         <motion.h2
                                             initial={{ opacity: 0, y: -10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: 0.1 }}
+                                            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.1 }}
                                             className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
                                         >
                                             Navigation
@@ -98,7 +120,7 @@ export default function MobileNav() {
                                         <motion.div
                                             initial={{ opacity: 0, scale: 0.8 }}
                                             animate={{ opacity: 1, scale: 1 }}
-                                            transition={{ delay: 0.15 }}
+                                            transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.15 }}
                                         >
                                             <ThemeToggle />
                                         </motion.div>
@@ -106,7 +128,7 @@ export default function MobileNav() {
                                     <motion.p
                                         initial={{ opacity: 0, y: -10 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        transition={{ delay: 0.15 }}
+                                        transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.15 }}
                                         className="text-sm text-gray-500 dark:text-gray-400 mt-1"
                                     >
                                         Explore my portfolio
@@ -117,15 +139,20 @@ export default function MobileNav() {
                                 <nav className="space-y-2 mb-8">
                                     {NAV_SECTIONS.map((item, index) => {
                                         const Icon = item.icon;
-                                        const isActive = activeSection === item.id;
+                                        const getIsActive = (id) => {
+                                            if (PAGE_LINKS[id]) return pathname.startsWith(PAGE_LINKS[id]);
+                                            if (id === "hero") return pathname === "/" && activeSection === "hero";
+                                            return pathname === "/" && activeSection === id;
+                                        };
+                                        const isActive = getIsActive(item.id);
 
                                         return (
                                             <motion.button
                                                 key={item.id}
                                                 initial={{ opacity: 0, x: 20 }}
                                                 animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: 0.05 * index }}
-                                                onClick={() => scrollToSection(item.id)}
+                                                transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.05 * index }}
+                                                onClick={() => handleNavItem(item.id)}
                                                 className={`w-full flex items-center gap-4 px-4 py-3 rounded-lg transition-all ${isActive
                                                     ? "bg-purple-500/20 border border-purple-500/50 text-gray-900 dark:text-white"
                                                     : "hover:bg-black/5 dark:hover:bg-white/5 border border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -151,7 +178,7 @@ export default function MobileNav() {
                                 <motion.div
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.5 }}
+                                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.5 }}
                                     className="space-y-3"
                                 >
                                     <p className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-500 mb-3">Connect</p>
@@ -183,7 +210,7 @@ export default function MobileNav() {
                                     download
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.6 }}
+                                    transition={shouldReduceMotion ? { duration: 0 } : { delay: 0.6 }}
                                     className="mt-4 w-full flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-400 hover:to-blue-400 transition-all text-white font-medium shadow-lg shadow-purple-500/30"
                                 >
                                     Download Resume

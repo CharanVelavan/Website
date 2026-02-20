@@ -1,26 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 /**
  * Animated shimmer skeleton card used as a placeholder before content
  * is revealed on projects and achievements listing pages.
  */
 export default function SkeletonCard({ className = "" }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className={`rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 overflow-hidden ${className}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
     >
       {/* Shimmer image area */}
       <div className="relative w-full aspect-video bg-black/5 dark:bg-white/5 overflow-hidden">
         <motion.div
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white/8 to-transparent"
-          animate={{ x: ["-100%", "100%"] }}
-          transition={{ duration: 1.4, repeat: Infinity, ease: "linear" }}
+          animate={shouldReduceMotion ? { x: "0%" } : { x: ["-100%", "100%"] }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 1.4, repeat: Infinity, ease: "linear" }
+          }
         />
       </div>
 
@@ -30,8 +36,12 @@ export default function SkeletonCard({ className = "" }) {
         <div className="relative h-5 w-3/4 rounded-lg bg-black/8 dark:bg-white/8 overflow-hidden">
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-            animate={{ x: ["-100%", "100%"] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: "linear", delay: 0.1 }}
+            animate={shouldReduceMotion ? { x: "0%" } : { x: ["-100%", "100%"] }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration: 1.4, repeat: Infinity, ease: "linear", delay: 0.1 }
+            }
           />
         </div>
 
@@ -39,8 +49,12 @@ export default function SkeletonCard({ className = "" }) {
         <div className="relative h-3.5 w-1/2 rounded-lg bg-black/8 dark:bg-white/8 overflow-hidden">
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-            animate={{ x: ["-100%", "100%"] }}
-            transition={{ duration: 1.4, repeat: Infinity, ease: "linear", delay: 0.2 }}
+            animate={shouldReduceMotion ? { x: "0%" } : { x: ["-100%", "100%"] }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration: 1.4, repeat: Infinity, ease: "linear", delay: 0.2 }
+            }
           />
         </div>
 
@@ -54,13 +68,17 @@ export default function SkeletonCard({ className = "" }) {
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{
-                  duration: 1.4,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: 0.05 * i + 0.3,
-                }}
+                animate={shouldReduceMotion ? { x: "0%" } : { x: ["-100%", "100%"] }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : {
+                        duration: 1.4,
+                        repeat: Infinity,
+                        ease: "linear",
+                        delay: 0.05 * i + 0.3,
+                      }
+                }
               />
             </div>
           ))}

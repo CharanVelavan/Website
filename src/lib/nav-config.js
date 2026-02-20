@@ -108,6 +108,8 @@ export const NAV_SECTIONS = [
   },
 ];
 
+export const SECTION_IDS = NAV_SECTIONS.map((section) => section.id);
+
 /** Lookup a section definition by its id. Returns null if not found. */
 export function getSectionById(id) {
   return NAV_SECTIONS.find((s) => s.id === id) || null;
