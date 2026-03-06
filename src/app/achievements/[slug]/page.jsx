@@ -26,7 +26,40 @@ export default function AchievementDetailPage() {
     const IconComponent = iconMap[achievement.category] || iconMap.default;
 
     return (
-        <div className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-24 pb-tab-safe lg:py-24">
+            {/* MOBILE STICKY BACK BAR + horizontal achievement nav strip */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-[70] bg-[#f8f7f4]/95 dark:bg-black/85 backdrop-blur-md border-b border-black/10 dark:border-white/10">
+                {/* Back row */}
+                <div className="flex items-center gap-3 px-4 py-2.5">
+                    <Link
+                        href="/achievements"
+                        className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors flex-shrink-0"
+                    >
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        <span className="text-sm font-medium">Awards</span>
+                    </Link>
+                    <span className="text-black/20 dark:text-white/20">›</span>
+                    <span className="text-sm text-blue-500 dark:text-blue-400 font-medium truncate">{achievement.title}</span>
+                </div>
+                {/* Horizontal achievements nav strip */}
+                <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2.5 snap-x-mandatory">
+                    {achievements.map((a) => (
+                        <Link
+                            key={a.slug}
+                            href={`/achievements/${a.slug}`}
+                            className={`snap-start flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all ${a.slug === achievement.slug
+                                    ? 'bg-blue-500/20 border-blue-500/50 text-blue-300 font-semibold'
+                                    : 'border-white/10 text-gray-400 hover:border-blue-500/30 hover:text-white'
+                                }`}
+                        >
+                            {a.title.split('–')[0].split('—')[0].trim()}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-[280px_1fr] xl:gap-12">
                 {/* ================= LEFT SIDEBAR (Achievements Timeline) ================= */}
                 <Timeline items={achievements} basePath="/achievements" accent="blue" title="Achievements" />
@@ -101,7 +134,55 @@ export default function AchievementDetailPage() {
                         </motion.div>
                     )}
 
-                    {/* DETAILS SECTIONS */}
+                    {/* TIMELINE (for consolidated entries like Toastmasters) */}
+                    {achievement.timeline && achievement.timeline.length > 0 && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.25 }}
+                            className="mb-16"
+                        >
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Timeline of Awards</h2>
+                            <div className="relative">
+                                {/* Vertical line */}
+                                <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/60 via-blue-500/40 to-transparent" />
+
+                                <div className="space-y-8">
+                                    {achievement.timeline.map((item, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ duration: 0.4, delay: 0.3 + idx * 0.07 }}
+                                            className="relative flex gap-6"
+                                        >
+                                            {/* Dot */}
+                                            <div className="relative z-10 flex-shrink-0 mt-1">
+                                                <div className="h-9 w-9 rounded-full bg-gradient-to-br from-purple-500/30 to-blue-500/30 border-2 border-purple-400/50 flex items-center justify-center">
+                                                    <div className="h-3 w-3 rounded-full bg-purple-400" />
+                                                </div>
+                                            </div>
+
+                                            {/* Card */}
+                                            <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-purple-500/30 hover:bg-white/[0.05] transition-all p-5">
+                                                <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                                                    <p className="text-xs uppercase tracking-widest text-purple-400 font-medium">{item.date}</p>
+                                                    <div className="flex flex-wrap gap-2">
+                                                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-gray-300">{item.level}</span>
+                                                        <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/25 text-blue-300">{item.result}</span>
+                                                    </div>
+                                                </div>
+                                                <h3 className="text-base font-semibold text-white mb-1">{item.title}</h3>
+                                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+
+
                     <div className="space-y-12">
                         {/* Context */}
                         {achievement.details.context && (

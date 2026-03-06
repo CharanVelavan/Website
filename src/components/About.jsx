@@ -57,7 +57,7 @@ export default function About() {
         </motion.header>
 
         {/* MAIN CONTENT GRID */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* LEFT: ABOUT TEXT */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

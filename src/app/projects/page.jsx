@@ -116,7 +116,7 @@ export default function ProjectsPage() {
     <div className="relative">
       {/* LEFT SIDEBAR - Waterfall logos */}
       {allCompanies.length > 0 && (
-        <div className="hidden xl:block fixed left-8 top-32 bottom-8 w-20 overflow-hidden">
+        <div className="hidden lg:block fixed left-4 xl:left-8 top-32 bottom-8 w-14 xl:w-20 overflow-hidden">
           <motion.div
             className="flex flex-col gap-6"
             animate={{
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 0.6, scale: 1 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: idx * 0.1 }}
                 whileHover={shouldReduceMotion ? undefined : { opacity: 1, scale: 1.1 }}
-                className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
+                className="h-12 w-12 xl:h-16 xl:w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-2.5 flex-shrink-0"
                 title={company.name}
               >
                 <img
@@ -151,7 +151,7 @@ export default function ProjectsPage() {
 
       {/* RIGHT SIDEBAR - Waterfall logos */}
       {allCompanies.length > 0 && (
-        <div className="hidden xl:block fixed right-8 top-32 bottom-8 w-20 overflow-hidden">
+        <div className="hidden lg:block fixed right-4 xl:right-8 top-32 bottom-8 w-14 xl:w-20 overflow-hidden">
           <motion.div
             className="flex flex-col gap-6"
             animate={{
@@ -170,7 +170,7 @@ export default function ProjectsPage() {
                 animate={{ opacity: 0.6, scale: 1 }}
                 transition={shouldReduceMotion ? { duration: 0 } : { delay: idx * 0.1 }}
                 whileHover={shouldReduceMotion ? undefined : { opacity: 1, scale: 1.1 }}
-                className="h-16 w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-3 flex-shrink-0"
+                className="h-12 w-12 xl:h-16 xl:w-16 rounded-xl bg-black/5 dark:bg-white/5 backdrop-blur-sm border border-black/10 dark:border-white/10 p-2.5 flex-shrink-0"
                 title={company.name}
               >
                 <img
@@ -185,13 +185,13 @@ export default function ProjectsPage() {
       )}
 
       {/* MAIN CONTENT */}
-      <main className="mx-auto max-w-7xl px-6 py-32">
+      <main className="mx-auto max-w-7xl px-4 sm:px-6 pt-24 pb-tab-safe">
         {/* PAGE HEADER */}
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.6 }}
-          className="mb-24"
+          className="mb-12 md:mb-24"
         >
           <div className="mb-4">
             <span className="text-sm uppercase tracking-[0.2em] text-purple-400 font-medium">
@@ -209,121 +209,121 @@ export default function ProjectsPage() {
         </motion.header>
 
         {/* PROJECTS GRID */}
-        <section className="grid md:grid-cols-2 gap-8">
+        <section className="grid sm:grid-cols-2 gap-6 md:gap-8">
           {isLoading
             ? [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
             : projects.map((project, index) => {
-            const hasImage = project.images && project.images.length > 0 && project.images[0];
+              const hasImage = project.images && project.images.length > 0 && project.images[0];
 
-            return (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={
-                  shouldReduceMotion
-                    ? { duration: 0 }
-                    : { duration: 0.5, delay: index * 0.1 }
-                }
-                className="relative"
-              >
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group block h-full"
+              return (
+                <motion.div
+                  key={project.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={
+                    shouldReduceMotion
+                      ? { duration: 0 }
+                      : { duration: 0.5, delay: index * 0.1 }
+                  }
+                  className="relative"
                 >
-                  <div className="relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
-                    {/* Image Section */}
-                    <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
-                      <ProjectImageSlideshow images={project.images} title={project.title} />
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group block h-full"
+                  >
+                    <div className="relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-1">
+                      {/* Image Section */}
+                      <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
+                        <ProjectImageSlideshow images={project.images} title={project.title} />
 
-                      {/* Company Logos Badge (top right) */}
-                      {project.companies?.enabled &&
-                        project.companies?.list?.length > 0 && (
-                          <div className="absolute top-4 right-4 flex gap-2 z-10">
-                            {project.companies.list.slice(0, 2).map((company) => (
-                              <div
-                                key={company.name}
-                                className="h-12 w-12 rounded-lg bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 p-2 flex items-center justify-center"
-                                title={company.name}
-                              >
-                                <img
-                                  src={company.logo}
-                                  alt={`${company.name} logo`}
-                                  className="h-full w-full object-contain opacity-90"
-                                />
-                              </div>
-                            ))}
+                        {/* Company Logos Badge (top right) */}
+                        {project.companies?.enabled &&
+                          project.companies?.list?.length > 0 && (
+                            <div className="absolute top-4 right-4 flex gap-2 z-10">
+                              {project.companies.list.slice(0, 2).map((company) => (
+                                <div
+                                  key={company.name}
+                                  className="h-12 w-12 rounded-lg bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 p-2 flex items-center justify-center"
+                                  title={company.name}
+                                >
+                                  <img
+                                    src={company.logo}
+                                    alt={`${company.name} logo`}
+                                    className="h-full w-full object-contain opacity-90"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                        {/* Role Badge (top left) */}
+                        {project.role?.position && (
+                          <div className="absolute top-4 left-4 z-10">
+                            <span className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 backdrop-blur-md border border-purple-500/30 text-purple-300">
+                              {project.role.position}
+                            </span>
                           </div>
                         )}
-
-                      {/* Role Badge (top left) */}
-                      {project.role?.position && (
-                        <div className="absolute top-4 left-4 z-10">
-                          <span className="px-3 py-1 text-xs font-medium rounded-full bg-purple-500/20 backdrop-blur-md border border-purple-500/30 text-purple-300">
-                            {project.role.position}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-
-                    {/* Content Section */}
-                    <div className={`p-6 md:p-8 ${project.slug === "nephele-community-robot" ? "pb-36" : ""}`}>
-                      {/* Title */}
-                      <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
-                        {project.title}
-                      </h2>
-
-                      {/* Description */}
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                        {project.description}
-                      </p>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.slice(0, 3).map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all"
-                          >
-                            {tag}
-                          </span>
-                        ))}
                       </div>
+
+                      {/* Content Section */}
+                      <div className={`p-6 md:p-8 ${project.slug === "nephele-community-robot" ? "pb-36" : ""}`}>
+                        {/* Title */}
+                        <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-purple-500 dark:group-hover:text-purple-300 transition-colors">
+                          {project.title}
+                        </h2>
+
+                        {/* Description */}
+                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                          {project.description}
+                        </p>
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.slice(0, 3).map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 group-hover:bg-purple-500/20 group-hover:border-purple-500/30 transition-all"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Hover Glow Effect */}
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/10 to-pink-500/10" />
                     </div>
+                  </Link>
 
-                    {/* Hover Glow Effect */}
-                    <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/10 to-pink-500/10" />
-                  </div>
-                </Link>
-
-                {/* Nephele special buttons - positioned absolutely over the card */}
-                {project.slug === "nephele-community-robot" && project.links?.demo && (
-                  <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-col gap-3">
-                    <a
-                      href={project.links.demo}
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 via-fuchsia-600 to-purple-600 bg-[length:200%_100%] animate-gradient text-white font-bold text-sm shadow-lg shadow-purple-500/40 hover:shadow-xl hover:shadow-purple-500/60 transition-all hover:scale-105"
-                    >
-                      <span>Talk with Nephele</span>
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </a>
-                    <Link
-                      href={`/projects/${project.slug}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center justify-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                    >
-                      <span>View details</span>
-                      <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
-                  </div>
-                )}
-              </motion.div>
-            );
-          })}
+                  {/* Nephele special buttons - positioned absolutely over the card */}
+                  {project.slug === "nephele-community-robot" && project.links?.demo && (
+                    <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-col gap-3">
+                      <a
+                        href={project.links.demo}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-purple-600 via-fuchsia-600 to-purple-600 bg-[length:200%_100%] animate-gradient text-white font-bold text-sm shadow-lg shadow-purple-500/40 hover:shadow-xl hover:shadow-purple-500/60 transition-all hover:scale-105"
+                      >
+                        <span>Talk with Nephele</span>
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </a>
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="inline-flex items-center justify-center gap-2 text-sm text-purple-400 hover:text-purple-300 transition-colors"
+                      >
+                        <span>View details</span>
+                        <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
         </section>
       </main>
     </div>

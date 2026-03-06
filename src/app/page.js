@@ -25,16 +25,14 @@ export default function Home() {
 
       <Hero />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <About />
-        <FeaturedShowcase />
-        <Internships />
-        <Skills />
-        <Certifications />
-        <Publications />
-        <Education />
-        <Contact />
-      </div>
+      <About />
+      <FeaturedShowcase />
+      <Internships />
+      <Skills />
+      <Certifications />
+      <Publications />
+      <Education />
+      <Contact />
     </main>
   );
 }

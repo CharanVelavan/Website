@@ -26,7 +26,7 @@ const education = [
 
 export default function Education() {
   return (
-    <section id="education" className="py-40">
+    <section id="education" className="py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* SECTION HEADER */}
         <motion.header
@@ -34,7 +34,7 @@ export default function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="mb-20"
+          className="mb-12 md:mb-16"
         >
           <p className="text-sm uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4">
             Academics

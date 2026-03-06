@@ -17,6 +17,12 @@ export default function ResumeLayout({ children }) {
       href: "/resume/internships",
     },
     {
+      id: "volunteering",
+      title: "Volunteering",
+      description: "Community & leadership",
+      href: "/resume/volunteering",
+    },
+    {
       id: "skills",
       title: "Skills",
       description: "Technical expertise",

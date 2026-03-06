@@ -830,6 +830,166 @@ export const projects = [
     }
   },
 
+  //============================================== BUILDATHON 4.0 / ITU FG-AINN ========================================
+  {
+    title: "AI-Driven Converged 6G Network for Scalable UAV Swarm Coordination",
+    slug: "ai-native-network-uav",
+
+    description:
+      "An AI-native, edge-deployed mission coordination server that dynamically switches UAV swarm communication between 6G unicast, 5G eMBMS multicast, and ATSC 3.0 broadcast — achieving up to 98% bandwidth savings. Submitted as ITU Focus Group document FG-AINN-I-215. 2nd Place at Buildathon 4.0.",
+
+    summary:
+      "Team NVK (Charan Velavan & Yogender Raju, SSN College of Engineering) designed and implemented an AI-native converged 6G–ATSC 3.0 network architecture for scalable UAV swarm coordination in smart cities. An edge-deployed AI Mission Coordination Server on Raspberry Pi 5 dynamically classifies incoming UAV telemetry and selects the optimal delivery mode — 6G unicast for latency-critical control, 5G eMBMS multicast for group targeting, and ATSC 3.0 broadcast for mass mission dissemination — achieving up to 98% bandwidth reduction and sub-100ms latency for critical traffic. The work was submitted as an official Input Document (FG-AINN-I-215) to the ITU Focus Group on AI Native Telecommunications Networks and secured 2nd Place at Buildathon 4.0 (ITU × FreeStream).",
+
+    details: {
+      problem:
+        "UAV and drone swarms deployed in smart city environments (surveillance, disaster response, traffic monitoring, infrastructure inspection) require real-time low-latency control and simultaneous receipt of shared mission data. Existing unicast-centric cellular networks are fundamentally inefficient at scale — each UAV receiving individual mission updates creates excessive backhaul load, high latency, and limited scalability. Broadcast technologies like ATSC 3.0 solve the one-to-many problem but lack native support for bidirectional control. No existing system intelligently combines these technologies at the network edge.",
+
+      approach: [
+        "Proposed an AI-native converged 6G–ATSC 3.0 architecture where an edge-deployed AI Mission Coordination Server dynamically selects delivery modes based on context",
+        "Deployed a trained ML classification model on Raspberry Pi 5 (edge AI server) that consumes telemetry-derived features: swarm size, payload size, priority, spatial density, congestion level, latency requirements, packet loss estimates, and predicted congestion trends",
+        "Implemented adaptive confidence thresholding: high-confidence AI decisions auto-apply; a rule-based fallback ensures safe operation under low-confidence or resource-constrained conditions",
+        "Built a Python-based UAV swarm digital simulator modelling 150–300 UAVs with realistic geo-coordinates, kinematic motion, battery dynamics, spatial clustering, conflict generation, and congestion evolution",
+        "6G unicast for latency-critical individual commands and telemetry feedback; 5G eMBMS multicast for targeted group missions; ATSC 3.0 broadcast for mass mission data distribution to the entire swarm",
+        "Developed a real-time Mission Control Dashboard in Streamlit — displaying AI decision analytics, network performance metrics, bandwidth savings visualization, 2D/3D UAV geolocation maps, battery monitoring, and manual test panel with predictive congestion analysis",
+        "Demonstrated scenario comparison: pure unicast (220–230ms avg latency, 30% congestion at 200 UAVs), non-intelligent multicast (>40% congestion, unstable latency), and the proposed AI-driven mixed strategy (comparable latency, ~147 MB bandwidth savings, ≈96% reduction, 32–33% congestion)",
+      ],
+
+      outcome: [
+        "Achieved up to 98% bandwidth savings without compromising QoS for mission-critical operations",
+        "Maintained sub-50ms latency for critical 6G unicast traffic while supporting bandwidth-intensive ATSC 3.0 broadcast simultaneously",
+        "Successfully simulated and managed 150–300 UAVs in real-time with sub-100ms AI inference latency on edge hardware (Raspberry Pi 5)",
+        "Demonstrated effective coexistence of heterogeneous network technologies (6G, 5G eMBMS, ATSC 3.0) in a single AI-orchestrated architecture",
+        "Submitted official Input Document FG-AINN-I-215 to the ITU Focus Group on AI Native Networks (FG-AINN) for the study period 2025–2028",
+        "Secured 2nd Place at Buildathon 4.0: AI Native Networks & Applications (ITU × FreeStream), Virtual, February 2026",
+        "Validated as a viable foundation for commercial drone delivery, emergency response coordination, agricultural monitoring, and smart city infrastructure",
+      ],
+    },
+
+    role: {
+      enabled: true,
+      position: "Co-Author & System Architect (Team NVK)",
+      company: "SSN College of Engineering · ITU FG-AINN Buildathon 4.0",
+      duration: "Jan – Feb 2026",
+      responsibilities: [
+        "Co-designed the AI-native converged 6G–ATSC 3.0 architecture for UAV swarm communication",
+        "Architected and deployed the ML-based AI Mission Coordination Server on Raspberry Pi 5",
+        "Trained the classification model to select optimal delivery mode (unicast / multicast / broadcast) from telemetry features",
+        "Developed the Python-based UAV Swarm Digital Simulator modelling 150–300 UAVs with realistic mobility, battery dynamics, and congestion patterns",
+        "Implemented the bidirectional communication protocol between simulation host and Raspberry Pi edge AI server",
+        "Built the Streamlit Mission Control Dashboard with real-time AI analytics, 2D/3D UAV maps, bandwidth visualization, and manual test panels",
+        "Prepared and submitted the official ITU Input Document (FG-AINN-I-215) with full PoC description and results",
+        "Presented and defended the system at the ITU Buildathon 4.0 virtual event (10–12 February 2026)",
+      ],
+      technologies: [
+        "Python",
+        "Machine Learning (Classification)",
+        "Raspberry Pi 5 (Edge AI)",
+        "Streamlit",
+        "6G / 5G eMBMS",
+        "ATSC 3.0 Broadcast",
+        "UAV Swarm Simulation",
+        "Edge Computing",
+        "Network Convergence",
+        "ITU Standards",
+      ],
+    },
+
+    metrics: {
+      enabled: true,
+      results: [
+        {
+          label: "Bandwidth Savings",
+          value: "~98%",
+          description: "vs. unicast-only baseline; ~147 MB reduction per operation",
+        },
+        {
+          label: "Unicast Latency",
+          value: "<50ms",
+          description: "Sub-50ms latency for mission-critical 6G unicast traffic",
+        },
+        {
+          label: "AI Inference",
+          value: "<100ms",
+          description: "Edge-side ML inference on Raspberry Pi 5",
+        },
+        {
+          label: "Swarm Scale",
+          value: "150–300 UAVs",
+          description: "Real-time simulation and coordination",
+        },
+        {
+          label: "Competition Result",
+          value: "🥈 2nd Place",
+          description: "ITU Buildathon 4.0 — AI Native Networks & Applications",
+        },
+        {
+          label: "ITU Document",
+          value: "FG-AINN-I-215",
+          description: "Official submission to ITU Focus Group on AI Native Networks",
+        },
+        {
+          label: "Delivery Modes",
+          value: "3",
+          description: "6G Unicast · 5G eMBMS Multicast · ATSC 3.0 Broadcast",
+        },
+        {
+          label: "Congestion (AI mode)",
+          value: "32–33%",
+          description: "Manageable congestion even at large swarm sizes",
+        },
+      ],
+    },
+
+    tags: [
+      "AI Native Networks",
+      "6G",
+      "UAV Swarm",
+      "ATSC 3.0",
+      "5G eMBMS",
+      "Edge AI",
+      "Raspberry Pi 5",
+      "Streamlit",
+      "Machine Learning",
+      "ITU",
+      "Smart Cities",
+      "Unicast",
+      "Multicast",
+      "Broadcast",
+      "Network Convergence",
+      "Hackathon",
+      "#AIForGood",
+    ],
+
+    links: {
+      report: "/papers/buildathon-itu-fgainn-215.pdf",
+      github: "",
+    },
+
+    images: [],
+
+    companies: {
+      enabled: true,
+      list: [
+        {
+          name: "ITU",
+          logo: "/images/logos/itu.png",
+          url: "https://www.itu.int/",
+        },
+        {
+          name: "SSN College of Engineering",
+          logo: "/images/logos/ssn.png",
+          url: "https://www.ssn.edu.in",
+        },
+        {
+          name: "FreeStream",
+          logo: "/images/logos/freestream.png",
+          url: "https://freestream.ai",
+        },
+      ],
+    },
+  },
+
 ];
 
 export function getProjectBySlug(slug) {

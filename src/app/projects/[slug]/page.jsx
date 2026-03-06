@@ -21,20 +21,38 @@ export default function ProjectSlugPage() {
   const externalLink = project.links?.demo || project.links?.report;
 
   return (
-    <div className="mx-auto max-w-[1600px] px-6 pt-28 pb-24 lg:py-24">
-      {/* MOBILE STICKY BACK BAR — hidden on desktop (Timeline handles it there) */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-[70] bg-black/80 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-3">
-        <Link
-          href="/projects"
-          className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
-        >
-          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          <span className="text-sm font-medium">Back to Projects</span>
-        </Link>
-        <span className="text-white/20 text-sm">|</span>
-        <span className="text-sm text-purple-400 font-medium truncate">{project.title}</span>
+    <div className="mx-auto max-w-[1600px] px-4 sm:px-6 pt-28 pb-tab-safe lg:py-24">
+      {/* MOBILE STICKY BACK BAR + horizontal project strip — hidden on desktop */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-[70] bg-[#f8f7f4]/95 dark:bg-black/85 backdrop-blur-md border-b border-black/10 dark:border-white/10">
+        {/* Back row */}
+        <div className="flex items-center gap-3 px-4 py-2.5">
+          <Link
+            href="/projects"
+            className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors flex-shrink-0"
+          >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span className="text-sm font-medium">Projects</span>
+          </Link>
+          <span className="text-black/20 dark:text-white/20">›</span>
+          <span className="text-sm text-purple-500 dark:text-purple-400 font-medium truncate">{project.title}</span>
+        </div>
+        {/* Horizontal project nav strip */}
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2.5 snap-x-mandatory">
+          {projects.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/projects/${p.slug}`}
+              className={`snap-start flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all ${p.slug === project.slug
+                  ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 font-semibold'
+                  : 'border-white/10 text-gray-400 hover:border-purple-500/30 hover:text-white'
+                }`}
+            >
+              {p.title.split("–")[0].split("—")[0].trim()}
+            </Link>
+          ))}
+        </div>
       </div>
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-[280px_1fr] xl:grid-cols-[280px_1fr_240px] xl:gap-6">
         {/* ================= LEFT SIDEBAR (Timeline) ================= */}
@@ -68,7 +86,7 @@ export default function ProjectSlugPage() {
           >
             <p className="mb-3 text-xs uppercase tracking-[0.2em] text-gray-500">Project</p>
 
-            <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
               {project.title}
             </h1>
 
@@ -97,7 +115,7 @@ export default function ProjectSlugPage() {
           </motion.header>
 
           {/* ================= CONTENT ================= */}
-          <section className="space-y-20">
+          <section className="space-y-12 md:space-y-20">
             {/* IMAGE GALLERY */}
             {project.images && project.images.length > 0 && (
               <motion.div

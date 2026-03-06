@@ -11,7 +11,7 @@ export default function Hero() {
   const gradientOpacity = useTransform(scrollY, [0, 7500], [1, 0]);
 
   return (
-    <section id="hero" className="relative min-h-screen pt-20 pb-12 md:pt-28 md:pb-16 overflow-hidden">
+    <section id="hero" className="relative min-h-screen pt-20 pb-12 md:pt-28 md:pb-16 pb-tab-safe overflow-hidden">
       {/* FIXED BACKGROUND GRADIENTS */}
       <motion.div
         style={{ opacity: gradientOpacity }}
@@ -28,7 +28,7 @@ export default function Hero() {
               ? { duration: 0 }
               : { duration: 20, repeat: Infinity, ease: "easeInOut" }
           }
-          className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-purple-500/30 blur-3xl"
+          className="absolute -top-40 -left-40 h-[300px] w-[300px] md:h-[600px] md:w-[600px] rounded-full bg-purple-500/30 blur-3xl"
         />
         <motion.div
           animate={
@@ -41,13 +41,13 @@ export default function Hero() {
               ? { duration: 0 }
               : { duration: 25, repeat: Infinity, ease: "easeInOut" }
           }
-          className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-blue-500/30 blur-3xl"
+          className="absolute top-1/3 -right-40 h-[300px] w-[300px] md:h-[600px] md:w-[600px] rounded-full bg-blue-500/30 blur-3xl"
         />
       </motion.div>
 
       {/* CONTENT GRID */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-        <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-start">
           {/* LEFT COLUMN */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -59,7 +59,7 @@ export default function Hero() {
               Embedded Developer
             </p>
 
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9]">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-[0.9]">
               Hello I'm <br />
               <span className="text-fuchsia-500">Charan</span>
             </h1>
@@ -70,10 +70,10 @@ export default function Hero() {
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="mt-10 flex flex-wrap items-center gap-3">
+            <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-3">
               <a
                 href="/projects"
-                className="group px-6 py-3 text-base bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-400 hover:to-blue-400 transition-all hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 inline-flex items-center gap-2"
+                className="group px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-400 hover:to-blue-400 transition-all hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 inline-flex items-center gap-2"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -82,7 +82,7 @@ export default function Hero() {
               <a
                 href="/resume.pdf"
                 download
-                className="group px-6 py-3 text-base border border-purple-500/40 text-purple-600 dark:text-purple-300 rounded-lg hover:border-purple-500/70 hover:bg-purple-500/10 transition-all hover:scale-105 inline-flex items-center gap-2"
+                className="group px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base border border-purple-500/40 text-purple-600 dark:text-purple-300 rounded-xl hover:border-purple-500/70 hover:bg-purple-500/10 transition-all hover:scale-105 inline-flex items-center gap-2"
               >
                 <Download className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
                 Resume
@@ -90,7 +90,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="px-2 py-3 text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
+                className="px-2 py-2.5 text-sm md:text-base text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Contact Me
               </a>
@@ -157,10 +157,10 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center md:justify-end"
+            className="flex justify-center md:justify-end pt-4 md:pt-8"
           >
             {/* RESPONSIVE CIRCLE */}
-            <div className="relative aspect-square w-[260px] sm:w-[320px] md:w-[420px] lg:w-[480px]">
+            <div className="relative aspect-square w-[200px] xs:w-[240px] sm:w-[300px] md:w-[400px] lg:w-[460px]">
               {/* REVOLVING DASHED RING (CLOSER) */}
               <motion.div
                 animate={shouldReduceMotion ? { rotate: 0 } : { rotate: 360 }}
@@ -227,7 +227,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.5 }}
-        className="absolute bottom-20 left-1/2 -translate-x-1/2"
+        className="absolute bottom-28 lg:bottom-20 left-1/2 -translate-x-1/2"
       >
         <motion.button
           animate={shouldReduceMotion ? { y: 0 } : { y: [0, 10, 0] }}

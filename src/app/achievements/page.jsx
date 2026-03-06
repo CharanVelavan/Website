@@ -27,13 +27,13 @@ export default function AchievementsPage() {
     return (
         <div className="relative">
             {/* MAIN CONTENT */}
-            <main className="mx-auto max-w-7xl px-6 py-32">
+            <main className="mx-auto max-w-7xl px-6 pt-24 pb-16 md:py-32">
                 {/* PAGE HEADER */}
                 <motion.header
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="mb-24"
+                    className="mb-12 md:mb-24"
                 >
                     <div className="mb-4">
                         <span className="text-sm uppercase tracking-[0.2em] text-blue-400 font-medium">

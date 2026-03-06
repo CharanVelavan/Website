@@ -209,6 +209,151 @@ export const achievements = [
         },
     },
 
+    // ── TOASTMASTERS (Consolidated) ──────────────────────────────────────────
+
+    {
+        id: 5,
+        title: "Toastmasters International – Awards & Recognition",
+        slug: "toastmasters-awards",
+        date: "2023",
+        year: "2022–2026",
+        category: "Public Speaking",
+        shortDescription:
+            "Multiple contest placements and recognition at TMI@EastCoast Toastmasters Club — spanning Table Topics, Humorous Speech, Evaluation contests at both Club and Area levels, plus Outstanding Member recognition.",
+
+        summary:
+            "Over three years as an active member of TMI@EastCoast Toastmasters Club, competed in and placed in multiple speech and evaluation contests at both Club and Area levels. Served as VP Public Relations and now Club President. Recognised as Outstanding Member for 2022–23.",
+
+        // Timeline of individual awards — rendered as a visual timeline on the detail page
+        timeline: [
+            {
+                date: "Jan 2026 – Present",
+                title: "Club President",
+                description: "Leading TMI@EastCoast as Club President, overseeing operations and member development.",
+                level: "Club",
+                result: "Current Role",
+            },
+            {
+                date: "Oct 2023",
+                title: "Evaluation Contest – Runner-up",
+                description: "Achieved Runner-up at the Area-level Evaluation Speech Contest, demonstrating strong evaluative feedback skills.",
+                level: "Area Level",
+                result: "🥈 Runner-up",
+            },
+            {
+                date: "Oct 2023",
+                title: "Humorous Speech Contest – 2nd Runner-up",
+                description: "Secured 2nd Runner-up at the Area-level Humorous Speech Contest, showcasing wit, comedic timing, and audience engagement.",
+                level: "Area Level",
+                result: "🥉 2nd Runner-up",
+            },
+            {
+                date: "Sep 2023",
+                title: "Evaluation Contest – Runner-up",
+                description: "Achieved Runner-up at Club-level Evaluation Contest, qualifying to advance to the Area-level round.",
+                level: "Club Level",
+                result: "🥈 Runner-up",
+            },
+            {
+                date: "Sep 2023",
+                title: "Humorous Speech Contest – Runner-up",
+                description: "Achieved Runner-up at Club-level Humorous Speech Contest, qualifying for the Area-level competition.",
+                level: "Club Level",
+                result: "🥈 Runner-up",
+            },
+            {
+                date: "Aug 2023",
+                title: "Outstanding Member (2022–2023)",
+                description: "Recognized as Outstanding Member for exemplary participation, growth, and contributions during the 2022–23 term.",
+                level: "Club",
+                result: "🏅 Outstanding Member",
+            },
+            {
+                date: "Jun 2023 – Dec 2023",
+                title: "Vice President Public Relations (VPPR)",
+                description: "Led communication initiatives at TMI@EastCoast, crafting compelling narratives and promoting members' public speaking achievements.",
+                level: "Club",
+                result: "Leadership Role",
+            },
+            {
+                date: "Apr 2023",
+                title: "Table Topics Contest – Runner-up",
+                description: "Achieved Runner-up at Club-level Table Topics Contest, demonstrating strong impromptu speaking skills.",
+                level: "Club Level",
+                result: "🥈 Runner-up",
+            },
+        ],
+
+        details: {
+            context:
+                "Toastmasters International is the world's leading organization for public speaking and leadership development. TMI@EastCoast is a club affiliated with Toastmasters International, where members practice and compete in various speech and evaluation contests.",
+
+            challenge:
+                "Competed across multiple contest categories — Humorous Speech, Table Topics (impromptu), and Evaluation — at both Club and Area levels, each testing a different dimension of communication: wit, spontaneity, and analytical feedback.",
+
+            solution:
+                "Committed to consistent participation: prepared structured speeches, studied evaluation frameworks, served in leadership roles as VPPR and then Club President, and represented the club across contest levels.",
+
+            myRole:
+                "Active member since July 2022. Served as VP Public Relations (Jun–Dec 2023) and elected Club President (Jan 2026–Present). Competed individually in Humorous Speech, Table Topics, and Evaluation contests.",
+
+            impact:
+                "Placed Runner-up or higher in 5 contests across Club and Area levels. Named Outstanding Member for 2022–23. Led club communications as VPPR and currently lead all club operations as President.",
+
+            recognition:
+                "Multiple contest placements (Runner-up, 2nd Runner-up) at Club and Area levels. Outstanding Member award for 2022–23 term. All recognitions issued by Toastmasters International.",
+        },
+
+        images: ["/images/achievements/tmi-outstanding-member/WhatsApp Image 2024-01-08 at 22.41.52.jpeg"],
+        tags: ["Toastmasters", "Public Speaking", "Leadership", "Contest", "VPPR", "Club President"],
+        links: {
+            website: "https://www.toastmasters.org/",
+        },
+    },
+
+    // ── BUILDATHON 4.0 ──────────────────────────────────────────────────────
+
+    {
+        id: 6,
+        title: "Buildathon 4.0 – 2nd Place | ITU FG-AINN AI Native Networks",
+        slug: "buildathon-4-2nd-place",
+        date: "Feb 2026",
+        year: "2026",
+        category: "Hackathon",
+        shortDescription:
+            "Secured 2nd Place at ITU Buildathon 4.0 (AI Native Networks & Applications). Built an AI-native converged 6G–ATSC 3.0 network for scalable UAV swarm coordination — achieving up to 98% bandwidth savings. Submitted as official ITU Focus Group document FG-AINN-I-215.",
+
+        summary:
+            "Team NVK (Charan Velavan & Yogender Raju, SSN College of Engineering) secured 2nd Place at Buildathon 4.0: AI Native Networks & Applications (ITU × FreeStream). The project is an AI-native converged 6G–ATSC 3.0 network architecture for scalable UAV swarm coordination in smart cities. An edge-deployed AI Mission Coordination Server on Raspberry Pi 5 dynamically classifies UAV telemetry and selects the optimal delivery mode — 6G unicast for latency-critical control, 5G eMBMS multicast for group missions, and ATSC 3.0 broadcast for mass distribution — achieving up to 98% bandwidth savings. Submitted as ITU Focus Group document FG-AINN-I-215 and mentored by Dr. P. Kaythry.",
+
+        details: {
+            context:
+                "ITU Buildathon 4.0 focused on AI-native networks and applications within the Framework of ITU's Focus Group on AI Native for Telecommunications Networks (FG-AINN). The challenge demanded working Proof-of-Concept prototypes integrating real AI and networking for smart city and next-generation communication use cases, judged against international standards bodies.",
+
+            challenge:
+                "UAV swarms deployed in smart cities for surveillance, disaster response, and traffic monitoring require both low-latency bidirectional control and efficient distribution of shared mission data to hundreds of drones simultaneously. Unicast-only cellular approaches create backhaul overload; pure broadcast lacks bidirectional control. The challenge was to combine these heterogeneous technologies intelligently at the network edge.",
+
+            solution:
+                "Designed and implemented an AI-native converged 6G–ATSC 3.0 architecture. An edge-deployed AI Mission Coordination Server on Raspberry Pi 5 runs a trained ML classification model that consumes real-time telemetry features (swarm size, spatial density, congestion, priority, latency needs) to dynamically select between 6G unicast (for latency-critical control), 5G eMBMS multicast (for group targeting), and ATSC 3.0 broadcast (for mass mission dissemination). A Python-based UAV simulator models 150–300 UAVs with geo-coordinates, battery dynamics, and congestion. A Streamlit Mission Control Dashboard visualizes AI decisions, bandwidth savings, 2D/3D UAV maps, and predictive analysis in real time.",
+
+            myRole:
+                "Co-architect of the system with Yogender Raju (Team NVK), guided by Dr. P. Kaythry (SSN). Designed the AI architecture and training pipeline, built the UAV Swarm Digital Simulator in Python, deployed the ML model on Raspberry Pi 5, implemented the inter-device communication protocol, and developed the Streamlit Mission Control Dashboard.",
+
+            impact:
+                "Achieved up to 98% bandwidth savings (~147 MB per operation) vs. unicast-only baseline. Maintained sub-50ms latency for critical 6G unicast traffic while running concurrent ATSC 3.0 broadcast. Successfully coordinated 150–300 UAVs in real-time with sub-100ms AI edge inference. Submitted as official ITU FG-AINN Input Document (FG-AINN-I-215) for the 2025–2028 study period.",
+
+            recognition:
+                "2nd Place at Buildathon 4.0: AI Native Networks & Applications, organized by the International Telecommunication Union (ITU) and FreeStream Technologies. Official Input Document submitted: FG-AINN-I-215. Collaboration with Edge Beam Wireless. Internal Guide: Dr. P. Kaythry, SSN College of Engineering.",
+        },
+
+        images: [],
+        tags: ["AI Native Networks", "6G", "ATSC 3.0", "UAV Swarm", "Raspberry Pi 5", "Edge AI", "ITU", "5G eMBMS", "Streamlit", "Machine Learning", "Smart Cities", "2nd Place", "#AIForGood"],
+        links: {
+            report: "/papers/buildathon-itu-fgainn-215.pdf",
+            github: "",
+        },
+    },
+
     // Add more achievements here as needed
 ];
 
@@ -220,4 +365,5 @@ export const featuredAchievementSlugs = [
     "inventors-challenge-23",
     "sih-23-finalist",
     "nbuc-24-first-place",
+    "buildathon-4-2nd-place",
 ];
