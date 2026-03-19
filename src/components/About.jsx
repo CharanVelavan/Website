@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cpu, Radio, Brain, Cloud, Zap, Code, Antenna } from "lucide-react";
+import GlowCard from "@/components/GlowCard";
 
 const skills = [
   {
@@ -66,46 +67,48 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed"
           >
-            <div className="rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] p-8 backdrop-blur-sm">
-              <p className="text-lg leading-relaxed">
-                I am an{" "}
-                <span className="text-gray-900 dark:text-white font-semibold">
-                  Electronics and Communication Engineering graduate
-                </span>{" "}
-                with a strong focus on building real-world systems at the
-                intersection of{" "}
-                <span className="text-purple-500 dark:text-purple-400">
-                  5G networks, AI/ML, and embedded platforms
-                </span>
-                .
-              </p>
+            <GlowCard borderRadius={16}>
+              <div className="p-8">
+                <p className="text-lg leading-relaxed">
+                  I am an{" "}
+                  <span className="text-gray-900 dark:text-white font-semibold">
+                    Electronics and Communication Engineering graduate
+                  </span>{" "}
+                  with a strong focus on building real-world systems at the
+                  intersection of{" "}
+                  <span className="text-purple-500 dark:text-purple-400">
+                    5G networks, AI/ML, and embedded platforms
+                  </span>
+                  .
+                </p>
 
-              <p className="mt-4">
-                My work spans the full stack — from hardware and RF concepts to
-                edge intelligence, cloud infrastructure, and production-grade
-                software systems.
-              </p>
+                <p className="mt-4">
+                  My work spans the full stack — from hardware and RF concepts to
+                  edge intelligence, cloud infrastructure, and production-grade
+                  software systems.
+                </p>
 
-              <p className="mt-4">
-                I have hands-on experience developing and deploying{" "}
-                <span className="text-purple-500 dark:text-purple-400">
-                  AI-enabled UAV and robotic systems
-                </span>
-                , including a 5G-based search-and-rescue drone integrated with
-                commercial radio infrastructure, and a swarm-enabled community
-                robot powered by cloud-native services and large language
-                models.
-              </p>
+                <p className="mt-4">
+                  I have hands-on experience developing and deploying{" "}
+                  <span className="text-purple-500 dark:text-purple-400">
+                    AI-enabled UAV and robotic systems
+                  </span>
+                  , including a 5G-based search-and-rescue drone integrated with
+                  commercial radio infrastructure, and a swarm-enabled community
+                  robot powered by cloud-native services and large language
+                  models.
+                </p>
 
-              <p className="mt-4">
-                I am particularly motivated by projects that involve{" "}
-                <span className="text-gray-900 dark:text-white font-semibold">
-                  real hardware, real networks, and real constraints
-                </span>
-                , and I thrive in environments that value problem-solving,
-                experimentation, and continuous learning.
-              </p>
-            </div>
+                <p className="mt-4">
+                  I am particularly motivated by projects that involve{" "}
+                  <span className="text-gray-900 dark:text-white font-semibold">
+                    real hardware, real networks, and real constraints
+                  </span>
+                  , and I thrive in environments that value problem-solving,
+                  experimentation, and continuous learning.
+                </p>
+              </div>
+            </GlowCard>
           </motion.div>
 
           {/* RIGHT: SKILLS GRID */}
@@ -127,15 +130,22 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.1 * index }}
                   whileHover={{ y: -4 }}
-                  className="group rounded-xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.02] p-5 hover:border-purple-500/50 hover:bg-black/[0.05] dark:hover:bg-white/[0.05] transition-all duration-300"
                 >
-                  <skill.icon className="h-8 w-8 text-purple-500 dark:text-purple-400 mb-3 group-hover:text-purple-400 dark:group-hover:text-purple-300 transition-colors" />
-                  <h4 className="text-gray-900 dark:text-white font-semibold mb-1 text-sm">
-                    {skill.title}
-                  </h4>
-                  <p className="text-gray-500 text-xs leading-relaxed">
-                    {skill.description}
-                  </p>
+                  <GlowCard borderRadius={12}>
+                    <div className="group relative p-5 cursor-pointer">
+                      {/* Scan line on hover */}
+                      <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100">
+                        <div className="absolute inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-purple-400/60 to-transparent" style={{ animation: 'scan-line 1.5s ease-in-out infinite' }} />
+                      </div>
+                      <skill.icon className="h-8 w-8 text-purple-500 dark:text-purple-400 mb-3 group-hover:text-purple-400 dark:group-hover:text-purple-300 transition-colors" />
+                      <h4 className="text-gray-900 dark:text-white font-semibold mb-1 text-sm">
+                        {skill.title}
+                      </h4>
+                      <p className="text-gray-500 text-xs leading-relaxed">
+                        {skill.description}
+                      </p>
+                    </div>
+                  </GlowCard>
                 </motion.div>
               ))}
             </div>
@@ -146,19 +156,26 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-6 rounded-xl border border-purple-500/30 bg-purple-500/5 p-6"
+              className="mt-6 rounded-xl p-[1px] animate-border-flow"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(168,85,247,0.7) 0%, rgba(217,70,239,0.5) 35%, rgba(59,130,246,0.5) 65%, rgba(168,85,247,0.7) 100%)",
+                backgroundSize: "300% 300%",
+              }}
             >
-              <div className="flex items-start gap-3">
-                <Zap className="h-6 w-6 text-purple-500 dark:text-purple-400 flex-shrink-0 mt-1" />
-                <div>
-                  <h4 className="text-gray-900 dark:text-white font-semibold mb-2">
-                    Currently Exploring
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    Next-generation wireless communication (5G, O-RAN),
-                    computer vision and deep learning, embedded AI, and
-                    scalable cloud architectures.
-                  </p>
+              <div className="rounded-xl bg-[#f8f7f4] dark:bg-[#0a0a0a] p-6">
+                <div className="flex items-start gap-3">
+                  <Zap className="h-6 w-6 text-purple-500 dark:text-purple-400 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-gray-900 dark:text-white font-semibold mb-2">
+                      Currently Exploring
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                      Next-generation wireless communication (5G, O-RAN),
+                      computer vision and deep learning, embedded AI, and
+                      scalable cloud architectures.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

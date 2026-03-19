@@ -62,10 +62,9 @@ body {
     0 0 0 4px rgb(var(--focus-ring-offset));
 }
 
-/* GPU acceleration for fixed elements */
-.fixed {
-  will-change: transform;
-  transform: translateZ(0);
+/* Prevent horizontal overflow site-wide without breaking position:fixed or sticky */
+html {
+  overflow-x: clip;
 }
 
 @keyframes spinSlow {
@@ -112,4 +111,183 @@ body {
 
 .animate-gradient {
   animation: gradient 3s ease infinite;
+}
+
+/* ─── HERO PARTICLE GRID ─── */
+.particle-grid {
+  background-image: radial-gradient(circle, rgba(168, 85, 247, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@media (min-width: 768px) {
+  .particle-grid {
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes grid-pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-grid-pulse {
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+/* ─── TEXT SHIMMER ─── */
+@keyframes text-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* ─── BORDER GRADIENT FLOW ─── */
+@keyframes border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-border-flow {
+  background-size: 300% 300%;
+  animation: border-flow 4s ease infinite;
+}
+
+/* ─── GLOW PULSE ─── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(168, 85, 247, 0.3), 0 0 20px rgba(168, 85, 247, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.5), 0 0 40px rgba(168, 85, 247, 0.2);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ─── SCAN LINE (HUD effect for cards) ─── */
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200%);
+    opacity: 0;
+  }
+}
+
+/* ─── MARQUEE ─── */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 30s linear infinite;
+}
+
+@media (max-width: 767px) {
+  .animate-marquee-left {
+    animation-duration: 20s;
+  }
+  .animate-marquee-right {
+    animation-duration: 20s;
+  }
+}
+
+/* ─── STATUS DOT PING ─── */
+@keyframes status-ping {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-status-ping {
+  animation: status-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ─── ORBIT ─── */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit var(--orbit-duration, 12s) linear infinite;
+}
+
+/* ─── CONSTELLATION LINES ─── */
+@keyframes constellation-line {
+  0%, 100% { opacity: 0; }
+  25%, 75%  { opacity: 0.35; }
+}
+
+.animate-constellation-line {
+  animation: constellation-line 5s ease-in-out infinite;
+}
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-grid-pulse,
+  .animate-text-shimmer,
+  .animate-border-flow,
+  .animate-glow-pulse,
+  .animate-marquee-left,
+  .animate-marquee-right,
+  .animate-status-ping,
+  .animate-orbit,
+  .animate-gradient,
+  .animate-constellation-line {
+    animation: none;
+  }
 }

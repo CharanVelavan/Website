@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, MapPin, Calendar, Award } from "lucide-react";
 import ImageGallery from "@/components/ImageGallery";
 
 const internships = [
@@ -67,12 +67,12 @@ const internships = [
     skills: ["Antenna Design", "CST Microwave Studio"],
   },
 
-  // ── PRODIGY INFOTECH ──────────────────────────────────────────────────────
+  // ── TECHPHOSIS ──────────────────────────────────────────────────────────────
   {
     id: "techphosis",
     company: "Techphosis",
     logo: "/images/intern/techphosis/logo.png",
-    role: "Internship Report",
+    role: "5G Network Engineer Intern",
     duration: "Mar 2024 – May 2024",
     description: [
       "Implemented a 5G-based O-RAN architecture using open-source tools and USRP B210 SDR, emphasizing openness and interoperability.",
@@ -92,110 +92,139 @@ const internships = [
 export default function InternshipsPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 sm:px-6 pt-24 pb-tab-safe">
-      {/* ================= HEADER ================= */}
-      <header className="mb-16">
-        <p className="mb-4 text-sm uppercase tracking-widest text-gray-400">
+
+      {/* ── HEADER ── */}
+      <motion.header
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-16"
+      >
+        <p className="mb-3 text-sm uppercase tracking-widest text-purple-400 font-medium">
           Resume
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
-          Internships & Experience
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+          Internships &amp; Experience
         </h1>
-        <p className="mt-6 max-w-3xl leading-relaxed text-gray-400">
+        <p className="mt-4 max-w-2xl text-gray-400 leading-relaxed">
           Hands-on industry and research experience across networking, RF design,
           and enterprise systems.
         </p>
-      </header>
+      </motion.header>
 
-      {/* ================= INTERNSHIPS ================= */}
-      <section className="space-y-16">
-        {internships.map((internship, index) => (
-          <motion.div
-            key={internship.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            className="group rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
-          >
-            {/* Company Logo Header */}
-            <div className="relative h-32 bg-white/[0.02] flex items-center justify-center border-b border-white/10">
-              <img
-                src={internship.logo}
-                alt={`${internship.company} logo`}
-                className="h-16 w-auto object-contain"
-              />
-            </div>
+      {/* ── TIMELINE ── */}
+      <div className="relative">
+        {/* vertical connector line */}
+        <div className="absolute left-7 top-6 bottom-6 w-px bg-gradient-to-b from-purple-500/60 via-purple-500/20 to-transparent hidden md:block" />
 
-            {/* Content */}
-            <div className="p-5 sm:p-6 md:p-8">
-              <div className="mb-2 flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
-                <h2 className="text-2xl font-semibold text-white">
-                  {internship.company}
-                </h2>
-                <span className="text-sm text-gray-400">{internship.duration}</span>
+        <div className="space-y-8">
+          {internships.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative md:pl-20"
+            >
+              {/* timeline dot */}
+              <div className="absolute left-[13px] top-8 w-[18px] h-[18px] rounded-full border-2 border-purple-500 bg-[#0a0a0a] hidden md:flex items-center justify-center z-10">
+                <div className="w-2 h-2 rounded-full bg-purple-500" />
               </div>
 
-              <p className="mb-1 text-sm font-medium text-purple-300">
-                {internship.role}{internship.type && <span className="ml-2 text-gray-500 text-xs font-normal">· {internship.type}</span>}
-              </p>
+              {/* card */}
+              <div className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300">
 
-              {internship.location && (
-                <p className="mb-4 text-xs text-gray-500">{internship.location}</p>
-              )}
+                {/* card header */}
+                <div className="flex items-start gap-4 p-5 sm:p-6 border-b border-white/8">
+                  <div className="w-14 h-14 rounded-xl bg-white flex-shrink-0 flex items-center justify-center p-2 shadow-lg ring-1 ring-black/5">
+                    <img
+                      src={item.logo}
+                      alt={item.company}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex flex-wrap items-start justify-between gap-2">
+                      <h2 className="text-base font-bold text-white group-hover:text-purple-200 transition-colors leading-snug">
+                        {item.company}
+                      </h2>
+                      <span className="flex items-center gap-1.5 text-[11px] text-gray-400 bg-white/5 rounded-full px-2.5 py-1 border border-white/10 whitespace-nowrap flex-shrink-0">
+                        <Calendar size={10} />
+                        {item.duration}
+                      </span>
+                    </div>
+                    <p className="text-purple-400 text-sm font-medium mt-1">
+                      {item.role}
+                      {item.type && (
+                        <span className="ml-2 text-[11px] font-normal text-gray-500 bg-white/5 rounded-full px-2 py-0.5 border border-white/10">
+                          {item.type}
+                        </span>
+                      )}
+                    </p>
+                    {item.location && (
+                      <p className="flex items-center gap-1 text-xs text-gray-500 mt-1">
+                        <MapPin size={10} />
+                        {item.location}
+                      </p>
+                    )}
+                  </div>
+                </div>
 
-              <ul className="list-disc space-y-2 pl-6 text-gray-400 mb-4">
-                {internship.description.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
+                {/* card body */}
+                <div className="p-5 sm:p-6 space-y-5">
 
-              {/* Skills Tags */}
-              {internship.skills && internship.skills.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {internship.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300"
+                  {/* description */}
+                  <ul className="space-y-2.5">
+                    {item.description.map((point, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-gray-300 leading-relaxed">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-purple-500/80 flex-shrink-0" />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* skills */}
+                  {item.skills && item.skills.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {item.skills.map((skill) => (
+                        <span key={skill} className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* certificate */}
+                  {item.certificate && (
+                    <a
+                      href={item.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all group/btn"
                     >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
+                      <Award size={14} />
+                      View Certificate
+                      <ExternalLink size={12} className="opacity-50 group-hover/btn:opacity-100 transition-opacity" />
+                    </a>
+                  )}
 
-              {/* Certificate Button */}
-              {internship.certificate && (
-                <div className="mb-6">
-                  <a
-                    href={internship.certificate}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
-                  >
-                    <span>View Certificate</span>
-                    <ExternalLink size={16} />
-                  </a>
+                  {/* gallery */}
+                  {item.images && item.images.length > 0 && (
+                    <div className="pt-2 border-t border-white/8">
+                      <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-3">Gallery</p>
+                      <ImageGallery images={item.images} title={item.company} />
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-              {/* Image Gallery */}
-              {internship.images && internship.images.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">Gallery</h3>
-                  <ImageGallery images={internship.images} title={internship.company} />
-                </div>
-              )}
-            </div>
-          </motion.div>
-        ))}
-      </section>
-
-      {/* ================= BACK LINK ================= */}
+      {/* ── BACK ── */}
       <div className="mt-24">
-        <Link
-          href="/resume"
-          className="text-sm text-gray-400 transition hover:text-white"
-        >
+        <Link href="/resume" className="text-sm text-gray-400 hover:text-white transition-colors">
           ← Back to Resume
         </Link>
       </div>

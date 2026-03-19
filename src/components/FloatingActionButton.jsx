@@ -108,14 +108,7 @@ export default function FloatingActionButton() {
                             }`}
                         aria-label="Quick actions"
                     >
-                        <motion.div
-                            animate={{ rotate: isExpanded ? 45 : 0 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <MenuIcon className="h-6 w-6 text-white" />
-                        </motion.div>
-
-                        {/* Pulse animation when not expanded */}
+                        {/* Pulse animation when not expanded — rendered first so it sits behind icon */}
                         {!isExpanded && !shouldReduceMotion && (
                             <motion.div
                                 animate={{
@@ -127,9 +120,17 @@ export default function FloatingActionButton() {
                                     repeat: Infinity,
                                     ease: "easeInOut",
                                 }}
-                                className="absolute inset-0 rounded-full bg-purple-400"
+                                className="absolute inset-0 rounded-full bg-purple-400 pointer-events-none"
                             />
                         )}
+
+                        <motion.div
+                            animate={{ rotate: isExpanded ? 45 : 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative z-10"
+                        >
+                            <MenuIcon className="h-6 w-6 text-white" />
+                        </motion.div>
                     </motion.button>
 
                     {/* Download Resume - Always visible as secondary action */}

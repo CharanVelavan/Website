@@ -31,7 +31,7 @@ export default function SkeletonCard({ className = "" }) {
       </div>
 
       {/* Shimmer text area */}
-      <div className="p-5 space-y-3">
+      <div className="p-2.5 sm:p-5 space-y-2 sm:space-y-3">
         {/* Title bar */}
         <div className="relative h-5 w-3/4 rounded-lg bg-black/8 dark:bg-white/8 overflow-hidden">
           <motion.div

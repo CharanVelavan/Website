@@ -10,6 +10,21 @@ export default function ImageGallery({ images, title }) {
     const [selectedIndex, setSelectedIndex] = useState(null);
     const scrollContainerRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
+    const touchStartX = useRef(null);
+
+    // Touch swipe handlers for lightbox
+    const handleTouchStart = (e) => {
+        touchStartX.current = e.touches[0].clientX;
+    };
+
+    const handleTouchEnd = (e) => {
+        if (touchStartX.current === null) return;
+        const delta = e.changedTouches[0].clientX - touchStartX.current;
+        if (Math.abs(delta) > 50) {
+            delta < 0 ? goToNext() : goToPrevious();
+        }
+        touchStartX.current = null;
+    };
 
     const openLightbox = (index) => {
         setSelectedIndex(index);
@@ -27,16 +42,14 @@ export default function ImageGallery({ images, title }) {
         setSelectedIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0));
     };
 
-    const handleKeyDown = (e) => {
-        if (selectedIndex === null) return;
-
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowLeft") goToPrevious();
-        if (e.key === "ArrowRight") goToNext();
-    };
-
-    // Keyboard listener
+    // Keyboard listener — handler defined inside effect to avoid stale closures
     useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (selectedIndex === null) return;
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") goToPrevious();
+            if (e.key === "ArrowRight") goToNext();
+        };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, [selectedIndex]);
@@ -102,7 +115,8 @@ export default function ImageGallery({ images, title }) {
                 {/* Left Arrow */}
                 <button
                     onClick={scrollLeft}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+                    aria-label="Scroll gallery left"
+                    className="absolute left-2 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity hover:bg-black/70"
                 >
                     <ChevronLeft className="w-6 h-6" />
                 </button>
@@ -110,10 +124,16 @@ export default function ImageGallery({ images, title }) {
                 {/* Right Arrow */}
                 <button
                     onClick={scrollRight}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+                    aria-label="Scroll gallery right"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white opacity-0 group-hover:opacity-100 focus-visible:opacity-100 transition-opacity hover:bg-black/70"
                 >
                     <ChevronRight className="w-6 h-6" />
                 </button>
+
+                {/* Left edge fade */}
+                <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#f8f7f4] dark:from-[#0a0a0a] to-transparent z-10" />
+                {/* Right edge fade */}
+                <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#f8f7f4] dark:from-[#0a0a0a] to-transparent z-10" />
 
                 {/* Scrollable Container */}
                 <div
@@ -170,11 +190,16 @@ export default function ImageGallery({ images, title }) {
             <AnimatePresence>
                 {selectedIndex !== null && (
                     <motion.div
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={`${title} image gallery`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
                         onClick={closeLightbox}
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                     >
                         {/* Close Button */}
                         <button
@@ -236,11 +261,6 @@ export default function ImageGallery({ images, title }) {
                 )}
             </AnimatePresence>
 
-            <style jsx global>{`
-                .scrollbar-hide::-webkit-scrollbar {
-                    display: none;
-                }
-            `}</style>
         </>
     );
 }

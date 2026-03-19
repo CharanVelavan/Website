@@ -57,8 +57,8 @@ export default function Timeline({ items, basePath, accent = "purple", title }) 
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <aside className="hidden lg:block sticky top-24 h-fit max-h-[calc(100vh-7rem)] w-[280px] -ml-8 xl:-ml-16 2xl:-ml-20">
-      <div className="relative rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-xl shadow-2xl overflow-hidden">
+    <aside className="hidden lg:block sticky top-24 h-fit max-h-[calc(100vh-7rem)] w-[280px]">
+      <div className="relative rounded-2xl border border-white/10 bg-[#0a0a0a] bg-gradient-to-br from-white/5 to-white/[0.02] p-6 backdrop-blur-xl shadow-2xl overflow-hidden">
         {/* Header */}
         <div className="mb-6">
           <div className="flex items-baseline justify-between">

@@ -1,170 +1,156 @@
 // src/app/resume/publications/page.jsx
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
-import ImageGallery from "@/components/ImageGallery";
+import { ExternalLink, BookOpen, Calendar } from "lucide-react";
 
 const publications = [
   {
     id: "icoei-2025",
-    logo: "/images/publications/icoei/logo.png",
+    number: "01",
+    logo: "/images/publications/icoei-logo.png",
+    logoNeedsWhiteBg: true,
     date: "Jan 2025",
     status: "Published",
-    title:
-      "5G and Edge Computing Enabled Search and Rescue Drones",
+    statusColor: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+    title: "5G and Edge Computing Enabled Search and Rescue Drones",
     venue: "IEEE 8th International Conference on Trends in Electronics and Informatics (ICOEI 2025)",
+    venueShort: "IEEE ICOEI 2025",
     abstract:
-      "This work showcases the integral roles of AI, edge computing, and 5G in search and rescue operations during disaster response. The deployed YOLOv8n model was trained on both color and monochrome images to enhance performance in complex environments. A Raspberry Pi 5 Model B with a Hailo AI Kit enables cost-effective, low-latency real-time inferencing of live camera feeds, while the 5G network's URLLC and eMBB support high-resolution streaming and low-latency communication. AWS S3 provides cloud storage for data review and detections. The system was successfully tested in simulated disaster conditions with impressive results, advancing intelligent disaster response to save lives.",
+      "This work showcases the integral roles of AI, edge computing, and 5G in search and rescue operations during disaster response. The deployed YOLOv8n model was trained on both color and monochrome images to enhance performance in complex environments. A Raspberry Pi 5 Model B with a Hailo AI Kit enables cost-effective, low-latency real-time inferencing of live camera feeds, while the 5G network's URLLC and eMBB support high-resolution streaming and low-latency communication. AWS S3 provides cloud storage for data review and detections.",
     link: "/papers/5G_and_Edge_Computing_Enabled_Search_and_Rescue_Drones.pdf",
-    images: [],
+    tags: ["5G", "Edge AI", "YOLOv8", "Hailo", "Disaster Response"],
+    accent: "from-blue-500/15 to-cyan-500/5",
   },
   {
     id: "journal-optics-2025",
-    logo: "/images/publications/springer/logo.png",
+    number: "02",
+    logo: "/images/publications/springer-logo.png",
+    logoNeedsWhiteBg: true,
     date: "Sep 2025",
     status: "Published",
-    title:
-      "Design and Implementation of Miniaturized Dual-Mode Terahertz Bandpass Filter Based on Swastik Slotted Fractals",
+    statusColor: "text-emerald-400 border-emerald-500/30 bg-emerald-500/10",
+    title: "Design and Implementation of Miniaturized Dual-Mode Terahertz Bandpass Filter Based on Swastik Slotted Fractals",
     venue: "Journal of Optics (Springer)",
+    venueShort: "Springer – Journal of Optics",
     abstract:
-      "This article presents the design of a miniaturized bandpass filter featuring a square patch perturbed microstrip resonator configuration with Swastik fractal slots for applications in the terahertz regime. The dual-mode filter demonstrates two transmission zeros on the passband edges, leading to substantial improvement in selectivity. The terahertz filter exhibits appreciable size reduction through integration of Swastik fractal slots into the resonator, achieving miniaturization without compromising desirable filter characteristics. The bandpass filter, measuring 8 × 8 µm², demonstrates notable performance at 3.88 THz with a return loss exceeding 38.32 dB and a low insertion loss of 1.63 dB.",
+      "This article presents the design of a miniaturized bandpass filter featuring a square patch perturbed microstrip resonator configuration with Swastik fractal slots for applications in the terahertz regime. The dual-mode filter demonstrates two transmission zeros on the passband edges, leading to substantial improvement in selectivity. Measuring 8 × 8 µm², the filter demonstrates notable performance at 3.88 THz with a return loss exceeding 38.32 dB and a low insertion loss of 1.63 dB.",
     link: "/papers/SSN PAPER.pdf",
-    images: [],
+    tags: ["Terahertz", "Bandpass Filter", "Fractal Geometry", "CST Studio", "RF Design"],
+    accent: "from-purple-500/15 to-fuchsia-500/5",
   },
 ];
 
 export default function PublicationsPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
-      {/* ================= HEADER ================= */}
-      <header className="mb-16">
-        <p className="mb-4 text-sm uppercase tracking-widest text-gray-400">
+    <main className="mx-auto max-w-5xl px-4 sm:px-6 pt-24 pb-tab-safe">
+
+      {/* ── HEADER ── */}
+      <motion.header
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="mb-16"
+      >
+        <p className="mb-3 text-sm uppercase tracking-widest text-purple-400 font-medium">
           Research
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl">
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
           Publications
         </h1>
-        <p className="mt-6 max-w-3xl leading-relaxed text-gray-400">
-          Peer-reviewed research publications focused on AI-enabled disaster response systems,
+        <p className="mt-4 max-w-2xl text-gray-400 leading-relaxed">
+          Peer-reviewed research publications in AI-enabled disaster response,
           5G communications, edge computing, and terahertz RF circuit design.
         </p>
-      </header>
+      </motion.header>
 
-      {/* ================= PUBLICATIONS ================= */}
-      <section className="space-y-16">
-        {publications.map((publication, index) => (
+      {/* ── PAPERS ── */}
+      <div className="space-y-8">
+        {publications.map((pub, index) => (
           <motion.div
-            key={publication.id}
-            initial={{ opacity: 0, y: 30 }}
+            key={pub.id}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            whileHover={{ y: -4 }}
-            className="group rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300"
+            className="group rounded-2xl border border-white/10 overflow-hidden hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300"
           >
-            {/* Publication Logo/Conference Header */}
-            <div className="relative h-32 bg-white/[0.02] flex items-center justify-center border-b border-white/10">
-              {publication.logo ? (
-                <img
-                  src={publication.logo}
-                  alt={`${publication.venue} logo`}
-                  className="h-16 w-auto object-contain"
-                />
-              ) : (
-                <div className="text-center">
-                  <svg
-                    className="h-16 w-16 text-white/20 mx-auto"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
+            {/* gradient header */}
+            <div className={`relative flex items-center justify-between gap-5 p-5 sm:p-6 bg-gradient-to-r ${pub.accent} border-b border-white/10`}>
+              {/* left: number + logo + venue */}
+              <div className="flex items-center gap-4 min-w-0">
+                {/* paper number */}
+                <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  <span className="text-xs font-bold text-gray-400 font-mono">{pub.number}</span>
                 </div>
-              )}
-            </div>
-
-            {/* Content */}
-            <div className="p-8">
-              {/* META */}
-              <div className="mb-4 flex items-center gap-3">
-                {publication.date && (
-                  <span className="text-xs uppercase tracking-widest text-gray-400">
-                    {publication.date}
-                  </span>
-                )}
-                {publication.status && (
-                  <span className="text-xs rounded-full border border-purple-400/40 bg-purple-500/10 px-3 py-1 text-purple-300">
-                    {publication.status}
-                  </span>
-                )}
-              </div>
-
-              {/* TITLE */}
-              <h2 className="text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
-                {publication.title}
-              </h2>
-
-              {/* VENUE */}
-              {publication.venue && (
-                <p className="text-sm text-gray-400 mb-6 uppercase tracking-widest">
-                  {publication.venue}
-                </p>
-              )}
-
-              {/* ABSTRACT */}
-              {publication.abstract && (
-                <p className="text-gray-400 leading-relaxed mb-6">
-                  {publication.abstract}
-                </p>
-              )}
-
-              {/* ACTION BUTTON */}
-              {publication.link && (
-                <div className="mb-6">
-                  <a
-                    href={publication.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
-                  >
-                    <span>Read Paper</span>
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              )}
-
-              {/* IMAGE GALLERY */}
-              {publication.images && publication.images.length > 0 && (
-                <div>
-                  <h3 className="text-xl font-semibold text-white mb-4">
-                    Figures & Results
-                  </h3>
-                  <ImageGallery
-                    images={publication.images}
-                    title={publication.title}
+                {/* logo */}
+                <div className={`w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center p-2 shadow-md ring-1 ring-white/10 ${pub.logoNeedsWhiteBg ? "bg-white" : "bg-white/10"}`}>
+                  <img
+                    src={pub.logo}
+                    alt={pub.venueShort}
+                    className="w-full h-full object-contain"
                   />
                 </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 truncate">
+                    {pub.venueShort}
+                  </p>
+                  <div className="flex flex-wrap items-center gap-2 mt-1">
+                    <span className="flex items-center gap-1 text-[11px] text-gray-500">
+                      <Calendar size={9} />
+                      {pub.date}
+                    </span>
+                    <span className={`text-[11px] rounded-full border px-2.5 py-0.5 font-medium ${pub.statusColor}`}>
+                      {pub.status}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* card body */}
+            <div className="p-5 sm:p-6 bg-white/[0.02] space-y-5">
+
+              {/* title */}
+              <h2 className="text-xl font-bold text-white group-hover:text-purple-200 transition-colors leading-snug">
+                {pub.title}
+              </h2>
+
+              {/* full venue */}
+              <p className="text-xs uppercase tracking-widest text-gray-500">{pub.venue}</p>
+
+              {/* abstract */}
+              <div className="rounded-xl bg-white/[0.03] border border-white/8 p-4">
+                <p className="text-[11px] uppercase tracking-widest text-gray-500 mb-2 flex items-center gap-1.5">
+                  <BookOpen size={11} />
+                  Abstract
+                </p>
+                <p className="text-sm text-gray-400 leading-relaxed">{pub.abstract}</p>
+              </div>
+
+              {/* tags */}
+              <div className="flex flex-wrap gap-2">
+                {pub.tags.map((tag) => (
+                  <span key={tag} className="px-2.5 py-1 text-[11px] rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* CTA */}
+              {pub.link && (
+                <a
+                  href={pub.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm bg-purple-500/10 border border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:border-purple-400/50 transition-all group/btn"
+                >
+                  Read Paper
+                  <ExternalLink size={13} className="opacity-50 group-hover/btn:opacity-100 transition-opacity" />
+                </a>
               )}
             </div>
           </motion.div>
         ))}
-      </section>
-
-      {/* ================= BACK LINK ================= */}
-      <div className="mt-24">
-        <Link
-          href="/resume"
-          className="text-sm text-gray-400 transition hover:text-white"
-        >
-          ← Back to Resume
-        </Link>
       </div>
     </main>
   );

@@ -1,0 +1,58 @@
+MISSING IMAGES — Portfolio
+Generated: 2026-03-18
+
+Place each file at the path shown, relative to the /public directory.
+All paths below are relative to: /public/
+
+────────────────────────────────────────────────
+  LOGOS  (used in project cards & company sections)
+────────────────────────────────────────────────
+images/logos/aws-cloud-club.png
+images/logos/freestream.png
+images/logos/itu.png
+images/logos/pep5g.png
+images/logos/sjce.png
+images/logos/sjgi.png
+images/logos/ssn.png
+images/logos/techphosis.png
+
+────────────────────────────────────────────────
+  CERTIFICATIONS
+────────────────────────────────────────────────
+images/certifications/cisco-logo.png
+images/certifications/cisco-badge.png
+images/certifications/dadb-logo.png
+images/certifications/dadb-badge.png
+
+────────────────────────────────────────────────
+  PUBLICATIONS
+────────────────────────────────────────────────
+images/publications/icoei/logo.png
+images/publications/springer/logo.png
+
+────────────────────────────────────────────────
+  INTERNSHIP PHOTOS & LOGOS
+────────────────────────────────────────────────
+images/intern/zoho/image1.jpg
+images/intern/zoho/image2.jpg
+images/intern/ssn/image1.jpg
+images/intern/techphosis/image1.jpg
+images/intern/techphosis/image2.jpg
+images/intern/optica/logo.png
+images/intern/toastmasters/logo.png
+
+────────────────────────────────────────────────
+  ACHIEVEMENTS
+────────────────────────────────────────────────
+images/achievements/sih-22.jpg
+images/achievements/sih-22-team.jpg
+images/achievements/tmi-outstanding-member/WhatsApp Image 2024-01-08 at 22.41.52.jpeg
+
+  NOTE: The Toastmasters image has spaces in its filename which can
+  cause URL encoding issues on some servers. Consider renaming it to:
+  images/achievements/tmi-outstanding-member/outstanding-member.jpeg
+  (and update the path in src/lib/achievements.js accordingly)
+
+────────────────────────────────────────────────
+  TOTAL MISSING: 24 files
+────────────────────────────────────────────────

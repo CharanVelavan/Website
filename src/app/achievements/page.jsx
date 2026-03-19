@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { achievements } from "@/lib/achievements";
 import { Award, Trophy, Users, Lightbulb } from "lucide-react";
 import SkeletonCard from "@/components/SkeletonCard";
+import GlowCard from "@/components/GlowCard";
 
 const iconMap = {
     Innovation: Lightbulb,
@@ -52,7 +53,7 @@ export default function AchievementsPage() {
                 </motion.header>
 
                 {/* ACHIEVEMENTS GRID */}
-                <section className="grid md:grid-cols-2 gap-8">
+                <section className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8">
                     {isLoading
                         ? [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
                         : achievements.map((achievement, index) => {
@@ -65,98 +66,97 @@ export default function AchievementsPage() {
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                                whileHover={{ y: -1 }}
                             >
                                 <Link
                                     href={`/achievements/${achievement.slug}`}
                                     className="group block h-full"
                                 >
-                                    <div className="relative h-full rounded-2xl border border-black/10 dark:border-white/10 bg-gradient-to-br from-black/5 dark:from-white/5 to-black/[0.02] dark:to-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1">
-                                        {/* Image Section */}
-                                        <div className="relative h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-900/20 to-cyan-900/20">
-                                            {hasImage ? (
-                                                <>
-                                                    {/* Actual Image */}
-                                                    <Image
-                                                        src={achievement.images[0]}
-                                                        alt={achievement.title}
-                                                        fill
-                                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                                    />
-                                                    {/* Gradient Overlay for better text readability */}
-                                                    <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
-                                                </>
-                                            ) : (
-                                                <>
-                                                    {/* Placeholder gradient */}
-                                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 opacity-50" />
-                                                    {/* Icon Overlay */}
-                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                        <IconComponent className="h-20 w-20 text-white/30 group-hover:text-white/50 transition-colors" />
-                                                    </div>
-                                                </>
-                                            )}
+                                    <GlowCard borderRadius={16}>
+                                        <div className="group relative h-full overflow-hidden">
+                                            {/* Image Section */}
+                                            <div className="relative h-28 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-blue-900/20 to-cyan-900/20">
+                                                {hasImage ? (
+                                                    <>
+                                                        <Image
+                                                            src={achievement.images[0]}
+                                                            alt={achievement.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 opacity-50" />
+                                                        <div className="absolute inset-0 flex items-center justify-center">
+                                                            <IconComponent className="h-10 w-10 sm:h-20 sm:w-20 text-white/30 group-hover:text-white/50 transition-colors" />
+                                                        </div>
+                                                    </>
+                                                )}
 
-                                            {/* Category Badge */}
-                                            <div className="absolute top-4 right-4 z-10">
-                                                <span className="px-3 py-1 text-xs font-medium rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 text-gray-900 dark:text-white">
-                                                    {achievement.category}
-                                                </span>
-                                            </div>
-
-                                            {/* Year Badge */}
-                                            <div className="absolute top-4 left-4 z-10">
-                                                <span className="px-3 py-1 text-xs font-medium rounded-full bg-blue-500/20 backdrop-blur-md border border-blue-500/30 text-blue-300">
-                                                    {achievement.year}
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        {/* Content Section */}
-                                        <div className="p-6 md:p-8">
-                                            {/* Title */}
-                                            <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
-                                                {achievement.title}
-                                            </h2>
-
-                                            {/* Description */}
-                                            <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
-                                                {achievement.shortDescription}
-                                            </p>
-
-                                            {/* Tags */}
-                                            <div className="flex flex-wrap gap-2 mb-4">
-                                                {achievement.tags.slice(0, 3).map((tag) => (
-                                                    <span
-                                                        key={tag}
-                                                        className="text-xs px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-300 group-hover:bg-blue-500/20 group-hover:border-blue-500/30 transition-all"
-                                                    >
-                                                        {tag}
+                                                {/* Category Badge */}
+                                                <div className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10">
+                                                    <span className="px-1.5 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs font-medium rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-md border border-black/20 dark:border-white/20 text-gray-900 dark:text-white">
+                                                        {achievement.category}
                                                     </span>
-                                                ))}
+                                                </div>
+
+                                                {/* Year Badge */}
+                                                <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10">
+                                                    <span className="px-1.5 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs font-medium rounded-full bg-blue-500/20 backdrop-blur-md border border-blue-500/30 text-blue-300">
+                                                        {achievement.year}
+                                                    </span>
+                                                </div>
                                             </div>
 
-                                            {/* Read More Link */}
-                                            <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
-                                                <span>Read full story</span>
-                                                <svg
-                                                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={2}
-                                                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                                    />
-                                                </svg>
+                                            {/* Content Section */}
+                                            <div className="p-2.5 sm:p-6 md:p-8">
+                                                {/* Title */}
+                                                <h2 className="text-xs sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-1.5 sm:mb-4 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors line-clamp-2">
+                                                    {achievement.title}
+                                                </h2>
+
+                                                {/* Description */}
+                                                <p className="text-[10px] sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-2 sm:mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors line-clamp-2">
+                                                    {achievement.shortDescription}
+                                                </p>
+
+                                                {/* Tags */}
+                                                <div className="flex flex-wrap gap-1 sm:gap-2 mb-2 sm:mb-4">
+                                                    {achievement.tags.slice(0, 3).map((tag, tagIdx) => (
+                                                        <span
+                                                            key={tag}
+                                                            className={`text-[9px] sm:text-xs px-1.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-300 group-hover:bg-blue-500/20 group-hover:border-blue-500/30 transition-all ${tagIdx >= 2 ? "hidden sm:inline-block" : ""}`}
+                                                        >
+                                                            {tag}
+                                                        </span>
+                                                    ))}
+                                                </div>
+
+                                                {/* Read More Link */}
+                                                <div className="flex items-center gap-1 sm:gap-2 text-[10px] sm:text-sm text-gray-600 dark:text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors">
+                                                    <span>Read full story</span>
+                                                    <svg
+                                                        className="h-3 w-3 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            strokeWidth={2}
+                                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                                        />
+                                                    </svg>
+                                                </div>
                                             </div>
+
+                                            {/* Hover Glow Effect */}
+                                            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/10 to-cyan-500/10" />
                                         </div>
-
-                                        {/* Hover Glow Effect */}
-                                        <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-500/10 to-cyan-500/10" />
-                                    </div>
+                                    </GlowCard>
                                 </Link>
                             </motion.div>
                         );

@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import TechMarquee from "@/components/TechMarquee";
 import About from "@/components/About";
 import FeaturedShowcase from "@/components/FeaturedShowcase";
 import Internships from "@/components/Internships";
@@ -24,6 +25,7 @@ export default function Home() {
       <FloatingActionButton />
 
       <Hero />
+      <TechMarquee />
 
       <About />
       <FeaturedShowcase />
