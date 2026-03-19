@@ -59,9 +59,9 @@ export const achievements = [
         tags: ["Embedded AI", "Mental Health", "STM32", "TensorFlow Lite", "First Place", "Healthcare Technology"],
 
         links: {
-            certificate: "/images/zoho.svg", // Add link if available
-            news: "", // Add news article link if available
-            project: "", // Add project link if available
+            certificate: "",
+            news: "",
+            project: "/projects/emotion-monitoring-system",
         },
     },
 
@@ -110,6 +110,7 @@ export const achievements = [
         links: {
             certificate: "",
             website: "https://www.sih.gov.in/",
+            project: "/projects/Birds-AI",
         },
     },
 
@@ -121,41 +122,101 @@ export const achievements = [
         year: "2022",
         category: "Hackathon",
         shortDescription:
-            "Reached the national finals of Smart India Hackathon 2022, competing with top engineering teams across India.",
+            "National finalist at SIH 2022 Hardware Edition — led Team THREADRIPPERZS to build WaterBot, an AI-enabled solar-powered robotic trash boat for urban drain cleanup.",
 
         summary:
-            "Qualified for the national finals of Smart India Hackathon 2022, demonstrating exceptional problem-solving skills and technical innovation. Competed against thousands of teams from premier institutions across India.",
+            "Led Team THREADRIPPERZS from St. Joseph's College of Engineering to the national Grand Finale of Smart India Hackathon 2022 (Hardware Edition, Aug 25–29). Built WaterBot — an AI-enabled, solar-powered unmanned water vehicle that autonomously collects floating trash from urban drains using LiDAR, depth sounder, and computer vision. Problem Statement BV800 from the National Mission for Clean Ganga (NMCG), Ministry of Jal Shakti.",
 
         details: {
             context:
-                "Smart India Hackathon 2022 continued the tradition of bringing together India's brightest student innovators to solve real-world challenges. The competition featured problem statements from various government ministries, PSUs, and industry partners.",
+                "Smart India Hackathon 2022 Hardware Edition brought India's top engineering teams to build working hardware prototypes for real government problem statements. Problem Statement BV800 — posed by the National Mission for Clean Ganga (NMCG), Ministry of Jal Shakti — challenged teams to build an AI-enabled robotic trash boat to autonomously drive and harvest floating trash from urban drains.",
 
             challenge:
-                "Competed in Smart India Hackathon 2022 with a problem statement from a government ministry, requiring rapid development of an innovative, deployable solution under time-constrained conditions.",
+                "Local water bodies such as lakes and canals are being heavily polluted with plastic and chemical wastes, affecting the entire aquatic ecosystem. The challenge was to design an autonomous unmanned water vehicle (UWV) that could navigate urban drains, detect and collect floating debris, and analyze water quality — all powered sustainably and controllable remotely.",
 
             solution:
-                "Developed a prototype solution combining hardware and software components to address the problem statement. The team leveraged rapid prototyping techniques to deliver a working demonstration within the hackathon timeline.",
+                "Built WaterBot — a solar-powered and battery-backed UWV with a front mesh collection ramp for harvesting floating plastics, debris, algae, and duckweed. The bot uses Arduino with LoRa communication for remote control, a brushless motor propulsion system with ESC, and is equipped as a 'swimming laboratory' with sensors for pH, salinity, and dissolved oxygen analysis. The full-scale design integrates LiDAR, depth sounder, P4 multispectral camera, and RTK sensor for AI-driven autonomous navigation.",
 
             myRole:
-                "Contributed to the technical design and implementation of the prototype, collaborating closely with team members to integrate various system components and deliver the final presentation.",
+                "As Team Leader, I led the 6-member interdisciplinary team (ECE, CSE, Mechanical, Civil, EIE) through the entire design-build-present cycle during the 5-day Grand Finale. I architected the system, led the hardware assembly and electronics integration, designed the LoRa-based remote control system, coordinated the propulsion and hull construction, and delivered the final presentation to judges from NMCG.",
 
             impact:
-                "Qualified for the national finals, placing our team among the top competitors nationwide. The hackathon was a pivotal learning experience in team collaboration, rapid iteration, and presenting technical work to expert judges.",
+                "Successfully built and demonstrated a working WaterBot prototype during the 5-day hackathon. The bot collected floating trash, analyzed water quality, and operated on solar + battery power — directly addressing the Clean Ganga mission's goals. The project later evolved into an MSME pitch for potential commercialization.",
 
             recognition:
-                "Qualified for the national finals, placing among the top teams nationwide. Presented our working prototype to expert judges and received valuable feedback. This achievement marked an important milestone in our technical journey.",
+                "Selected as national finalist from thousands of teams across India. Presented the working WaterBot prototype to expert judges from NMCG and received commendation for the interdisciplinary hardware-software integration. Team THREADRIPPERZS: Charan Velavan (Lead), Aditya S Nair, Akshay B, Prakriti Harith, Thanisqka N, Medha R. Mentored by Dr. Venkateshwara and Dr. U. Venkateshwara.",
         },
 
         images: [
-            "/images/achievements/sih-22.jpg",
-            "/images/achievements/sih-22-team.jpg",
+            "/images/achievements/sih-22-finalist/waterbot-front.jpeg",
+            "/images/achievements/sih-22-finalist/waterbot-angle.jpeg",
+            "/images/achievements/sih-22-finalist/waterbot-powered.jpeg",
+            "/images/achievements/sih-22-finalist/waterbot-display.jpeg",
+            "/images/achievements/sih-22-finalist/team-formal.jpeg",
+            "/images/achievements/sih-22-finalist/sih-banner.jpeg",
+            "/images/achievements/sih-22-finalist/building-motor.jpeg",
+            "/images/achievements/sih-22-finalist/building-hull.jpeg",
+            "/images/achievements/sih-22-finalist/building-hull-2.jpeg",
+            "/images/achievements/sih-22-finalist/electronics-lora.jpeg",
+            "/images/achievements/sih-22-finalist/judging-demo.jpeg",
+            "/images/achievements/sih-22-finalist/team-assembling.jpeg",
+            "/images/achievements/sih-22-finalist/building-soldering.jpeg",
+            "/images/achievements/sih-22-finalist/team-outdoor.jpeg",
+            "/images/achievements/sih-22-finalist/team-workstation.jpeg",
+            "/images/achievements/sih-22-finalist/team-formal-2.jpeg",
+            "/images/achievements/sih-22-finalist/team-formal-3.jpeg",
         ],
-
-        tags: ["Hackathon", "National Finalist", "Problem Solving", "Innovation"],
+        media: {
+            enabled: true,
+            images: [
+                {
+                    src: "/images/achievements/sih-22-finalist/waterbot-front.jpeg",
+                    caption: "WaterBot v3 — front view showing mesh collection ramp and hull design"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/waterbot-angle.jpeg",
+                    caption: "WaterBot v3 — angled view showing internal batteries and electronics deck"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/waterbot-powered.jpeg",
+                    caption: "WaterBot v3 — powered on with electronics active"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/waterbot-display.jpeg",
+                    caption: "WaterBot prototype on display at Station 6 during the Grand Finale"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/electronics-lora.jpeg",
+                    caption: "Arduino + LoRa communication module — the remote control circuit"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/team-formal.jpeg",
+                    caption: "Team THREADRIPPERZS at SIH 2022 Grand Finale"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/sih-banner.jpeg",
+                    caption: "SIH 2022 team standee — PS BV800, NMCG, Ministry of Jal Shakti"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/building-motor.jpeg",
+                    caption: "Wiring the brushless motor and ESC during the hackathon build"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/building-hull.jpeg",
+                    caption: "Assembling the foam flotation hull and battery compartment"
+                },
+                {
+                    src: "/images/achievements/sih-22-finalist/judging-demo.jpeg",
+                    caption: "Presenting the WaterBot prototype to judges and mentors"
+                },
+            ]
+        },
+        tags: ["Hackathon", "National Finalist", "Hardware", "Robotics", "AI", "Solar Power", "IoT", "Water Quality", "LoRa", "Arduino"],
 
         links: {
             certificate: "",
             website: "https://www.sih.gov.in/",
+            project: "/projects/waterbot",
         },
     },
 
@@ -205,7 +266,7 @@ export const achievements = [
 
         links: {
             certificate: "",
-            project: "",
+            project: "/projects/Birds-AI",
         },
     },
 
@@ -304,7 +365,7 @@ export const achievements = [
                 "Multiple contest placements (Runner-up, 2nd Runner-up) at Club and Area levels. Outstanding Member award for 2022–23 term. All recognitions issued by Toastmasters International.",
         },
 
-        images: ["/images/achievements/tmi-outstanding-member/WhatsApp Image 2024-01-08 at 22.41.52.jpeg"],
+        images: ["/images/intern/toastmasters/Toastmasters.png"],
         tags: ["Toastmasters", "Public Speaking", "Leadership", "Contest", "VPPR", "Club President"],
         links: {
             website: "https://www.toastmasters.org/",

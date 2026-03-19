@@ -115,6 +115,15 @@ export const projects = [
       caption: "Cloud-native architecture showing drone fleet, AWS services, and data flow"
     },
 
+    // ✨ NEW: Recognition — links to achievements earned through this project
+    recognition: {
+      enabled: true,
+      achievements: [
+        { title: "SIH '23 Finalist", slug: "sih-23-finalist" },
+        { title: "NBUC '24 First Place", slug: "nbuc-24-first-place" },
+      ]
+    },
+
     // ✨ NEW: Associated Companies
     companies: {
       enabled: true,
@@ -282,13 +291,8 @@ export const projects = [
       list: [
         {
           name: "AWS Cloud Club",
-          logo: "/images/logos/aws-cloud-club.png",
+          logo: "/images/logos/aws-cloud-clubs.png",
           url: "https://aws.amazon.com"
-        },
-        {
-          name: "St. Joseph’s Group of Institutions",
-          logo: "/images/logos/sjgi.png",
-          url: "https://stjosephs.ac.in"
         }
       ]
     }
@@ -416,7 +420,7 @@ export const projects = [
       list: [
         {
           name: "Techphosis",
-          logo: "/images/logos/techphosis.png",
+          logo: "/images/intern/techphosis/logo.png",
           url: "https://techphosis.com"
         },
         {
@@ -612,15 +616,16 @@ export const projects = [
       ]
     },
 
-    companies: {
+    recognition: {
       enabled: true,
-      list: [
-        {
-          name: "St. Joseph's College of Engineering",
-          logo: "/images/logos/sjce.png",
-          url: "https://www.sjce.ac.in"
-        }
+      achievements: [
+        { title: "Inventors Challenge '23 Winner", slug: "inventors-challenge-23" },
       ]
+    },
+
+    companies: {
+      enabled: false,
+      list: []
     }
   },
   //============================================== BPF ========================================
@@ -818,13 +823,8 @@ export const projects = [
       list: [
         {
           name: "SSN College of Engineering",
-          logo: "/images/logos/ssn.png",
+          logo: "/images/intern/ssn/logo.png",
           url: "https://www.ssn.edu.in"
-        },
-        {
-          name: "St. Joseph's College of Engineering",
-          logo: "/images/logos/sjce.png",
-          url: "https://www.sjce.ac.in"
         }
       ]
     }
@@ -978,16 +978,213 @@ export const projects = [
         },
         {
           name: "SSN College of Engineering",
-          logo: "/images/logos/ssn.png",
+          logo: "/images/intern/ssn/logo.png",
           url: "https://www.ssn.edu.in",
         },
         {
           name: "FreeStream",
-          logo: "/images/logos/freestream.png",
+          logo: "/images/logos/freestream-in.png",
           url: "https://freestream.ai",
         },
       ],
     },
+  },
+
+  //============================================== WATERBOT ========================================
+  {
+    title: "WaterBot – AI-Enabled Robotic Trash Boat",
+    slug: "waterbot",
+
+    description:
+      "An AI-enabled, solar-powered unmanned water vehicle (UWV) that autonomously navigates urban drains to collect floating trash and analyze water quality. Built for SIH 2022, Problem Statement BV800 from NMCG, Ministry of Jal Shakti.",
+
+    summary:
+      "WaterBot is a solar-powered robotic trash boat designed to autonomously harvest floating debris — plastics, algae, duckweed — from polluted urban water bodies. Equipped with a front mesh collection ramp, Arduino-based LoRa remote control, brushless motor propulsion, and onboard water quality sensors (pH, salinity, dissolved oxygen), it functions as both a cleanup vehicle and a swimming laboratory. The full-scale design integrates LiDAR, depth sounder, P4 multispectral camera, and RTK sensor for AI-driven autonomous navigation. Built by Team THREADRIPPERZS at SIH 2022 Grand Finale for the National Mission for Clean Ganga.",
+
+    details: {
+      problem:
+        "Local water bodies such as lakes, canals, and urban drains are being heavily polluted with plastic waste, chemical runoff, and invasive aquatic growth (algae, duckweed). This blocks sunlight penetration, destroys aquatic ecosystems, and makes water bodies unusable. Manual cleanup is slow, expensive, and hazardous. The National Mission for Clean Ganga (NMCG) needed an autonomous, scalable solution for continuous trash harvesting from urban drains.",
+
+      approach: [
+        "Designed a boat-hull UWV with foam flotation and a front-mounted mesh collection ramp that scoops floating debris as the bot moves forward",
+        "Implemented dual power: solar panels for sustained operation and lead-acid batteries for backup, making the system eco-friendly and emission-free",
+        "Built a remote control system using Arduino Uno + LoRa module (baud 19200) for long-range wireless communication, with Bluetooth for short-range testing",
+        "Integrated brushless DC motors with ESC (Electronic Speed Controller) for propulsion",
+        "Equipped the bot as a 'swimming laboratory' with sensors for real-time water quality monitoring: pH, salinity, dissolved oxygen levels",
+        "Full-scale design included LiDAR sensor for obstacle detection, depth sounder for navigation safety, P4 multispectral camera for trash detection, and RTK sensor for precise GPS positioning",
+        "Designed AI-OPS pipeline for autonomous trash detection and collection path planning",
+        "Built the prototype hull from foam board and acrylic, with mesh intake filter system for debris collection"
+      ],
+
+      outcome: [
+        "Successfully built and demonstrated a working prototype during the 5-day SIH 2022 Grand Finale",
+        "Prototype collected floating debris and operated on both solar and battery power",
+        "Water quality sensor integration demonstrated real-time pH, salinity, and dissolved oxygen readings",
+        "LoRa remote control achieved reliable communication for manual override and navigation",
+        "Project later extended into an MSME pitch deck for potential commercialization as a scalable urban drain cleaning solution",
+        "Selected as national finalist from thousands of teams at Smart India Hackathon 2022 Hardware Edition"
+      ]
+    },
+
+    role: {
+      enabled: true,
+      position: "Team Leader & Systems Architect",
+      company: "St. Joseph's College of Engineering — SIH 2022",
+      duration: "Aug 2022 (SIH Grand Finale)",
+      responsibilities: [
+        "Led the 6-member interdisciplinary team (ECE, CSE, Mechanical, Civil, EIE) as Team Leader",
+        "Architected the full UWV system — hull design, propulsion, electronics, sensors, and communication",
+        "Designed and built the LoRa-based remote control system (Arduino Uno + LoRa module)",
+        "Integrated brushless motor propulsion with ESC and battery management",
+        "Coordinated hull fabrication using foam board, acrylic panels, and mesh collection ramp",
+        "Led water quality sensor integration for real-time pH, salinity, and dissolved oxygen monitoring",
+        "Designed the AI-OPS architecture for autonomous trash detection and navigation planning",
+        "Delivered the final prototype presentation to NMCG judges at the Grand Finale",
+        "Prepared the MSME pitch for potential commercialization post-hackathon"
+      ],
+      technologies: [
+        "Arduino Uno",
+        "LoRa Communication",
+        "Brushless DC Motors & ESC",
+        "Solar Panels & Lead-Acid Batteries",
+        "pH / Salinity / DO Sensors",
+        "LiDAR (full-scale design)",
+        "Depth Sounder",
+        "P4 Multispectral Camera",
+        "RTK GPS Sensor",
+        "Bluetooth",
+        "Embedded C / Arduino IDE"
+      ]
+    },
+
+    metrics: {
+      enabled: true,
+      results: [
+        {
+          label: "Power Source",
+          value: "Solar + Battery",
+          description: "Eco-friendly dual power system for sustained operation"
+        },
+        {
+          label: "Communication",
+          value: "LoRa",
+          description: "Long-range wireless control and telemetry"
+        },
+        {
+          label: "Water Sensors",
+          value: "3 Types",
+          description: "pH, salinity, and dissolved oxygen monitoring"
+        },
+        {
+          label: "Team Size",
+          value: "6 Members",
+          description: "Interdisciplinary team across 5 engineering streams"
+        },
+        {
+          label: "Competition",
+          value: "SIH 2022",
+          description: "National Grand Finalist — Hardware Edition"
+        },
+        {
+          label: "Problem Statement",
+          value: "BV800",
+          description: "NMCG, Ministry of Jal Shakti — Clean Ganga Mission"
+        }
+      ]
+    },
+
+    tags: [
+      "Robotics",
+      "Arduino",
+      "LoRa",
+      "Solar Power",
+      "Water Quality",
+      "AI",
+      "Embedded Systems",
+      "LiDAR",
+      "IoT",
+      "Environmental Tech",
+      "SIH 2022",
+      "Hardware"
+    ],
+
+    links: {
+      report: "/sih22/docs/sih22-submission.pdf",
+    },
+
+    images: [
+      "/images/projects/waterbot/waterbot-front.jpeg",
+      "/images/projects/waterbot/waterbot-angle.jpeg",
+      "/images/projects/waterbot/waterbot-powered.jpeg",
+      "/images/projects/waterbot/waterbot-display.jpeg",
+      "/images/projects/waterbot/electronics-lora.jpeg",
+      "/images/projects/waterbot/building-motor.jpeg",
+      "/images/projects/waterbot/building-hull.jpeg",
+      "/images/projects/waterbot/team-formal.jpeg",
+    ],
+
+    media: {
+      enabled: true,
+      video: {
+        src: "/videos/waterbot/waterbot-3d-model.mp4",
+        caption: "3D model visualization of the WaterBot design"
+      },
+      images: [
+        {
+          src: "/images/projects/waterbot/waterbot-front.jpeg",
+          alt: "WaterBot prototype front view",
+          caption: "WaterBot v3 — front view showing mesh collection ramp and hull"
+        },
+        {
+          src: "/images/projects/waterbot/waterbot-angle.jpeg",
+          alt: "WaterBot prototype angled view",
+          caption: "WaterBot v3 — internal view showing batteries and wiring"
+        },
+        {
+          src: "/images/projects/waterbot/waterbot-powered.jpeg",
+          alt: "WaterBot with electronics powered on",
+          caption: "WaterBot v3 — powered on with Arduino and sensor board active"
+        },
+        {
+          src: "/images/projects/waterbot/waterbot-display.jpeg",
+          alt: "WaterBot on display at SIH 2022",
+          caption: "WaterBot prototype on display at SIH 2022 Grand Finale"
+        },
+        {
+          src: "/images/projects/waterbot/electronics-lora.jpeg",
+          alt: "Arduino and LoRa communication circuit",
+          caption: "Arduino Uno + LoRa module (baud 19200) — remote control circuit"
+        },
+        {
+          src: "/images/projects/waterbot/building-motor.jpeg",
+          alt: "Wiring brushless motor and ESC",
+          caption: "Wiring the brushless motor and ESC during the 5-day build"
+        },
+        {
+          src: "/images/projects/waterbot/building-hull.jpeg",
+          alt: "Building the foam flotation hull",
+          caption: "Assembling the foam hull and integrating battery compartment"
+        },
+      ]
+    },
+
+    recognition: {
+      enabled: true,
+      achievements: [
+        { title: "SIH '22 Finalist", slug: "sih-22-finalist" },
+      ]
+    },
+
+    companies: {
+      enabled: true,
+      list: [
+        {
+          name: "NMCG — Ministry of Jal Shakti",
+          logo: "/images/logos/nmcg.png",
+          url: "https://nmcg.nic.in/"
+        }
+      ]
+    }
   },
 
 ];

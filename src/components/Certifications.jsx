@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
+import GlowCard from "@/components/GlowCard";
 
 const certifications = [
     {
@@ -15,6 +16,7 @@ const certifications = [
         issueDate: "Jan 2025",
         credentialUrl: "https://www.credly.com/badges/30c43656-aa39-469c-b329-f451b9fb5e52/linked_in_profile",
         skills: [],
+        darkLogoBg: false,
     },
     {
         id: "dadb-5g",
@@ -25,21 +27,10 @@ const certifications = [
         issueDate: "May 2024",
         credentialUrl: "https://certificates.dadb.com/972500ed-dbda-4072-b68c-3816936e31da?key=7b805f21aa8724a36dc1f755c31f5416c608e282b092d5195b674fc7932f66af#acc.saZzY5Pb",
         skills: ["Embedded Linux", "5G"],
+        darkLogoBg: true,
     },
 ];
 
-const cardVariants = {
-    rest: {
-        y: 0,
-        boxShadow: "0 0 0 rgba(0,0,0,0)",
-    },
-    hover: {
-        y: -8,
-        boxShadow: "0 20px 40px rgba(0,0,0,0.35), 0 0 40px rgba(168,85,247,0.35)",
-        borderColor: "rgba(168,85,247,0.6)",
-        transition: { duration: 0.35, ease: "easeOut" },
-    },
-};
 
 export default function Certifications() {
     return (
@@ -73,65 +64,68 @@ export default function Certifications() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            variants={cardVariants}
-                            whileHover="hover"
-                            animate="rest"
-                            className="cursor-pointer rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 overflow-hidden hover:border-purple-500/60 transition-colors"
+                            whileHover={{ y: -6 }}
                         >
-                            {/* Logo and Badge */}
-                            <div className="flex items-start justify-between mb-4">
-                                <img
-                                    src={cert.logo}
-                                    alt={`${cert.issuer} logo`}
-                                    className="h-10 w-auto object-contain"
-                                />
-                                {cert.badge && (
-                                    <img
-                                        src={cert.badge}
-                                        alt={`${cert.title} badge`}
-                                        className="h-16 w-16 object-contain"
-                                    />
-                                )}
-                            </div>
+                            <GlowCard borderRadius={16}>
+                                <div className="p-6 cursor-pointer h-full flex flex-col">
+                                    {/* Logo and Badge */}
+                                    <div className="flex items-start justify-between mb-4">
+                                        <div className={cert.darkLogoBg ? "dark:bg-white/90 dark:rounded-lg dark:p-1.5 inline-flex" : "inline-flex"}>
+                                            <img
+                                                src={cert.logo}
+                                                alt={`${cert.issuer} logo`}
+                                                className="h-10 w-auto object-contain"
+                                            />
+                                        </div>
+                                        {cert.badge && (
+                                            <img
+                                                src={cert.badge}
+                                                alt={`${cert.title} badge`}
+                                                className="h-16 w-16 object-contain"
+                                            />
+                                        )}
+                                    </div>
 
-                            {/* Title */}
-                            <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
-                                {cert.title}
-                            </h3>
+                                    {/* Title */}
+                                    <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                        {cert.title}
+                                    </h3>
 
-                            {/* Issuer */}
-                            <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+                                    {/* Issuer */}
+                                    <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
 
-                            {/* Issue Date */}
-                            <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
-                                Issued {cert.issueDate}
-                            </p>
+                                    {/* Issue Date */}
+                                    <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                                        Issued {cert.issueDate}
+                                    </p>
 
-                            {/* Skills */}
-                            {cert.skills && cert.skills.length > 0 && (
-                                <div className="mb-4 flex flex-wrap gap-2">
-                                    {cert.skills.map((skill) => (
-                                        <span
-                                            key={skill}
-                                            className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300"
-                                        >
-                                            {skill}
-                                        </span>
-                                    ))}
+                                    {/* Skills */}
+                                    {cert.skills && cert.skills.length > 0 && (
+                                        <div className="mb-4 flex flex-wrap gap-2">
+                                            {cert.skills.map((skill) => (
+                                                <span
+                                                    key={skill}
+                                                    className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {/* Credential Link */}
+                                    <a
+                                        href={cert.credentialUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-sm text-purple-500 dark:text-purple-400 hover:text-purple-400 dark:hover:text-purple-300 transition-colors"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <span>Show credential</span>
+                                        <ExternalLink size={14} />
+                                    </a>
                                 </div>
-                            )}
-
-                            {/* Credential Link */}
-                            <a
-                                href={cert.credentialUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-sm text-purple-500 dark:text-purple-400 hover:text-purple-400 dark:hover:text-purple-300 transition-colors"
-                                onClick={(e) => e.stopPropagation()}
-                            >
-                                <span>Show credential</span>
-                                <ExternalLink size={14} />
-                            </a>
+                            </GlowCard>
                         </motion.div>
                     ))}
                 </div>

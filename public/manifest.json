@@ -1,0 +1,18 @@
+{
+  "name": "Charan Velavan — Portfolio",
+  "short_name": "Charan",
+  "description": "Portfolio of Charan Velavan — AI/ML systems engineer, 5G networks researcher, and UAV systems developer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#a855f7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/profile.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -44,19 +44,23 @@ export default function AchievementDetailPage() {
                     <span className="text-sm text-blue-500 dark:text-blue-400 font-medium truncate">{achievement.title}</span>
                 </div>
                 {/* Horizontal achievements nav strip */}
-                <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2.5 snap-x-mandatory">
-                    {achievements.map((a) => (
-                        <Link
-                            key={a.slug}
-                            href={`/achievements/${a.slug}`}
-                            className={`snap-start flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all ${a.slug === achievement.slug
-                                    ? 'bg-blue-500/20 border-blue-500/50 text-blue-300 font-semibold'
-                                    : 'border-white/10 text-gray-400 hover:border-blue-500/30 hover:text-white'
-                                }`}
-                        >
-                            {a.title.split('–')[0].split('—')[0].trim()}
-                        </Link>
-                    ))}
+                <div className="relative">
+                    <div className="flex gap-2 overflow-x-auto scrollbar-hide px-4 pb-2.5 snap-x-mandatory">
+                        {achievements.map((a) => (
+                            <Link
+                                key={a.slug}
+                                href={`/achievements/${a.slug}`}
+                                className={`snap-start flex-shrink-0 text-xs px-3 py-1.5 rounded-full border transition-all ${a.slug === achievement.slug
+                                        ? 'bg-blue-500/20 border-blue-500/50 text-blue-300 font-semibold'
+                                        : 'border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:border-blue-500/30 hover:text-gray-900 dark:hover:text-white'
+                                    }`}
+                            >
+                                {a.title.split('–')[0].split('—')[0].trim()}
+                            </Link>
+                        ))}
+                    </div>
+                    {/* Right-edge fade — visual cue that more items are scrollable */}
+                    <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-[#f8f7f4]/95 dark:from-black/85 to-transparent" />
                 </div>
             </div>
 
@@ -75,7 +79,7 @@ export default function AchievementDetailPage() {
                     >
                         <Link
                             href="/achievements"
-                            className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                            className="inline-flex items-center gap-2 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                         >
                             <ArrowLeft size={20} />
                             <span>Back to Achievements</span>
@@ -94,18 +98,18 @@ export default function AchievementDetailPage() {
                             <span className="px-4 py-2 text-sm font-medium rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300">
                                 {achievement.category}
                             </span>
-                            <span className="px-4 py-2 text-sm font-medium rounded-full bg-white/10 border border-white/20 text-gray-300">
+                            <span className="px-4 py-2 text-sm font-medium rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/20 text-gray-600 dark:text-gray-300">
                                 {achievement.year}
                             </span>
                         </div>
 
                         {/* Title */}
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                             {achievement.title}
                         </h1>
 
                         {/* Summary */}
-                        <p className="text-xl text-gray-300 leading-relaxed max-w-3xl">
+                        <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
                             {achievement.summary}
                         </p>
 
@@ -114,13 +118,45 @@ export default function AchievementDetailPage() {
                             {achievement.tags.map((tag) => (
                                 <span
                                     key={tag}
-                                    className="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-400"
+                                    className="px-3 py-1 text-sm rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400"
                                 >
                                     {tag}
                                 </span>
                             ))}
                         </div>
                     </motion.header>
+
+                    {/* PROJECT CALLOUT — link to the full project page */}
+                    {achievement.links?.project && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: 0.15 }}
+                            className="mb-12"
+                        >
+                            <Link
+                                href={achievement.links.project}
+                                className="group flex items-center gap-4 rounded-2xl border border-purple-500/20 bg-gradient-to-r from-purple-500/5 via-fuchsia-500/5 to-purple-500/5 hover:border-purple-500/40 hover:from-purple-500/10 hover:via-fuchsia-500/10 hover:to-purple-500/10 transition-all p-5 md:p-6"
+                            >
+                                <div className="flex-shrink-0">
+                                    <div className="h-10 w-10 rounded-xl bg-purple-500/10 border border-purple-500/20 group-hover:border-purple-500/40 flex items-center justify-center transition-colors">
+                                        <svg className="h-5 w-5 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <p className="text-xs uppercase tracking-widest text-purple-400/80 font-medium mb-1">Built with this project</p>
+                                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors truncate">
+                                        View the full technical deep-dive
+                                    </p>
+                                </div>
+                                <svg className="h-5 w-5 text-purple-400/50 group-hover:text-purple-400 group-hover:translate-x-1 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </Link>
+                        </motion.div>
+                    )}
 
                     {/* IMAGE GALLERY */}
                     {achievement.images && achievement.images.length > 0 && (
@@ -142,7 +178,7 @@ export default function AchievementDetailPage() {
                             transition={{ duration: 0.6, delay: 0.25 }}
                             className="mb-16"
                         >
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8">Timeline of Awards</h2>
+                            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8">Timeline of Awards</h2>
                             <div className="relative">
                                 {/* Vertical line */}
                                 <div className="absolute left-[18px] top-0 bottom-0 w-px bg-gradient-to-b from-purple-500/60 via-blue-500/40 to-transparent" />
@@ -164,16 +200,16 @@ export default function AchievementDetailPage() {
                                             </div>
 
                                             {/* Card */}
-                                            <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.03] hover:border-purple-500/30 hover:bg-white/[0.05] transition-all p-5">
+                                            <div className="flex-1 rounded-2xl border border-black/10 dark:border-white/10 bg-black/[0.02] dark:bg-white/[0.03] hover:border-purple-500/30 hover:bg-black/[0.04] dark:hover:bg-white/[0.05] transition-all p-5">
                                                 <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
                                                     <p className="text-xs uppercase tracking-widest text-purple-400 font-medium">{item.date}</p>
                                                     <div className="flex flex-wrap gap-2">
-                                                        <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-gray-300">{item.level}</span>
+                                                        <span className="text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10 border border-black/10 dark:border-white/15 text-gray-600 dark:text-gray-300">{item.level}</span>
                                                         <span className="text-xs px-2 py-0.5 rounded-full bg-blue-500/15 border border-blue-500/25 text-blue-300">{item.result}</span>
                                                     </div>
                                                 </div>
-                                                <h3 className="text-base font-semibold text-white mb-1">{item.title}</h3>
-                                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+                                                <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1">{item.title}</h3>
+                                                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
                                             </div>
                                         </motion.div>
                                     ))}
@@ -191,10 +227,10 @@ export default function AchievementDetailPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.3 }}
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     Context
                                 </h2>
-                                <p className="text-gray-400 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                                     {achievement.details.context}
                                 </p>
                             </motion.section>
@@ -207,10 +243,10 @@ export default function AchievementDetailPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.4 }}
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     The Challenge
                                 </h2>
-                                <p className="text-gray-400 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                                     {achievement.details.challenge}
                                 </p>
                             </motion.section>
@@ -223,10 +259,10 @@ export default function AchievementDetailPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.5 }}
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     Our Solution
                                 </h2>
-                                <p className="text-gray-400 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                                     {achievement.details.solution}
                                 </p>
                             </motion.section>
@@ -240,10 +276,10 @@ export default function AchievementDetailPage() {
                                 transition={{ duration: 0.6, delay: 0.6 }}
                                 className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20 rounded-2xl p-8"
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     My Role
                                 </h2>
-                                <p className="text-gray-300 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                                     {achievement.details.myRole}
                                 </p>
                             </motion.section>
@@ -256,10 +292,10 @@ export default function AchievementDetailPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.7 }}
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     Impact & Results
                                 </h2>
-                                <p className="text-gray-400 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                                     {achievement.details.impact}
                                 </p>
                             </motion.section>
@@ -272,10 +308,10 @@ export default function AchievementDetailPage() {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.8 }}
                             >
-                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     Recognition
                                 </h2>
-                                <p className="text-gray-400 leading-relaxed text-lg">
+                                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
                                     {achievement.details.recognition}
                                 </p>
                             </motion.section>
@@ -287,9 +323,9 @@ export default function AchievementDetailPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.9 }}
-                                className="pt-8 border-t border-white/10"
+                                className="pt-8 border-t border-black/10 dark:border-white/10"
                             >
-                                <h2 className="text-xl font-bold text-white mb-4">
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                                     Related Links
                                 </h2>
                                 <div className="flex flex-wrap gap-4">
@@ -309,7 +345,7 @@ export default function AchievementDetailPage() {
                                             href={achievement.links.news}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 border border-white/20 text-gray-300 hover:bg-white/10 hover:border-white/30 transition-all"
+                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/20 text-gray-600 dark:text-gray-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/30 transition-all"
                                         >
                                             <span>News Article</span>
                                             <ExternalLink size={16} />
@@ -320,7 +356,7 @@ export default function AchievementDetailPage() {
                                             href={achievement.links.website}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 border border-white/20 text-gray-300 hover:bg-white/10 hover:border-white/30 transition-all"
+                                            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/20 text-gray-600 dark:text-gray-300 hover:bg-black/10 dark:hover:bg-white/10 hover:border-black/20 dark:hover:border-white/30 transition-all"
                                         >
                                             <span>Official Website</span>
                                             <ExternalLink size={16} />
@@ -336,7 +372,7 @@ export default function AchievementDetailPage() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 1 }}
-                        className="mt-16 pt-8 border-t border-white/10 text-center"
+                        className="mt-16 pt-8 border-t border-black/10 dark:border-white/10 text-center"
                     >
                         <Link
                             href="/achievements"

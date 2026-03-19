@@ -76,7 +76,7 @@ export default function Work() {
                       {project.companies.list.map((company) => (
                         <div
                           key={company.name}
-                          className="h-8 w-auto flex items-center justify-center rounded-lg bg-white/10 p-2 transition-all group-hover:bg-white/20"
+                          className="h-8 w-auto flex items-center justify-center rounded-lg bg-white/10 dark:bg-white/90 p-2 transition-all group-hover:bg-white/20 dark:group-hover:bg-white"
                           title={company.name}
                         >
                           <img
