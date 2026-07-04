@@ -53,6 +53,9 @@ export const metadata = {
       "AI/ML systems engineer, 5G networks researcher, and UAV systems developer.",
     images: ["/profile.jpg"],
   },
+  verification: {
+    google: "aIhJxGy3N1L0rXQEaRRkv11wS61WEvDuu7UKT_gWVjk",
+  },
   robots: {
     index: true,
     follow: true,
