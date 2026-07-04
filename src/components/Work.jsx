@@ -43,7 +43,7 @@ export default function Work() {
         </motion.header>
 
         {/* WORK GRID */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3 lg:gap-10">
           {featuredProjects.map((project, index) => {
             const externalLink = project.links?.demo || project.links?.report;
 
@@ -56,27 +56,27 @@ export default function Work() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
               >
-                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-white/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
+                <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-2.5 sm:p-6 md:p-8 hover:border-white/30 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/20">
                   {/* Hover glow */}
                   <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/10 to-blue-500/10" />
 
                   <Link href={`/projects/${project.slug}`}>
-                    <h3 className="text-xl font-semibold mb-4 relative z-10 text-white group-hover:text-purple-300 transition-colors">
+                    <h3 className="text-xs sm:text-xl font-semibold mb-2 sm:mb-4 relative z-10 text-white group-hover:text-purple-300 transition-colors line-clamp-2">
                       {project.title}
                     </h3>
 
-                    <p className="text-gray-400 leading-relaxed mb-6 relative z-10 group-hover:text-gray-300 transition-colors">
+                    <p className="text-[10px] sm:text-base text-gray-400 leading-relaxed mb-3 sm:mb-6 relative z-10 group-hover:text-gray-300 transition-colors line-clamp-2 sm:line-clamp-none">
                       {project.description}
                     </p>
                   </Link>
 
                   {/* COMPANY LOGOS */}
                   {project.companies?.enabled && project.companies?.list?.length > 0 && (
-                    <div className="flex items-center gap-3 flex-wrap mb-6 relative z-10">
+                    <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap mb-3 sm:mb-6 relative z-10">
                       {project.companies.list.map((company) => (
                         <div
                           key={company.name}
-                          className="h-8 w-auto flex items-center justify-center rounded-lg bg-white/10 dark:bg-white/90 p-2 transition-all group-hover:bg-white/20 dark:group-hover:bg-white"
+                          className="h-5 sm:h-8 w-auto flex items-center justify-center rounded-md sm:rounded-lg bg-white/10 dark:bg-white/90 p-1 sm:p-2 transition-all group-hover:bg-white/20 dark:group-hover:bg-white"
                           title={company.name}
                         >
                           <img
@@ -95,7 +95,7 @@ export default function Work() {
                       href={externalLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-sm px-4 py-2 rounded-full border border-white/20 text-gray-300 hover:text-white hover:border-purple-400 hover:bg-purple-400/10 transition-all relative z-10"
+                      className="inline-block text-[10px] sm:text-sm px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-white/20 text-gray-300 hover:text-white hover:border-purple-400 hover:bg-purple-400/10 transition-all relative z-10"
                     >
                       View demo / report
                     </a>
@@ -114,14 +114,14 @@ export default function Work() {
             whileHover={{ y: -8 }}
           >
             <Link href="/projects">
-              <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-8 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 flex flex-col items-center justify-center min-h-[300px]">
+              <div className="group relative h-full rounded-2xl border border-white/10 bg-white/[0.02] p-3 sm:p-8 hover:border-purple-400/50 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 flex flex-col items-center justify-center min-h-[150px] sm:min-h-[300px]">
                 {/* Hover glow */}
                 <div className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20" />
 
                 {/* Icon */}
-                <div className="relative z-10 mb-6 h-20 w-20 rounded-full bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-all">
+                <div className="relative z-10 mb-3 sm:mb-6 h-10 w-10 sm:h-20 sm:w-20 rounded-full bg-purple-500/10 border-2 border-purple-500/30 flex items-center justify-center group-hover:bg-purple-500/20 group-hover:border-purple-500/50 transition-all">
                   <svg
-                    className="h-10 w-10 text-purple-400 group-hover:text-purple-300 transition-colors"
+                    className="h-5 w-5 sm:h-10 sm:w-10 text-purple-400 group-hover:text-purple-300 transition-colors"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -136,19 +136,19 @@ export default function Work() {
                 </div>
 
                 {/* Text */}
-                <h3 className="relative z-10 text-2xl font-semibold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                <h3 className="relative z-10 text-sm sm:text-2xl font-semibold text-white mb-1 sm:mb-3 group-hover:text-purple-300 transition-colors">
                   View All Projects
                 </h3>
 
-                <p className="relative z-10 text-gray-400 text-center group-hover:text-gray-300 transition-colors">
+                <p className="relative z-10 text-gray-400 text-center group-hover:text-gray-300 transition-colors hidden sm:block">
                   Explore the complete portfolio with detailed case studies
                 </p>
 
                 {/* Arrow */}
-                <div className="relative z-10 mt-6 flex items-center gap-2 text-purple-400 group-hover:text-purple-300 transition-colors">
-                  <span className="text-sm font-medium">See all</span>
+                <div className="relative z-10 mt-3 sm:mt-6 flex items-center gap-1 sm:gap-2 text-purple-400 group-hover:text-purple-300 transition-colors">
+                  <span className="text-[10px] sm:text-sm font-medium">See all</span>
                   <svg
-                    className="h-5 w-5 transition-transform group-hover:translate-x-1"
+                    className="h-3 w-3 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

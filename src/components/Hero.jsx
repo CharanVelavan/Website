@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { Github, Linkedin, ArrowRight, Download, ChevronDown, Cpu, Radio, Zap } from "lucide-react";
 import Counter from "@/components/Counter";
 
@@ -148,6 +149,8 @@ export default function Hero() {
               >
                 Charan
               </motion.span>
+              {/* Full name for search engines & screen readers without altering the visual design */}
+              <span className="sr-only"> Velavan</span>
             </motion.h1>
 
             {/* Description */}
@@ -164,13 +167,13 @@ export default function Hero() {
               variants={wordVariants}
               className="mt-6 md:mt-10 flex flex-wrap items-center gap-3"
             >
-              <a
+              <Link
                 href="/projects"
                 className="group px-5 py-2.5 md:px-6 md:py-3 text-sm md:text-base bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-400 hover:to-blue-400 transition-all hover:shadow-lg hover:shadow-purple-500/40 hover:scale-105 active:scale-[0.98] inline-flex items-center gap-2"
               >
                 View Projects
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
 
               <a
                 href="/resume.pdf"
@@ -302,7 +305,7 @@ export default function Hero() {
               <div className="absolute inset-[8%] rounded-full overflow-hidden ring-4 ring-purple-500/30 shadow-2xl shadow-purple-500/30">
                 <Image
                   src="/test.png"
-                  alt="Charan"
+                  alt="Charan Velavan"
                   fill
                   sizes="(max-width: 640px) 260px, (max-width: 1024px) 420px, 480px"
                   className="object-cover object-[50%_15%] transition-transform duration-700 hover:scale-105"

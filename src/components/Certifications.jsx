@@ -56,7 +56,7 @@ export default function Certifications() {
                 </motion.header>
 
                 {/* ================= TILES ================= */}
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid grid-cols-2 gap-3 sm:gap-6">
                     {certifications.map((cert, index) => (
                         <motion.div
                             key={cert.id}
@@ -67,45 +67,45 @@ export default function Certifications() {
                             whileHover={{ y: -6 }}
                         >
                             <GlowCard borderRadius={16}>
-                                <div className="p-6 cursor-pointer h-full flex flex-col">
+                                <div className="p-2.5 sm:p-6 cursor-pointer h-full flex flex-col">
                                     {/* Logo and Badge */}
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div className={cert.darkLogoBg ? "dark:bg-white/90 dark:rounded-lg dark:p-1.5 inline-flex" : "inline-flex"}>
+                                    <div className="flex items-start justify-between mb-2 sm:mb-4">
+                                        <div className={cert.darkLogoBg ? "dark:bg-white/90 dark:rounded-lg dark:p-1 sm:dark:p-1.5 inline-flex" : "inline-flex"}>
                                             <img
                                                 src={cert.logo}
                                                 alt={`${cert.issuer} logo`}
-                                                className="h-10 w-auto object-contain"
+                                                className="h-6 sm:h-10 w-auto object-contain"
                                             />
                                         </div>
                                         {cert.badge && (
                                             <img
                                                 src={cert.badge}
                                                 alt={`${cert.title} badge`}
-                                                className="h-16 w-16 object-contain"
+                                                className="h-10 w-10 sm:h-16 sm:w-16 object-contain"
                                             />
                                         )}
                                     </div>
 
                                     {/* Title */}
-                                    <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                                    <h3 className="mb-1 sm:mb-2 text-xs sm:text-xl font-semibold text-gray-900 dark:text-white">
                                         {cert.title}
                                     </h3>
 
                                     {/* Issuer */}
-                                    <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+                                    <p className="mb-1 sm:mb-2 text-[10px] sm:text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
 
                                     {/* Issue Date */}
-                                    <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                                    <p className="mb-2 sm:mb-4 text-[9px] sm:text-xs uppercase tracking-widest text-gray-500">
                                         Issued {cert.issueDate}
                                     </p>
 
                                     {/* Skills */}
                                     {cert.skills && cert.skills.length > 0 && (
-                                        <div className="mb-4 flex flex-wrap gap-2">
+                                        <div className="mb-2 sm:mb-4 flex flex-wrap gap-1 sm:gap-2">
                                             {cert.skills.map((skill) => (
                                                 <span
                                                     key={skill}
-                                                    className="px-3 py-1 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300"
+                                                    className="px-1.5 py-0.5 sm:px-3 sm:py-1 text-[9px] sm:text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300"
                                                 >
                                                     {skill}
                                                 </span>
@@ -118,11 +118,11 @@ export default function Certifications() {
                                         href={cert.credentialUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 text-sm text-purple-500 dark:text-purple-400 hover:text-purple-400 dark:hover:text-purple-300 transition-colors"
+                                        className="inline-flex items-center gap-1 sm:gap-2 text-[10px] sm:text-sm text-purple-500 dark:text-purple-400 hover:text-purple-400 dark:hover:text-purple-300 transition-colors"
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <span>Show credential</span>
-                                        <ExternalLink size={14} />
+                                        <ExternalLink size={14} className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                                     </a>
                                 </div>
                             </GlowCard>
