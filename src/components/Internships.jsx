@@ -32,7 +32,7 @@ export default function Internships() {
         </div>
 
         {/* ================= TILES ================= */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
           {/* ZOHO */}
           <Link href="/resume/internships" className="block">
             <motion.div
@@ -40,9 +40,9 @@ export default function Internships() {
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <GlowCard borderRadius={16}>
-                <div className="p-6 h-full flex flex-col cursor-pointer">
+                <div className="p-2.5 sm:p-6 h-full flex flex-col cursor-pointer">
                   {/* Logo Container */}
-                  <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="mb-3 sm:mb-6 flex items-center justify-center h-12 sm:h-20 bg-black/5 dark:bg-white/5 rounded-xl p-2 sm:p-4 backdrop-blur-sm">
                     <motion.div variants={logoVariants} className="relative w-full h-full">
                       <Image
                         src="/images/intern/zoho/zoho.svg"
@@ -55,16 +55,16 @@ export default function Internships() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="mb-0.5 sm:mb-1 text-xs sm:text-xl font-semibold text-gray-900 dark:text-white">
                       ZOHO Corporation
                     </h3>
-                    <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="mb-1 sm:mb-2 text-[10px] sm:text-sm text-gray-600 dark:text-gray-400">
                       Technical Support Intern
                     </p>
-                    <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                    <p className="mb-2 sm:mb-4 text-[9px] sm:text-xs uppercase tracking-widest text-gray-500">
                       Jan 2025 – Jun 2025
                     </p>
-                    <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
+                    <ul className="hidden sm:block list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                       <li>ManageEngine Endpoint Central support</li>
                       <li>Enterprise software asset management</li>
                     </ul>
@@ -81,9 +81,9 @@ export default function Internships() {
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <GlowCard borderRadius={16}>
-                <div className="p-6 h-full flex flex-col cursor-pointer">
+                <div className="p-2.5 sm:p-6 h-full flex flex-col cursor-pointer">
                   {/* Logo Container */}
-                  <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="mb-3 sm:mb-6 flex items-center justify-center h-12 sm:h-20 bg-black/5 dark:bg-white/5 rounded-xl p-2 sm:p-4 backdrop-blur-sm">
                     <motion.div variants={logoVariants} className="relative w-full h-full">
                       <Image
                         src="/images/intern/ssn/logo.png"
@@ -96,16 +96,16 @@ export default function Internships() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="mb-0.5 sm:mb-1 text-xs sm:text-xl font-semibold text-gray-900 dark:text-white">
                       SSN College of Engineering
                     </h3>
-                    <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
+                    <p className="mb-1 sm:mb-2 text-[10px] sm:text-sm text-gray-600 dark:text-gray-400">
                       Research Intern (THz RF)
                     </p>
-                    <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                    <p className="mb-2 sm:mb-4 text-[9px] sm:text-xs uppercase tracking-widest text-gray-500">
                       May 2024 – Jul 2024
                     </p>
-                    <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
+                    <ul className="hidden sm:block list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                       <li>Fractal-based THz bandpass filter design</li>
                       <li>CST & MATLAB simulations</li>
                     </ul>
@@ -122,9 +122,9 @@ export default function Internships() {
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
               <GlowCard borderRadius={16}>
-                <div className="p-6 h-full flex flex-col cursor-pointer">
+                <div className="p-2.5 sm:p-6 h-full flex flex-col cursor-pointer">
                   {/* Logo Container */}
-                  <div className="mb-6 flex items-center justify-center h-20 bg-black/5 dark:bg-white/5 rounded-xl p-4 backdrop-blur-sm">
+                  <div className="mb-3 sm:mb-6 flex items-center justify-center h-12 sm:h-20 bg-black/5 dark:bg-white/5 rounded-xl p-2 sm:p-4 backdrop-blur-sm">
                     <motion.div variants={logoVariants} className="relative w-full h-full">
                       <Image
                         src="/images/intern/techphosis/logo.png"
@@ -137,12 +137,12 @@ export default function Internships() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="mb-1 text-xl font-semibold text-gray-900 dark:text-white">Techphosis</h3>
-                    <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">5G / O-RAN Intern</p>
-                    <p className="mb-4 text-xs uppercase tracking-widest text-gray-500">
+                    <h3 className="mb-0.5 sm:mb-1 text-xs sm:text-xl font-semibold text-gray-900 dark:text-white">Techphosis</h3>
+                    <p className="mb-1 sm:mb-2 text-[10px] sm:text-sm text-gray-600 dark:text-gray-400">5G / O-RAN Intern</p>
+                    <p className="mb-2 sm:mb-4 text-[9px] sm:text-xs uppercase tracking-widest text-gray-500">
                       Mar 2024 – May 2024
                     </p>
-                    <ul className="list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
+                    <ul className="hidden sm:block list-disc space-y-1 pl-5 text-sm text-gray-600 dark:text-gray-400">
                       <li>5G O-RAN implementation with USRP B210</li>
                       <li>CU/DU integration and RAN analysis</li>
                     </ul>

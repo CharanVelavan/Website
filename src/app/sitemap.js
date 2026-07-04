@@ -1,7 +1,6 @@
 import { projects } from "@/lib/projects";
 import { achievements } from "@/lib/achievements";
-
-const BASE_URL = "https://charanvelavan.com";
+import { SITE_URL as BASE_URL } from "@/lib/site-config";
 
 export default function sitemap() {
   const projectPages = projects.map((p) => ({

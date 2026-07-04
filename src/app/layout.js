@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import MobileTabBar from "@/components/MobileTabBar";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SITE_URL } from "@/lib/site-config";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -16,7 +17,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Charan Velavan — Portfolio",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Charan Velavan — Portfolio",
+    template: "%s | Charan Velavan",
+  },
+  alternates: { canonical: "./" },
   description:
     "Portfolio of Charan Velavan — AI/ML systems engineer, 5G networks researcher, and UAV systems developer based in Chennai.",
   keywords: [
@@ -95,17 +101,45 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: "Charan Velavan",
-              url: "https://charanvelavan.com",
-              jobTitle: "AI/ML Systems Engineer",
-              alumniOf: {
-                "@type": "CollegeOrUniversity",
-                name: "SSN College of Engineering",
-              },
-              sameAs: [
-                "https://www.linkedin.com/in/charan-velavan/",
-                "https://github.com/charanvelavan",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "@id": `${SITE_URL}/#person`,
+                  name: "Charan Velavan",
+                  givenName: "Charan",
+                  familyName: "Velavan",
+                  url: SITE_URL,
+                  image: `${SITE_URL}/profile.jpg`,
+                  jobTitle: "AI/ML Systems Engineer",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Chennai",
+                    addressCountry: "IN",
+                  },
+                  alumniOf: {
+                    "@type": "CollegeOrUniversity",
+                    name: "SSN College of Engineering",
+                  },
+                  knowsAbout: [
+                    "Artificial Intelligence",
+                    "Machine Learning",
+                    "5G Networks",
+                    "UAV Systems",
+                    "Embedded Systems",
+                    "Edge AI",
+                  ],
+                  sameAs: [
+                    "https://www.linkedin.com/in/charan-velavan/",
+                    "https://github.com/charanvelavan",
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": `${SITE_URL}/#website`,
+                  url: SITE_URL,
+                  name: "Charan Velavan Portfolio",
+                  publisher: { "@id": `${SITE_URL}/#person` },
+                },
               ],
             }),
           }}

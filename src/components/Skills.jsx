@@ -133,7 +133,7 @@ export default function Skills({ showViewAll = true }) {
                 </motion.header>
 
                 {/* SKILLS GRID */}
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
                     {skillsData.map((category, categoryIndex) => (
                         <motion.div
                             key={category.category}
@@ -144,19 +144,19 @@ export default function Skills({ showViewAll = true }) {
                             animate="rest"
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-                            className="rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
+                            className="rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0b0b] p-2.5 sm:p-6 h-full flex flex-col hover:border-purple-500/60 transition-colors"
                         >
                             {/* Category Title */}
-                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 pb-3 border-b border-black/10 dark:border-white/10">
+                            <h3 className="text-sm sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 sm:mb-4 pb-2 sm:pb-3 border-b border-black/10 dark:border-white/10">
                                 {category.category}
                             </h3>
 
                             {/* Skills Tags */}
-                            <div className="flex flex-wrap gap-2">
+                            <div className="flex flex-wrap gap-1 sm:gap-2">
                                 {category.skills.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
+                                        className="px-1.5 py-0.5 sm:px-3 sm:py-1.5 text-[9px] sm:text-xs rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-600 dark:text-purple-300 hover:bg-purple-500/20 hover:border-purple-500/50 transition-all"
                                     >
                                         {skill}
                                     </span>
