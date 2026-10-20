@@ -1,0 +1,503 @@
+<title>Portfolio Rebuild Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Barlow+Condensed:wght@700&family=Barlow:wght@400;500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Hanken+Grotesk:wght@400;500&family=IBM+Plex+Sans:wdth,wght@85..100,400..600&family=Schibsted+Grotesk:wght@400;600;800&display=swap">
+<style>
+/* Layout: one reading column (~68ch) for the plan, widening to a two-pane previewer and full-width tables. */
+@font-face { font-family: 'Switzer'; font-weight: 400; font-display: swap; src: url(data:font/woff2;base64,{{SW400}}) format('woff2'); }
+@font-face { font-family: 'Switzer'; font-weight: 600; font-display: swap; src: url(data:font/woff2;base64,{{SW600}}) format('woff2'); }
+:root {
+  --bg: #ecebe8; --surface: #e1e0dc; --ink: #1f1e19; --muted: #5f5d55; --accent: #2456d6; --accent-ink: #ffffff;
+  --rule: rgba(31, 30, 25, .14); --good: #1f7a45; --bad: #b3261e; --warn: #8a5a00;
+  --f-text: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --f-head: 'Archivo', 'Arial Narrow', 'Helvetica Neue', Arial, sans-serif;
+  --s-small: 14px; --s-body: 17px; --s-lead: 20px; --s-head: clamp(26px, 2.6vw, 34px); --s-display: clamp(40px, 6vw, 72px);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0d1017; --surface: #161b26; --ink: #e9edf3; --muted: #8d96a6; --accent: #6aa5ff; --accent-ink: #0d1017;
+  --rule: rgba(233, 237, 243, .14); --good: #5fc48a; --bad: #ff8a80; --warn: #e3b25a; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0d1017; --surface: #161b26; --ink: #e9edf3; --muted: #8d96a6; --accent: #6aa5ff; --accent-ink: #0d1017;
+  --rule: rgba(233, 237, 243, .14); --good: #5fc48a; --bad: #ff8a80; --warn: #e3b25a; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 400 var(--s-body)/1.5 var(--f-text); -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 56px 96px; }
+.col { max-width: 68ch; }
+h1, h2, h3 { font-family: var(--f-head); margin: 0; text-wrap: balance; }
+h1 { font-size: var(--s-display); font-weight: 800; font-stretch: 70%; line-height: .95; letter-spacing: -0.01em; }
+h2 { font-size: var(--s-head); font-weight: 700; font-stretch: 80%; line-height: 1.08; letter-spacing: -0.01em; }
+h3 { font-size: var(--s-lead); font-weight: 600; line-height: 1.25; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lead { font-size: var(--s-lead); line-height: 1.45; color: var(--muted); }
+.lead b { color: var(--ink); font-weight: 600; }
+.small { font-size: var(--s-small); color: var(--muted); line-height: 1.45; }
+section { margin-top: 112px; display: flex; flex-direction: column; gap: 20px; }
+.stack { display: flex; flex-direction: column; gap: 14px; }
+header.top { display: flex; flex-direction: column; gap: 22px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.num { font-variant-numeric: tabular-nums; }
+.tbl { overflow-x: auto; margin-inline: -4px; }
+table { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.45; min-width: 640px; }
+th, td { text-align: left; vertical-align: top; padding: 11px 12px 11px 4px; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; font-size: var(--s-small); color: var(--muted); }
+td:first-child { font-weight: 600; }
+td.b, td.a { font-weight: 400; }
+.k-bad { color: var(--bad); font-weight: 600; } .k-good { color: var(--good); font-weight: 600; } .k-warn { color: var(--warn); font-weight: 600; }
+.verdict { font-weight: 600; }
+.score { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.score > div { background: var(--surface); border-radius: 10px; padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.score .big { font: 800 44px/1 var(--f-head); font-stretch: 70%; font-variant-numeric: tabular-nums; }
+.score .big small { font-size: 22px; font-weight: 600; color: var(--muted); }
+.callout { background: var(--surface); border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+ol.plain, ul.plain { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; }
+ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 32px; }
+.phase { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 6px 24px; padding-block: 16px; border-bottom: 1px solid var(--rule); }
+.phase h3 { font-size: 17px; }
+.phase .gate { font-size: var(--s-small); color: var(--muted); }
+.ask { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 4px 10px; }
+.ask b.n { font: 700 17px/1.5 var(--f-head); color: var(--accent); font-variant-numeric: tabular-nums; }
+
+/* ---------- previewer ---------- */
+.pv { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: start; }
+.ctl { display: flex; flex-direction: column; gap: 18px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+.ctl fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ctl legend { font-size: var(--s-small); font-weight: 600; color: var(--muted); padding: 0 0 6px; }
+.opt { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 10px; min-height: 44px; padding: 6px 10px; border-radius: 10px; font-size: 15px; line-height: 1.25; transition: background-color .15s ease; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.opt small { display: block; font-size: 13px; color: var(--muted); }
+.opt[aria-pressed="true"] { background: var(--surface); box-shadow: inset 0 0 0 2px var(--accent); }
+@media (hover: hover) and (pointer: fine) { .opt:hover { background: var(--surface); } }
+.opt:active { transform: scale(.98); transition: transform .12s cubic-bezier(.23, 1, .32, 1); }
+.opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sw { width: 40px; height: 28px; border-radius: 6px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: inset 0 0 0 1px var(--rule); }
+.sw i { display: grid; place-items: end start; padding: 3px; }
+.sw i b { width: 9px; height: 9px; border-radius: 99px; }
+.tf { width: 40px; font-size: 22px; line-height: 1; text-align: center; }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface); padding: 4px; border-radius: 12px; }
+.seg button { all: unset; cursor: pointer; text-align: center; min-height: 40px; border-radius: 9px; font-size: 15px; font-weight: 500; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.seg button[aria-pressed="true"] { background: var(--bg); box-shadow: 0 1px 2px rgba(0, 0, 0, .12); }
+.seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.pv-note { font-size: var(--s-small); color: var(--muted); line-height: 1.45; }
+.stage { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.stage .cap { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: var(--s-small); color: var(--muted); }
+.stage .cap b { color: var(--ink); font-weight: 600; }
+.frame { border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--rule); margin-inline: auto; width: 100%; transition: max-width .35s cubic-bezier(.77, 0, .175, 1); }
+.frame.phone { max-width: 412px; border-radius: 28px; box-shadow: 0 0 0 8px var(--ink), 0 0 0 9px var(--rule); margin-block: 10px; }
+
+/* the mock site: every value comes from --m-* set by script */
+.mock { container-type: inline-size; background: var(--m-bg); color: var(--m-ink); font-family: var(--m-tf); font-weight: var(--m-tw); font-size: 17px; line-height: var(--m-tl); letter-spacing: var(--m-tt); transition: background-color .3s ease, color .3s ease; }
+.mock * { box-sizing: border-box; }
+.m-in { padding: 0 clamp(16px, 4cqi, 40px); }
+.m-nav { display: flex; align-items: center; gap: 24px; min-height: 64px; }
+.m-word { font-family: var(--m-df); font-weight: var(--m-dw); font-stretch: var(--m-ds); font-size: 19px; letter-spacing: var(--m-dt); text-transform: var(--m-dcase); margin-right: auto; white-space: nowrap; }
+.m-nav nav { display: flex; gap: 22px; font-size: 15px; font-weight: var(--m-tw2); }
+.m-nav nav a, .m-menu { color: var(--m-ink); text-decoration: none; }
+.m-menu { display: none; font-size: 15px; font-weight: var(--m-tw2); }
+.m-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--m-ac); color: var(--m-ai); font-weight: var(--m-tw2); font-size: 15px; text-decoration: none; white-space: nowrap; }
+.m-btn.sm { min-height: 40px; padding: 0 16px; }
+.m-hero { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(20px, 4cqi, 56px); align-items: end; padding-block: clamp(28px, 7cqi, 96px) clamp(40px, 8cqi, 112px); }
+.m-hero h1, .m-h, .m-stat b, .m-card h3 { font-family: var(--m-df); font-weight: var(--m-dw); font-stretch: var(--m-ds); letter-spacing: var(--m-dt); text-transform: var(--m-dcase); color: var(--m-ink); }
+.m-hero h1 { font-size: clamp(40px, 7.4cqi, 84px); line-height: var(--m-dl); }
+.m-lead { font-size: clamp(18px, 1.9cqi, 21px); line-height: 1.42; color: var(--m-mu); margin-top: 20px; max-width: 34em; }
+.m-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 22px; margin-top: 28px; }
+.m-link { color: var(--m-at); font-weight: var(--m-tw2); text-underline-offset: 4px; font-size: 17px; }
+.m-portrait { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; background: var(--m-sf); }
+.m-h { font-size: clamp(28px, 4cqi, 44px); line-height: 1.02; }
+.m-work { padding-bottom: clamp(48px, 9cqi, 120px); display: flex; flex-direction: column; gap: 24px; }
+.m-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(12px, 2cqi, 24px); }
+.m-card { display: flex; flex-direction: column; gap: 10px; }
+.m-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--m-sf); }
+.m-card h3 { font-size: clamp(20px, 2.2cqi, 24px); line-height: 1.1; margin: 4px 0 0; }
+.m-card p { font-size: 15px; color: var(--m-mu); margin: 0; line-height: 1.45; }
+.m-field { background: var(--m-sf); padding-block: clamp(40px, 8cqi, 104px); }
+.m-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.m-stat b { display: block; font-size: clamp(40px, 6.6cqi, 76px); line-height: 1; font-variant-numeric: tabular-nums; }
+.m-stat span { display: block; font-size: 15px; color: var(--m-mu); margin-top: 8px; }
+.m-body { padding-block: clamp(40px, 8cqi, 104px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px 48px; }
+.m-body p { margin: 0 0 14px; max-width: 62ch; }
+.m-body .m-small { font-size: 14px; color: var(--m-mu); }
+.m-body b { font-weight: var(--m-tw2); }
+.m-foot { padding-block: 22px 26px; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 14px; color: var(--m-mu); }
+@container (max-width: 560px) {
+  .m-nav nav, .m-nav .m-btn { display: none; } .m-menu { display: inline; }
+  .m-hero { grid-template-columns: 1fr; } .m-portrait { max-width: 220px; aspect-ratio: 1; order: -1; }
+  .m-grid { grid-template-columns: 1fr; } .m-grid .m-card:nth-child(n+3) { display: none; }
+  .m-stats { grid-template-columns: 1fr; gap: 20px; } .m-body { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 860px) {
+  .pv { grid-template-columns: 1fr; }
+  .ctl { position: static; display: grid; grid-template-columns: 1fr; }
+  .score { grid-template-columns: 1fr; }
+  .two { grid-template-columns: 1fr; }
+  .phase { grid-template-columns: 1fr; }
+  section { margin-top: 80px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before { transition-duration: .01ms !important; } }
+</style>
+
+<div class="wrap">
+<header class="top">
+  <h1>Portfolio rebuild plan</h1>
+  <p class="lead col">A read-only check of <b>charanvelavan.com</b> and the <b>3D prototype (v4.1)</b> against Taste Skill, Emil Kowalski's 15 skills, Apple's Human Interface Guidelines and the 3D and GSAP skills you shared. It covers what passes and what fails, a new palette and font shortlist you can try below, and the build plan. Nothing in the repo or the prototype was changed.</p>
+  <div class="meta small"><span>20 October 2026</span><span>Scores come from Taste's own linter and browser inspector, run at 1440px and 412px</span></div>
+</header>
+
+<section id="score">
+  <h2>Where things stand</h2>
+  <div class="score">
+    <div><span class="small">Live site today</span><span class="big num">14 <small>fails</small></span><span class="small">9 warnings in the browser inspector. The code linter finds 587 fails, 250 of them the purple accent.</span></div>
+    <div><span class="small">Prototype v4.1</span><span class="big num">12 <small>fails</small></span><span class="small">9 warnings in the browser inspector, 102 fails in the linter. Better structure, the same kind of tells.</span></div>
+    <div><span class="small">Target before launch</span><span class="big num">0 <small>fails</small></span><span class="small">At most three warnings, each one written down with the reason it stays.</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Measure</th><th>Live site</th><th>Prototype v4.1</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>Body text size</td><td class="b num">14px</td><td class="b num">15px (most phone text renders at 11–12px)</td><td class="a num">17px, Apple's body size</td></tr>
+      <tr><td>Font sizes in use</td><td class="b num">10</td><td class="b num">11 on screen, 25 written in the CSS</td><td class="a num">5 steps</td></tr>
+      <tr><td>Typefaces</td><td class="b">Geist only</td><td class="b">Geist 53%, Geist Mono 44%, Archivo Narrow 3%</td><td class="a">One family, two at most</td></tr>
+      <tr><td>Text under 13px</td><td class="b num">51 blocks</td><td class="b num">74 blocks</td><td class="a num">0</td></tr>
+      <tr><td>Tap targets under 44px (phone)</td><td class="b">Not measured</td><td class="b num">21 on a case study (header pills 28–39px, tabs 33px)</td><td class="a num">0</td></tr>
+      <tr><td>Palette</td><td class="b"><span class="k-bad">Fails:</span> purple</td><td class="b"><span class="k-bad">Fails:</span> cream with terracotta</td><td class="a">One ground, one ink, one accent</td></tr>
+      <tr><td>Glass surfaces</td><td class="b num">10</td><td class="b num">27</td><td class="a">The header only</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="palette-why">
+  <h2>Why the palettes felt wrong</h2>
+  <div class="col stack">
+    <p>You were right not to like them. Clay is warm cream with a terracotta accent. That is the exact pair Taste bans as the "assistant palette", and Anthropic's own design guidance lists it first among the looks that read as AI-made. The other five palettes kept the same structure and only swapped the hue: tinted paper, a mid-strength accent, glass cards and monospace labels. So they inherited the same problem.</p>
+    <p>The new shortlist below comes from Taste's library of 56 palettes taken from studied sites. I paired a light and a dark version with the same accent hue and checked contrast on each: body text is at least 8:1 everywhere, and secondary text is at least 4.8:1.</p>
+  </div>
+</section>
+
+<section id="preview">
+  <h2>Try palettes and fonts together</h2>
+  <p class="col">Pick a palette, a type system, a mode and a width. The mock uses your real headline, photos and numbers, set to the proposed five-step type scale. "Current" in each list is the prototype as it is now, for comparison.</p>
+  <div class="pv">
+    <div class="ctl">
+      <fieldset><legend>Mode and width</legend>
+        <div class="seg" id="modeSeg"><button type="button" data-mode="L">Light</button><button type="button" data-mode="D">Dark</button></div>
+        <div class="seg" id="widthSeg"><button type="button" data-w="lap">Laptop</button><button type="button" data-w="phone">Phone</button></div>
+      </fieldset>
+      <fieldset id="palList"><legend>Palette</legend></fieldset>
+      <fieldset id="typeList"><legend>Type system</legend></fieldset>
+    </div>
+    <div class="stage">
+      <div class="cap" id="cap"></div>
+      <div class="frame" id="frame">
+        <div class="mock" id="mock">
+          <div class="m-in">
+            <header class="m-nav"><span class="m-word">Charan Velavan</span><nav><a href="#preview">Work</a><a href="#preview">Lab</a><a href="#preview">About</a></nav><a class="m-btn sm" href="#preview">Download CV</a><a class="m-menu" href="#preview">Menu</a></header>
+            <div class="m-hero">
+              <div>
+                <h1>From circuit board to 5G link.</h1>
+                <p class="m-lead">I design embedded systems end to end: the hardware, the firmware, the on-device AI and the wireless link that connects them. Then I test them in the field.</p>
+                <div class="m-acts"><a class="m-btn" href="#preview">Download CV</a><a class="m-link" href="#preview">See the work</a></div>
+              </div>
+              <img class="m-portrait" src="{{IMG_PHOTO}}" alt="Portrait of Charan Velavan">
+            </div>
+            <div class="m-work">
+              <h2 class="m-h">Seven builds</h2>
+              <div class="m-grid">
+                <figure class="m-card" style="margin:0"><img src="{{IMG_DRONE}}" alt="The Bird's AI drone on a blue mat"><h3>Bird's AI</h3><p>A drone with on-board detection that reports over a 5G link.</p></figure>
+                <figure class="m-card" style="margin:0"><img src="{{IMG_NE}}" alt="Nephele community robot"><h3>Nephele 2.0</h3><p>A community robot with voice, vision and a three-robot fleet.</p></figure>
+                <figure class="m-card" style="margin:0"><img src="{{IMG_OR}}" alt="USRP radio on the 5G O-RAN bench"><h3>5G O-RAN testbed</h3><p>A split CU/DU network on USRP radios.</p></figure>
+              </div>
+            </div>
+          </div>
+          <div class="m-field"><div class="m-in">
+            <h2 class="m-h">In numbers</h2>
+            <div class="m-stats">
+              <div class="m-stat"><b>95%</b><span>Detection accuracy on Bird's AI</span></div>
+              <div class="m-stat"><b>300</b><span>UAVs in the swarm network study</span></div>
+              <div class="m-stat"><b>3.88 THz</b><span>Centre of the bandpass filter</span></div>
+            </div>
+          </div></div>
+          <div class="m-in">
+            <div class="m-body">
+              <h2 class="m-h">How Bird's AI is built</h2>
+              <div>
+                <p>A Pixhawk 2.4.8 flies the drone. A <b>Raspberry Pi 5 with a Hailo-8L AI HAT</b> runs detection on board, so only the results travel over the 5G link and the video stays on the drone until it is asked for.</p>
+                <p class="m-small">Caption size, 14px. This is the smallest text on the page.</p>
+              </div>
+            </div>
+            <footer class="m-foot"><span>Charan Velavan, Chennai</span><span>charanvelavan@gmail.com</span></footer>
+          </div>
+        </div>
+      </div>
+      <p class="pv-note" id="tnote"></p>
+    </div>
+  </div>
+  <div class="callout col">
+    <h3>My pick: Blueprint with Archivo</h3>
+    <p>Blueprint is stone paper with a drafting blue in light mode, and a blue-black night with cornflower in dark mode. It reads as engineering drawings rather than a template, and the blue has room to colour the 5G links and data packets in the 3D scenes. Archivo keeps the narrow headline voice you already have, but as a single variable family: narrow and heavy for headlines, normal width for reading, so Geist and Geist Mono both go. It loads from Google Fonts, so next/font serves it from your own domain. Runner-up: Switzer, the most Apple-like of the six. It needs licence care because it comes from Fontshare (see the type notes).</p>
+  </div>
+</section>
+
+<section id="validate">
+  <h2>Validation, source by source</h2>
+  <p class="col">Each table follows Emil's review format: before, after, why, and a verdict. "Before" is the prototype unless it says live site.</p>
+
+  <h3>Taste Skill (tasteskill.dev, v2.1.3)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Rule</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>No monospace outside code</td><td class="b">Geist Mono is 44% of all text: tags, labels, numbers</td><td class="a">Text face with tabular figures; mono only in the terminal</td><td class="b">Mono labels are a common AI-made look and are hard to read at 11px</td></tr>
+      <tr><td>No eyebrows or index numbers</td><td class="b">"01 · The lab", "02 · Flight path", 01–07 on every tile</td><td class="a">Headings carry the meaning; years stay on the timeline only</td><td class="b">Numbering only belongs where order is real</td></tr>
+      <tr><td>One ground, one ink, one accent</td><td class="b">Cream and terracotta, accent on tags, pins, rings, links</td><td class="a">Accent on the main button and the 3D links only</td><td class="b">An accent used in five places stops pointing at anything</td></tr>
+      <tr><td>No glass, shadows or 1px boxes at rest</td><td class="b">27 blurred surfaces, profile shadow, 17 hairlines</td><td class="a">Surfaces differ by one tone step; one translucent header</td><td class="b">Glass captions over photos also cut contrast</td></tr>
+      <tr><td>Nothing under 13px; body 16–20px</td><td class="b">74 blocks under 13px; body 15px</td><td class="a">14 / 17 / 21 / 40 / 80 scale</td><td class="b">Your phone is the main audience</td></tr>
+      <tr><td>A visible h1 on the first screen</td><td class="b">The headline is styled as h1 but the inspector finds no visible h1</td><td class="a">One h1: your name and what you do</td><td class="b">Search engines and screen readers start there</td></tr>
+      <tr><td>Reduced motion shows the finished page</td><td class="b">12 blocks stay invisible with reduced motion on</td><td class="a">Hidden start states only inside <code>no-preference</code></td><td class="b">Otherwise some visitors see empty cards</td></tr>
+      <tr><td>No custom cursor, emoji or status dots</td><td class="b">"Open" cursor label, ♪ on the sound pill, "Open to work" dot</td><td class="a">Plain words: "Sound off", a real Contact link</td><td class="b">All three are on Taste's list of AI tells</td></tr>
+      <tr><td>Copy</td><td class="b">82 em dashes; the live site says "next-generation" 6 times</td><td class="a">Full stops and commas; say the specific thing</td><td class="b">Stock phrasing reads as generated</td></tr>
+    </tbody>
+  </table></div>
+  <p class="verdict">Verdict: Block. Fix type, palette and labels first. The layout ideas can stay.</p>
+
+  <h3>Emil Kowalski (emil-design-eng, mobile-native, animation-performance and 12 more)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Rule</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Strong easing curves</td><td class="b">Plain <code>ease</code> on 14 transitions; one good curve already (.32,.72,0,1)</td><td class="a">ease-out (.23,1,.32,1), in-out (.77,0,.175,1), drawer (.32,.72,0,1)</td><td class="b">Built-in curves feel sluggish</td></tr>
+      <tr><td>Press feedback</td><td class="b">No <code>:active</code> state anywhere</td><td class="a"><code>scale(.97)</code>, 120ms ease-out, on every button and tile</td><td class="b">Taps need an answer on pointer-down</td></tr>
+      <tr><td>Hover only where there is a mouse</td><td class="b">20 hover rules, none gated</td><td class="a"><code>@media (hover: hover) and (pointer: fine)</code></td><td class="b">Sticky hovers on phones look broken</td></tr>
+      <tr><td>Animate transform and opacity</td><td class="b">Width, height, max-height, flex-grow and box-shadow are animated</td><td class="a">Transform, opacity, clip-path; height only for accordions</td><td class="b">Layout animation drops frames at 120Hz</td></tr>
+      <tr><td>Reduced motion is gentler, not zero</td><td class="b">All transitions switched off</td><td class="a">Keep fades and colour, drop movement and 3D flights</td><td class="b">A page with no feedback feels broken</td></tr>
+      <tr><td>Phone basics</td><td class="b">100vh in 8 places, no tap-highlight reset, no theme-color</td><td class="a">100svh hero, 100dvh shells, theme-color per scheme, manipulation on taps</td><td class="b">Stops the jump when the address bar hides</td></tr>
+      <tr><td>Frequency decides motion</td><td class="b">Tabs, palette and help panels all animate</td><td class="a">Keyboard-opened panels appear instantly; menus 180ms</td><td class="b">Things used often should never make you wait</td></tr>
+    </tbody>
+  </table></div>
+  <p class="verdict">Verdict: Block until press states and hover gating are in. The other fixes are quick.</p>
+
+  <h3>Apple Human Interface Guidelines and apple.com</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Rule</th><th>Before</th><th>After</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>44 × 44 touch targets</td><td class="b">Header pills 28–39px tall, tabs 33px, carousel dots 8px</td><td class="a">Every control 44px; dots get a 44px hit area</td><td class="b">The HIG minimum</td></tr>
+      <tr><td>Body 17px, two weights</td><td class="b">15px body, weights 400–700 across three families</td><td class="a">17 / 1.47 body, 400 and 600 (plus the display weight)</td><td class="b">What apple.com ships</td></tr>
+      <tr><td>Glass for controls only</td><td class="b">Glass captions on every photo tile and 3D tag</td><td class="a">Solid chips for tags; captions below photos</td><td class="b">The HIG keeps material off content</td></tr>
+      <tr><td>Scroll storytelling</td><td class="b">Every case study chapter is pinned</td><td class="a">Two or three pinned chapters per case study, the rest static</td><td class="b">apple.com pins about 2–3 stages a page</td></tr>
+      <tr><td>Stat blocks</td><td class="b">Numbers live in small mono tags</td><td class="a">80 / 64 / 48px numerals with a 17px caption</td><td class="b">Your metrics are the proof; make them big</td></tr>
+      <tr><td>Contrast</td><td class="b">Live site: four lines at 4.1:1</td><td class="a">4.5:1 minimum, 7:1 for small text</td><td class="b">Required for body text</td></tr>
+    </tbody>
+  </table></div>
+  <p class="verdict">Verdict: Block on touch targets and text size. Everything else here is approved.</p>
+
+  <h3>3D and GSAP skills (react-three-fiber, web3d-integration-patterns, gsap-scrolltrigger)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Rule</th><th>Prototype</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Lazy, client-only 3D with a poster fallback</td><td class="b">three.js loads after idle; Lite mode exists</td><td class="b"><span class="k-good">Pass.</span> Keep it as <code>dynamic(..., { ssr: false })</code> in Next.js</td></tr>
+      <tr><td>Pixel ratio 1–1.5 on phones, under 50 draw calls, 1024px textures</td><td class="b">Not yet measured per bay</td><td class="b"><span class="k-warn">Check.</span> Add a performance monitor that steps down quality</td></tr>
+      <tr><td>Render only when something changes</td><td class="b">Continuous loop while a project is open</td><td class="b"><span class="k-warn">Fix.</span> Pause when off-screen or idle (saves battery on your Nord 4)</td></tr>
+      <tr><td>Canvas hidden from screen readers, real text in the page</td><td class="b">Case study text is real HTML</td><td class="b"><span class="k-good">Pass.</span> Add <code>aria-hidden</code> to the canvas</td></tr>
+      <tr><td>Scoped ScrollTrigger with cleanup</td><td class="b">Hand-written scroll maths</td><td class="b"><span class="k-good">Pass</span> for the prototype. In Next.js use <code>useGSAP</code> and <code>gsap.matchMedia</code> (the skill's <code>ScrollTrigger.matchMedia</code> is outdated)</td></tr>
+      <tr><td>Reduced motion</td><td class="b">Camera flights still run</td><td class="b"><span class="k-bad">Fix.</span> Cut between chapters instead of flying</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>React Bits components you linked</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>Component</th><th>What it needs now</th><th>Call</th></tr></thead>
+    <tbody>
+      <tr><td>Lanyard</td><td class="b">Only three.js now (its own rope physics; rapier and meshline are gone). Pauses off-screen; respects reduced motion. No keyboard use.</td><td class="b">Skip. A second 3D canvas competes with the bays, and it is decoration.</td></tr>
+      <tr><td>Profile Card</td><td class="b">Plain DOM and CSS, tilt and holographic foil, gyro on iOS</td><td class="b">Skip the foil, which Taste counts as a gradient. Keep a quiet tilt on the portrait, and load it eagerly because it is the hero image.</td></tr>
+      <tr><td>Magic Bento</td><td class="b">DOM and CSS, optional star canvas, keyboard-friendly</td><td class="b">Use the grid, without the glow and stars. Photos first, captions below.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Live site problems to fix now, before any redesign</h3>
+  <div class="two">
+    <ol class="plain">
+      <li>The canonical URL, social images, structured data and sitemap all point to <b>charanvelavan-portfolio.vercel.app</b>, which also serves the full site. Set <code>NEXT_PUBLIC_SITE_URL</code> on Vercel and redirect the old host.</li>
+      <li>The Bird's AI page reuses Nephele's text: the video caption, image alt text, the whole "My Role" block and the architecture caption (<code>src/lib/projects.js</code>, about lines 31–110).</li>
+      <li>"View Project" goes to <code>example.com/uav-demo</code>, and there is a second example.com report link.</li>
+      <li>The homepage preloads more than 15 images, including a 12.6 MB award photo at 6016 × 4016.</li>
+    </ol>
+    <ol class="plain" start="5">
+      <li>The Bird's AI video is 100.6 MB. The prototype's 16-second clip is under 2 MB.</li>
+      <li>The /projects page sends no project titles in its HTML, only a logo marquee repeated six times (48 images).</li>
+      <li>Stat counters show 0 before JavaScript runs, 20 carousel dots have no labels, and the whole stylesheet has one focus style.</li>
+      <li>The lowercase address /projects/birds-ai serves a duplicate page, and the meta description is cut off mid-word.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="conflicts">
+  <h2>Where the skills disagree, and my call</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Topic</th><th>What they say</th><th>My call</th></tr></thead>
+    <tbody>
+      <tr><td>Monospace</td><td class="b">Taste bans it outside code. Apple and Emil say nothing.</td><td class="b">Drop it from the interface. Keep it in the hidden terminal and in code snippets.</td></tr>
+      <tr><td>Glass</td><td class="b">Taste allows one sticky bar. Apple allows it on navigation and controls. Emil likes it on toolbars.</td><td class="b">One translucent header, with a solid fallback for reduced transparency. Nothing else.</td></tr>
+      <tr><td>How much motion</td><td class="b">Taste wants at least 8 moving things. Emil says how often something is used decides.</td><td class="b">The 3D is the one live thing. Interface chrome stays at 200ms or under. Reveals play once.</td></tr>
+      <tr><td>Work grid</td><td class="b">Taste warns on rows of identical cards. You liked Magic Bento.</td><td class="b">One photo grid with mixed tile sizes, square photo corners and captions under the photos.</td></tr>
+      <tr><td>Font</td><td class="b">Apple says use the system font. Taste's library leaves out Geist and Inter, and warns on defaults.</td><td class="b">A face from Taste's library. The system font is free, but it looks like every other site.</td></tr>
+      <tr><td>Dark mode ground</td><td class="b">apple.com uses pure black. Taste prefers a tinted deep tone.</td><td class="b">A tinted near-black for the page, so the 3D sky can sit slightly lighter.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="plan">
+  <h2>The website plan</h2>
+
+  <div class="two">
+    <div class="stack">
+      <h3>Pages</h3>
+      <ul class="plain">
+        <li><b>/</b>: the home page.</li>
+        <li><b>/projects</b>: all seven builds, rendered on the server so search engines see the titles.</li>
+        <li><b>/projects/[slug]</b>: one case study, each with its 3D bay. Keep today's slugs and redirect lowercase variants.</li>
+        <li><b>/cv</b>: the PDF, plus a print-ready page.</li>
+        <li>Achievements become the Recognition section and redirect there.</li>
+      </ul>
+    </div>
+    <div class="stack">
+      <h3>Home, top to bottom</h3>
+      <ol class="plain">
+        <li>Hero: name, the "From circuit board to 5G link." headline, one sentence, Download CV and See the work, portrait.</li>
+        <li>Work: seven builds in one photo grid.</li>
+        <li>The lab: the 3D stack, the one live thing on the page.</li>
+        <li>Path: the timeline, where year numbers are real order.</li>
+        <li>Recognition: awards and papers, with big numbers.</li>
+        <li>Contact: one sentence, one action, a quiet footer line.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="stack col">
+    <h3>Case study template</h3>
+    <p>The 10-second answer and facts come first. Then two or three pinned 3D chapters, then Build, Results (as stat blocks), Media, What went wrong, and Next project. Every tab still works without 3D, and Lite mode stays.</p>
+  </div>
+
+  <div class="tbl"><table>
+    <thead><tr><th>Token</th><th>Value</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Type scale</td><td class="b num">Display 48 → 80px (line height 1.05, −0.02em) · Heading 28 → 40 · Lead 19 → 21 · Body 17 / 1.47 · Small 14</td><td class="b">apple.com sizes, Taste's five-step rule</td></tr>
+      <tr><td>Weights</td><td class="b">400 and 600, plus one display weight</td><td class="b">apple.com</td></tr>
+      <tr><td>Spacing</td><td class="b num">Sections 144 / 120 / 96px (desktop / tablet / phone). Margins 32px desktop, 20px phone</td><td class="b">apple.com, Taste</td></tr>
+      <tr><td>Corners</td><td class="b">Photos square. Buttons fully round. Sheets and panels 16px</td><td class="b">Taste</td></tr>
+      <tr><td>Easing</td><td class="b">ease-out (.23,1,.32,1) · in-out (.77,0,.175,1) · drawer (.32,.72,0,1)</td><td class="b">Emil</td></tr>
+      <tr><td>Durations</td><td class="b num">Press 120ms · menus 180ms · sheets 300ms · reveals 400ms, rise 24px, 70ms stagger, once</td><td class="b">Emil, Taste</td></tr>
+      <tr><td>Phone (Nord 4, about 412 × 915, 120Hz)</td><td class="b">44px targets, no text under 13px, safe areas, 100svh hero, theme-color per mode, 8ms frame budget</td><td class="b">Apple, Emil</td></tr>
+      <tr><td>3D budget on phones</td><td class="b num">Pixel ratio up to 1.5, under 50 draw calls, 1024px textures, poster image first, pause off-screen</td><td class="b">3D skills</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Phases</h3>
+  <div>
+    <div class="phase"><h3>0. Fix live</h3><div><p>The eight live-site problems above, in the current codebase. Nothing visual changes.</p><p class="gate">Done when: canonical points to charanvelavan.com, the home page is under 3 MB, and Bird's AI shows its own text.</p></div></div>
+    <div class="phase"><h3>1. Choose</h3><div><p>You pick a palette, a type system and the decisions listed below.</p><p class="gate">Done when: one palette and one type system are written down as tokens.</p></div></div>
+    <div class="phase"><h3>2. Prototype v5</h3><div><p>Re-skin the prototype with the new tokens. Remove mono, eyebrows, glass captions, numbering, the custom cursor and emoji. Fix touch targets, press states and reduced motion.</p><p class="gate">Done when: Taste's inspector shows 0 fails at 1440, 768 and 412px, and all phone targets are 44px.</p></div></div>
+    <div class="phase"><h3>3. Figma</h3><div><p>Tokens as Figma variables, plus the home page and one case study on laptop and phone, in your file.</p><p class="gate">Done when: you sign off the frames.</p></div></div>
+    <div class="phase"><h3>4. Next.js build</h3><div><p>Tokens in <code>globals.css</code> with Tailwind v4, the font through next/font, the 3D as a client-only component, GSAP through <code>useGSAP</code>, and content from <code>projects.js</code> (with the text fixes).</p><p class="gate">Done when: lint and build pass, Lighthouse scores 90+ on a phone, and Taste lint shows 0 fails.</p></div></div>
+    <div class="phase"><h3>5. Launch check</h3><div><p>Taste inspector, Apple HIG checks (<code>hig-doctor</code>), a keyboard-only pass, reduced motion, a real test on your Nord 4, and the print or PDF view.</p><p class="gate">Done when: everything passes or each remaining warning has a written reason.</p></div></div>
+  </div>
+</section>
+
+<section id="ask">
+  <h2>What I need from you</h2>
+  <div class="stack col">
+    <div class="ask"><b class="n">1</b><p>A palette and a type system from the previewer. Mixing is fine, for example Blueprint with Switzer.</p></div>
+    <div class="ask"><b class="n">2</b><p>Whether the GitHub repo is public. If it is, Switzer or another Fontshare face cannot be committed to it, and I would load it from Fontshare's own servers instead.</p></div>
+    <div class="ask"><b class="n">3</b><p>Whether to keep the scroll morph from case study into 3D on every project, or only on Bird's AI and Nephele (fewer pinned chapters, as on apple.com).</p></div>
+    <div class="ask"><b class="n">4</b><p>Whether you want your name in Tamil next to the English one. Anek Tamil would pair with Archivo, loaded only for those few letters.</p></div>
+    <div class="ask"><b class="n">5</b><p>Whether to start phase 0 now. It is independent of the redesign and fixes search and load time today.</p></div>
+    <div class="ask"><b class="n">6</b><p>Still open from before: confirm the draft "What went wrong" entries and the Nephele LiDAR and ROS2 text.</p></div>
+  </div>
+  <p class="small col">Sources: tasteskill.dev and github.com/Leonxlnx/taste-skill (v2.1.3; linter and inspector run on both sites) · github.com/emilkowalski/skills (all 15 skills) · Apple HIG (11 pages) and apple.com's live CSS · github.com/freshtechbro/claudedesignskills · React Bits source · charanvelavan.com as served on 20 October 2026.</p>
+</section>
+</div>
+
+<script>
+const PALS = [
+  { id: 'clay', name: 'Current: Clay', note: 'Cream and terracotta, flagged by Taste',
+    L: { bg: '#EEEAE2', sf: '#E2DCD0', ink: '#15161A', mu: '#5A5D64', ac: '#9A4E25', ai: '#ffffff', at: '#9A4E25' },
+    D: { bg: '#0F1012', sf: '#1B1C21', ink: '#EDE9E2', mu: '#9A958B', ac: '#D39A72', ai: '#0F1012', at: '#D39A72' } },
+  { id: 'blueprint', name: 'Blueprint', note: 'Stone paper, drafting blue',
+    L: { bg: '#dfdedb', sf: '#d3d2ce', ink: '#26251e', mu: '#5f5d55', ac: '#2456d6', ai: '#ffffff', at: '#2456d6' },
+    D: { bg: '#0a0d14', sf: '#131824', ink: '#e9edf3', mu: '#8891a1', ac: '#5a9bfc', ai: '#0a0d14', at: '#5a9bfc' } },
+  { id: 'sheet', name: 'Sheet and biro', note: 'White page, ballpoint blue; closest to apple.com',
+    L: { bg: '#ffffff', sf: '#f4f4f4', ink: '#111111', mu: '#6b6b6b', ac: '#1a4be0', ai: '#ffffff', at: '#1a4be0' },
+    D: { bg: '#111111', sf: '#1c1c1c', ink: '#f2f2f2', mu: '#8f8f8f', ac: '#6f95ff', ai: '#111111', at: '#6f95ff' } },
+  { id: 'slate', name: 'Slate and teal', note: 'Cool frost with an instrument teal',
+    L: { bg: '#f7f9fa', sf: '#ecf0f2', ink: '#1f3038', mu: '#5d6b72', ac: '#0d7480', ai: '#ffffff', at: '#0d7480' },
+    D: { bg: '#161c1a', sf: '#1f2725', ink: '#e3e2da', mu: '#8e948d', ac: '#7cc4c9', ai: '#161c1a', at: '#7cc4c9' } },
+  { id: 'sage', name: 'Stone and sage', note: 'Quiet greys; lets photos and 3D carry colour',
+    L: { bg: '#eeecea', sf: '#e4e1dd', ink: '#333231', mu: '#6b6763', ac: '#5c6b54', ai: '#ffffff', at: '#5c6b54' },
+    D: { bg: '#1c1c1c', sf: '#262626', ink: '#f1f1ef', mu: '#9a9b96', ac: '#8fa68e', ai: '#1c1c1c', at: '#8fa68e' } },
+  { id: 'signal', name: 'Signal', note: 'White and signal red; graphite and safety orange',
+    L: { bg: '#ffffff', sf: '#f2f2f2', ink: '#0a0a0a', mu: '#6b6b6b', ac: '#d92b21', ai: '#ffffff', at: '#d92b21' },
+    D: { bg: '#18191b', sf: '#222427', ink: '#eff0f1', mu: '#9c9ea3', ac: '#ff4a1f', ai: '#18191b', at: '#ff4a1f' } },
+  { id: 'bottle', name: 'Bottle and yellow', note: 'Bottle-green ink, one yellow note',
+    L: { bg: '#f7f7f7', sf: '#ebebeb', ink: '#0d2a1c', mu: '#5f6b64', ac: '#f6e016', ai: '#0d2a1c', at: '#0d2a1c' },
+    D: { bg: '#10241a', sf: '#183223', ink: '#e8e6d8', mu: '#9fae9f', ac: '#f4d96c', ai: '#10241a', at: '#f4d96c' } }
+];
+const TYPES = [
+  { id: 'current', name: 'Current', sub: 'Archivo Narrow, Geist, Geist Mono', glyph: 'Aa',
+    df: "'Archivo', 'Arial Narrow', sans-serif", dw: 700, ds: '75%', dt: '-0.01em', dl: 0.94, dcase: 'none',
+    tf: "'Geist', system-ui, sans-serif", tw: 400, tw2: 600, tl: 1.5, tt: '0',
+    note: 'Today\'s setup, close enough for comparison (Archivo at narrow width stands in for Archivo Narrow). Three families; Geist is the create-next-app default and is not in Taste\'s library.' },
+  { id: 'archivo', name: 'Archivo', sub: 'Compressed 800 with regular text', glyph: 'Aa',
+    df: "'Archivo', 'Arial Narrow', sans-serif", dw: 800, ds: '62%', dt: '-0.01em', dl: 0.9, dcase: 'none',
+    tf: "'Archivo', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 600, tl: 1.5, tt: '0',
+    note: 'One variable family (Google Fonts, about 90 KB). Taste sets the headlines in capitals; I kept sentence case so long titles stay readable on a phone. My pick.' },
+  { id: 'switzer', name: 'Switzer', sub: 'Semibold with regular text', glyph: 'Aa',
+    df: "'Switzer', 'Helvetica Neue', Arial, sans-serif", dw: 600, ds: '100%', dt: '-0.04em', dl: 0.95, dcase: 'none',
+    tf: "'Switzer', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 600, tl: 1.5, tt: '-0.005em',
+    note: 'A Swiss neo-grotesk that stands in for Neue Haas Grotesk; Taste notes it suits hardware pages. From Fontshare: self-hosting is allowed, but the font files cannot go in a public repo.' },
+  { id: 'plex', name: 'IBM Plex Sans', sub: 'Condensed 600 with regular text', glyph: 'Aa',
+    df: "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif", dw: 600, ds: '85%', dt: '-0.02em', dl: 1.0, dcase: 'none',
+    tf: "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 600, tl: 1.5, tt: '0',
+    note: 'Engineering heritage from IBM, with a width axis for the condensed headlines (Google Fonts, about 60 KB). Not in Taste\'s library, so its inspector would warn but not fail.' },
+  { id: 'barlow', name: 'Barlow', sub: 'Condensed 700 with Barlow text', glyph: 'Aa',
+    df: "'Barlow Condensed', 'Arial Narrow', sans-serif", dw: 700, ds: '100%', dt: '-0.02em', dl: 0.92, dcase: 'none',
+    tf: "'Barlow', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 500, tl: 1.5, tt: '0',
+    note: 'Road-sign shapes with squared curves; Taste lists it for hardware and motorsport. Two Google families from one designer.' },
+  { id: 'hanken', name: 'Hanken Grotesk', sub: 'Medium headlines, regular text', glyph: 'Aa',
+    df: "'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif", dw: 500, ds: '100%', dt: '-0.05em', dl: 0.95, dcase: 'none',
+    tf: "'Hanken Grotesk', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 500, tl: 1.45, tt: '-0.005em',
+    note: 'Quiet and exact: no bold, hierarchy from size alone. Taste lists it for portfolios that speak in short lines.' },
+  { id: 'schibsted', name: 'Schibsted Grotesk', sub: 'Heavy 800 with regular text', glyph: 'Aa',
+    df: "'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif", dw: 800, ds: '100%', dt: '-0.05em', dl: 0.9, dcase: 'none',
+    tf: "'Schibsted Grotesk', 'Helvetica Neue', Arial, sans-serif", tw: 400, tw2: 600, tl: 1.4, tt: '-0.01em',
+    note: 'Compact and warm, letters almost touching at display size. The loudest of the six.' }
+];
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const sysDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+const st = { pal: store.get('pv-pal') || 'blueprint', type: store.get('pv-type') || 'archivo', mode: store.get('pv-mode') || (sysDark() ? 'D' : 'L'), w: 'lap' };
+if (!PALS.find((p) => p.id === st.pal)) st.pal = 'blueprint';
+if (!TYPES.find((t) => t.id === st.type)) st.type = 'archivo';
+const $ = (s) => document.querySelector(s);
+const mock = $('#mock'), frame = $('#frame');
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+$('#palList').insertAdjacentHTML('beforeend', PALS.map((p) => `<button type="button" class="opt" data-pal="${p.id}"><span class="sw"><i style="background:${p.L.bg}"><b style="background:${p.L.ac}"></b></i><i style="background:${p.D.bg}"><b style="background:${p.D.ac}"></b></i></span><span>${esc(p.name)}<small>${esc(p.note)}</small></span></button>`).join(''));
+$('#typeList').insertAdjacentHTML('beforeend', TYPES.map((t) => `<button type="button" class="opt" data-type="${t.id}"><span class="tf" style="font-family:${t.df};font-weight:${t.dw};font-stretch:${t.ds}">${t.glyph}</span><span>${esc(t.name)}<small>${esc(t.sub)}</small></span></button>`).join(''));
+function render() {
+  const p = PALS.find((x) => x.id === st.pal), t = TYPES.find((x) => x.id === st.type), c = p[st.mode];
+  const v = { bg: c.bg, sf: c.sf, ink: c.ink, mu: c.mu, ac: c.ac, ai: c.ai, at: c.at, df: t.df, dw: t.dw, ds: t.ds, dt: t.dt, dl: t.dl, dcase: t.dcase, tf: t.tf, tw: t.tw, tw2: t.tw2, tl: t.tl, tt: t.tt };
+  for (const k in v) mock.style.setProperty('--m-' + k, v[k]);
+  document.querySelectorAll('[data-pal]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pal === st.pal)));
+  document.querySelectorAll('[data-type]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.type === st.type)));
+  document.querySelectorAll('[data-mode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === st.mode)));
+  document.querySelectorAll('[data-w]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.w === st.w)));
+  frame.classList.toggle('phone', st.w === 'phone');
+  $('#cap').innerHTML = `<span><b>${esc(p.name)}</b> ${st.mode === 'L' ? 'light' : 'dark'}</span><span>Ground ${c.bg} · ink ${c.ink} · accent ${c.ac}</span><span><b>${esc(t.name)}</b></span>`;
+  $('#tnote').textContent = t.note;
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-pal],[data-type],[data-mode],[data-w]'); if (!b) return;
+  if (b.dataset.pal) { st.pal = b.dataset.pal; store.set('pv-pal', st.pal); }
+  if (b.dataset.type) { st.type = b.dataset.type; store.set('pv-type', st.type); }
+  if (b.dataset.mode) { st.mode = b.dataset.mode; store.set('pv-mode', st.mode); }
+  if (b.dataset.w) st.w = b.dataset.w;
+  render();
+});
+render();
+</script>

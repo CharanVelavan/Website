@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Phone morph</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9A4E25}a:hover{color:#6E3518}
+</style>
+</helmet>
+<div style="width: 1456px; height: 880px; box-sizing: border-box; padding: 48px; background: #EEEAE2; color: #15161A; font-family: Geist, system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #9A4E25">Phone · OnePlus Nord 4 class · 412 × 915</span>
+<h1 style="margin: 0; font-family: 'Archivo Narrow', sans-serif; font-size: 48px; line-height: 0.95; letter-spacing: -0.01em">The stage pins to the top; <span style="color: #9A4E25">cards scroll under it.</span></h1>
+</div>
+<div style="display: flex; gap: 40px">
+<sc-for list="{{frames}}" as="f" hint-placeholder-count="5">
+<div style="width: 240px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: baseline; gap: 8px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 14px; color: #9A4E25">{{f.pct}}</span>
+<span style="font-weight: 600; font-size: 17px">{{f.name}}</span>
+</div>
+<img src="{{f.src}}" alt="{{f.alt}}" style="width: 240px; height: 533px; object-fit: cover; border-radius: 22px; display: block; border: 6px solid #15161A; box-sizing: content-box">
+<p style="margin: 0; font-size: 14px; line-height: 1.45; color: #2E3036">{{f.text}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1456,"height":880}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+frames: [
+{ pct: '0%', name: 'Case study', src: '/_blob/df3fb44e0b3d6951eb9927e6afacbb94', alt: 'Phone case study with the photo card and the 10-second answer', text: 'Photo card on top, the 10-second answer and partners below.' },
+{ pct: '25%', name: 'Dissolve', src: '/_blob/2c9fc8c275131ba284841e9653a1e54f', alt: 'The photo fading into the scene on a phone', text: 'The photo fades into the scene from the same angle.' },
+{ pct: '50%', name: 'Stage grows', src: '/_blob/379ee042fda0e66f02de754b4564e549', alt: 'The 3D window spreading edge to edge', text: 'The window spreads edge to edge and pins to the top.' },
+{ pct: '75%', name: 'Chips dock', src: '/_blob/6ee58ceec16f6f042a804750fb376be8', alt: 'Tab chips docked under the stage', text: 'Tab chips sit under the stage; chapter cards scroll beneath.' },
+{ pct: '100%', name: 'In 3D', src: '/_blob/b3caac98631f7d19592f884392483686', alt: 'The 3D stage pinned at the top with a chapter card', text: 'Stage pinned at 38% of the screen, one card per chapter.' }
+]
+};
+}
+}
+</script>
+</body>
+</html>

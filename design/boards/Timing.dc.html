@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Morph timing</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9A4E25}a:hover{color:#6E3518}
+</style>
+</helmet>
+<div style="width: 1280px; height: 880px; box-sizing: border-box; padding: 48px; background: #EEEAE2; color: #15161A; font-family: Geist, system-ui, sans-serif; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #9A4E25">Timing · scroll progress through the first chapter</span>
+<h1 style="margin: 0; font-family: 'Archivo Narrow', sans-serif; font-size: 48px; line-height: 0.95; letter-spacing: -0.01em">What moves <span style="color: #9A4E25">when.</span></h1>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0; background: #F7F5F0; border: 1px solid rgba(21,22,26,0.12); border-radius: 18px; padding: 20px 24px">
+<div style="display: flex; gap: 20px; align-items: flex-end; padding-bottom: 10px; border-bottom: 1px solid rgba(21,22,26,0.12)">
+<span style="width: 300px; flex: 0 0 300px; font-family: 'Geist Mono', monospace; font-size: 12px; color: #5A5D64">PROPERTY</span>
+<div style="width: 840px; flex: 0 0 840px; display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; color: #5A5D64">
+<span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+</div>
+</div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<div style="display: flex; gap: 20px; align-items: center; min-height: 52px; border-bottom: 1px solid rgba(21,22,26,0.08)">
+<div style="width: 300px; flex: 0 0 300px; display: flex; flex-direction: column; gap: 2px">
+<span style="font-weight: 600; font-size: 15px">{{r.name}}</span>
+<span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #5A5D64">{{r.where}}</span>
+</div>
+<div style="width: 840px; flex: 0 0 840px; height: 22px; position: relative; background: rgba(21,22,26,0.05); border-radius: 6px">
+<div style="{{r.bar}}"></div>
+<span style="{{r.labelPos}}">{{r.range}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: #2E3036; max-width: 1100px">Values come straight from the prototype (projectFrame). The panel uses a smoothstep ease, so its midpoint lands at 60% on a laptop. Phone starts the panel earlier because the stage is smaller and there is no rail to slide.</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":880}}'>
+class Component extends DCLogic {
+renderVals() {
+const W = 840;
+const row = (name, where, a, b, kind) => ({
+name, where,
+range: Math.round(a * 100) + '–' + Math.round(b * 100) + '%',
+bar: 'position: absolute; top: 3px; bottom: 3px; left: ' + (a * W) + 'px; width: ' + ((b - a) * W) + 'px; border-radius: 4px; background: ' + (kind === 'hold' ? '#B8B2A6' : kind === 'phone' ? '#2F7F78' : '#9A4E25'),
+labelPos: 'position: absolute; top: 3px; left: ' + (Math.min(b, 0.86) * W + 8) + 'px; font-family: Geist Mono, monospace; font-size: 12px; line-height: 16px; color: #2E3036'
+});
+return {
+rows: [
+row('Photo fades out', 'both', 0.10, 0.42),
+row('Camera holds the photo angle', 'both', 0, 0.40, 'hold'),
+row('Camera flies to chapter 1', 'both', 0.40, 1.0),
+row('Panel opens out', 'laptop', 0.30, 0.90),
+row('Stage spreads and pins', 'phone', 0.12, 0.90, 'phone'),
+row('Photo caption fades', 'laptop', 0.30, 0.55),
+row('Ticker, then card frame fade', 'laptop', 0.30, 0.64),
+row('Rail background fills in', 'laptop', 0.30, 0.90),
+row('Tabs: by hand → by scroll', 'laptop · switch at 60%', 0, 0.60, 'hold'),
+row('Chapter label appears', 'laptop', 0.74, 0.90)
+]
+};
+}
+}
+</script>
+</body>
+</html>

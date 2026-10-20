@@ -1,0 +1,22 @@
+  /* project view on phone: the 3D stage pins to the top and the chapter cards scroll underneath it */
+  #pcard, #rail, #plabel, #pticker { display: none !important; }
+  body.proj #chips { display: flex; position: fixed; z-index: 5; left: 0; right: 0; top: 0; height: 44px; padding: 0 12px; gap: 6px; align-items: center; overflow-x: auto; scrollbar-width: none; }
+  #chips button { flex: 0 0 auto; font: 500 13px var(--font-body); padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--solid); color: var(--ink); cursor: pointer; }
+  #chips button[aria-selected="true"] { background: var(--inv); color: var(--invfg); border-color: var(--inv); }
+  body.proj #pplate { display: block; position: fixed; z-index: 0; left: 0; right: 0; top: 0; background: var(--bg); pointer-events: none; }
+  #pcap { padding: 14px 16px; }
+  #ptrack { padding-top: var(--T0, 480px); }
+  .ps { height: auto; padding: 0 12px 44vh; }
+  #ps-cs { padding: 0 16px 6vh; min-height: 30vh; }
+  #ps-recog { padding-bottom: 16vh; }
+  .pintro { display: flex; flex-direction: column; gap: 10px; }
+  .pcue { font-family: var(--font-mono); font-size: 12px; color: var(--acc); }
+  .pc { display: flex; flex-direction: column; gap: 10px; background: var(--solid); border: 1px solid var(--line); border-radius: 20px; padding: 18px; }
+  .pc h2 { font-size: 30px; }
+  .pc pre.code { display: none; }
+  .kpis strong { font-size: 30px; }
+  /* homepage chapters on phone: the card sits at the bottom, fully on screen, the 3D frames above it */
+  section.ch, section.ch.right { min-height: 100vh; padding-bottom: calc(14px + env(safe-area-inset-bottom, 0px)); }
+  .card { gap: 8px; padding: 16px; } .card h2 { font-size: 30px; } .card .note { display: none; }
+  .tag { font-size: 10px; padding: 3px 7px; } .tag b { font-size: 11.5px; margin-left: 2px; } .tag i { display: none; }
+  .tag.link[data-id="ba"] i { display: inline; }

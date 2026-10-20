@@ -1,0 +1,2368 @@
+{
+ "url": "https://www.charanvelavan.com/",
+ "at": "2026-10-20T12:55:31.803Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 10,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 242,
+    "css": 19,
+    "transitions": 37,
+    "scripted": 186,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 8859,
+     "screens": 9.8,
+     "words": 1223,
+     "img": 19,
+     "video": 0,
+     "canvas": 0,
+     "svg": 49,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Ftest.png&w=640&q=75",
+      "main.jpg",
+      "5.jpeg",
+      "1.png",
+      "3.png",
+      "win.jpeg",
+      "1.jpg",
+      "1.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "👋"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "HelloI'm Charan Velavan",
+     "words": 3,
+     "chars": 23,
+     "lines": 2,
+     "size": 128,
+     "vw": 8.9,
+     "font": "Geist",
+     "weight": 700,
+     "tracking": -0.003,
+     "leading": 0.9,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.38,
+     "top": 234,
+     "gradientText": true,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "HelloI'm Charan Velavan",
+     "words": 3,
+     "lines": 2,
+     "size": 128,
+     "font": "Geist"
+    },
+    "headings": [
+     {
+      "text": "HelloI'm Charan Velavan",
+      "words": 3,
+      "chars": 23,
+      "lines": 2,
+      "size": 128,
+      "vw": 8.9,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.003,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.38,
+      "top": 234,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Welcome to My Portfolio! 👋",
+      "words": 5,
+      "chars": 27,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.31,
+      "top": 384,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "5",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 810,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 810,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "15",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.08,
+      "top": 810,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "1",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.08,
+      "top": 810,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Building Intelligent Systems",
+      "words": 3,
+      "chars": 28,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.73,
+      "top": 1320,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Projects & Systems",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 2334,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Achievements",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 3634,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Internships",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 4784,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Technical Skills",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 5386,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Certifications",
+      "words": 1,
+      "chars": 14,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 6521,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Publications",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 7217,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Education",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 48,
+      "vw": 3.3,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 7961,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Get In Touch",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 36,
+      "vw": 2.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.011,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.82,
+      "top": 8553,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 15,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Geist",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      30,
+      36,
+      48,
+      128
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Geist",
+      "size": 14,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": -0.029,
+      "contrast": 7.6
+     },
+     "measureChars": 76,
+     "max": {
+      "size": 128,
+      "vw": 8.9,
+      "font": "Geist",
+      "text": "Hello"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 17,
+     "microLabelShare": 0.026,
+     "microSamples": [
+      "Major Projects",
+      "Achievements",
+      "Technologies",
+      "Publications",
+      "About Me",
+      "Selected Work"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.04,
+     "smallText": 51
+    },
+    "eyebrows": [
+     {
+      "text": "Open to Opportunities",
+      "above": "HelloI'm Charan Velavan",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 144
+     },
+     {
+      "text": "About Me",
+      "above": "Building Intelligent Systems",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1284
+     },
+     {
+      "text": "Selected Work",
+      "above": "Projects & Systems",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 2298
+     },
+     {
+      "text": "Recognition & Awards",
+      "above": "Achievements",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 3598
+     },
+     {
+      "text": "Experience",
+      "above": "Internships",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 4752
+     },
+     {
+      "text": "Technical Expertise",
+      "above": "Technical Skills",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 5354
+     },
+     {
+      "text": "Professional Development",
+      "above": "Certifications",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 6489
+     },
+     {
+      "text": "Research",
+      "above": "Publications",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 7185
+     },
+     {
+      "text": "Academics",
+      "above": "Education",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 7925
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0a",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [],
+     "textColors": [
+      {
+       "color": "#99a1af",
+       "share": 0.66
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.15
+      },
+      {
+       "color": "#dab2ff",
+       "share": 0.08
+      },
+      {
+       "color": "#6a7282",
+       "share": 0.05
+      },
+      {
+       "color": "#d1d5dc",
+       "share": 0.02
+      }
+     ],
+     "button": null,
+     "lowContrast": [
+      {
+       "text": "O-RAN, CU/DU architecture, RF systems",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      },
+      {
+       "text": "Computer vision, deep learning, edge AI",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      },
+      {
+       "text": "UAV systems, robotics, real-time process",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      },
+      {
+       "text": "Antenna design, THz filters, RF circuits",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      },
+      {
+       "text": "Research, prototyping, problem-solving",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      },
+      {
+       "text": "Jan 2025 – Jun 2025",
+       "ratio": 4.1,
+       "need": 4.5,
+       "size": 12,
+       "fg": "#6a7282",
+       "bg": "#0b0b0b"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 2,
+     "radius": 8,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip Tour",
+      "Resume"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 28,
+     "shadowOverlay": 2,
+     "shadowSamples": [
+      "button.flex-1.px-6 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "a.p-3.rounded-full → rgba(168, 85, 247, 0.392) 0px 0px 11.5556px 0px, rgba(168, 85, 247, 0.145) 0px 0",
+      "a.p-3.rounded-full → rgba(168, 85, 247, 0.392) 0px 0px 11.5556px 0px, rgba(168, 85, 247, 0.145) 0px 0",
+      "div.absolute.inset-[8%] → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 32,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.relative.bg-gradient-to-br → linear-gradient(to right bottom, lab(8.11897 0.811279 -12.254) 0%, lab(16.1051 -1.18239 -11.7533) 50%, lab(8.1",
+      "div.absolute.inset-0 → linear-gradient(to right bottom, oklab(0.626994 0.147781 -0.219928 / 0.1) 0%, rgba(0, 0, 0, 0) 50%, oklab(0.62",
+      "div.absolute.inset-0 → radial-gradient(circle, rgba(168, 85, 247, 0.15) 1px, rgba(0, 0, 0, 0) 1px)",
+      "div.absolute.-inset-16 → linear-gradient(to right bottom, oklab(0.626994 0.147781 -0.219928 / 0.2) 0%, oklab(0.666998 0.23291 -0.180983"
+     ],
+     "gradientText": 6,
+     "hairlines": 15,
+     "hairlineSamples": [
+      "header.fixed.top-0 1440px",
+      "h3.text-sm.sm:text-xl 329px",
+      "h3.text-sm.sm:text-xl 329px",
+      "h3.text-sm.sm:text-xl 329px",
+      "h3.text-sm.sm:text-xl 329px"
+     ],
+     "outlinedBoxes": 38,
+     "dashed": 1,
+     "blurred": 10,
+     "roundedBoxes": 46,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 8,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 8,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 5538
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8137
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.12
+     }
+    ],
+    "nav": {
+     "links": 8,
+     "fixed": true,
+     "height": 69,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "geist"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 8859,
+    "margins": {
+     "left": 128,
+     "right": 153
+    },
+    "sections": [
+     {
+      "sel": "section#hero.relative.min-h-screen",
+      "tag": "section",
+      "top": 0,
+      "height": 950,
+      "words": 40,
+      "media": 1,
+      "middle": 119,
+      "heading": {
+       "text": "Hello",
+       "size": 128,
+       "tag": "h1"
+      },
+      "left": 128,
+      "right": 165,
+      "textLeft": 128,
+      "textRight": 670,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-8.md:py-12",
+      "tag": "section",
+      "top": 950,
+      "height": 238,
+      "words": 92,
+      "media": 0,
+      "middle": 1289,
+      "heading": null,
+      "left": 0,
+      "right": 0,
+      "textLeft": -1202,
+      "textRight": -1335,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.py-20.md:py-24",
+      "tag": "section",
+      "top": 1188,
+      "height": 1014,
+      "words": 193,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Building Intelligent Systems",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 225,
+      "right": 214,
+      "textLeft": 225,
+      "textRight": 214,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.py-20.md:py-24",
+      "tag": "section",
+      "top": 2202,
+      "height": 1301,
+      "words": 187,
+      "media": 4,
+      "middle": 42,
+      "heading": {
+       "text": "Projects & Systems",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 129,
+      "textLeft": 128,
+      "textRight": 156,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#achievements.py-20.md:py-24",
+      "tag": "section",
+      "top": 3502,
+      "height": 1154,
+      "words": 120,
+      "media": 3,
+      "middle": 42,
+      "heading": {
+       "text": "Achievements",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 129,
+      "textLeft": 128,
+      "textRight": 158,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#internships.py-20.md:py-24",
+      "tag": "section",
+      "top": 4656,
+      "height": 602,
+      "words": 63,
+      "media": 0,
+      "middle": 90,
+      "heading": {
+       "text": "Internships",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 169,
+      "textLeft": 128,
+      "textRight": 199,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#skills.py-20.md:py-24",
+      "tag": "section",
+      "top": 5258,
+      "height": 1135,
+      "words": 157,
+      "media": 0,
+      "middle": 117,
+      "heading": {
+       "text": "Technical Skills",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 196,
+      "textLeft": 128,
+      "textRight": 196,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#certifications.py-20.md:py-24",
+      "tag": "section",
+      "top": 6393,
+      "height": 696,
+      "words": 41,
+      "media": 0,
+      "middle": 180,
+      "heading": {
+       "text": "Certifications",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 153,
+      "textLeft": 128,
+      "textRight": 397,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#publications.py-20.md:py-24",
+      "tag": "section",
+      "top": 7089,
+      "height": 740,
+      "words": 311,
+      "media": 0,
+      "middle": 2,
+      "heading": {
+       "text": "Publications",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 153,
+      "textLeft": 128,
+      "textRight": 153,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#education.py-20.md:py-24",
+      "tag": "section",
+      "top": 7829,
+      "height": 628,
+      "words": 51,
+      "media": 0,
+      "middle": 95,
+      "heading": {
+       "text": "Education",
+       "size": 48,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 312,
+      "textLeft": 128,
+      "textRight": 312,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.py-20.md:py-24",
+      "tag": "section",
+      "top": 8457,
+      "height": 402,
+      "words": 23,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Get In Touch",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 128,
+      "right": 746,
+      "textLeft": 128,
+      "textRight": 746,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "HelloI'm Charan Velavan",
+      "size": 128,
+      "top": 234,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 128,
+      "n": 18
+     },
+     {
+      "x": 153,
+      "n": 14
+     },
+     {
+      "x": 556,
+      "n": 9
+     },
+     {
+      "x": 225,
+      "n": 4
+     },
+     {
+      "x": 958,
+      "n": 4
+     },
+     {
+      "x": 969,
+      "n": 4
+     },
+     {
+      "x": 757,
+      "n": 3
+     },
+     {
+      "x": 177,
+      "n": 1
+     },
+     {
+      "x": 451,
+      "n": 1
+     },
+     {
+      "x": 744,
+      "n": 1
+     },
+     {
+      "x": 805,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 60,
+    "bodySize": 14,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.12,
+    "voidBox": {
+     "x": 780,
+     "y": 660,
+     "w": 660,
+     "h": 240
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 412,
+   "height": 258,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 164,
+    "css": 31,
+    "transitions": 20,
+    "scripted": 113,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 419,
+     "h": 263
+    },
+    "page": {
+     "height": 9291,
+     "screens": 35.3,
+     "words": 1172,
+     "img": 19,
+     "video": 0,
+     "canvas": 0,
+     "svg": 49,
+     "sections": 11,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 6,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "image?url=%2Ftest.png&w=384&q=75",
+      "main.jpg",
+      "1.png",
+      "win.jpeg",
+      "1.jpg",
+      "1.jpg"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "👨",
+      "💻",
+      "👋"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "Welcome to My Portfolio! 👋",
+     "words": 5,
+     "chars": 27,
+     "lines": 2,
+     "size": 24,
+     "vw": 5.7,
+     "font": "Geist",
+     "weight": 700,
+     "tracking": -0.017,
+     "leading": 1.33,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.74,
+     "top": 55,
+     "tag": "h2",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "HelloI'm Charan Velavan",
+     "words": 3,
+     "lines": 2,
+     "size": 48,
+     "font": "Geist"
+    },
+    "headings": [
+     {
+      "text": "Welcome to My Portfolio! 👋",
+      "words": 5,
+      "chars": 27,
+      "lines": 2,
+      "size": 24,
+      "vw": 5.7,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.017,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.74,
+      "top": 55,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "HelloI'm Charan Velavan",
+      "words": 3,
+      "chars": 23,
+      "lines": 2,
+      "size": 48,
+      "vw": 11.5,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.008,
+      "leading": 0.9,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 430,
+      "gradientText": true,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "5",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 860,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "4",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 860,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "15",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.36,
+      "top": 955,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "1",
+      "words": 1,
+      "chars": 1,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.36,
+      "top": 955,
+      "tag": "div",
+      "kind": "heading"
+     },
+     {
+      "text": "Building Intelligent Systems",
+      "words": 3,
+      "chars": 28,
+      "lines": 2,
+      "size": 36,
+      "vw": 8.6,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 1412,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Core Expertise",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 24,
+      "vw": 5.7,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.017,
+      "leading": 1.33,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 2320,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "Projects & Systems",
+      "words": 3,
+      "chars": 18,
+      "lines": 1,
+      "size": 36,
+      "vw": 8.6,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 3268,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Achievements",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 36,
+      "vw": 8.6,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 4379,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Internships",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 5362,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Technical Skills",
+      "words": 2,
+      "chars": 16,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 5951,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Certifications",
+      "words": 1,
+      "chars": 14,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 7103,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Publications",
+      "words": 1,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 7683,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Education",
+      "words": 1,
+      "chars": 9,
+      "lines": 1,
+      "size": 36,
+      "vw": 8.6,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.025,
+      "leading": 1.11,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 8286,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Get In Touch",
+      "words": 3,
+      "chars": 12,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.2,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.013,
+      "leading": 1.2,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.87,
+      "top": 8863,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 16,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 1,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Geist",
+       "share": 1,
+       "mono": false
+      }
+     ],
+     "familyCount": 1,
+     "sizes": [
+      9,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      30,
+      36,
+      48
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Geist",
+      "size": 10,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": -0.04,
+      "contrast": 7.6
+     },
+     "measureChars": 31,
+     "max": {
+      "size": 48,
+      "vw": 11.5,
+      "font": "Geist",
+      "text": "Hello"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 34,
+     "microLabelShare": 0.03,
+     "microSamples": [
+      "E",
+      "m",
+      "b",
+      "e",
+      "d",
+      "d"
+     ],
+     "upperShare": 0.06,
+     "centerShare": 0.02,
+     "smallText": 98
+    },
+    "eyebrows": [
+     {
+      "text": "Open to Opportunities",
+      "above": "HelloI'm Charan Velavan",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": true,
+      "size": 12,
+      "top": 344
+     },
+     {
+      "text": "About Me",
+      "above": "Building Intelligent Systems",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 1376
+     },
+     {
+      "text": "Selected Work",
+      "above": "Projects & Systems",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 3232
+     },
+     {
+      "text": "Recognition & Awards",
+      "above": "Achievements",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 4343
+     },
+     {
+      "text": "Experience",
+      "above": "Internships",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 5330
+     },
+     {
+      "text": "Technical Expertise",
+      "above": "Technical Skills",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 5919
+     },
+     {
+      "text": "Professional Development",
+      "above": "Certifications",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 7071
+     },
+     {
+      "text": "Research",
+      "above": "Publications",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 7651
+     },
+     {
+      "text": "Academics",
+      "above": "Education",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 8250
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#0a0a0a",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.04
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#0b0b0b",
+       "top": 1540,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.04
+       }
+      },
+      {
+       "color": "#0a0a0a",
+       "top": 2880,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.04
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#99a1af",
+       "share": 0.65
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.16
+      },
+      {
+       "color": "#dab2ff",
+       "share": 0.09
+      },
+      {
+       "color": "#6a7282",
+       "share": 0.04
+      },
+      {
+       "color": "#c27aff",
+       "share": 0.02
+      }
+     ],
+     "button": null,
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 6,
+     "inHero": 1,
+     "radius": 8,
+     "height": 29,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip Tour"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 28,
+     "shadowOverlay": 1,
+     "shadowSamples": [
+      "button.flex-1.px-6 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+      "a.p-3.rounded-full → rgba(168, 85, 247, 0.494) 0px 0px 15.6629px 0px, rgba(168, 85, 247, 0.196) 0px 0",
+      "a.p-3.rounded-full → rgba(168, 85, 247, 0.494) 0px 0px 15.6629px 0px, rgba(168, 85, 247, 0.196) 0px 0",
+      "div.absolute.inset-[8%] → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0"
+     ],
+     "gradients": 37,
+     "scrims": 0,
+     "gradientSamples": [
+      "div.h-8.bg-gradient-to-t → linear-gradient(to top, lab(2.74175 0 0.00000596046 / 0.95) 0%, rgba(0, 0, 0, 0) 100%)",
+      "div.relative.bg-gradient-to-br → linear-gradient(to right bottom, lab(8.11897 0.811279 -12.254) 0%, lab(16.1051 -1.18239 -11.7533) 50%, lab(8.1",
+      "div.absolute.inset-0 → linear-gradient(to right bottom, oklab(0.626994 0.147781 -0.219928 / 0.1) 0%, rgba(0, 0, 0, 0) 50%, oklab(0.62",
+      "div.mb-6.inline-flex → linear-gradient(to right bottom, oklab(0.626994 0.147781 -0.219928 / 0.2) 0%, oklab(0.622989 -0.0378532 -0.210"
+     ],
+     "gradientText": 6,
+     "hairlines": 8,
+     "hairlineSamples": [
+      "header.fixed.top-0 419px",
+      "div.bg-[#f8f7f4]/95.dark:bg-[#0a0a0a]/95 419px",
+      "div.absolute.inset-x-0 172px rule",
+      "div.absolute.inset-x-0 172px rule",
+      "div.absolute.inset-x-0 172px rule"
+     ],
+     "outlinedBoxes": 38,
+     "dashed": 1,
+     "blurred": 7,
+     "roundedBoxes": 43,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 8,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 6103
+      },
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 8472
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.23
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 61,
+     "floatingPill": false,
+     "blur": true
+    },
+    "fontsLoaded": [
+     "geist"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 419,
+     "h": 263
+    },
+    "pageH": 9291,
+    "margins": {
+     "left": 24,
+     "right": 38
+    },
+    "sections": [
+     {
+      "sel": "div.absolute.inset-0",
+      "tag": "div",
+      "top": 0,
+      "height": 1110,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "div.max-w-7xl.mx-auto",
+      "tag": "div",
+      "top": 80,
+      "height": 942,
+      "words": 38,
+      "media": 1,
+      "middle": 0,
+      "heading": {
+       "text": "Hello",
+       "size": 48,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 46,
+      "textLeft": 24,
+      "textRight": 46,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section.py-8.md:py-12",
+      "tag": "section",
+      "top": 1110,
+      "height": 186,
+      "words": 92,
+      "media": 0,
+      "middle": 2426,
+      "heading": null,
+      "left": 0,
+      "right": 0,
+      "textLeft": -1214,
+      "textRight": -2468,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#about.py-20.md:py-24",
+      "tag": "section",
+      "top": 1296,
+      "height": 1836,
+      "words": 193,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Building Intelligent Systems",
+       "size": 36,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 55,
+      "textLeft": 24,
+      "textRight": 55,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#work.py-20.md:py-24",
+      "tag": "section",
+      "top": 3132,
+      "height": 1111,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#achievements.py-20.md:py-24",
+      "tag": "section",
+      "top": 4243,
+      "height": 1007,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#internships.py-20.md:py-24",
+      "tag": "section",
+      "top": 5250,
+      "height": 569,
+      "words": 35,
+      "media": 0,
+      "middle": 37,
+      "heading": {
+       "text": "Internships",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 48,
+      "textLeft": 24,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#skills.py-20.md:py-24",
+      "tag": "section",
+      "top": 5819,
+      "height": 1153,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#certifications.py-20.md:py-24",
+      "tag": "section",
+      "top": 6971,
+      "height": 600,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#publications.py-20.md:py-24",
+      "tag": "section",
+      "top": 7571,
+      "height": 579,
+      "words": 25,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Publications",
+       "size": 30,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 38,
+      "textLeft": 24,
+      "textRight": 38,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#education.py-20.md:py-24",
+      "tag": "section",
+      "top": 8150,
+      "height": 613,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.py-20.md:py-24",
+      "tag": "section",
+      "top": 8763,
+      "height": 464,
+      "words": 0,
+      "media": 0,
+      "middle": 0,
+      "heading": null,
+      "left": null,
+      "right": null,
+      "textLeft": null,
+      "textRight": null,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 736,
+      "height": 164
+     },
+     {
+      "top": 1012,
+      "height": 160
+     },
+     {
+      "top": 1236,
+      "height": 140
+     },
+     {
+      "top": 1496,
+      "height": 80
+     },
+     {
+      "top": 2236,
+      "height": 80
+     },
+     {
+      "top": 2352,
+      "height": 88
+     },
+     {
+      "top": 2504,
+      "height": 100
+     },
+     {
+      "top": 2668,
+      "height": 100
+     },
+     {
+      "top": 3024,
+      "height": 2304
+     },
+     {
+      "top": 5720,
+      "height": 1932
+     }
+    ],
+    "h1s": [
+     {
+      "text": "HelloI'm Charan Velavan",
+      "size": 48,
+      "top": 430,
+      "firstScreen": false
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 7
+     },
+     {
+      "x": 57,
+      "n": 4
+     },
+     {
+      "x": 85,
+      "n": 1
+     },
+     {
+      "x": 144,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 13,
+    "bodySize": 16,
+    "stage": false,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "9 eyebrow/kicker label(s) above headings: \"Open to Opportunities\" (pill) above \"HelloI'm Charan Velavan\"; \"About Me\" above \"Building Intelligent Systems\"; \"Selected Work\" above \"Projects & Systems\"; \"Recognition & Awards\" above \"Achievements\"; \"Experience\" above \"Internships\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "17 tiny uppercase letter-spaced labels (e.g. \"Major Projects\", \"Achievements\", \"Technologies\", \"Publications\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "emoji",
+   "width": 1440,
+   "message": "Emoji in the page: 👋",
+   "fix": "Remove. Use words or real imagery.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient",
+   "width": 1440,
+   "message": "32 gradient fill(s): div.relative.bg-gradient-to-br → linear-gradient(to right bottom, lab(8.11897 0.811279 -12.254) 0%, lab(16.1051 -1.18239 -11.7533) 50%, lab(8.1 | div.absolute.inset-0 → linear-gradient(to right bottom, oklab(0.626994 0.147781 -0.219928 / 0.1) 0%, rgba(0, 0, 0, 0) 50%, oklab(0.62 | div.absolute.inset-0 → radial-gradient(circle, rgba(168, 85, 247, 0.15) 1px, rgba(0, 0, 0, 0) 1px)",
+   "fix": "Use a flat colour or a real image. The only gradient allowed by default is a neutral scrim over a photo for legibility.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "gradient-text",
+   "width": 1440,
+   "message": "6 gradient-filled text element(s).",
+   "fix": "Solid colour text.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "28 box-shadow(s) on elements at rest: button.flex-1.px-6 → rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0 | a.p-3.rounded-full → rgba(168, 85, 247, 0.392) 0px 0px 11.5556px 0px, rgba(168, 85, 247, 0.145) 0px 0 | a.p-3.rounded-full → rgba(168, 85, 247, 0.392) 0px 0px 11.5556px 0px, rgba(168, 85, 247, 0.145) 0px 0",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "15 thin rule(s)/divider line(s): header.fixed.top-0 1440px | h3.text-sm.sm:text-xl 329px | h3.text-sm.sm:text-xl 329px | h3.text-sm.sm:text-xl 329px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "38 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "dashed",
+   "width": 1440,
+   "message": "1 dashed/dotted border(s).",
+   "fix": "Remove unless it is a real drop zone.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "10 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 1440,
+   "message": "2 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Low-contrast text: \"O-RAN, CU/DU architecture, RF systems\" 4.1:1 needs 4.5:1; \"Computer vision, deep learning, edge AI\" 4.1:1 needs 4.5:1; \"UAV systems, robotics, real-time process\" 4.1:1 needs 4.5:1; \"Antenna design, THz filters, RF circuits\" 4.1:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour."
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "10 different font sizes (12, 14, 16, 18, 20, 24, 30, 36, 48, 128).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 14px (the size most of the running text is set in).",
+   "fix": "Body copy 16–20px. Map small sizes from blueprints onto your body step.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "51 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 128px on the left, 153px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "empty-middle",
+   "width": 1440,
+   "message": "1 section(s) have content at both edges and 1289px of nothing between: section.py-8.md:py-12",
+   "fix": "Bring the two parts together on the grid, or put the picture or figure of the section in the middle. An empty middle third reads as a hole, the same as an empty half."
+  },
+  {
+   "level": "WARN",
+   "id": "untitled-section",
+   "width": 1440,
+   "message": "A section carries text but no heading: section.py-8.md:py-12 at 950px.",
+   "fix": "Name it with a short heading unless it is the continuation of the section above."
+  },
+  {
+   "level": "FAIL",
+   "id": "covered-text",
+   "width": 1440,
+   "message": "Large text lies under another element at some scroll position: \"I'm\" (screen 1, 100% hidden); \"Charan\" (screen 1, 25% hidden); \"Building Intelligent Systems\" (screen 2, 100% hidden); \"Core Expertise\" (screen 2, 100% hidden)",
+   "fix": "Nothing may sit on top of a headline or statement. Move the picture, shorten the pinned run, or raise the text above it (z-index) and give it a ground.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "palette-purple",
+   "width": 412,
+   "message": "Indigo / violet (text #c27aff).",
+   "fix": "Use the accent from the drawn palette."
+  },
+  {
+   "level": "FAIL",
+   "id": "blank-gap",
+   "width": 412,
+   "message": "5 stretch(es) of the page hold nothing at all: 164px at 736px; 160px at 1012px; 2304px at 3024px; 1932px at 5720px (the screen is 263px tall).",
+   "fix": "Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing."
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 412,
+   "message": "The h1 (\"HelloI'm Charan Velavan\") is not on the first screen (it starts 430px down).",
+   "fix": "The title belongs on the first screen, where a visitor decides whether to stay."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "scratchpad/research/taste-out/live/desktop-fold.jpg",
+   "pages": [
+    "scratchpad/research/taste-out/live/desktop-page-01.jpg",
+    "scratchpad/research/taste-out/live/desktop-page-02.jpg",
+    "scratchpad/research/taste-out/live/desktop-page-03.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 412,
+   "fold": "scratchpad/research/taste-out/live/mobile-fold.jpg",
+   "pages": [
+    "scratchpad/research/taste-out/live/mobile-page-01.jpg",
+    "scratchpad/research/taste-out/live/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

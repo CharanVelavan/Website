@@ -1,0 +1,1741 @@
+{
+ "url": "scratchpad/lab3d/living-lab-3d.html",
+ "at": "2026-10-20T12:54:21.113Z",
+ "allow": [],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.68,
+    0.95,
+    0.99,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 83,
+    "css": 51,
+    "transitions": 4,
+    "scripted": 28,
+    "videos": 1,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4380,
+     "screens": 4.9,
+     "words": 690,
+     "img": 10,
+     "video": 1,
+     "canvas": 1,
+     "svg": 0,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo.webp",
+      "ba-field.webp",
+      "ne-pair.webp",
+      "tz-current.webp",
+      "or-usrp.webp",
+      "de-board.webp",
+      "wb-build.webp",
+      "de-win.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "♪"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "From circuit board to 5G link.",
+     "words": 6,
+     "chars": 30,
+     "lines": 2,
+     "size": 58,
+     "vw": 4,
+     "font": "Archivo Narrow",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 0.94,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.3,
+     "top": 416,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "From circuit board to 5G link.",
+     "words": 6,
+     "lines": 2,
+     "size": 58,
+     "font": "Archivo Narrow"
+    },
+    "headings": [
+     {
+      "text": "From circuit board to 5G link.",
+      "words": 6,
+      "chars": 30,
+      "lines": 2,
+      "size": 58,
+      "vw": 4,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 416,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "07",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 603,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "05",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 603,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 671,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "06",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 1.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 671,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Seven machines, one bench.",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 1390,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Four years, one route.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.27,
+      "top": 2388,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Let's build the next one.",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 42,
+      "vw": 2.9,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.27,
+      "top": 3633,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 8,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Geist",
+       "share": 0.53,
+       "mono": false
+      },
+      {
+       "family": "Geist Mono",
+       "share": 0.44,
+       "mono": true
+      },
+      {
+       "family": "Archivo Narrow",
+       "share": 0.03,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      26,
+      28,
+      42,
+      58
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Geist",
+      "size": 15,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11
+     },
+     "measureChars": 57,
+     "max": {
+      "size": 58,
+      "vw": 4,
+      "font": "Archivo Narrow",
+      "text": "From circuit board"
+     },
+     "monoShare": 0.44,
+     "monoProseShare": 0.44,
+     "monoFamilies": [
+      "Geist Mono"
+     ],
+     "monoSamples": [
+      "01",
+      "open →",
+      "02",
+      "open →",
+      "03",
+      "open →"
+     ],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.04,
+     "smallText": 74
+    },
+    "eyebrows": [
+     {
+      "text": "Embedded & Firmware Engineer · M.E., SSN",
+      "above": "From circuit board to 5G link.",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13,
+      "top": 345
+     },
+     {
+      "text": "Inventors '23 winner ↗",
+      "above": "07",
+      "upper": false,
+      "tracked": false,
+      "mono": true,
+      "pill": true,
+      "size": 11,
+      "top": 574
+     },
+     {
+      "text": "Inventors '23 winner ↗",
+      "above": "05",
+      "upper": false,
+      "tracked": false,
+      "mono": true,
+      "pill": true,
+      "size": 11,
+      "top": 574
+     },
+     {
+      "text": "01 · The lab",
+      "above": "Seven machines, one bench.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 1363
+     },
+     {
+      "text": "02 · Flight path",
+      "above": "Four years, one route.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 2361
+     },
+     {
+      "text": "03 · Back at the bench",
+      "above": "Let's build the next one.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 3606
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 11,
+      "top": 314
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 254
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 197
+     },
+     {
+      "text": "04",
+      "size": 11,
+      "top": 330
+     },
+     {
+      "text": "05",
+      "size": 11,
+      "top": 369
+     },
+     {
+      "text": "06",
+      "size": 11,
+      "top": 424
+     },
+     {
+      "text": "07",
+      "size": 11,
+      "top": 626
+     },
+     {
+      "text": "05",
+      "size": 11,
+      "top": 633
+     },
+     {
+      "text": "04",
+      "size": 11,
+      "top": 673
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 713
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 753
+     },
+     {
+      "text": "01",
+      "size": 11,
+      "top": 793
+     }
+    ],
+    "color": {
+     "bodyBg": "#eeeae2",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.26,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeeae2",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.26,
+        "l": 0.91
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#2e3036",
+       "share": 0.31
+      },
+      {
+       "color": "#15161a",
+       "share": 0.31
+      },
+      {
+       "color": "#9a4e25",
+       "share": 0.16
+      },
+      {
+       "color": "#5a5d64",
+       "share": 0.1
+      },
+      {
+       "color": "#f7f5f0",
+       "share": 0.09
+      }
+     ],
+     "button": {
+      "bg": "#f7f5f0",
+      "hsl": {
+       "h": 43,
+       "s": 0.3,
+       "l": 0.95
+      },
+      "fg": "#15161a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 19,
+     "inHero": 8,
+     "radius": "pill",
+     "height": 29,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 7,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "01Bird's AI open →",
+      "02Nephele 2.0 open →",
+      "03300-UAV swarm network open →",
+      "04THz bandpass filter open →"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div#profile.profile → rgba(0, 0, 0, 0.55) 0px 30px 60px -32px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 17,
+     "hairlineSamples": [
+      "div#stack.stack 428px",
+      "button.layer 428px",
+      "button.layer 428px",
+      "button.layer 428px",
+      "button.layer 428px"
+     ],
+     "outlinedBoxes": 4,
+     "dashed": 1,
+     "blurred": 27,
+     "roundedBoxes": 15,
+     "boxRadius": 20,
+     "squareMedia": 1,
+     "roundedMedia": 7,
+     "mediaRadius": 20,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 346
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 59,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo narrow",
+     "geist",
+     "geist mono"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4380,
+    "margins": {
+     "left": 47,
+     "right": 47
+    },
+    "sections": [
+     {
+      "sel": "section#top.hero",
+      "tag": "section",
+      "top": 8,
+      "height": 934,
+      "words": 222,
+      "media": 7,
+      "middle": 1424,
+      "heading": {
+       "text": "Selected work",
+       "size": 15,
+       "tag": "h3"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": -1296,
+      "textRight": -1611,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#lab.ch",
+      "tag": "section",
+      "top": 942,
+      "height": 1125,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Seven machines,",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 47,
+      "right": 1029,
+      "textLeft": 47,
+      "textRight": 1029,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#timeline.ch.right",
+      "tag": "section",
+      "top": 2067,
+      "height": 1125,
+      "words": 84,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Four years,",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 1009,
+      "right": 47,
+      "textLeft": 1009,
+      "textRight": 74,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.ch",
+      "tag": "section",
+      "top": 3192,
+      "height": 1125,
+      "words": 39,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Let's build",
+       "size": 42,
+       "tag": "h2"
+      },
+      "left": 47,
+      "right": 1011,
+      "textLeft": 47,
+      "textRight": 1011,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 920,
+      "height": 440
+     },
+     {
+      "top": 1648,
+      "height": 712
+     },
+     {
+      "top": 2892,
+      "height": 712
+     },
+     {
+      "top": 3904,
+      "height": 432
+     }
+    ],
+    "h1s": [],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 47,
+      "n": 4
+     },
+     {
+      "x": 1009,
+      "n": 2
+     },
+     {
+      "x": 222,
+      "n": 1
+     },
+     {
+      "x": 524,
+      "n": 1
+     },
+     {
+      "x": 632,
+      "n": 1
+     },
+     {
+      "x": 1198,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 10,
+    "bodySize": 15,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 412,
+   "height": 258,
+   "load": "load",
+   "screens": 12,
+   "filled": [
+    0.71,
+    0.56,
+    0.61,
+    0.81,
+    0.99,
+    0.99,
+    0.99,
+    0.99,
+    1,
+    1,
+    0.99,
+    0.99
+   ],
+   "motion": {
+    "elements": 83,
+    "css": 51,
+    "transitions": 4,
+    "scripted": 28,
+    "videos": 1,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 981,
+     "h": 614
+    },
+    "page": {
+     "height": 3307,
+     "screens": 5.4,
+     "words": 690,
+     "img": 10,
+     "video": 1,
+     "canvas": 1,
+     "svg": 0,
+     "sections": 4,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 8,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "photo.webp",
+      "ba-field.webp",
+      "ne-pair.webp",
+      "tz-current.webp",
+      "or-usrp.webp",
+      "de-board.webp",
+      "wb-build.webp",
+      "de-win.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [
+      "♪"
+     ],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "From circuit board to 5G link.",
+     "words": 6,
+     "chars": 30,
+     "lines": 2,
+     "size": 43.1,
+     "vw": 4.4,
+     "font": "Archivo Narrow",
+     "weight": 700,
+     "tracking": -0.01,
+     "leading": 0.94,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.3,
+     "top": 416,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "From circuit board to 5G link.",
+     "words": 6,
+     "lines": 2,
+     "size": 43.1,
+     "font": "Archivo Narrow"
+    },
+    "headings": [
+     {
+      "text": "Charan Velavan",
+      "words": 2,
+      "chars": 14,
+      "lines": 1,
+      "size": 26,
+      "vw": 2.7,
+      "font": "Geist",
+      "weight": 700,
+      "tracking": -0.03,
+      "leading": 1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.23,
+      "top": 315,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "From circuit board to 5G link.",
+      "words": 6,
+      "chars": 30,
+      "lines": 2,
+      "size": 43.1,
+      "vw": 4.4,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.3,
+      "top": 416,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "07",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 510,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "05",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 510,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "03",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 578,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "06",
+      "words": 1,
+      "chars": 2,
+      "lines": 1,
+      "size": 28,
+      "vw": 2.9,
+      "font": "Geist Mono",
+      "weight": 500,
+      "tracking": -0.03,
+      "leading": 1.5,
+      "upper": false,
+      "italic": false,
+      "mono": true,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.05,
+      "top": 578,
+      "tag": "strong",
+      "kind": "heading"
+     },
+     {
+      "text": "Seven machines, one bench.",
+      "words": 4,
+      "chars": 26,
+      "lines": 2,
+      "size": 39.2,
+      "vw": 4,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 1217,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Four years, one route.",
+      "words": 4,
+      "chars": 22,
+      "lines": 1,
+      "size": 39.2,
+      "vw": 4,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "right",
+      "widthRatio": 0.39,
+      "top": 1855,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Let's build the next one.",
+      "words": 5,
+      "chars": 25,
+      "lines": 1,
+      "size": 39.2,
+      "vw": 4,
+      "font": "Archivo Narrow",
+      "weight": 700,
+      "tracking": -0.01,
+      "leading": 0.94,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.39,
+      "top": 2741,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 9,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 0,
+     "centered": 0,
+     "medianWords": 2,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Geist",
+       "share": 0.53,
+       "mono": false
+      },
+      {
+       "family": "Geist Mono",
+       "share": 0.44,
+       "mono": true
+      },
+      {
+       "family": "Archivo Narrow",
+       "share": 0.03,
+       "mono": false
+      }
+     ],
+     "familyCount": 3,
+     "sizes": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      20,
+      26,
+      28,
+      39,
+      43
+     ],
+     "sizeCount": 11,
+     "notLoaded": [],
+     "body": {
+      "font": "Geist",
+      "size": 15,
+      "leading": 1.5,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 11
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 43.1,
+      "vw": 4.4,
+      "font": "Archivo Narrow",
+      "text": "From circuit board"
+     },
+     "monoShare": 0.44,
+     "monoProseShare": 0.44,
+     "monoFamilies": [
+      "Geist Mono"
+     ],
+     "monoSamples": [
+      "01",
+      "open →",
+      "02",
+      "open →",
+      "03",
+      "open →"
+     ],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.05,
+     "centerShare": 0.04,
+     "smallText": 74
+    },
+    "eyebrows": [
+     {
+      "text": "Open to work",
+      "above": "Charan Velavan",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 11.5,
+      "top": 294
+     },
+     {
+      "text": "01 · The lab",
+      "above": "Seven machines, one bench.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 1190
+     },
+     {
+      "text": "02 · Flight path",
+      "above": "Four years, one route.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 1827
+     },
+     {
+      "text": "03 · Back at the bench",
+      "above": "Let's build the next one.",
+      "upper": true,
+      "tracked": true,
+      "mono": true,
+      "pill": false,
+      "size": 11.5,
+      "top": 2714
+     }
+    ],
+    "numbered": [
+     {
+      "text": "01",
+      "size": 11,
+      "top": 321
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 295
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 284
+     },
+     {
+      "text": "04",
+      "size": 11,
+      "top": 310
+     },
+     {
+      "text": "05",
+      "size": 11,
+      "top": 337
+     },
+     {
+      "text": "06",
+      "size": 11,
+      "top": 353
+     },
+     {
+      "text": "07",
+      "size": 11,
+      "top": 410
+     },
+     {
+      "text": "05",
+      "size": 11,
+      "top": 630
+     },
+     {
+      "text": "04",
+      "size": 11,
+      "top": 672
+     },
+     {
+      "text": "03",
+      "size": 11,
+      "top": 714
+     },
+     {
+      "text": "02",
+      "size": 11,
+      "top": 756
+     },
+     {
+      "text": "01",
+      "size": 11,
+      "top": 796
+     }
+    ],
+    "color": {
+     "bodyBg": "#eeeae2",
+     "bodyBgHsl": {
+      "h": 40,
+      "s": 0.26,
+      "l": 0.91
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#eeeae2",
+       "top": 0,
+       "hsl": {
+        "h": 40,
+        "s": 0.26,
+        "l": 0.91
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#2e3036",
+       "share": 0.31
+      },
+      {
+       "color": "#15161a",
+       "share": 0.31
+      },
+      {
+       "color": "#9a4e25",
+       "share": 0.16
+      },
+      {
+       "color": "#5a5d64",
+       "share": 0.1
+      },
+      {
+       "color": "#f7f5f0",
+       "share": 0.09
+      }
+     ],
+     "button": {
+      "bg": "#f7f5f0",
+      "hsl": {
+       "h": 43,
+       "s": 0.3,
+       "l": 0.95
+      },
+      "fg": "#15161a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 19,
+     "inHero": 8,
+     "radius": "pill",
+     "height": 29,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 7,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content",
+      "01Bird's AI open →",
+      "02Nephele 2.0 open →",
+      "03300-UAV swarm network open →",
+      "04THz bandpass filter open →"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 1,
+     "shadowOverlay": 0,
+     "shadowSamples": [
+      "div#profile.profile → rgba(0, 0, 0, 0.55) 0px 30px 60px -32px"
+     ],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 17,
+     "hairlineSamples": [
+      "div#stack.stack 299px",
+      "button.layer 299px",
+      "button.layer 299px",
+      "button.layer 299px",
+      "button.layer 299px"
+     ],
+     "outlinedBoxes": 3,
+     "dashed": 1,
+     "blurred": 27,
+     "roundedBoxes": 12,
+     "boxRadius": 20,
+     "squareMedia": 1,
+     "roundedMedia": 2,
+     "mediaRadius": 26,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 324
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "canvas",
+      "ratio": 1
+     },
+     {
+      "type": "img",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 59,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "archivo narrow",
+     "geist",
+     "geist mono"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 981,
+     "h": 614
+    },
+    "pageH": 3307,
+    "margins": {
+     "left": 24,
+     "right": 43
+    },
+    "sections": [
+     {
+      "sel": "section#top.hero",
+      "tag": "section",
+      "top": 8,
+      "height": 937,
+      "words": 312,
+      "media": 8,
+      "middle": 1625,
+      "heading": {
+       "text": "From circuit board",
+       "size": 43,
+       "tag": "h1"
+      },
+      "left": 0,
+      "right": 0,
+      "textLeft": -1553,
+      "textRight": -1813,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section#lab.ch",
+      "tag": "section",
+      "top": 945,
+      "height": 766,
+      "words": 49,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Seven machines,",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 47,
+      "right": 570,
+      "textLeft": 47,
+      "textRight": 570,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#timeline.ch.right",
+      "tag": "section",
+      "top": 1711,
+      "height": 766,
+      "words": 84,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Four years,",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 549,
+      "right": 48,
+      "textLeft": 549,
+      "textRight": 75,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     },
+     {
+      "sel": "section#contact.ch",
+      "tag": "section",
+      "top": 2478,
+      "height": 766,
+      "words": 39,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Let's build",
+       "size": 39,
+       "tag": "h2"
+      },
+      "left": 47,
+      "right": 560,
+      "textLeft": 47,
+      "textRight": 560,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": true,
+      "pinned": false
+     }
+    ],
+    "gaps": [
+     {
+      "top": 924,
+      "height": 264
+     },
+     {
+      "top": 1468,
+      "height": 360
+     },
+     {
+      "top": 2356,
+      "height": 356
+     },
+     {
+      "top": 3008,
+      "height": 252
+     }
+    ],
+    "h1s": [
+     {
+      "text": "From circuit board to 5G link.",
+      "size": 43,
+      "top": 416,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [
+     {
+      "text": "03 · 6G · Edge AI · UAV",
+      "side": "right",
+      "px": 14
+     }
+    ],
+    "edges": [
+     {
+      "x": 47,
+      "n": 4
+     },
+     {
+      "x": 24,
+      "n": 2
+     },
+     {
+      "x": 549,
+      "n": 2
+     },
+     {
+      "x": 129,
+      "n": 1
+     },
+     {
+      "x": 211,
+      "n": 1
+     },
+     {
+      "x": 359,
+      "n": 1
+     },
+     {
+      "x": 466,
+      "n": 1
+     },
+     {
+      "x": 725,
+      "n": 1
+     }
+    ],
+    "leftBlocks": 13,
+    "bodySize": 15,
+    "stage": true,
+    "explains": false,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "6 eyebrow/kicker label(s) above headings: \"Embedded & Firmware Engineer · M.E., SSN\" above \"From circuit board to 5G link.\"; \"Inventors '23 winner ↗\" (pill) above \"07\"; \"Inventors '23 winner ↗\" (pill) above \"05\"; \"01 · The lab\" above \"Seven machines, one bench.\"; \"02 · Flight path\" above \"Four years, one route.\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "mono",
+   "width": 1440,
+   "message": "Monospace type outside code: Geist Mono — e.g. \"01\", \"open →\", \"02\", \"open →\"",
+   "fix": "Set it in the text face. Monospace is for literal code inside <pre>/<code> only.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "numbering",
+   "width": 1440,
+   "message": "Decorative index numbers: \"01\", \"02\", \"03\", \"04\", \"05\", \"06\"",
+   "fix": "Remove them. If order truly matters, write it into the words (\"First, …\") or use a real <ol>.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "emoji",
+   "width": 1440,
+   "message": "Emoji in the page: ♪",
+   "fix": "Remove. Use words or real imagery.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "shadow",
+   "width": 1440,
+   "message": "1 box-shadow(s) on elements at rest: div#profile.profile → rgba(0, 0, 0, 0.55) 0px 30px 60px -32px",
+   "fix": "Remove. Separate surfaces with a tone step or space. Shadows are for things that really float (menus, dialogs, sticky bars).",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "hairline",
+   "width": 1440,
+   "message": "17 thin rule(s)/divider line(s): div#stack.stack 428px | button.layer 428px | button.layer 428px | button.layer 428px",
+   "fix": "Delete. Separate with space, a tone change, or scale. Lines are only for real tables and form fields.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "4 boxes drawn with a 1px outline.",
+   "fix": "Define a surface by its fill (one tone step from the page) or leave the content unboxed.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "dashed",
+   "width": 1440,
+   "message": "1 dashed/dotted border(s).",
+   "fix": "Remove unless it is a real drop zone.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "glass",
+   "width": 1440,
+   "message": "27 backdrop-blur surfaces.",
+   "fix": "One blurred sticky bar at most; glass cards are a tell.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "palette-cream",
+   "width": 1440,
+   "message": "Yellow-cream background (page background #eeeae2, section #eeeae2, button #f7f5f0).",
+   "fix": "Use the drawn palette. If you want warmth, take a low-chroma stone or bone, not a yellow cream.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "font-count",
+   "width": 1440,
+   "message": "3 typefaces in use (Geist, Geist Mono, Archivo Narrow).",
+   "fix": "Two at most.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "size-count",
+   "width": 1440,
+   "message": "11 different font sizes (11, 12, 13, 14, 15, 16, 20, 26, 28, 42, 58).",
+   "fix": "A page needs about five: display, heading, lead, body, small.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "body-size",
+   "width": 1440,
+   "message": "Body text is 15px.",
+   "fix": "Body copy 16–20px."
+  },
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "FAIL",
+   "id": "small-text",
+   "width": 1440,
+   "message": "74 text blocks under 13px.",
+   "fix": "Nothing meant to be read goes below 13px.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "lopsided",
+   "width": 1440,
+   "message": "2 sections keep all their content on one side and leave 71% of the width empty: \"Seven machines,\" (right 1029px empty); \"Four years,\" (left 1009px empty)",
+   "fix": "Use the whole width the page has set up: put the section's picture, its second column, its list or its figure in the empty half, or set the text larger across the grid. Empty space must be placed, with something on each side of it."
+  },
+  {
+   "level": "WARN",
+   "id": "blank-gap",
+   "width": 1440,
+   "message": "4 stretch(es) of the page hold nothing at all: 712px at 1648px; 712px at 2892px; 440px at 920px; 432px at 3904px (the screen is 900px tall).",
+   "fix": "A fixed picture layer covers the screen here, so the DOM cannot tell whether the stretch is empty: check the screenshots. Close the gap: a section gap is 120–240px on desktop and 72–112px on a phone. Look for a min-height: 100vh on a short section, an empty grid row, a hidden element still holding its space, or a reveal that never fired. A deliberate rest is a placed picture or colour field, not nothing.",
+   "alsoAt": [
+    412
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "no-title",
+   "width": 1440,
+   "message": "The page has no visible h1.",
+   "fix": "Give the first screen a clear title in an h1 that says what this is (a name with what it does, the product with what it is for, the event with its date and place)."
+  },
+  {
+   "level": "FAIL",
+   "id": "off-centre",
+   "width": 412,
+   "message": "The page sits off-centre: its content comes to 24px from the left edge but only to 43px from the right, at 412px.",
+   "fix": "Give the page one pair of equal margins. Check the wrapper for a max-width without margin-inline: auto, a grid with an empty last column, or padding on one side only. If one side is meant to hold air, it must still be closed by something that reaches the margin (a picture, the navigation's last item, a figure)."
+  },
+  {
+   "level": "WARN",
+   "id": "edge-text",
+   "width": 412,
+   "message": "1 text block(s) sit 12–15px from the phone's edge: \"03 · 6G · Edge AI · UAV\" (14px)",
+   "fix": "The page margin is 16–20px on a phone; the header and the corner labels sit on it too."
+  },
+  {
+   "level": "FAIL",
+   "id": "reduced-hidden",
+   "width": 1440,
+   "message": "With reduced motion requested, 12 text block(s) on the first screen stay invisible: \"Led v1 → v3: body, motors, face recognit\", \"3-robot fleet · 500+ chats ↗\", \"Edge AI switches unicast, multicast and \", \"ITU Buildathon 2nd ↗\"",
+   "fix": "Put every hidden starting state inside @media (prefers-reduced-motion: no-preference); the reduced page is the finished page (references/motion.md §8)."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "scratchpad/research/taste-out/proto/desktop-fold.jpg",
+   "pages": [
+    "scratchpad/research/taste-out/proto/desktop-page-01.jpg",
+    "scratchpad/research/taste-out/proto/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 412,
+   "fold": "scratchpad/research/taste-out/proto/mobile-fold.jpg",
+   "pages": [
+    "scratchpad/research/taste-out/proto/mobile-page-01.jpg",
+    "scratchpad/research/taste-out/proto/mobile-page-02.jpg"
+   ],
+   "film": []
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Laptop morph</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9A4E25}a:hover{color:#6E3518}
+</style>
+</helmet>
+<div style="width: 2816px; height: 640px; box-sizing: border-box; padding: 48px; background: #EEEAE2; color: #15161A; font-family: Geist, system-ui, sans-serif; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #9A4E25">Laptop · 1440 × 900 · one scroll</span>
+<h1 style="margin: 0; font-family: 'Archivo Narrow', sans-serif; font-size: 56px; line-height: 0.95; letter-spacing: -0.01em">Case study → 3D, <span style="color: #9A4E25">in one scroll.</span></h1>
+</div>
+<p style="margin: 0; max-width: 620px; font-size: 17px; line-height: 1.45; color: #2E3036">Nothing jumps: the photo, the panel and the camera each move on their own stretch of the first scroll. Scroll back and it all reverses.</p>
+</div>
+<div style="display: flex; gap: 40px">
+<sc-for list="{{frames}}" as="f" hint-placeholder-count="5">
+<div style="width: 512px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: baseline; gap: 10px">
+<span style="font-family: 'Geist Mono', monospace; font-size: 15px; color: #9A4E25">{{f.pct}}</span>
+<span style="font-weight: 600; font-size: 19px">{{f.name}}</span>
+</div>
+<img src="{{f.src}}" alt="{{f.alt}}" style="width: 512px; height: 320px; object-fit: cover; border-radius: 14px; display: block; box-shadow: 0 24px 48px -28px rgba(0,0,0,0.45)">
+<p style="margin: 0; font-size: 15px; line-height: 1.45; color: #2E3036">{{f.text}}</p>
+</div>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2816,"height":640}}'>
+class Component extends DCLogic {
+renderVals() {
+return {
+frames: [
+{ pct: '0%', name: 'Case study', src: '/_blob/316b0fa48007b5799997c3eb9272e173', alt: 'Case study card with the field photo and the six tabs', text: 'Photo card and rail with all six tabs. Every tab works here without any 3D.' },
+{ pct: '25%', name: 'Photo dissolves', src: '/_blob/487004218a8f318ff3f62bc7beaa930e', alt: 'The photo fading into the live scene', text: 'The field photo fades into the live scene, shot from the same angle. The camera holds still.' },
+{ pct: '50%', name: 'Panel opens out', src: '/_blob/80aaac3aa1ba225c556776519a5f9995', alt: 'The window growing toward full screen', text: 'The card edges and ticker fade, the window grows toward full screen and the rail slides right.' },
+{ pct: '75%', name: 'Camera lifts off', src: '/_blob/9f03a5003fd6d0a2a234ff36f52e127f', alt: 'The camera leaving the photo angle', text: 'With the photo gone, the camera leaves the photo angle and follows the drone as it lifts.' },
+{ pct: '100%', name: 'In 3D', src: '/_blob/213a4674fb3024959e8c4acb5e736b4a', alt: 'Full-screen 3D scene with the rail docked right', text: 'Full-bleed scene, rail docked right, tabs follow the scroll, chapter label bottom-left.' }
+]
+};
+}
+}
+</script>
+</body>
+</html>
