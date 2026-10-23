@@ -1,4 +1,5 @@
 import { getAchievementBySlug, achievements } from "@/lib/achievements";
+import { clipDescription } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return achievements.map((a) => ({ slug: a.slug }));
@@ -9,10 +10,7 @@ export async function generateMetadata({ params }) {
   const achievement = getAchievementBySlug(slug);
   if (!achievement) return {};
 
-  const description =
-    achievement.shortDescription?.length > 160
-      ? `${achievement.shortDescription.slice(0, 157)}...`
-      : achievement.shortDescription;
+  const description = clipDescription(achievement.shortDescription);
   const image = achievement.images?.[0] || "/profile.jpg";
 
   return {

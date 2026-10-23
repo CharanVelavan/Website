@@ -48,6 +48,7 @@ export default function Internships() {
                         src="/images/intern/zoho/zoho.svg"
                         alt="ZOHO Corporation"
                         fill
+                        sizes="(max-width: 640px) 45vw, 320px"
                         className="object-contain"
                       />
                     </motion.div>
@@ -89,6 +90,7 @@ export default function Internships() {
                         src="/images/intern/ssn/logo.png"
                         alt="SSN College of Engineering"
                         fill
+                        sizes="(max-width: 640px) 45vw, 320px"
                         className="object-contain"
                       />
                     </motion.div>
@@ -130,6 +132,7 @@ export default function Internships() {
                         src="/images/intern/techphosis/logo.png"
                         alt="Techphosis"
                         fill
+                        sizes="(max-width: 640px) 45vw, 320px"
                         className="object-contain"
                       />
                     </motion.div>

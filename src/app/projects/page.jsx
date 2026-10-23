@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { projects } from "@/lib/projects";
-import SkeletonCard from "@/components/SkeletonCard";
 import GlowCard from "@/components/GlowCard";
 
 function ProjectImageSlideshow({ images, title }) {
@@ -61,6 +60,7 @@ function ProjectImageSlideshow({ images, title }) {
             src={images[currentIndex]}
             alt={title}
             fill
+            sizes="(max-width: 768px) 50vw, 600px"
             className="object-cover"
           />
         </motion.div>
@@ -72,6 +72,9 @@ function ProjectImageSlideshow({ images, title }) {
           {images.map((_, idx) => (
             <button
               key={idx}
+              type="button"
+              aria-label={`Show image ${idx + 1} of ${images.length}`}
+              aria-current={idx === currentIndex ? "true" : undefined}
               onClick={(e) => {
                 e.preventDefault();
                 setCurrentIndex(idx);
@@ -89,13 +92,7 @@ function ProjectImageSlideshow({ images, title }) {
 }
 
 export default function ProjectsPage() {
-  const [isLoading, setIsLoading] = useState(true);
   const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    const t = setTimeout(() => setIsLoading(false), 380);
-    return () => clearTimeout(t);
-  }, []);
 
   // Collect all unique companies from all projects
   const allCompanies = useMemo(() =>
@@ -144,6 +141,8 @@ export default function ProjectsPage() {
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-contain"
                 />
               </motion.div>
@@ -179,6 +178,8 @@ export default function ProjectsPage() {
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-contain"
                 />
               </motion.div>
@@ -213,9 +214,7 @@ export default function ProjectsPage() {
 
         {/* PROJECTS GRID */}
         <section className="grid grid-cols-2 gap-3 sm:gap-6 md:gap-8">
-          {isLoading
-            ? [...Array(4)].map((_, i) => <SkeletonCard key={i} />)
-            : projects.map((project, index) => {
+          {projects.map((project, index) => {
               const hasImage = project.images && project.images.length > 0 && project.images[0];
 
               return (
@@ -267,6 +266,8 @@ export default function ProjectsPage() {
                                     <img
                                       src={company.logo}
                                       alt={`${company.name} logo`}
+                                      loading="lazy"
+                                      decoding="async"
                                       className="h-full w-full object-contain"
                                     />
                                   </div>

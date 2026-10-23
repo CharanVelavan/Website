@@ -203,6 +203,8 @@ export default function ImageGallery({ images, title }) {
                     >
                         {/* Close Button */}
                         <button
+                            type="button"
+                            aria-label="Close image viewer"
                             onClick={closeLightbox}
                             className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
                         >
@@ -217,6 +219,8 @@ export default function ImageGallery({ images, title }) {
                         {/* Previous Button */}
                         {images.length > 1 && (
                             <button
+                                type="button"
+                                aria-label="Previous image"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     goToPrevious();
@@ -230,6 +234,8 @@ export default function ImageGallery({ images, title }) {
                         {/* Next Button */}
                         {images.length > 1 && (
                             <button
+                                type="button"
+                                aria-label="Next image"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     goToNext();

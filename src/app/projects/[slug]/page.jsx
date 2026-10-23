@@ -237,6 +237,7 @@ export default function ProjectSlugPage() {
                           src={project.media.video.src}
                           controls
                           playsInline
+                          preload="metadata"
                           className="h-full w-full object-contain"
                         />
                         {project.media.video.caption && (
@@ -261,6 +262,7 @@ export default function ProjectSlugPage() {
                           src={video.src}
                           controls
                           playsInline
+                          preload="metadata"
                           className="h-full w-full object-contain"
                         />
                         {video.caption && (

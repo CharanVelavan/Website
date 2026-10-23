@@ -28,8 +28,7 @@ export const projects = [
       "Autonomous Systems",
     ],
     links: {
-      demo: "https://example.com/uav-demo",
-      report: "https://example.com/uav-report",
+      report: "https://doi.org/10.1109/ICOEI65986.2025.11013465",
     },
 
     // ✨ ENHANCED: Metrics for Bird's AI
@@ -63,18 +62,18 @@ export const projects = [
       enabled: true,
       video: {
         src: "/videos/Birdai/Birdsai.mp4",
-        caption: "Nephele robots interacting with visitors at university open house"
+        caption: "Survivor detection from the air, and the 5G ground station during a test run"
       },
       images: [
         {
           src: "/images/projects/Birds-AI/drone.jpg",
-          alt: "Nephele robot platform with sensors and display",
-          caption: "Robot hardware: ROS2-enabled platform with LiDAR, camera, and interactive display"
+          alt: "Bird's AI drone with the Pixhawk flight controller, Raspberry Pi 5 and camera mount",
+          caption: "Drone hardware: Pixhawk 2.4.8, Raspberry Pi 5 with the Hailo-8L AI HAT, and the camera mount"
         },
         {
           src: "/images/projects/Birds-AI/detect.png",
-          alt: "Fleet management dashboard",
-          caption: "Real-time  monitoring dashboard showing Survivor positions"
+          alt: "Aerial view with YOLOv8 boxes marking survivors between parked cars",
+          caption: "YOLOv8 marking survivors from the air in real time"
         }
       ]
     },
@@ -89,22 +88,22 @@ export const projects = [
     // ✨ NEW: My Role
     role: {
       enabled: true,
-      position: "Full-Stack Robotics Engineer",
+      position: "Drone, Firmware and Edge AI (team project)",
       responsibilities: [
-        "Architected and deployed the entire AWS cloud infrastructure (IoT Core, Lambda, DynamoDB, Bedrock integration)",
-        "Developed the ROS2 onboard software stack for robot perception, navigation, and cloud communication",
-        "Integrated Amazon Bedrock LLM (Claude) for natural language understanding and context-aware responses",
-        "Built the React-based fleet management dashboard with real-time telemetry visualization",
-        "Implemented swarm coordination algorithms for task allocation and collision avoidance",
-        "Managed end-to-end deployment logistics for 3 public events with 6+ hour continuous operation"
+        "Built and tuned the airframe, motors and power system",
+        "Wrote the on-board firmware that runs survivor detection",
+        "Trained the YOLOv8 detection model to 95% accuracy on 4,588 training images",
+        "Compiled the model for the Hailo-8L accelerator with hailomz, reaching 15–20 FPS on board with no server in the loop",
+        "Programmed the flight logic that sweeps a search area",
+        "Brought up the 5G link that streams detections to the ground station"
       ],
       technologies: [
-        "AWS (IoT Core, Lambda, DynamoDB, S3, CloudFront, Bedrock)",
-        "ROS2 (Python, rclpy)",
-        "MQTT protocol",
-        "React (frontend dashboard)",
-        "Python (robot control, AWS SDK)",
-        "LLM prompt engineering (Claude via Bedrock)"
+        "Pixhawk 2.4.8 flight controller",
+        "Raspberry Pi 5 with Hailo-8L AI HAT",
+        "YOLOv8 (SAR + COCO dataset, trained on an RTX 4060)",
+        "Hailo Model Zoo (hailomz) compiler",
+        "5G: URLLC for control, eMBB for live annotated video",
+        "AWS S3 for video and flight logs"
       ]
     },
 
@@ -112,7 +111,7 @@ export const projects = [
     architecture: {
       enabled: true,
       diagram: "/images/projects/Birds-AI/arch.png",
-      caption: "Cloud-native architecture showing drone fleet, AWS services, and data flow"
+      caption: "Drone to operator over 5G: the drone's 5G dongle, the IoT/5G gateway, the 5G radio, baseband and core, cloud storage and the ground station"
     },
 
     // ✨ NEW: Recognition — links to achievements earned through this project
@@ -1189,6 +1188,8 @@ export const projects = [
 
 ];
 
+// Case-insensitive; src/proxy.js redirects case variants to the real slug.
 export function getProjectBySlug(slug) {
-  return projects.find((p) => p.slug === slug);
+  const s = decodeURIComponent(String(slug ?? "")).toLowerCase();
+  return projects.find((p) => p.slug.toLowerCase() === s);
 }

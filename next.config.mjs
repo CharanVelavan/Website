@@ -5,6 +5,18 @@ const nextConfig = {
   turbopack: {
     root: import.meta.dirname,
   },
+  // The old Vercel host served a full duplicate of the site. Send it to the
+  // real domain so search engines index one copy.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "charanvelavan-portfolio.vercel.app" }],
+        destination: "https://www.charanvelavan.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

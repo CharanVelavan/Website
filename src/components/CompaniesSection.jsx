@@ -23,6 +23,7 @@ export default function CompaniesSection({ companies }) {
             src={company.logo}
             alt={`${company.name} logo`}
             fill
+            sizes="48px"
             className="object-contain p-1"
           />
         </div>

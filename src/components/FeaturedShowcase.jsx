@@ -55,6 +55,8 @@ function ProjectImageSlideshow({ images, title }) {
                     key={currentIndex}
                     src={images[currentIndex]}
                     alt={title}
+                    loading="lazy"
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -69,6 +71,9 @@ function ProjectImageSlideshow({ images, title }) {
                     {images.map((_, idx) => (
                         <button
                             key={idx}
+                            type="button"
+                            aria-label={`Show image ${idx + 1} of ${images.length}`}
+                            aria-current={idx === currentIndex ? "true" : undefined}
                             onClick={(e) => {
                                 e.preventDefault();
                                 setCurrentIndex(idx);
@@ -151,6 +156,8 @@ export default function FeaturedShowcase() {
                                                                 <img
                                                                     src={company.logo}
                                                                     alt={`${company.name} logo`}
+                                                                    loading="lazy"
+                                                                    decoding="async"
                                                                     className="h-full w-full object-contain opacity-90"
                                                                 />
                                                             </div>
@@ -311,6 +318,8 @@ export default function FeaturedShowcase() {
                                                             <img
                                                                 src={achievement.images[0]}
                                                                 alt={achievement.title}
+                                                                loading="lazy"
+                                                                decoding="async"
                                                                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                                             />
                                                             <div className="absolute inset-0 bg-gradient-to-t from-[#f8f7f4] dark:from-[#0a0a0a] via-transparent to-transparent opacity-60" />
