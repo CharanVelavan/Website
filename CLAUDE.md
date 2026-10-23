@@ -15,6 +15,10 @@ npm run lint     # Run ESLint
 
 **Next.js 16 App Router** portfolio site (JavaScript, not TypeScript). Uses React 19, Tailwind CSS v4, Framer Motion, and GSAP.
 
+### Home page: the 3D lab
+
+`/` serves a static page, the 3D lab, not `src/app/page.js`: `next.config.mjs` rewrites it to `public/lab.html`. `design/prototype/site7.py` builds that page and copies its `img/`, `media/`, `og/` and `models/` into `public/`, before every `npm run dev` and `npm run build`. Those outputs are git-ignored, because the page inlines the Switzer font, which must never be committed. The lab's source and notes are in `design/` (`design/README.md`, `design/plan/lab-rebuild-plan.md`). Old `/projects/<slug>` URLs redirect to the lab's case studies. The pre-lab site is kept on the `website-legacy` branch.
+
 ### Data Layer
 
 All content lives in two files — treat them as the single source of truth:

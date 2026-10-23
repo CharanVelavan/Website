@@ -44,3 +44,10 @@ next-env.d.ts
 public/videos/
     
 
+
+# the 3D lab, built into public/ by design/prototype/site7.py (it inlines the Switzer font, which is never committed)
+/public/lab.html
+/public/img/
+/public/media/
+/public/og/
+/public/models/

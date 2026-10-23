@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "python3 design/prototype/site7.py && next dev",
+    "build": "python3 design/prototype/site7.py && next build",
     "start": "next start",
     "lint": "eslint"
   },
