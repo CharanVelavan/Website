@@ -1,0 +1,9 @@
+{
+  "name": "prototype-tools",
+  "private": true,
+  "description": "Headless screenshots of the prototype for each v5 stage",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "1.58"
+  }
+}

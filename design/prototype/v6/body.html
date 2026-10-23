@@ -1,0 +1,107 @@
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div id="veil"></div>
+<div id="tags" aria-hidden="true"></div>
+<div id="progress"></div>
+
+<header class="bar">
+  <a class="brand" href="#top"><span class="mk">CV</span><span class="bn">Charan Velavan</span></a>
+  <div class="right">
+    <nav class="dots" aria-label="Chapters" id="dots"></nav>
+    <button class="pill" type="button" id="backBtn">← Lab</button>
+    <a class="pill" href="#contact">Contact</a>
+    <a class="pill" id="cvBtn" href="" target="_blank" rel="noopener" data-track="cv">CV <span aria-hidden="true">↓</span></a>
+    <button class="pill" type="button" id="setBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings">Settings</button>
+    <button class="pill" type="button" id="helpBtn" aria-label="Keyboard shortcuts">?</button>
+  </div>
+</header>
+
+<section class="hero" id="top" aria-label="Overview">
+  <div class="hero-grid">
+    <div class="aside">
+      <div class="profile" id="profile"><img src="img/photo.webp" alt="Charan Velavan"><div class="id"><small>Open to work</small><strong class="lockup">Charan Velavan <span class="ta" lang="ta">சரண் வேலவன்</span></strong><span>Embedded &amp; Firmware Engineer · M.E., SSN</span></div></div>
+      <h1>From circuit board <em>to 5G link.</em></h1>
+      <p class="lede">I design embedded systems end to end: hardware, firmware, on-device AI and the wireless link that connects them. Then I test them in the field.</p>
+      <div class="stack" role="group" aria-label="Filter projects by layer of the stack" id="stack"></div>
+      <div class="skills" id="skills" aria-live="polite"></div>
+    </div>
+    <div class="work">
+      <div class="work-head"><h3>Selected work <span id="summary">9 projects across 5 layers of the stack</span></h3><small>Click a project to open it</small></div>
+      <div class="bento" id="bento"></div>
+    </div>
+  </div>
+  <div class="marquee" aria-label="Recognition"><div id="marq"></div></div>
+  <button class="cue" type="button" id="enterLab">Open my lab <b>↓</b></button>
+</section>
+
+<main id="main">
+  <section class="ch ringch" data-ch="1" id="lab">
+    <div class="card">
+      <h2>Explore <em>my lab.</em></h2>
+      <p>Every object has a story. Drag to look round, click the floor to walk, click a project to see it. Or keep scrolling for the tour.</p>
+      <div class="chips" id="labChips" role="group" aria-label="Open a case study"></div>
+    </div>
+    <div class="stops" id="stops" aria-hidden="true"></div>
+  </section>
+  <section class="ch right" data-ch="2" id="timeline">
+    <div class="card">
+      <h2>Five years, <em>one route.</em></h2>
+      <p>Every milestone is a pin along the route. Click one to open the project behind it.</p>
+      <ol class="tl" id="tlList"></ol>
+    </div>
+  </section>
+  <section class="ch" data-ch="3" id="contact">
+    <div class="card">
+      <h2>Let's build <em>the next one.</em></h2>
+      <p>Open to embedded, firmware and wireless engineering roles.</p>
+      <div class="email" id="email">Charanvelavan12@gmail.com</div>
+      <div class="actions">
+        <button class="btn primary" type="button" id="copy">Copy email</button>
+        <a class="btn" id="cvBtn2" href="" target="_blank" rel="noopener" data-track="cv">Download CV</a>
+        <a class="btn" href="#top">Back to the grid</a>
+        <button class="btn" type="button" id="termBtn">Open terminal</button>
+      </div>
+      <p class="note">Press <kbd>`</kbd> for the terminal and <kbd>J</kbd> / <kbd>K</kbd> to move between chapters.</p>
+    </div>
+  </section>
+</main>
+<footer class="status"><span class="lockup">Charan Velavan <span class="ta" lang="ta">சரண் வேலவன்</span></span><span id="clock">Chennai · IST</span><span>Last updated Oct 2026 · prototype v6</span></footer>
+
+<!-- a project: one view that is a case study at the top and a 3D bay once you scroll -->
+<div id="proj">
+  <div id="pcard" aria-hidden="true"></div>
+  <div id="pticker" aria-hidden="true"><div id="ptick"></div></div>
+  <div id="ptrack"></div>
+  <div id="pplate" aria-hidden="true"></div>
+  <div id="pphoto" aria-hidden="true"><img src="" alt=""></div>
+  <div id="pcap"><h1></h1><span class="sb"></span><span class="tg"></span></div>
+  <div id="plabel" aria-live="polite"><h2></h2><p></p></div>
+  <div id="spinhint" aria-hidden="true">⟲ drag to turn</div>
+  <aside id="rail" aria-label="Case study">
+    <div class="rhead"><span class="crumb" id="crumb"></span><div class="ract"><button class="pill sm" type="button" data-print title="Print or save as PDF">PDF</button><button class="pill sm" type="button" data-next></button><button class="pill sm inv" type="button" data-close aria-label="Close case study">✕ esc</button></div></div>
+    <nav class="tabs" role="tablist" aria-label="Case study sections" id="tabs"></nav>
+    <div class="rbody" id="rbody" role="tabpanel" tabindex="0"></div>
+  </aside>
+  <nav id="chips" aria-label="Chapters"></nav>
+</div>
+<!-- the plain case study: Lite mode, print, and a text version of every 3D chapter -->
+<div id="litedoc"></div>
+
+<div id="settings" hidden role="dialog" aria-labelledby="setTitle">
+  <div class="shd"><h2 id="setTitle">Settings</h2><button type="button" class="pill" data-set-close>Done</button></div>
+  <section aria-labelledby="setTheme"><h3 id="setTheme">Theme</h3><div class="themes"></div></section>
+  <section aria-labelledby="setMode"><h3 id="setMode">Appearance</h3><div class="seg" role="group" aria-labelledby="setMode"><button type="button" data-set="mode:auto">System</button><button type="button" data-set="mode:light">Light</button><button type="button" data-set="mode:dark">Dark</button></div></section>
+  <section aria-labelledby="setExp"><h3 id="setExp">Experience</h3><div class="seg" role="group" aria-labelledby="setExp"><button type="button" data-set="exp:3d">3D</button><button type="button" data-set="exp:lite">Lite</button></div><p>Lite is a plain, fast page. Switching reloads.</p></section>
+  <section aria-labelledby="setSound"><h3 id="setSound">Sound</h3><div class="seg" role="group" aria-labelledby="setSound"><button type="button" data-set="sound:on">On</button><button type="button" data-set="sound:off">Off</button></div></section>
+  <p class="snote">Saved on this device. Press <kbd>S</kbd> to open.</p>
+</div>
+<div id="lightbox" hidden role="dialog" aria-label="Photo"><figure><img alt=""><video controls playsinline hidden></video><figcaption></figcaption></figure></div>
+<div class="panel" id="help" hidden role="dialog" aria-label="Keyboard shortcuts">
+  <h4>Keyboard shortcuts</h4>
+  <div class="keys"><kbd>J</kbd><span>Next chapter</span><kbd>K</kbd><span>Previous chapter</span><kbd>← →</kbd><span>Case study tabs (when a tab is focused)</span><kbd>G</kbd><span>Back to the grid</span><kbd>`</kbd><span>Terminal</span><kbd>S</kbd><span>Settings</span><kbd>?</kbd><span>This list</span><kbd>Esc</kbd><span>Close the case study / this list</span></div>
+</div>
+<div class="panel" id="term" hidden role="dialog" aria-label="Terminal">
+  <pre id="termOut"></pre>
+  <form id="termForm"><span>charan@lab:~$</span><input id="termIn" autocomplete="off" spellcheck="false" aria-label="Command"></form>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>

@@ -73,8 +73,8 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
 .opt:active { transform: scale(.98); transition: transform .12s cubic-bezier(.23, 1, .32, 1); }
 .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sw { width: 40px; height: 28px; border-radius: 6px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; box-shadow: inset 0 0 0 1px var(--rule); }
-.sw i { display: grid; place-items: end start; padding: 3px; }
-.sw i b { width: 9px; height: 9px; border-radius: 99px; }
+.sw i { display: flex; align-items: end; gap: 2px; padding: 3px; }
+.sw i b { width: 7px; height: 7px; border-radius: 99px; }
 .tf { width: 40px; font-size: 22px; line-height: 1; text-align: center; }
 .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--surface); padding: 4px; border-radius: 12px; }
 .seg button { all: unset; cursor: pointer; text-align: center; min-height: 40px; border-radius: 9px; font-size: 15px; font-weight: 500; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
@@ -115,6 +115,7 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
 .m-field { background: var(--m-sf); padding-block: clamp(40px, 8cqi, 104px); }
 .m-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
 .m-stat b { display: block; font-size: clamp(40px, 6.6cqi, 76px); line-height: 1; font-variant-numeric: tabular-nums; }
+.m-stat::before { content: ''; display: block; width: 40px; height: 4px; background: var(--m-a2); margin-bottom: 16px; }
 .m-stat span { display: block; font-size: 15px; color: var(--m-mu); margin-top: 8px; }
 .m-body { padding-block: clamp(40px, 8cqi, 104px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px 48px; }
 .m-body p { margin: 0 0 14px; max-width: 62ch; }
@@ -143,7 +144,7 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
 <header class="top">
   <h1>Portfolio rebuild plan</h1>
   <p class="lead col">A read-only check of <b>charanvelavan.com</b> and the <b>3D prototype (v4.1)</b> against Taste Skill, Emil Kowalski's 15 skills, Apple's Human Interface Guidelines and the 3D and GSAP skills you shared. It covers what passes and what fails, a new palette and font shortlist you can try below, and the build plan. Nothing in the repo or the prototype was changed.</p>
-  <div class="meta small"><span>20 October 2026</span><span>Scores come from Taste's own linter and browser inspector, run at 1440px and 412px</span></div>
+  <div class="meta small"><span>20 October 2026, updated: Bottle and yellow by default, other themes in Settings, Switzer</span><span>Scores come from Taste's own linter and browser inspector, run at 1440px and 412px</span></div>
 </header>
 
 <section id="score">
@@ -234,8 +235,11 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
     </div>
   </div>
   <div class="callout col">
-    <h3>My pick: Blueprint with Archivo</h3>
-    <p>Blueprint is stone paper with a drafting blue in light mode, and a blue-black night with cornflower in dark mode. It reads as engineering drawings rather than a template, and the blue has room to colour the 5G links and data packets in the 3D scenes. Archivo keeps the narrow headline voice you already have, but as a single variable family: narrow and heavy for headlines, normal width for reading, so Geist and Geist Mono both go. It loads from Google Fonts, so next/font serves it from your own domain. Runner-up: Switzer, the most Apple-like of the six. It needs licence care because it comes from Fontshare (see the type notes).</p>
+    <h3>Decided: Bottle and yellow by default, Switzer throughout</h3>
+    <p><b>Bottle and yellow</b> is the theme every visitor sees first. Light mode is a near-white page with bottle-green ink (#0D2A1C, 14:1) and one yellow note (#F6E016) on the main button, which carries green text. Links use the green ink, not the yellow, because yellow on white is unreadable. Dark mode turns the page bottle green (#10241A) with a softer yellow (#F4D96C). The other palettes stay available as themes in a Settings panel, described below.</p>
+    <p><b>Burnt sienna</b> (a theme in Settings). The page is your beige (#F5F5DC) and buttons and links use the sienna (#A0522D). The vermilion (#E35336) only works as a colour for shapes, never for text: it reaches 3.4:1 on beige, and white text on it reaches 3.8:1, both under the 4.5:1 minimum. So it becomes the second accent for the 3D links and data packets; in the mock it is the short bar above each number. Sand (#F4A460) reads too faintly on beige (1.8:1), so it turns into the accent in dark mode, where it reaches 8.9:1. One honest flag: this is the same warm cream and terracotta family as Clay, which Taste's linter fails as the "assistant palette". It will cost one fail in phase 2 unless the beige moves toward stone. I can keep it and write the reason down, or try a cooler ground.</p>
+    <p><b>Burgundy, white and blue</b> (a theme in Settings). White page, burgundy (#7B1E34) for the main button, blue (#1F4FD1) for links and the 3D. Two accents breaks Taste's "one accent" rule, but here each colour has one job, so it should land as a warning, not a fail. In dark mode the burgundy lifts to #D0607A and the blue to #86A8FF so both still read.</p>
+    <p><b>Switzer</b> is the most Apple-like face on the list. The repo on GitHub is public, so its files can't be committed: the Next.js build would load it from Fontshare's servers (or a private store), not through next/font. This page inlines it at build time only.</p>
   </div>
 </section>
 
@@ -383,6 +387,7 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
       <tr><td>Weights</td><td class="b">400 and 600, plus one display weight</td><td class="b">apple.com</td></tr>
       <tr><td>Spacing</td><td class="b num">Sections 144 / 120 / 96px (desktop / tablet / phone). Margins 32px desktop, 20px phone</td><td class="b">apple.com, Taste</td></tr>
       <tr><td>Corners</td><td class="b">Photos square. Buttons fully round. Sheets and panels 16px</td><td class="b">Taste</td></tr>
+      <tr><td>Themes</td><td class="b">Default: Bottle and yellow. In Settings: Burnt sienna, Burgundy white and blue, Blueprint, Sheet and biro, Slate and teal, Stone and sage, Signal. Each has a light and a dark set. The choice is saved on the device. Light or dark follows the system unless the visitor picks one</td><td class="b">Your call</td></tr>
       <tr><td>Easing</td><td class="b">ease-out (.23,1,.32,1) · in-out (.77,0,.175,1) · drawer (.32,.72,0,1)</td><td class="b">Emil</td></tr>
       <tr><td>Durations</td><td class="b num">Press 120ms · menus 180ms · sheets 300ms · reveals 400ms, rise 24px, 70ms stagger, once</td><td class="b">Emil, Taste</td></tr>
       <tr><td>Phone (Nord 4, about 412 × 915, 120Hz)</td><td class="b">44px targets, no text under 13px, safe areas, 100svh hero, theme-color per mode, 8ms frame budget</td><td class="b">Apple, Emil</td></tr>
@@ -394,7 +399,7 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
   <div>
     <div class="phase"><h3>0. Fix live</h3><div><p>The eight live-site problems above, in the current codebase. Nothing visual changes.</p><p class="gate">Done when: canonical points to charanvelavan.com, the home page is under 3 MB, and Bird's AI shows its own text.</p></div></div>
     <div class="phase"><h3>1. Choose</h3><div><p>You pick a palette, a type system and the decisions listed below.</p><p class="gate">Done when: one palette and one type system are written down as tokens.</p></div></div>
-    <div class="phase"><h3>2. Prototype v5</h3><div><p>Re-skin the prototype with the new tokens. Remove mono, eyebrows, glass captions, numbering, the custom cursor and emoji. Fix touch targets, press states and reduced motion.</p><p class="gate">Done when: Taste's inspector shows 0 fails at 1440, 768 and 412px, and all phone targets are 44px.</p></div></div>
+    <div class="phase"><h3>2. Prototype v5</h3><div><p>Re-skin the prototype with Bottle and yellow and Switzer, and replace the current palette picker with a Settings panel: theme, light, dark or system, and Lite mode. Every theme is one set of CSS variables, so switching only changes those values. The 3D colours (sky, links, packets) come from the same variables. Remove mono, eyebrows, glass captions, numbering, the custom cursor and emoji. Fix touch targets, press states and reduced motion.</p><p class="gate">Done when: Taste's inspector shows 0 fails at 1440, 768 and 412px, and all phone targets are 44px.</p></div></div>
     <div class="phase"><h3>3. Figma</h3><div><p>Tokens as Figma variables, plus the home page and one case study on laptop and phone, in your file.</p><p class="gate">Done when: you sign off the frames.</p></div></div>
     <div class="phase"><h3>4. Next.js build</h3><div><p>Tokens in <code>globals.css</code> with Tailwind v4, the font through next/font, the 3D as a client-only component, GSAP through <code>useGSAP</code>, and content from <code>projects.js</code> (with the text fixes).</p><p class="gate">Done when: lint and build pass, Lighthouse scores 90+ on a phone, and Taste lint shows 0 fails.</p></div></div>
     <div class="phase"><h3>5. Launch check</h3><div><p>Taste inspector, Apple HIG checks (<code>hig-doctor</code>), a keyboard-only pass, reduced motion, a real test on your Nord 4, and the print or PDF view.</p><p class="gate">Done when: everything passes or each remaining warning has a written reason.</p></div></div>
@@ -404,10 +409,10 @@ ol.plain li::marker { font-variant-numeric: tabular-nums; color: var(--muted); }
 <section id="ask">
   <h2>What I need from you</h2>
   <div class="stack col">
-    <div class="ask"><b class="n">1</b><p>A palette and a type system from the previewer. Mixing is fine, for example Blueprint with Switzer.</p></div>
-    <div class="ask"><b class="n">2</b><p>Whether the GitHub repo is public. If it is, Switzer or another Fontshare face cannot be committed to it, and I would load it from Fontshare's own servers instead.</p></div>
+    <div class="ask"><b class="n">1</b><p>Answered: Switzer, with Bottle and yellow as the default theme. Every other palette can be picked from Settings.</p></div>
+    <div class="ask"><b class="n">2</b><p>Answered: the GitHub repo is public. Switzer loads from Fontshare's servers and is never committed.</p></div>
     <div class="ask"><b class="n">3</b><p>Whether to keep the scroll morph from case study into 3D on every project, or only on Bird's AI and Nephele (fewer pinned chapters, as on apple.com).</p></div>
-    <div class="ask"><b class="n">4</b><p>Whether you want your name in Tamil next to the English one. Anek Tamil would pair with Archivo, loaded only for those few letters.</p></div>
+    <div class="ask"><b class="n">4</b><p>Whether you want your name in Tamil next to the English one. Anek Tamil would pair with Switzer, loaded only for those few letters.</p></div>
     <div class="ask"><b class="n">5</b><p>Whether to start phase 0 now. It is independent of the redesign and fixes search and load time today.</p></div>
     <div class="ask"><b class="n">6</b><p>Still open from before: confirm the draft "What went wrong" entries and the Nephele LiDAR and ROS2 text.</p></div>
   </div>
@@ -420,6 +425,12 @@ const PALS = [
   { id: 'clay', name: 'Current: Clay', note: 'Cream and terracotta, flagged by Taste',
     L: { bg: '#EEEAE2', sf: '#E2DCD0', ink: '#15161A', mu: '#5A5D64', ac: '#9A4E25', ai: '#ffffff', at: '#9A4E25' },
     D: { bg: '#0F1012', sf: '#1B1C21', ink: '#EDE9E2', mu: '#9A958B', ac: '#D39A72', ai: '#0F1012', at: '#D39A72' } },
+  { id: 'sienna', name: 'Burnt sienna', note: 'Beige, sienna and sand, with a vermilion for the 3D links',
+    L: { bg: '#F5F5DC', sf: '#EBE8CB', ink: '#2B1D16', mu: '#6A5547', ac: '#A0522D', ai: '#FFFFFF', at: '#A0522D', a2: '#E35336' },
+    D: { bg: '#1C1410', sf: '#281D17', ink: '#F5F5DC', mu: '#B5A58F', ac: '#F4A460', ai: '#1C1410', at: '#F4A460', a2: '#E35336' } },
+  { id: 'burgundy', name: 'Burgundy, white and blue', note: 'Burgundy buttons, blue links and 3D on a white page',
+    L: { bg: '#FFFFFF', sf: '#F4F2F3', ink: '#1A1418', mu: '#675E63', ac: '#7B1E34', ai: '#FFFFFF', at: '#1F4FD1', a2: '#1F4FD1' },
+    D: { bg: '#150E11', sf: '#21171B', ink: '#F4EFF1', mu: '#A3969C', ac: '#D0607A', ai: '#150E11', at: '#86A8FF', a2: '#86A8FF' } },
   { id: 'blueprint', name: 'Blueprint', note: 'Stone paper, drafting blue',
     L: { bg: '#dfdedb', sf: '#d3d2ce', ink: '#26251e', mu: '#5f5d55', ac: '#2456d6', ai: '#ffffff', at: '#2456d6' },
     D: { bg: '#0a0d14', sf: '#131824', ink: '#e9edf3', mu: '#8891a1', ac: '#5a9bfc', ai: '#0a0d14', at: '#5a9bfc' } },
@@ -435,7 +446,7 @@ const PALS = [
   { id: 'signal', name: 'Signal', note: 'White and signal red; graphite and safety orange',
     L: { bg: '#ffffff', sf: '#f2f2f2', ink: '#0a0a0a', mu: '#6b6b6b', ac: '#d92b21', ai: '#ffffff', at: '#d92b21' },
     D: { bg: '#18191b', sf: '#222427', ink: '#eff0f1', mu: '#9c9ea3', ac: '#ff4a1f', ai: '#18191b', at: '#ff4a1f' } },
-  { id: 'bottle', name: 'Bottle and yellow', note: 'Bottle-green ink, one yellow note',
+  { id: 'bottle', name: 'Bottle and yellow (default)', note: 'Bottle-green ink, one yellow note',
     L: { bg: '#f7f7f7', sf: '#ebebeb', ink: '#0d2a1c', mu: '#5f6b64', ac: '#f6e016', ai: '#0d2a1c', at: '#0d2a1c' },
     D: { bg: '#10241a', sf: '#183223', ink: '#e8e6d8', mu: '#9fae9f', ac: '#f4d96c', ai: '#10241a', at: '#f4d96c' } }
 ];
@@ -471,24 +482,24 @@ const TYPES = [
 ];
 const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
 const sysDark = () => document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-const st = { pal: store.get('pv-pal') || 'blueprint', type: store.get('pv-type') || 'archivo', mode: store.get('pv-mode') || (sysDark() ? 'D' : 'L'), w: 'lap' };
-if (!PALS.find((p) => p.id === st.pal)) st.pal = 'blueprint';
-if (!TYPES.find((t) => t.id === st.type)) st.type = 'archivo';
+const st = { pal: store.get('pv-pal') || 'bottle', type: store.get('pv-type') || 'switzer', mode: store.get('pv-mode') || (sysDark() ? 'D' : 'L'), w: 'lap' };
+if (!PALS.find((p) => p.id === st.pal)) st.pal = 'bottle';
+if (!TYPES.find((t) => t.id === st.type)) st.type = 'switzer';
 const $ = (s) => document.querySelector(s);
 const mock = $('#mock'), frame = $('#frame');
 const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-$('#palList').insertAdjacentHTML('beforeend', PALS.map((p) => `<button type="button" class="opt" data-pal="${p.id}"><span class="sw"><i style="background:${p.L.bg}"><b style="background:${p.L.ac}"></b></i><i style="background:${p.D.bg}"><b style="background:${p.D.ac}"></b></i></span><span>${esc(p.name)}<small>${esc(p.note)}</small></span></button>`).join(''));
+$('#palList').insertAdjacentHTML('beforeend', PALS.map((p) => `<button type="button" class="opt" data-pal="${p.id}"><span class="sw"><i style="background:${p.L.bg}"><b style="background:${p.L.ac}"></b>${p.L.a2 ? `<b class="b2" style="background:${p.L.a2}"></b>` : ''}</i><i style="background:${p.D.bg}"><b style="background:${p.D.ac}"></b></i></span><span>${esc(p.name)}<small>${esc(p.note)}</small></span></button>`).join(''));
 $('#typeList').insertAdjacentHTML('beforeend', TYPES.map((t) => `<button type="button" class="opt" data-type="${t.id}"><span class="tf" style="font-family:${t.df};font-weight:${t.dw};font-stretch:${t.ds}">${t.glyph}</span><span>${esc(t.name)}<small>${esc(t.sub)}</small></span></button>`).join(''));
 function render() {
   const p = PALS.find((x) => x.id === st.pal), t = TYPES.find((x) => x.id === st.type), c = p[st.mode];
-  const v = { bg: c.bg, sf: c.sf, ink: c.ink, mu: c.mu, ac: c.ac, ai: c.ai, at: c.at, df: t.df, dw: t.dw, ds: t.ds, dt: t.dt, dl: t.dl, dcase: t.dcase, tf: t.tf, tw: t.tw, tw2: t.tw2, tl: t.tl, tt: t.tt };
+  const v = { bg: c.bg, sf: c.sf, ink: c.ink, mu: c.mu, ac: c.ac, ai: c.ai, at: c.at, a2: c.a2 || c.ac, df: t.df, dw: t.dw, ds: t.ds, dt: t.dt, dl: t.dl, dcase: t.dcase, tf: t.tf, tw: t.tw, tw2: t.tw2, tl: t.tl, tt: t.tt };
   for (const k in v) mock.style.setProperty('--m-' + k, v[k]);
   document.querySelectorAll('[data-pal]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.pal === st.pal)));
   document.querySelectorAll('[data-type]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.type === st.type)));
   document.querySelectorAll('[data-mode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === st.mode)));
   document.querySelectorAll('[data-w]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.w === st.w)));
   frame.classList.toggle('phone', st.w === 'phone');
-  $('#cap').innerHTML = `<span><b>${esc(p.name)}</b> ${st.mode === 'L' ? 'light' : 'dark'}</span><span>Ground ${c.bg} · ink ${c.ink} · accent ${c.ac}</span><span><b>${esc(t.name)}</b></span>`;
+  $('#cap').innerHTML = `<span><b>${esc(p.name)}</b> ${st.mode === 'L' ? 'light' : 'dark'}</span><span>Ground ${c.bg} · ink ${c.ink} · accent ${c.ac}${c.a2 && c.a2 !== c.ac ? ` · second ${c.a2}` : ''}</span><span><b>${esc(t.name)}</b></span>`;
   $('#tnote').textContent = t.note;
 }
 document.addEventListener('click', (e) => {

@@ -157,6 +157,8 @@ kbd { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--li
 #toast.on { opacity: 1; transform: translate(-50%, 0); }
 
 @media (max-width: 860px) {
+  /* cards scroll under the header on phone: fade the page colour in behind the buttons so text never runs under them */
+  body:not(.proj) header.bar { background: linear-gradient(180deg, var(--bg) 62%, transparent); }
   .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
   .profile { width: 100%; aspect-ratio: 384 / 330; align-self: stretch; }
   .stack { flex-direction: row; overflow-x: auto; gap: 8px; border: 0; padding-bottom: 4px; scrollbar-width: none; }

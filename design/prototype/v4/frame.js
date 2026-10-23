@@ -1,7 +1,7 @@
 
 // ===================== the engine: home chapters, and any project bay =====================
 const homeOnly = [nephele, waterbot, holo, thz, dems, usrp];
-const OBJ = { ba: [drone, V3(0, 0.2, 0)], ne: [nephele, V3(0, 1.3, 0)], sw: [holo, V3(0, 0.1, 0)], tz: [thz, V3(0, 0.26, 0)], or: [usrp, V3(0, 0.24, 0)], de: [dems, V3(0, 0.05, 0)], wb: [waterbot, V3(0, 0.38, 0)] };
+const OBJ = { ba: [drone, V3(0, 0.2, 0)], ne: [nephele, V3(0, 1.3, 0)], sw: [holo, V3(0, 0.1, 0)], tz: [thz, V3(0, 0.26, 0)], or: [usrp, V3(0, 0.24, 0)], de: [dems, V3(0, 0.05, 0)], wb: [waterbot, V3(0, 0.8, 0)] };
 const projectTags = PROJECTS.map((p) => { const el = mkTag(`${p.n}<b>${p.name}</b> <i>open →</i>`, 'tag link'); el.dataset.id = p.id; el.setAttribute('role', 'button'); el.tabIndex = -1; el.addEventListener('click', () => openProject(p.id, el)); return { id: p.id, el }; });
 const pinTags = TIMELINE.map(([y, a, b, id]) => { const el = mkTag(`${y}<b>${a}</b> <i>${b}${id ? ' →' : ''}</i>`, id ? 'tag link' : 'tag'); if (id) el.addEventListener('click', () => openProject(id, el)); return el; });
 // scope: only the open project's things stay in the world
@@ -123,18 +123,19 @@ addEventListener('pointerdown', function askTilt() {
 
 // ===================== home: the lab, the flight path, contact =====================
 const LAB_FAR = mobile ? { pos: V3(1.4, 3.0, 6.2), look: V3(-0.1, 0.7, 0) } : { pos: V3(2.6, 2.4, 4.6), look: V3(-0.15, 0.8, 0) };
-const LAB = mobile ? { pos: V3(0.9, 2.1, 4.4), look: V3(-0.1, 0.75, 0) } : { pos: V3(1.6, 1.75, 3.1), look: V3(-0.15, 0.8, 0) };
+const LAB = mobile ? { pos: V3(1.0, 2.3, 4.9), look: V3(0.1, 0.75, 0) } : { pos: V3(1.9, 1.95, 3.6), look: V3(0.05, 0.8, 0) };
 function homeKey(i) {
   if (narrow()) switch (i) {
     case 0: return { pos: V3(1.2, 3.4, 7.6), look: V3(0, 0.7, 0) };
     case 1: return { pos: V3(0.1, 3.3, 7.0), look: V3(0.05, 0.6, 0.2) };
-    case 2: return { pos: V3(2, 34, 24), look: V3(0, 0, -5) };
-    default: return { pos: V3(0.55, 2.1, 3.3), look: V3(-0.4, 0.9, -0.1) };
+    case 2: return { pos: V3(-0.5, 6.0, 9.4), look: V3(-0.6, 0.2, 1.3) };
+    // the whole bench, framed above the contact card; also keeps the flight-path → contact move off the empty floor
+    default: return { pos: V3(1.0, 2.7, 5.0), look: V3(0.15, 0.85, 0) };
   }
   switch (i) {
     case 0: return { pos: LAB_FAR.pos.clone(), look: LAB_FAR.look.clone() };
     case 1: return { pos: LAB.pos.clone(), look: LAB.look.clone() };
-    case 2: return { pos: V3(2, 26, 16), look: V3(0, 0, -5) };
+    case 2: return { pos: V3(0.4, 7.2, 10.2), look: V3(1.7, 0.2, 0.7) };
     default: return mobile ? { pos: V3(0.2, 1.5, 1.9), look: V3(-0.4, 0.95, -0.1) } : { pos: V3(0.5, 1.35, 1.5), look: V3(-0.45, 0.95, -0.15) };
   }
 }
@@ -148,6 +149,7 @@ function setView(r, shift, fov, shiftY = 0) {
   camera.updateProjectionMatrix();
 }
 const veil = document.getElementById('veil'), aside = document.querySelector('.aside');
+const chCards = [...document.querySelectorAll('section.ch .card')];
 let visible = true; document.addEventListener('visibilitychange', () => { visible = !document.hidden; });
 
 function homeFrame(dt, t, sp) {
@@ -166,6 +168,8 @@ function homeFrame(dt, t, sp) {
   // the drone rests on the bench
   drone.position.copy(DRONE_HOME); drone.rotation.set(0, -0.5, 0); setExplode(0); spinProps(dt, 0.06);
   const phone = narrow();
+  // phone: a chapter card fades as it scrolls off the top, so the 3D frame above the next card isn't hidden behind it mid-move
+  chCards.forEach((c) => { if (!phone) { c.style.opacity = ''; c.style.pointerEvents = ''; return; } const o = clamp01((c.getBoundingClientRect().bottom - innerHeight * 0.45) / (innerHeight * 0.25)); c.style.opacity = String(o); c.style.pointerEvents = o < 0.5 ? 'none' : ''; });
   setView({ x: 0, y: 0, w: innerWidth, h: innerHeight }, 0, phone ? 60 : 38, phone ? innerHeight * 0.44 * clamp01((sp - 0.3) / 0.5) : 0);
   const a = homeKey(i), b = homeKey(i + 1);
   camera.position.lerpVectors(a.pos, b.pos, f); const look = a.look.clone().lerp(b.look, f);
@@ -178,7 +182,7 @@ function homeFrame(dt, t, sp) {
   // timeline: pins light up in order, and each one opens its project
   const tl = THREE.MathUtils.clamp((sp - 1.6) / 0.9, 0, 1), tlOn = sp > 1.5 && sp < 2.6;
   tlLine.material.opacity = tlOn ? 1 : 0;
-  pins.forEach((p, k) => { const lit = tlOn && tl >= k / (pins.length - 1) - 0.02; p.visible = lit; place(pinTags[k], wpos(p, V3(0, 1.45, 0)), lit); pinTags[k].style.pointerEvents = lit ? 'auto' : 'none'; });
+  pins.forEach((p, k) => { const lit = tlOn && tl >= k / (pins.length - 1) - 0.02; p.visible = lit; place(pinTags[k], wpos(p, V3(0, p.userData.top, 0)), lit); pinTags[k].style.pointerEvents = lit ? 'auto' : 'none'; });
   // lab labels are the doors into each project
   const labTags = sp > 0.75 && sp < 1.45;
   projectTags.forEach((pt) => { const o = OBJ[pt.id]; place(pt.el, wpos(o[0], o[1]), labTags); pt.el.style.pointerEvents = labTags ? 'auto' : 'none'; });

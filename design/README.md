@@ -22,6 +22,22 @@ cd design/prototype/v4 && python3 ../assemble4.py   # writes prototype/living-la
 cd .. && python3 mktest.py                          # wraps it as test.html for local browsers
 ```
 
+v5 (stages 0–8 done, see `plan/v5-plan.md`) lives in `prototype/v5/` and builds the same way. Switzer is inlined at build time from Fontshare, so the built pages and the font cache are git-ignored:
+
+```bash
+cd design/prototype && python3 assemble5.py && python3 mktest5.py   # writes living-lab-v5.html and test-v5.html
+tools/check.sh shots/<name>                                         # standard screenshots: 4 sections × desktop/phone × light/dark
+node tools/taste-audit.js test-v5.html ['#/projects/Birds-AI']      # local Taste-style audit at 1440, 768 and 412px
+node tools/settings-check.js test-v5.html <outDir>                  # every theme and mode, page and 3D in step
+node tools/motion-strip.js test-v5.html <outDir>                    # frame strips of the five main moves
+node tools/contrast.js v5/settings.js                               # text contrast in all 16 theme/mode pairs
+node tools/chapters.js test-v5.html <outDir> '#/projects/<slug>' desk|phone [dark]   # every chapter of one case study
+node tools/stop.js test-v5.html <outDir> desk|phone 7 8             # the lab held on plinth k (year order)
+node tools/lite.js test-v5.html <outDir> '#/projects/<slug>'...      # Lite page and print PDF per case study
+node tools/a11y.js test-v5.html <outDir>                            # keyboard-only and reduced-motion checks
+python3 tools/grid.py out.png <cols> <width> img...                 # contact sheet
+```
+
 Open `test.html` through a local server (for example `python3 -m http.server` in `design/prototype`) so the textures, video and the three.js import map load. It reads `img/`, `media/` and `og/` relative to the page.
 
 - `v4/cases.js`: all case-study content (`CASES`), plus projects, skills and timeline data.
@@ -44,9 +60,9 @@ cd design/plan && python3 build.py   # needs Pillow and network access
 
 The prototype is waiting on sign-off. Open decisions are listed at the end of the plan page:
 
-1. Pick a palette and a type system (recommended: Blueprint with Archivo).
-2. Confirm whether this repo is public (affects Switzer).
-3. Decide whether the scroll morph runs on all seven projects or only Bird's AI and Nephele.
-4. Decide on a Tamil name lockup.
-5. Decide whether to start phase 0, the live-site fixes.
+1. Decided: Switzer, Bottle and yellow by default, every other palette as a theme in Settings.
+2. Answered: the repo is public, so Switzer loads from Fontshare and is never committed.
+3. Decided: the scroll morph into 3D runs on all seven projects.
+4. Decided: add a Tamil name lockup (Anek Tamil, loaded only for those letters).
+5. Phase 0 (live-site fixes) is done in `src/`, not yet committed or deployed.
 6. Confirm the draft "What went wrong" entries and the Nephele LiDAR and ROS2 text.
