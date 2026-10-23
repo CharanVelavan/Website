@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import { getProjectBySlug, projects } from "@/lib/projects";
+import { clipDescription } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -9,10 +11,7 @@ export async function generateMetadata({ params }) {
   const project = getProjectBySlug(slug);
   if (!project) return {};
 
-  const description =
-    project.summary?.length > 160
-      ? `${project.summary.slice(0, 157)}...`
-      : project.summary;
+  const description = clipDescription(project.summary);
   const image = project.images?.[0] || "/profile.jpg";
 
   return {
@@ -34,6 +33,9 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function ProjectSlugLayout({ children }) {
+export default async function ProjectSlugLayout({ children, params }) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) notFound();
   return children;
 }

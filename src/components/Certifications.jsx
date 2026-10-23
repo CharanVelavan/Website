@@ -74,6 +74,8 @@ export default function Certifications() {
                                             <img
                                                 src={cert.logo}
                                                 alt={`${cert.issuer} logo`}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="h-6 sm:h-10 w-auto object-contain"
                                             />
                                         </div>
@@ -81,6 +83,8 @@ export default function Certifications() {
                                             <img
                                                 src={cert.badge}
                                                 alt={`${cert.title} badge`}
+                                                loading="lazy"
+                                                decoding="async"
                                                 className="h-10 w-10 sm:h-16 sm:w-16 object-contain"
                                             />
                                         )}
